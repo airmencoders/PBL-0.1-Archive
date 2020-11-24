@@ -94,7 +94,7 @@ class FlightListViewController: UIViewController {
         }
         
         let form = Form781Controller.shared.forms.last
-        if Helper().checkForFile(filePath: Form781Controller.shared.fileURL()){
+        if Helper.checkForFile(filePath: Form781Controller.shared.fileURL()){
             dateTextField.text = form?.date
             mdsTextField.text = form?.mds
             serialNumTextField.text = form?.serialNumber

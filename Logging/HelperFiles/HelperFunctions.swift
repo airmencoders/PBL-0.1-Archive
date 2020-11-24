@@ -27,7 +27,7 @@ class Helper {
         return dateStr
     }
 
-    func checkForFile(filePath: URL) -> Bool {
+    static func checkForFile(filePath: URL) -> Bool {
         NSLog("\(filePath.absoluteString)")
         var strPath = filePath.absoluteString
         strPath = strPath.replacingOccurrences(of: "file://", with: "")
