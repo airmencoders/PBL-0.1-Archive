@@ -160,18 +160,40 @@ class FlightListViewController: UIViewController {
     }
     
     func presentFlightInputErrorAlert() {
-        guard let form = Form781Controller.shared.forms.last,
-              let missionNumber = missionNumber.text,
-              let missionSymbol = missionSymbol.text,
-              let fromICAO = fromICAO.text,
-              let toICAO = toICAO.text,
-              let totalTime = totalTime.text,
-              let touchAndGo = touchAndGo.text,
-              let fullStop = fullStop.text,
-              let totalLandings = totalLandings.text,
-              let sorties = sorties.text,
-              let specialUse = specialUse.text
-        else { return }
+        guard let form = Form781Controller.shared.forms.last else {
+            return
+        }
+        guard let missionNumber = missionNumber.text else {
+            return
+        }
+        guard let missionSymbol = missionSymbol.text else {
+            return
+        }
+        guard let fromICAO = fromICAO.text else {
+            return
+        }
+        guard let toICAO = toICAO.text else {
+            return
+        }
+        guard let totalTime = totalTime.text else {
+            return
+        }
+        guard let touchAndGo = touchAndGo.text else {
+            return
+        }
+        guard let fullStop = fullStop.text else {
+            return
+        }
+        guard let totalLandings = totalLandings.text else {
+            return
+        }
+        guard let sorties = sorties.text else {
+            return
+        }
+        guard let specialUse = specialUse.text else {
+            return
+        }
+        
                 
         var flightSeq = "A"
         switch form.flights.count + 1 {
@@ -201,6 +223,7 @@ class FlightListViewController: UIViewController {
     }
     
     func highlightMissionData() {
+        /*
         dateTextField.text == "" ? Helper.highlightRed(textField: dateTextField) : Helper.unhighlight(textField: dateTextField)
         mdsTextField.text == "" ? Helper.highlightRed(textField: mdsTextField) : Helper.unhighlight(textField: mdsTextField)
         serialNumTextField.text == "" ? Helper.highlightRed(textField: serialNumTextField) : Helper.unhighlight(textField: serialNumTextField)
@@ -208,10 +231,18 @@ class FlightListViewController: UIViewController {
         harmLocationTextField.text == "" ? Helper.highlightRed(textField: harmLocationTextField) : Helper.unhighlight(textField: harmLocationTextField)
         flightAuthTextField.text == "" ? Helper.highlightRed(textField: flightAuthTextField) : Helper.unhighlight(textField: flightAuthTextField)
         issuingUnitTextField.text == "" ? Helper.highlightRed(textField: issuingUnitTextField) : Helper.unhighlight(textField: issuingUnitTextField)
+        */
+        dateTextField.flagBlankText()
+        mdsTextField.flagBlankText()
+        serialNumTextField.flagBlankText()
+        unitChargedTextField.flagBlankText()
+        harmLocationTextField.flagBlankText()
+        flightAuthTextField.flagBlankText()
+        issuingUnitTextField.flagBlankText()
     }
     
     func highlightFlightSeq() {
-        missionNumber.text == "" ? Helper.highlightRed(textField: missionNumber) : Helper.unhighlight(textField: missionNumber)
+        /* missionNumber.text == "" ? Helper.highlightRed(textField: missionNumber) : Helper.unhighlight(textField: missionNumber)
         missionSymbol.text == "" ? Helper.highlightRed(textField: missionSymbol) : Helper.unhighlight(textField: missionSymbol)
         fromICAO.text == "" ? Helper.highlightRed(textField: fromICAO) : Helper.unhighlight(textField: fromICAO)
         toICAO.text == "" ? Helper.highlightRed(textField: toICAO) : Helper.unhighlight(textField: toICAO)
@@ -222,6 +253,18 @@ class FlightListViewController: UIViewController {
         fullStop.text == "" ? Helper.highlightRed(textField: fullStop) : Helper.unhighlight(textField: fullStop)
         totalLandings.text == "" ? Helper.highlightRed(textField: totalLandings) : Helper.unhighlight(textField: totalLandings)
         sorties.text == "" ? Helper.highlightRed(textField: sorties) : Helper.unhighlight(textField: sorties)
+        */
+        missionNumber.flagBlankText()
+        missionSymbol.flagBlankText()
+        fromICAO.flagBlankText()
+        toICAO.flagBlankText()
+        takeOffTime.flagBlankText()
+        landTime.flagBlankText()
+        totalTime.flagBlankText()
+        touchAndGo.flagBlankText()
+        fullStop.flagBlankText()
+        totalLandings.flagBlankText()
+        sorties.flagBlankText()
     }
     
     func unhighlightMissionData() {

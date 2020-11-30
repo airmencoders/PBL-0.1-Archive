@@ -7,6 +7,7 @@
 //
 import UIKit
 import Foundation
+import PDFKit
 
 class Helper {
     
@@ -495,4 +496,32 @@ class Helper {
 
         return nil
     }
+    
+    static func exportPDF(image: UIImage) {
+        let pdfDoc = PDFDocument()
+        let image = Helper().generateImage()
+        let pdfPage = PDFPage(image: image!)
+        pdfDoc.insert(pdfPage!, at: 0)
+        let data = pdfDoc.dataRepresentation()
+        
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
+        let url = path?.appendingPathComponent("781.pdf", isDirectory: false)
+        
+        do {
+            try data!.write(to: url!)
+        } catch {
+            NSLog("PDF creation error")
+        }
+    }
 } //End
+
+
+extension UITextField {
+    func flagBlankText() {
+        if self.text == "" {
+            Helper.highlightRed(textField: self)
+        } else {
+            Helper.unhighlight(textField: self)
+        }
+    }
+}
