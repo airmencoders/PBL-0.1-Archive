@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tHS-fE-WPU">
-    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tHS-fE-WPU">
+    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -20,205 +20,50 @@
             <objects>
                 <viewController id="MHR-m1-9at" customClass="WelcomeViewController" customModule="Logging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U06-mG-9Cx">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Xd-JZ-crL">
-                                <rect key="frame" x="0.0" y="50" width="768" height="41"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hbP-qJ-xCm" userLabel="PBL Circle View" customClass="circleView" customModule="Logging" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="8" width="24.5" height="25"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PBL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjk-Pz-QZU" customClass="PBLLabelWhiteBold" customModule="Logging" customModuleProvider="target">
-                                                <rect key="frame" x="4.5" y="7.5" width="15.5" height="10"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" name="fog"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="hbP-qJ-xCm" secondAttribute="height" multiplier="1:1" id="D0N-6u-vjn"/>
-                                            <constraint firstItem="yjk-Pz-QZU" firstAttribute="centerX" secondItem="hbP-qJ-xCm" secondAttribute="centerX" id="Tf4-So-TdH"/>
-                                            <constraint firstItem="yjk-Pz-QZU" firstAttribute="centerY" secondItem="hbP-qJ-xCm" secondAttribute="centerY" id="mMv-Op-wun"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yQB-je-ubH" userLabel="MC Circle View" customClass="circleView" customModule="Logging" customModuleProvider="target">
-                                        <rect key="frame" x="728.5" y="8" width="24.5" height="25"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hvj-i8-bDO" customClass="PBLLabelWhiteBold" customModule="Logging" customModuleProvider="target">
-                                                <rect key="frame" x="5.5" y="7.5" width="13.5" height="10"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" name="fog"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="yQB-je-ubH" secondAttribute="height" multiplier="1:1" id="Fxv-sC-4uF"/>
-                                            <constraint firstItem="Hvj-i8-bDO" firstAttribute="centerX" secondItem="yQB-je-ubH" secondAttribute="centerX" id="Tce-6y-E37"/>
-                                            <constraint firstItem="Hvj-i8-bDO" firstAttribute="centerY" secondItem="yQB-je-ubH" secondAttribute="centerY" id="mRQ-x7-WOb"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
+                                <rect key="frame" x="0.0" y="50" width="1024" height="54.5"/>
                                 <color key="backgroundColor" name="slate"/>
-                                <constraints>
-                                    <constraint firstItem="hbP-qJ-xCm" firstAttribute="height" secondItem="1Xd-JZ-crL" secondAttribute="height" multiplier="0.6" id="98N-Bf-Xzd"/>
-                                    <constraint firstAttribute="trailing" secondItem="yQB-je-ubH" secondAttribute="trailing" constant="15" id="Bme-Hs-QXk"/>
-                                    <constraint firstItem="yQB-je-ubH" firstAttribute="height" secondItem="1Xd-JZ-crL" secondAttribute="height" multiplier="0.6" id="Vag-rj-ZxO"/>
-                                    <constraint firstItem="hbP-qJ-xCm" firstAttribute="centerY" secondItem="1Xd-JZ-crL" secondAttribute="centerY" id="jdf-cz-13n"/>
-                                    <constraint firstItem="hbP-qJ-xCm" firstAttribute="leading" secondItem="1Xd-JZ-crL" secondAttribute="leading" constant="15" id="p00-JV-2jW"/>
-                                    <constraint firstItem="yQB-je-ubH" firstAttribute="centerY" secondItem="1Xd-JZ-crL" secondAttribute="centerY" id="uhB-or-DIu"/>
-                                </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xY7-yD-dtb" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="242" y="226.5" width="284.5" height="84"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="70"/>
+                                <rect key="frame" x="350" y="301.5" width="324" height="95.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="80"/>
                                 <color key="textColor" name="slate"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What forms do you need for this mission?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Asn-d0-gOc" customClass="PBLLabelLight" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="170.5" y="325.5" width="427" height="95.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="40"/>
-                                <color key="textColor" name="fog"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select all that apply." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uGJ-1F-7OX" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="303.5" y="526.5" width="161" height="21.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" name="slate"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="MDT-ar-LJq" userLabel="Buttons">
-                                <rect key="frame" x="197" y="583" width="374" height="130"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="7Ax-tz-MFZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="116" height="130"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRU-Ug-X5v" customClass="PBLButtonLight" customModule="Logging" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="116" height="30"/>
-                                                <fontDescription key="fontDescription" name="DMSans-Bold" family="DM Sans" pointSize="15"/>
-                                                <state key="normal" title="AFTO FORM 781"/>
-                                                <connections>
-                                                    <action selector="form781Tapped:" destination="MHR-m1-9at" eventType="touchUpInside" id="oRd-Hj-b0h"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xjx-Ub-5jy" customClass="PBLButtonLight" customModule="Logging" customModuleProvider="target">
-                                                <rect key="frame" x="5" y="50" width="106" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                <state key="normal" title="DD FORM 2131"/>
-                                                <connections>
-                                                    <action selector="form2131Tapped:" destination="MHR-m1-9at" eventType="touchUpInside" id="056-6v-Z9W"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAx-t8-qbk" customClass="PBLButtonLight" customModule="Logging" customModuleProvider="target">
-                                                <rect key="frame" x="6.5" y="100" width="103" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                <state key="normal" title="ORM MISSION"/>
-                                                <connections>
-                                                    <action selector="ormMissionTapped:" destination="MHR-m1-9at" eventType="touchUpInside" id="egm-TD-pvt"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="w6U-gt-8gM">
-                                        <rect key="frame" x="136" y="0.0" width="111" height="130"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O4L-Dl-X9N" customClass="PBLButtonLight" customModule="Logging" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="111" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                <state key="normal" title="FUEL TRACKER"/>
-                                                <connections>
-                                                    <action selector="fuelTrackerTapped:" destination="MHR-m1-9at" eventType="touchUpInside" id="R3u-Vc-ss1"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J1l-Lp-d3p" customClass="PBLButtonLight" customModule="Logging" customModuleProvider="target">
-                                                <rect key="frame" x="3.5" y="50" width="104" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                <state key="normal" title="AMC FORM 97"/>
-                                                <connections>
-                                                    <action selector="form97Tapped:" destination="MHR-m1-9at" eventType="touchUpInside" id="B1C-My-FP0"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k4K-T8-sGu" customClass="PBLButtonLight" customModule="Logging" customModuleProvider="target">
-                                                <rect key="frame" x="11.5" y="100" width="88" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                <state key="normal" title="ORM LOCAL"/>
-                                                <connections>
-                                                    <action selector="ormLocalTapped:" destination="MHR-m1-9at" eventType="touchUpInside" id="eIK-sH-ahx"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6ir-It-kQl">
-                                        <rect key="frame" x="267" y="0.0" width="107" height="80"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ibn-ed-Bxw" customClass="PBLButtonLight" customModule="Logging" customModuleProvider="target">
-                                                <rect key="frame" x="1.5" y="0.0" width="104" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                <state key="normal" title="AF FORM 1881"/>
-                                                <connections>
-                                                    <action selector="form1881Tapped:" destination="MHR-m1-9at" eventType="touchUpInside" id="63J-Fh-Mg3"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Dm-ou-b4M" customClass="PBLButtonLight" customModule="Logging" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="50" width="107" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                <state key="normal" title="DD FORM 1081"/>
-                                                <connections>
-                                                    <action selector="form1081Tapped:" destination="MHR-m1-9at" eventType="touchUpInside" id="Pxp-qt-LJz"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSG-7K-hXG" customClass="PBLButtonClear" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="308.5" y="783" width="151" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="View more forms +">
-                                    <color key="titleColor" name="slate"/>
-                                </state>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRU-Ug-X5v" customClass="PBLButtonLight" customModule="Logging" customModuleProvider="target">
+                                <rect key="frame" x="435" y="540.5" width="154" height="36"/>
+                                <fontDescription key="fontDescription" name="DMSans-Bold" family="DM Sans" pointSize="20"/>
+                                <state key="normal" title="AFTO FORM 781"/>
                                 <connections>
-                                    <action selector="moreFormsButtonTapped:" destination="MHR-m1-9at" eventType="touchUpInside" id="wib-wV-tDv"/>
+                                    <action selector="form781Tapped:" destination="MHR-m1-9at" eventType="touchUpInside" id="oRd-Hj-b0h"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vgb-C1-VgZ" customClass="PBLButtonDark" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="582" y="944" width="136" height="30"/>
+                                <rect key="frame" x="799" y="1260" width="175" height="36"/>
                                 <color key="backgroundColor" name="slate"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <state key="normal" title="SAVE &amp; CONTINUE"/>
                                 <connections>
                                     <action selector="continueButtonTapped:" destination="MHR-m1-9at" eventType="touchUpInside" id="R5R-PE-kBR"/>
                                 </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VvG-xM-D2m" customClass="PBLButtonLight" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="50" y="944" width="41" height="30"/>
-                                <color key="backgroundColor" name="haze"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <state key="normal" title="BACK"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UvH-Cn-V9j"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="xY7-yD-dtb" firstAttribute="centerX" secondItem="UvH-Cn-V9j" secondAttribute="centerX" id="1kH-KQ-VJM"/>
-                            <constraint firstItem="uGJ-1F-7OX" firstAttribute="centerX" secondItem="UvH-Cn-V9j" secondAttribute="centerX" id="1vH-7N-u3M"/>
-                            <constraint firstItem="NSG-7K-hXG" firstAttribute="centerX" secondItem="UvH-Cn-V9j" secondAttribute="centerX" id="9qC-I3-HzV"/>
+                            <constraint firstItem="xY7-yD-dtb" firstAttribute="width" secondItem="U06-mG-9Cx" secondAttribute="width" multiplier="0.316406" id="4CX-xG-Gty"/>
                             <constraint firstItem="1Xd-JZ-crL" firstAttribute="top" secondItem="UvH-Cn-V9j" secondAttribute="top" id="FWc-83-g2C"/>
-                            <constraint firstItem="VvG-xM-D2m" firstAttribute="leading" secondItem="UvH-Cn-V9j" secondAttribute="leading" constant="50" id="Fc2-0U-fdk"/>
                             <constraint firstItem="UvH-Cn-V9j" firstAttribute="trailing" secondItem="1Xd-JZ-crL" secondAttribute="trailing" id="IIA-iA-wh6"/>
-                            <constraint firstItem="NSG-7K-hXG" firstAttribute="top" secondItem="MDT-ar-LJq" secondAttribute="bottom" constant="70" id="Ih0-ZI-SdV"/>
-                            <constraint firstItem="UvH-Cn-V9j" firstAttribute="bottom" secondItem="VvG-xM-D2m" secondAttribute="bottom" constant="50" id="NVY-eT-DnR"/>
                             <constraint firstItem="UvH-Cn-V9j" firstAttribute="bottom" secondItem="vgb-C1-VgZ" secondAttribute="bottom" constant="50" id="REQ-F8-yl2"/>
-                            <constraint firstItem="uGJ-1F-7OX" firstAttribute="centerY" secondItem="UvH-Cn-V9j" secondAttribute="centerY" id="Ye8-NQ-2aX"/>
                             <constraint firstItem="1Xd-JZ-crL" firstAttribute="leading" secondItem="UvH-Cn-V9j" secondAttribute="leading" id="Yl2-v1-uDe"/>
+                            <constraint firstItem="dRU-Ug-X5v" firstAttribute="centerX" secondItem="UvH-Cn-V9j" secondAttribute="centerX" id="Z5e-iy-6ci"/>
                             <constraint firstItem="UvH-Cn-V9j" firstAttribute="trailing" secondItem="vgb-C1-VgZ" secondAttribute="trailing" constant="50" id="aZT-4g-G7l"/>
-                            <constraint firstItem="MDT-ar-LJq" firstAttribute="top" secondItem="uGJ-1F-7OX" secondAttribute="bottom" constant="35" id="b9R-yr-B8s"/>
-                            <constraint firstItem="Asn-d0-gOc" firstAttribute="top" secondItem="xY7-yD-dtb" secondAttribute="bottom" constant="15" id="doM-db-CCk"/>
                             <constraint firstItem="1Xd-JZ-crL" firstAttribute="height" secondItem="U06-mG-9Cx" secondAttribute="height" multiplier="0.04" id="k5N-lT-D4b"/>
-                            <constraint firstItem="Asn-d0-gOc" firstAttribute="centerX" secondItem="UvH-Cn-V9j" secondAttribute="centerX" id="tlV-uq-2xs"/>
-                            <constraint firstItem="MDT-ar-LJq" firstAttribute="centerX" secondItem="UvH-Cn-V9j" secondAttribute="centerX" id="u4u-Rh-BRn"/>
+                            <constraint firstItem="dRU-Ug-X5v" firstAttribute="centerY" secondItem="UvH-Cn-V9j" secondAttribute="centerY" multiplier="0.8" id="r1p-lr-spC"/>
                             <constraint firstItem="xY7-yD-dtb" firstAttribute="centerY" secondItem="UvH-Cn-V9j" secondAttribute="centerY" multiplier="0.5" id="xtX-BQ-K2R"/>
                         </constraints>
                     </view>
@@ -226,7 +71,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ItF-LX-Cq2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="982.03125" y="114.84374999999999"/>
+            <point key="canvasLocation" x="982.03124999999989" y="114.64128843338213"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="GQb-qL-3P7">
@@ -234,7 +79,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tHS-fE-WPU" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="T8y-70-91k">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -248,12 +93,6 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="fog">
-            <color red="0.71764705882352942" green="0.73333333333333328" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="haze">
-            <color red="0.83529411764705885" green="0.84705882352941175" blue="0.8901960784313725" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="slate">
             <color red="0.28235294117647058" green="0.29411764705882354" blue="0.36078431372549019" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

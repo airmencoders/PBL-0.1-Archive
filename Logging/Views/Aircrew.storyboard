@@ -1,174 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ndB-As-Knh">
-    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Aircrew View Controller-->
-        <scene sceneID="Vrk-BY-eR2">
-            <objects>
-                <viewController storyboardIdentifier="Page1" id="unr-ra-C2P" customClass="AircrewViewController" customModule="Logging" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Nw7-wJ-Con">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Qw-R9-fgO">
-                                <rect key="frame" x="0.0" y="50" width="768" height="41"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qXh-7S-9Z2" userLabel="PBL Circle View" customClass="circleView" customModule="Logging" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="8" width="24.5" height="25"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PBL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gN-ej-Fc0" customClass="PBLLabelWhiteBold" customModule="Logging" customModuleProvider="target">
-                                                <rect key="frame" x="4.5" y="7.5" width="15.5" height="10"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" name="fog"/>
-                                        <constraints>
-                                            <constraint firstItem="1gN-ej-Fc0" firstAttribute="centerX" secondItem="qXh-7S-9Z2" secondAttribute="centerX" id="aSW-1b-Z1a"/>
-                                            <constraint firstAttribute="width" secondItem="qXh-7S-9Z2" secondAttribute="height" multiplier="1:1" id="cCh-C7-IHV"/>
-                                            <constraint firstItem="1gN-ej-Fc0" firstAttribute="centerY" secondItem="qXh-7S-9Z2" secondAttribute="centerY" id="h4O-Y8-1kl"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hLS-dN-lyS" userLabel="MC Circle View" customClass="circleView" customModule="Logging" customModuleProvider="target">
-                                        <rect key="frame" x="728.5" y="8" width="24.5" height="25"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="flp-SA-Mnb" customClass="PBLLabelWhiteBold" customModule="Logging" customModuleProvider="target">
-                                                <rect key="frame" x="5.5" y="7.5" width="13.5" height="10"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" name="fog"/>
-                                        <constraints>
-                                            <constraint firstItem="flp-SA-Mnb" firstAttribute="centerX" secondItem="hLS-dN-lyS" secondAttribute="centerX" id="A9M-ei-yLN"/>
-                                            <constraint firstItem="flp-SA-Mnb" firstAttribute="centerY" secondItem="hLS-dN-lyS" secondAttribute="centerY" id="WlV-h3-bx6"/>
-                                            <constraint firstAttribute="width" secondItem="hLS-dN-lyS" secondAttribute="height" multiplier="1:1" id="qd7-gL-ewx"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" name="slate"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="hLS-dN-lyS" secondAttribute="trailing" constant="15" id="3aY-0q-cKz"/>
-                                    <constraint firstItem="qXh-7S-9Z2" firstAttribute="height" secondItem="0Qw-R9-fgO" secondAttribute="height" multiplier="0.6" id="Nfj-Bf-4UA"/>
-                                    <constraint firstItem="qXh-7S-9Z2" firstAttribute="leading" secondItem="0Qw-R9-fgO" secondAttribute="leading" constant="15" id="Udz-jz-IuL"/>
-                                    <constraint firstItem="hLS-dN-lyS" firstAttribute="height" secondItem="0Qw-R9-fgO" secondAttribute="height" multiplier="0.6" id="d7N-wS-mSC"/>
-                                    <constraint firstItem="qXh-7S-9Z2" firstAttribute="centerY" secondItem="0Qw-R9-fgO" secondAttribute="centerY" id="vPC-lw-rxt"/>
-                                    <constraint firstItem="hLS-dN-lyS" firstAttribute="centerY" secondItem="0Qw-R9-fgO" secondAttribute="centerY" id="zkR-7z-LOX"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aircrew" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOd-gh-O99" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="269" y="280" width="230.5" height="84"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="70"/>
-                                <color key="textColor" name="slate"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you ready to add aircrew to this mission?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xuf-Zf-252" customClass="PBLLabelLight" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="179.5" y="394" width="409.5" height="95.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="40"/>
-                                <color key="textColor" name="fog"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpq-cd-fJM" customClass="PBLButtonLight" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="50" y="944" width="41" height="30"/>
-                                <color key="backgroundColor" name="haze"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <state key="normal" title="BACK"/>
-                                <connections>
-                                    <action selector="backButtonTapped:" destination="unr-ra-C2P" eventType="touchUpInside" id="zlh-10-bPv"/>
-                                </connections>
-                            </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="fDb-HB-o5P">
-                                <rect key="frame" x="329.5" y="529.5" width="109" height="80"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P6e-vY-BUM" customClass="PBLButtonDark" customModule="Logging" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="109" height="30"/>
-                                        <color key="backgroundColor" name="haze"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                        <state key="normal" title="YES"/>
-                                        <connections>
-                                            <action selector="addAircrewButtonTapped:" destination="unr-ra-C2P" eventType="touchUpInside" id="pWx-gI-5wI"/>
-                                            <segue destination="u3J-Bq-h7s" kind="show" id="Mh9-v2-4O6"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ojz-qN-SvQ" customClass="PBLButtonLight" customModule="Logging" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="109" height="30"/>
-                                        <color key="backgroundColor" name="haze"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                        <state key="normal" title="SKIP FOR NOW"/>
-                                        <connections>
-                                            <action selector="skipButtonTapped:" destination="unr-ra-C2P" eventType="touchUpInside" id="laj-1Q-A59"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="3Wr-RP-It5"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="mOd-gh-O99" firstAttribute="centerY" secondItem="3Wr-RP-It5" secondAttribute="centerY" multiplier="0.6" id="0v5-Og-IA1"/>
-                            <constraint firstItem="fDb-HB-o5P" firstAttribute="top" secondItem="xuf-Zf-252" secondAttribute="bottom" constant="40" id="HzP-Kc-oFa"/>
-                            <constraint firstItem="mOd-gh-O99" firstAttribute="centerX" secondItem="3Wr-RP-It5" secondAttribute="centerX" id="StO-c2-58l"/>
-                            <constraint firstItem="zpq-cd-fJM" firstAttribute="leading" secondItem="3Wr-RP-It5" secondAttribute="leading" constant="50" id="dOm-F5-eMO"/>
-                            <constraint firstItem="3Wr-RP-It5" firstAttribute="bottom" secondItem="zpq-cd-fJM" secondAttribute="bottom" constant="50" id="ew9-U4-bxE"/>
-                            <constraint firstItem="0Qw-R9-fgO" firstAttribute="leading" secondItem="Nw7-wJ-Con" secondAttribute="leading" id="l0l-Sz-a4S"/>
-                            <constraint firstItem="0Qw-R9-fgO" firstAttribute="top" secondItem="3Wr-RP-It5" secondAttribute="top" id="naK-xi-LSY"/>
-                            <constraint firstItem="xuf-Zf-252" firstAttribute="centerX" secondItem="3Wr-RP-It5" secondAttribute="centerX" id="ncV-Yg-R4C"/>
-                            <constraint firstItem="xuf-Zf-252" firstAttribute="top" secondItem="mOd-gh-O99" secondAttribute="bottom" constant="30" id="sXB-mi-ZIh"/>
-                            <constraint firstItem="0Qw-R9-fgO" firstAttribute="height" secondItem="Nw7-wJ-Con" secondAttribute="height" multiplier="0.04" id="uhI-TW-Vah"/>
-                            <constraint firstItem="3Wr-RP-It5" firstAttribute="trailing" secondItem="0Qw-R9-fgO" secondAttribute="trailing" id="vny-8X-npn"/>
-                            <constraint firstItem="fDb-HB-o5P" firstAttribute="centerX" secondItem="3Wr-RP-It5" secondAttribute="centerX" id="zER-2f-Xmq"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="aLw-xn-tsr"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kDp-gs-TP7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="626.5625" y="-54.4921875"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="6J7-Kq-lXB">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ndB-As-Knh" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YC6-Nc-Clo">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="50"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="unr-ra-C2P" kind="relationship" relationship="rootViewController" id="09u-vA-Oj4"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QuO-zy-hYU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-139.0625" y="-54.4921875"/>
-        </scene>
         <!--Aircrew List View Controller-->
         <scene sceneID="aMf-hp-f33">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="u3J-Bq-h7s" customClass="AircrewListViewController" customModule="Logging" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Aircrew" useStoryboardIdentifierAsRestorationIdentifier="YES" id="u3J-Bq-h7s" customClass="AircrewListViewController" customModule="Logging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kt0-6t-Giu">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e9o-SC-RLL">
-                                <rect key="frame" x="0.0" y="50" width="768" height="41"/>
+                                <rect key="frame" x="0.0" y="50" width="1024" height="54.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CgG-y5-rJ1" userLabel="PBL Circle View" customClass="circleView" customModule="Logging" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="8" width="24.5" height="25"/>
+                                        <rect key="frame" x="15" y="11" width="33" height="32.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PBL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1R-8a-FP8" customClass="PBLLabelWhiteBold" customModule="Logging" customModuleProvider="target">
-                                                <rect key="frame" x="4.5" y="7.5" width="15.5" height="10"/>
+                                                <rect key="frame" x="8.5" y="11.5" width="15.5" height="10"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -182,10 +39,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OPk-bB-W6j" userLabel="MC Circle View" customClass="circleView" customModule="Logging" customModuleProvider="target">
-                                        <rect key="frame" x="728.5" y="8" width="24.5" height="25"/>
+                                        <rect key="frame" x="976" y="11" width="33" height="32.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YAB-qf-qvg" customClass="PBLLabelWhiteBold" customModule="Logging" customModuleProvider="target">
-                                                <rect key="frame" x="5.5" y="7.5" width="13.5" height="10"/>
+                                                <rect key="frame" x="10" y="11.5" width="13.5" height="10"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="8"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -210,10 +67,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rUx-fJ-JYP" userLabel="Header">
-                                <rect key="frame" x="0.0" y="91" width="768" height="51"/>
+                                <rect key="frame" x="0.0" y="104.5" width="1024" height="68.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mission [date]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZQM-YJ-PKP" customClass="PBLLabelWhiteBold" customModule="Logging" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="15.5" width="113.5" height="20.5"/>
+                                        <rect key="frame" x="30" y="24" width="113.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -226,24 +83,24 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aircrew List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="7iY-fZ-uG6" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="30" y="152" width="94" height="20.5"/>
+                                <rect key="frame" x="30" y="183" width="94" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" name="slate"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5i5-6E-Kkw" userLabel="printForm">
-                                <rect key="frame" x="715" y="150" width="23" height="22"/>
+                                <rect key="frame" x="971" y="181" width="23" height="22"/>
                                 <state key="normal" image="printer" catalog="system"/>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QsK-Rt-Vcw" userLabel="Divider line">
-                                <rect key="frame" x="0.0" y="177.5" width="768" height="1"/>
+                                <rect key="frame" x="0.0" y="208.5" width="1024" height="1"/>
                                 <color key="backgroundColor" name="fog"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="MJB-6P-ypG"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y3y-3O-bgt" customClass="PBLButtonDark" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="582" y="944" width="136" height="30"/>
+                                <rect key="frame" x="838" y="1266" width="136" height="30"/>
                                 <color key="backgroundColor" name="slate"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title="SAVE &amp; CONTINUE"/>
@@ -252,7 +109,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uVE-5G-obx" customClass="PBLButtonLight" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="50" y="944" width="41" height="30"/>
+                                <rect key="frame" x="50" y="1266" width="41" height="30"/>
                                 <color key="backgroundColor" name="haze"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title="BACK"/>
@@ -261,10 +118,10 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="r6C-Uu-1Xf">
-                                <rect key="frame" x="38.5" y="178.5" width="691" height="717"/>
+                                <rect key="frame" x="51" y="220" width="922" height="956"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="i66-1d-dYe">
-                                    <rect key="frame" x="0.0" y="0.0" width="691" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="922" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1YP-6k-Fyo" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
@@ -274,25 +131,25 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SSN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHy-ge-36d" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                            <rect key="frame" x="261" y="13" width="30.5" height="18"/>
+                                            <rect key="frame" x="353.5" y="13" width="30.5" height="18"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                             <color key="textColor" name="slate"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLYING ORIGIN" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6LX-iq-U6Q" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                            <rect key="frame" x="354" y="4" width="52" height="36"/>
+                                            <rect key="frame" x="481" y="4" width="52" height="36"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                             <color key="textColor" name="slate"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLIGHT AUTH DUTY CODE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uR2-sn-kOV" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                            <rect key="frame" x="469.5" y="4" width="98" height="36"/>
+                                            <rect key="frame" x="642.5" y="4" width="98" height="36"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                             <color key="textColor" name="slate"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZBB-3K-MuY" userLabel="Divider line">
-                                            <rect key="frame" x="0.0" y="43" width="691" height="1"/>
+                                            <rect key="frame" x="0.0" y="43" width="922" height="1"/>
                                             <color key="backgroundColor" name="fog"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="2JK-RP-c9t"/>
@@ -315,11 +172,11 @@
                                     </constraints>
                                 </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="wnH-qX-2nA">
-                                    <rect key="frame" x="0.0" y="153" width="691" height="44"/>
+                                    <rect key="frame" x="0.0" y="153" width="922" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gdD-jr-5UT" userLabel="Add Button">
-                                            <rect key="frame" x="656" y="11" width="20" height="22"/>
+                                            <rect key="frame" x="887" y="11" width="20" height="22"/>
                                             <color key="tintColor" name="slate"/>
                                             <state key="normal" image="plus.circle" catalog="system"/>
                                             <connections>
@@ -327,7 +184,7 @@
                                             </connections>
                                         </button>
                                         <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIA-Yj-Mtu" userLabel="Divider line">
-                                            <rect key="frame" x="0.0" y="43" width="691" height="1"/>
+                                            <rect key="frame" x="0.0" y="43" width="922" height="1"/>
                                             <color key="backgroundColor" name="fog"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="y0g-tC-3FI"/>
@@ -345,10 +202,10 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="AircrewCell" rowHeight="53" id="3j7-Nr-k0m" customClass="AircrewTableViewCell" customModule="Logging" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="691" height="53"/>
+                                        <rect key="frame" x="0.0" y="72" width="922" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3j7-Nr-k0m" id="6OS-GT-yxG">
-                                            <rect key="frame" x="0.0" y="0.0" width="691" height="53"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="922" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAST, FIRST" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27W-Zv-TID" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
@@ -358,25 +215,25 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6b-ij-4YN" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                    <rect key="frame" x="258.5" y="17.5" width="35.5" height="18"/>
+                                                    <rect key="frame" x="351" y="17.5" width="35.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                     <color key="textColor" name="slate"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mt8-sO-r0z" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                    <rect key="frame" x="361" y="17.5" width="38.5" height="18"/>
+                                                    <rect key="frame" x="488" y="17.5" width="38.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                     <color key="textColor" name="slate"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XX" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rdh-U0-suJ" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                    <rect key="frame" x="508" y="17.5" width="20.5" height="18"/>
+                                                    <rect key="frame" x="681.5" y="17.5" width="20.5" height="18"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                     <color key="textColor" name="slate"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RES-Ys-sM4">
-                                                    <rect key="frame" x="618.5" y="15.5" width="17.5" height="22"/>
+                                                    <rect key="frame" x="849.5" y="15.5" width="17.5" height="22"/>
                                                     <color key="tintColor" name="slate"/>
                                                     <state key="normal" image="pencil" catalog="system"/>
                                                     <connections>
@@ -384,7 +241,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGk-Pn-4Io">
-                                                    <rect key="frame" x="656" y="15.5" width="20" height="22"/>
+                                                    <rect key="frame" x="887" y="15.5" width="20" height="22"/>
                                                     <color key="tintColor" name="slate"/>
                                                     <state key="normal" image="minus.circle" catalog="system"/>
                                                     <connections>
@@ -392,7 +249,7 @@
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ddE-gI-4Bp" userLabel="Divider line">
-                                                    <rect key="frame" x="0.0" y="52" width="691" height="1"/>
+                                                    <rect key="frame" x="0.0" y="52" width="922" height="1"/>
                                                     <color key="backgroundColor" name="fog"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="CeX-Kg-l2D"/>
@@ -427,11 +284,11 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view hidden="YES" alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DDg-JN-tmT" customClass="shadowView" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="115" y="230" width="538" height="614"/>
+                            <view hidden="YES" alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DDg-JN-tmT" customClass="popUpView" customModule="Logging" customModuleProvider="target">
+                                <rect key="frame" x="153.5" y="288" width="717" height="820"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9s-45-yBf" userLabel="Exit">
-                                        <rect key="frame" x="500.5" y="20" width="17.5" height="22"/>
+                                        <rect key="frame" x="679.5" y="20" width="17.5" height="22"/>
                                         <color key="tintColor" name="slate"/>
                                         <state key="normal" image="xmark" catalog="system"/>
                                         <connections>
@@ -439,19 +296,19 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="Qhc-KZ-vs3">
-                                        <rect key="frame" x="27" y="58" width="484" height="437"/>
+                                        <rect key="frame" x="36" y="150.5" width="645" height="437"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="snU-Mx-al2">
-                                                <rect key="frame" x="0.0" y="0.0" width="484" height="84.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="645" height="84.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAST NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cq3-AP-zPd" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="484" height="14.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="645" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                         <color key="textColor" name="slate"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ASDFGHJKL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ys9-Mh-LR3" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="24.5" width="484" height="60"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ASDFGHJKL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ys9-Mh-LR3" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="24.5" width="645" height="60"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="60" id="fFi-EL-vk2"/>
                                                         </constraints>
@@ -461,16 +318,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="m5Z-po-uoq">
-                                                <rect key="frame" x="0.0" y="117.5" width="484" height="84.5"/>
+                                                <rect key="frame" x="0.0" y="117.5" width="645" height="84.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FIRST NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKM-4B-d1E" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="484" height="14.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="645" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                         <color key="textColor" name="slate"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ASDFGHJKL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N0w-M9-saK" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="24.5" width="484" height="60"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="ASDFGHJKL" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N0w-M9-saK" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="24.5" width="645" height="60"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="60" id="Ye1-1z-PK7"/>
                                                         </constraints>
@@ -480,19 +337,19 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ug1-0U-wAN">
-                                                <rect key="frame" x="0.0" y="235" width="484" height="84.5"/>
+                                                <rect key="frame" x="0.0" y="235" width="645" height="84.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="i9g-kN-hb7">
-                                                        <rect key="frame" x="0.0" y="0.0" width="232" height="84.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="312.5" height="84.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SSN (LAST 4)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCw-iD-mmF" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="312.5" height="14.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fp6-rj-sa0" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="24.5" width="232" height="60"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fp6-rj-sa0" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="24.5" width="312.5" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="L2i-yQ-MOo"/>
                                                                 </constraints>
@@ -502,16 +359,16 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Jhm-Oy-7Jg">
-                                                        <rect key="frame" x="252" y="0.0" width="232" height="84.5"/>
+                                                        <rect key="frame" x="332.5" y="0.0" width="312.5" height="84.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLIGHT AUTH DUTY CODE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQw-4A-C1Q" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="312.5" height="14.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="XX" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EPs-Bv-0am" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="24.5" width="232" height="60"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="XX" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EPs-Bv-0am" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="24.5" width="312.5" height="60"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
@@ -520,16 +377,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="m8o-IZ-whL">
-                                                <rect key="frame" x="0.0" y="352.5" width="484" height="84.5"/>
+                                                <rect key="frame" x="0.0" y="352.5" width="645" height="84.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLYING ORIGIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ooZ-bH-Enf" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="484" height="14.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="645" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                         <color key="textColor" name="slate"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cz5-f9-rge" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="24.5" width="484" height="60"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0000" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cz5-f9-rge" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="24.5" width="645" height="60"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="60" id="37x-0c-a51"/>
                                                         </constraints>
@@ -541,7 +398,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwJ-3m-oDI">
-                                        <rect key="frame" x="488" y="562" width="20" height="22"/>
+                                        <rect key="frame" x="667" y="768" width="20" height="22"/>
                                         <color key="tintColor" name="slate"/>
                                         <state key="normal" image="arrow.right.circle" catalog="system"/>
                                         <connections>
@@ -560,11 +417,11 @@
                                     <constraint firstAttribute="trailing" secondItem="rwJ-3m-oDI" secondAttribute="trailing" constant="30" id="zjj-EL-k8Q"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Opj-XJ-8jT" customClass="shadowView" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="115" y="230" width="538" height="614"/>
+                            <view hidden="YES" alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Opj-XJ-8jT" customClass="popUpView" customModule="Logging" customModuleProvider="target">
+                                <rect key="frame" x="153.5" y="288" width="717" height="820"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BFZ-NQ-ivW" userLabel="Exit">
-                                        <rect key="frame" x="500.5" y="20" width="17.5" height="22"/>
+                                        <rect key="frame" x="679.5" y="20" width="17.5" height="22"/>
                                         <color key="tintColor" name="slate"/>
                                         <state key="normal" image="xmark" catalog="system"/>
                                         <connections>
@@ -572,22 +429,22 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="ihW-G2-u56">
-                                        <rect key="frame" x="27" y="58" width="484" height="437"/>
+                                        <rect key="frame" x="36" y="150.5" width="645" height="437"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="a7W-0u-m1p">
-                                                <rect key="frame" x="0.0" y="0.0" width="484" height="84.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="645" height="84.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dBQ-0u-uNQ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="232" height="84.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="312.5" height="84.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRIMARY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jR8-cH-fYh" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="312.5" height="14.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ufc-3K-06W" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="24.5" width="232" height="60"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ufc-3K-06W" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="24.5" width="312.5" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="4uc-Vv-0zD"/>
                                                                 </constraints>
@@ -597,16 +454,16 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Wre-IR-GiV">
-                                                        <rect key="frame" x="252" y="0.0" width="232" height="84.5"/>
+                                                        <rect key="frame" x="332.5" y="0.0" width="312.5" height="84.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SECONDARY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="En4-t8-oZ6" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="312.5" height="14.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nV0-KE-Snu" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="24.5" width="232" height="60"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nV0-KE-Snu" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="24.5" width="312.5" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="UdM-b9-2mt"/>
                                                                 </constraints>
@@ -618,19 +475,19 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Trq-8N-Fuu">
-                                                <rect key="frame" x="0.0" y="117.5" width="484" height="84.5"/>
+                                                <rect key="frame" x="0.0" y="117.5" width="645" height="84.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ApB-nr-gR6">
-                                                        <rect key="frame" x="0.0" y="0.0" width="232" height="84.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="312.5" height="84.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INSTRUCTOR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVu-JO-PeW" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="312.5" height="14.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lsw-yb-Blq" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="24.5" width="232" height="60"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lsw-yb-Blq" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="24.5" width="312.5" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="4St-94-Kfu"/>
                                                                 </constraints>
@@ -640,16 +497,16 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZNc-nJ-tiR">
-                                                        <rect key="frame" x="252" y="0.0" width="232" height="84.5"/>
+                                                        <rect key="frame" x="332.5" y="0.0" width="312.5" height="84.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EVALUATOR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yTm-Z1-tnO" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="312.5" height="14.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dgr-8R-klW" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="24.5" width="232" height="60"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dgr-8R-klW" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="24.5" width="312.5" height="60"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
@@ -658,16 +515,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AAE-Oh-jXE">
-                                                <rect key="frame" x="0.0" y="235" width="484" height="84.5"/>
+                                                <rect key="frame" x="0.0" y="235" width="645" height="84.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OTHER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYz-kl-trA" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="484" height="14.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="645" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                         <color key="textColor" name="slate"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pnk-bl-gm9" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="24.5" width="484" height="60"/>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pnk-bl-gm9" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="24.5" width="645" height="60"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="60" id="GMr-KN-Yoq"/>
                                                         </constraints>
@@ -677,19 +534,19 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Jk9-CU-70k">
-                                                <rect key="frame" x="0.0" y="352.5" width="484" height="84.5"/>
+                                                <rect key="frame" x="0.0" y="352.5" width="645" height="84.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qMG-My-5Ac">
-                                                        <rect key="frame" x="0.0" y="0.0" width="232" height="84.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="312.5" height="84.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TIME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wk6-34-mbk" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="312.5" height="14.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d1v-BI-UaE" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="24.5" width="232" height="60"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d1v-BI-UaE" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="24.5" width="312.5" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="y4L-DP-v4h"/>
                                                                 </constraints>
@@ -699,16 +556,16 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4ue-3G-r6F">
-                                                        <rect key="frame" x="252" y="0.0" width="232" height="84.5"/>
+                                                        <rect key="frame" x="332.5" y="0.0" width="312.5" height="84.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SRTY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MlI-ei-j57" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="312.5" height="14.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r2p-cg-lcO" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="24.5" width="232" height="60"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r2p-cg-lcO" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="24.5" width="312.5" height="60"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
@@ -719,7 +576,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KG6-MA-nrW">
-                                        <rect key="frame" x="488" y="562" width="20" height="22"/>
+                                        <rect key="frame" x="667" y="768" width="20" height="22"/>
                                         <color key="tintColor" name="slate"/>
                                         <state key="normal" image="arrow.right.circle" catalog="system"/>
                                         <connections>
@@ -727,7 +584,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jpE-C9-fHr">
-                                        <rect key="frame" x="30" y="562" width="20" height="22"/>
+                                        <rect key="frame" x="30" y="768" width="20" height="22"/>
                                         <color key="tintColor" name="slate"/>
                                         <state key="normal" image="arrow.backward.circle" catalog="system"/>
                                         <connections>
@@ -748,11 +605,11 @@
                                     <constraint firstAttribute="trailing" secondItem="KG6-MA-nrW" secondAttribute="trailing" constant="30" id="uGO-ib-ViW"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RkC-eR-6x0" customClass="shadowView" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="115" y="230" width="538" height="614"/>
+                            <view hidden="YES" alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RkC-eR-6x0" customClass="popUpView" customModule="Logging" customModuleProvider="target">
+                                <rect key="frame" x="153.5" y="288" width="717" height="820"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mY8-vF-4Dr" userLabel="Exit">
-                                        <rect key="frame" x="500.5" y="20" width="17.5" height="22"/>
+                                        <rect key="frame" x="679.5" y="20" width="17.5" height="22"/>
                                         <color key="tintColor" name="slate"/>
                                         <state key="normal" image="xmark" catalog="system"/>
                                         <connections>
@@ -760,22 +617,22 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="33" translatesAutoresizingMaskIntoConstraints="NO" id="Brt-Xm-IgQ">
-                                        <rect key="frame" x="27" y="58" width="484" height="437"/>
+                                        <rect key="frame" x="36" y="150.5" width="645" height="437"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bg3-wN-0Nl">
-                                                <rect key="frame" x="0.0" y="0.0" width="484" height="84.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="645" height="84.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RBw-i8-bWt">
-                                                        <rect key="frame" x="0.0" y="0.0" width="106" height="84.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="146" height="84.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NIGHT (P/S/I/E)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NnM-ks-BKB" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="106" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="146" height="14.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="--" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oyh-Ts-Rif" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="24.5" width="106" height="60"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="--" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oyh-Ts-Rif" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="24.5" width="146" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="Crh-bS-5pA"/>
                                                                 </constraints>
@@ -785,16 +642,16 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="n96-JL-vzh">
-                                                        <rect key="frame" x="126" y="0.0" width="106" height="84.5"/>
+                                                        <rect key="frame" x="166" y="0.0" width="146.5" height="84.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="53U-wR-DkH" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="106" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="146.5" height="14.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="--" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4CO-4n-H7D" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="24.5" width="106" height="60"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="--" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4CO-4n-H7D" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="24.5" width="146.5" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="9x4-KG-cCg"/>
                                                                 </constraints>
@@ -804,16 +661,16 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="UiT-Zz-YIt">
-                                                        <rect key="frame" x="252" y="0.0" width="106" height="84.5"/>
+                                                        <rect key="frame" x="332.5" y="0.0" width="146.5" height="84.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIM INS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ldM-i9-J5a" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="106" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="146.5" height="14.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="--" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KNs-Ot-19T" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="24.5" width="106" height="60"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="--" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KNs-Ot-19T" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="24.5" width="146.5" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="if2-Zu-DZs"/>
                                                                 </constraints>
@@ -823,16 +680,16 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="H2T-TF-5Te">
-                                                        <rect key="frame" x="378" y="0.0" width="106" height="84.5"/>
+                                                        <rect key="frame" x="499" y="0.0" width="146" height="84.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NVG" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfs-0D-fTr" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="106" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="146" height="14.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="--" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ipE-IP-hD0" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="24.5" width="106" height="60"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="--" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ipE-IP-hD0" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="24.5" width="146" height="60"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
@@ -841,19 +698,19 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BnS-eU-nKX">
-                                                <rect key="frame" x="0.0" y="117.5" width="484" height="84.5"/>
+                                                <rect key="frame" x="0.0" y="117.5" width="645" height="84.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="cvT-Hn-sH8">
-                                                        <rect key="frame" x="0.0" y="0.0" width="232" height="84.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="312.5" height="84.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMBAT TIME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="le1-d0-6jE" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="312.5" height="14.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ocS-Xc-aTK" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="24.5" width="232" height="60"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ocS-Xc-aTK" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="24.5" width="312.5" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="671-MX-9FU"/>
                                                                 </constraints>
@@ -863,16 +720,16 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VOq-d8-Xkz">
-                                                        <rect key="frame" x="252" y="0.0" width="232" height="84.5"/>
+                                                        <rect key="frame" x="332.5" y="0.0" width="312.5" height="84.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMBAT SRTY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amc-B0-YZt" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="312.5" height="14.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t4j-pQ-jEU" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="24.5" width="232" height="60"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t4j-pQ-jEU" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="24.5" width="312.5" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="zjt-b1-fml"/>
                                                                 </constraints>
@@ -884,19 +741,19 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="kA0-bF-aBT">
-                                                <rect key="frame" x="0.0" y="235" width="484" height="84.5"/>
+                                                <rect key="frame" x="0.0" y="235" width="645" height="84.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="m5z-dD-oI5">
-                                                        <rect key="frame" x="0.0" y="0.0" width="232" height="84.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="312.5" height="84.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMBAT SPT TIME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AjV-vz-2Lx" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="312.5" height="14.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hcM-at-jA6" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="24.5" width="232" height="60"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hcM-at-jA6" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="24.5" width="312.5" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="rIM-aD-p60"/>
                                                                 </constraints>
@@ -906,16 +763,16 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="heD-bh-laz">
-                                                        <rect key="frame" x="252" y="0.0" width="232" height="84.5"/>
+                                                        <rect key="frame" x="332.5" y="0.0" width="312.5" height="84.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMBAT SPT SRTY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZfX-j1-lUk" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="312.5" height="14.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="raw-Xe-Hx0" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="24.5" width="232" height="60"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="raw-Xe-Hx0" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="24.5" width="312.5" height="60"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
@@ -924,19 +781,19 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yll-xs-2k4">
-                                                <rect key="frame" x="0.0" y="352.5" width="484" height="84.5"/>
+                                                <rect key="frame" x="0.0" y="352.5" width="645" height="84.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5X8-2T-MGi">
-                                                        <rect key="frame" x="0.0" y="0.0" width="484" height="84.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="645" height="84.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="RESV STATUS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nyf-A4-xbN" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="484" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="645" height="14.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wPW-Sr-SrW" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="24.5" width="484" height="60"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wPW-Sr-SrW" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="24.5" width="645" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="qtt-0w-SLJ"/>
                                                                 </constraints>
@@ -950,7 +807,7 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yiZ-nO-blv" customClass="PBLButtonDark" customModule="Logging" customModuleProvider="target">
-                                        <rect key="frame" x="372" y="554" width="136" height="30"/>
+                                        <rect key="frame" x="551" y="760" width="136" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                         <state key="normal" title="SAVE &amp; CONTINUE"/>
                                         <connections>
@@ -958,7 +815,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RJ0-0h-wtg" customClass="PBLButtonClear" customModule="Logging" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="562" width="20" height="22"/>
+                                        <rect key="frame" x="30" y="768" width="20" height="22"/>
                                         <color key="tintColor" name="slate"/>
                                         <state key="normal" image="arrow.backward.circle" catalog="system"/>
                                         <connections>
@@ -1064,18 +921,18 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1312.5" y="-54.4921875"/>
+            <point key="canvasLocation" x="2078.125" y="-54.4921875"/>
         </scene>
         <!--Aircrew Detail View Controller-->
         <scene sceneID="3wI-DK-0bJ">
             <objects>
                 <viewController id="gQ6-to-w7V" customClass="AircrewDetailViewController" customModule="Logging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fIu-8Z-ejy">
-                        <rect key="frame" x="0.0" y="0.0" width="704" height="984"/>
+                        <rect key="frame" x="0.0" y="0.0" width="704" height="995.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LASTNAME, FIRSTNAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tr0-Pk-jiw" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="212" y="83.5" width="280.5" height="30"/>
+                                <rect key="frame" x="212" y="84.5" width="280.5" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="25"/>
                                 <color key="textColor" name="slate"/>
                                 <nil key="highlightedColor"/>
@@ -1089,7 +946,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Awk-bu-9ya" customClass="PBLButton" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="625" y="914" width="39" height="30"/>
+                                <rect key="frame" x="625" y="925.5" width="39" height="30"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <state key="normal" title="SAVE"/>
                                 <connections>
@@ -1097,7 +954,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="yJI-1h-Y3D">
-                                <rect key="frame" x="70.5" y="163.5" width="563" height="628.5"/>
+                                <rect key="frame" x="70.5" y="164.5" width="563" height="628.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="2v8-go-Muy">
                                         <rect key="frame" x="0.0" y="0.0" width="563" height="85.5"/>
@@ -1114,7 +971,7 @@
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ASDFGHJKL" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xmg-B1-bqR" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ASDFGHJKL" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xmg-B1-bqR" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
                                                                 <rect key="frame" x="100.5" y="0.0" width="173.5" height="18.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -1130,7 +987,7 @@
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ASDFGHJKL" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0EO-rE-Gkl" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="ASDFGHJKL" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0EO-rE-Gkl" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
                                                                 <rect key="frame" x="104.5" y="0.0" width="169.5" height="18.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -1151,7 +1008,7 @@
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="1234" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CSc-BV-1P1" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="1234" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CSc-BV-1P1" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
                                                                 <rect key="frame" x="45.5" y="0.0" width="228.5" height="18.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -1167,7 +1024,7 @@
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rIe-F1-6N5" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0000" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rIe-F1-6N5" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
                                                                 <rect key="frame" x="123" y="0.0" width="151" height="18.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -1185,7 +1042,7 @@
                                                         <color key="textColor" name="slate"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="XX" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rl4-ng-z5a" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="XX" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rl4-ng-z5a" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
                                                         <rect key="frame" x="205" y="0.0" width="358" height="18.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1212,7 +1069,7 @@
                                                                         <color key="textColor" name="slate"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6gR-gk-qnt" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6gR-gk-qnt" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
                                                                         <rect key="frame" x="81.5" y="0.0" width="192.5" height="18.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -1228,7 +1085,7 @@
                                                                         <color key="textColor" name="slate"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kHC-TH-fs6" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kHC-TH-fs6" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
                                                                         <rect key="frame" x="106.5" y="0.0" width="167.5" height="18.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -1249,7 +1106,7 @@
                                                                         <color key="textColor" name="slate"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bIQ-cq-WXF" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bIQ-cq-WXF" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
                                                                         <rect key="frame" x="111.5" y="0.0" width="162.5" height="18.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -1265,7 +1122,7 @@
                                                                         <color key="textColor" name="slate"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="98N-sH-u7R" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="98N-sH-u7R" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
                                                                         <rect key="frame" x="102.5" y="0.0" width="171.5" height="18.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -1283,7 +1140,7 @@
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="19F-Kp-6r1" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="19F-Kp-6r1" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
                                                                 <rect key="frame" x="65.5" y="0.0" width="497.5" height="18.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
@@ -1313,7 +1170,7 @@
                                                                         <color key="textColor" name="slate"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="40j-UQ-DU2" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="40j-UQ-DU2" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
                                                                         <rect key="frame" x="51" y="0.0" width="223" height="18.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -1329,7 +1186,7 @@
                                                                         <color key="textColor" name="slate"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Akq-aL-P7n" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Akq-aL-P7n" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
                                                                         <rect key="frame" x="53.5" y="0.0" width="220.5" height="18.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -1360,7 +1217,7 @@
                                                                         <color key="textColor" name="slate"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="--" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XdC-e6-sU4" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="--" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XdC-e6-sU4" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
                                                                         <rect key="frame" x="123.5" y="0.0" width="150.5" height="18.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -1376,7 +1233,7 @@
                                                                         <color key="textColor" name="slate"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="--" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fve-Un-P2m" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="--" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fve-Un-P2m" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
                                                                         <rect key="frame" x="87" y="0.0" width="187" height="18.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -1397,7 +1254,7 @@
                                                                         <color key="textColor" name="slate"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="--" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ts4-4u-v8K" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="--" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ts4-4u-v8K" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
                                                                         <rect key="frame" x="118" y="0.0" width="156" height="18.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -1413,7 +1270,7 @@
                                                                         <color key="textColor" name="slate"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="--" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K1K-9O-3ao" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="--" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K1K-9O-3ao" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
                                                                         <rect key="frame" x="47" y="0.0" width="227" height="18.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -1445,7 +1302,7 @@
                                                                         <color key="textColor" name="slate"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DKf-Pt-v1X" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DKf-Pt-v1X" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
                                                                         <rect key="frame" x="51" y="0.0" width="223" height="18.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -1461,7 +1318,7 @@
                                                                         <color key="textColor" name="slate"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U86-Da-4sE" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U86-Da-4sE" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
                                                                         <rect key="frame" x="53.5" y="0.0" width="220.5" height="18.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -1488,7 +1345,7 @@
                                                                         <color key="textColor" name="slate"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LOX-Xt-dlI" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LOX-Xt-dlI" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
                                                                         <rect key="frame" x="51" y="0.0" width="223" height="18.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -1504,7 +1361,7 @@
                                                                         <color key="textColor" name="slate"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="78U-vB-8Ty" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="78U-vB-8Ty" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
                                                                         <rect key="frame" x="53.5" y="0.0" width="220.5" height="18.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -1524,7 +1381,7 @@
                                                         <color key="textColor" name="slate"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zRa-HY-hOX" customClass="PBLTextFieldBordered" customModule="Logging" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zRa-HY-hOX" customClass="PBLTextField" customModule="Logging" customModuleProvider="target">
                                                         <rect key="frame" x="115" y="0.0" width="448" height="18.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -1587,7 +1444,25 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2019" y="-54"/>
+            <point key="canvasLocation" x="2784.375" y="-54.4921875"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2z7-7h-UTx">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wQI-a1-WbP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LXH-Ah-UwJ">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="u3J-Bq-h7s" kind="relationship" relationship="rootViewController" id="tgT-5u-vH5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yet-SR-f1l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1312.5" y="-54.4921875"/>
         </scene>
     </scenes>
     <resources>

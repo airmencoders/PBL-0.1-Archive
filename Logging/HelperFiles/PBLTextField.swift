@@ -12,26 +12,20 @@ class PBLTextField: UITextField {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        if let superview = superview {
-            self.frame.size.height = superview.frame.size.height * 0.06
-        }
-        self.borderStyle = .none
-        self.backgroundColor = .mist
+        //self.borderStyle = .line
+        //self.frame.size.height = UIScreen.main.bounds.height/17.1
+        self.font = UIFont(name: FontNames.dmSansBold, size: UIScreen.main.bounds.height/56.9)
         self.textColor = .slate
-        self.textAlignment = .center
+        self.backgroundColor = .white
+        self.addAccentBorder()
+        self.textAlignment = .left
         self.autocapitalizationType = .allCharacters
         self.autocorrectionType = .no
-        self.updateFont(to: FontNames.dmSansBold)
     }
     
-    func updateFont(to font: String) {
-        guard let size = self.font?.pointSize else { return }
-        self.font = UIFont(name: font, size: size)
-    }
+    #warning("set up placeholder font?")
     
-    #warning("set up placeholder font")
-    
-    let padding = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
+    let padding = UIEdgeInsets(top: UIScreen.main.bounds.height/55.8, left: UIScreen.main.bounds.width/41, bottom: UIScreen.main.bounds.height/55.8, right: UIScreen.main.bounds.width/41)
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
@@ -47,23 +41,11 @@ class PBLTextField: UITextField {
     
 }
 
-class PBLTextFieldBordered: PBLTextField {
+class PBLTextFieldOld: PBLTextField {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.frame.size.height = 60
-        self.backgroundColor = .white
-        self.addAccentBorder()
-        self.textAlignment = .center
-    }
-    
-}
-
-class gridTextField: PBLTextField {
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.borderStyle = .roundedRect
-        self.font = .boldSystemFont(ofSize: 10)
+        self.borderStyle = .none
+        self.backgroundColor = .mist
     }
 }

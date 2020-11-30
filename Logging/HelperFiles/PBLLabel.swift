@@ -24,6 +24,14 @@ class PBLLabelBold: UILabel {
     
 }
 
+class PBLLabel: PBLLabelBold {
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.updateFont(to: FontNames.dmSansRegular)
+    }
+}
+
 class PBLLabelLightBold: PBLLabelBold {
     
     override func awakeFromNib() {

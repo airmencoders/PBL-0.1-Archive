@@ -15,44 +15,44 @@ class CrewMember: Codable {
     var ssnLast4: String
     var flightAuthDutyCode: String
     var flyingOrigin: String
-    var primary: String
-    var secondary: String
-    var instructor: String
-    var evaluator: String
-    var other: String
-    var time: String
-    var srty: String
-    var nightPSIE: String
-    var insPIE: String
-    var simIns: String
-    var nvg: String
-    var combatTime: String
-    var combatSrty: String
-    var combatSptTime: String
-    var combatSptSrty: String
-    var resvStatus: String
+    var primary: String?
+    var secondary: String?
+    var instructor: String?
+    var evaluator: String?
+    var other: String?
+    var time: String?
+    var srty: String?
+    var nightPSIE: String?
+    var insPIE: String?
+    var simIns: String?
+    var nvg: String?
+    var combatTime: String?
+    var combatSrty: String?
+    var combatSptTime: String?
+    var combatSptSrty: String?
+    var resvStatus: String?
     
     init(lastName: String,
          firstName: String,
          ssnLast4: String,
          flightAuthDutyCode: String,
          flyingOrigin: String,
-         primary: String,
-         secondary: String,
-         instructor: String,
-         evaluator: String,
-         other: String,
-         time: String,
-         srty: String,
-         nightPSIE: String,
-         insPIE: String,
-         simIns: String,
-         nvg: String,
-         combatTime: String,
-         combatSrty: String,
-         combatSptTime: String,
-         combatSptSrty: String,
-         resvStatus: String) {
+         primary: String? = nil,
+         secondary: String? = nil,
+         instructor: String? = nil,
+         evaluator: String? = nil,
+         other: String? = nil,
+         time: String? = nil,
+         srty: String? = nil,
+         nightPSIE: String? = nil,
+         insPIE: String? = nil,
+         simIns: String? = nil,
+         nvg: String? = nil,
+         combatTime: String? = nil,
+         combatSrty: String? = nil,
+         combatSptTime: String? = nil,
+         combatSptSrty: String? = nil,
+         resvStatus: String? = nil) {
         
         self.lastName = lastName
         self.firstName = firstName
@@ -85,5 +85,4 @@ extension CrewMember: Equatable {
     static func ==(lhs: CrewMember, rhs: CrewMember) -> Bool {
         return (lhs.lastName == rhs.lastName) && (lhs.ssnLast4 == rhs.ssnLast4)
     }
-    
 }
