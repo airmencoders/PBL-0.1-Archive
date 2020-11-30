@@ -2,7 +2,7 @@ name: Dev Test
 
 on:
   push:
-    branches: [ dev ]
+    branches: [ dev, release/*, feat/* ]
 
 jobs:
   test:
