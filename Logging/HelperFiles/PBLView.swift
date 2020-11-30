@@ -12,21 +12,19 @@ class PBLView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.addCornerRadius(10)
+        self.backgroundColor = .mist
     }
-    
 }
 
-class borderView: UIView {
+class PBLViewWhite: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.backgroundColor = .none
-        self.addAccentBorder()
+        self.backgroundColor = .white
     }
 }
 
-class shadowView: UIView {
+class popUpView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,14 +34,4 @@ class shadowView: UIView {
         self.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         self.layer.shadowRadius = 2
     }
-    
-}
-
-class circleView: UIView {
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.addCornerRadius(self.frame.size.height/2)
-    }
-    
 }
