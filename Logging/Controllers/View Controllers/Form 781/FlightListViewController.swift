@@ -589,6 +589,14 @@ extension FlightListViewController {
         Helper.unhighlight(textField: flyingOrigin)
     }
     
+    func clearAllTextFields() {
+        lastName.text = ""
+        firstName.text = ""
+        ssn.text = ""
+        flightAuthDutyCode.text = ""
+        flyingOrigin.text = ""
+    }
+
     // MARK: - Actions
     
     @IBAction func addButtonTapped(_ sender: UIButton) {
@@ -609,6 +617,7 @@ extension FlightListViewController {
         
         CrewMemberController.create(form: form, lastName: lastName, firstName: firstName, ssnLast4: ssn, flightAuthDutyCode: flightAuthDutyCode, flyingOrigin: flyingOrigin)
         
+        clearAllTextFields()
         aircrewTableView.reloadData()
         aircrewPopUpView.isHidden = true
         enableButtons()
