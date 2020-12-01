@@ -2,7 +2,7 @@ name: deploy
 
 on:
   push:
-    branches: [ main  ]
+    branches: [ 'release/**'  ]
     tags: [ v* ]
 
 jobs:
@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout project
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Set environment variables from project settings
         run: |
