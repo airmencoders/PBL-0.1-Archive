@@ -2,7 +2,6 @@ name: Dev Test
 
 on:
   push:
-    branches: [ dev, personal/*, feat/* ]
   pull_request:
 
 jobs:
