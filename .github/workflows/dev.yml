@@ -2,6 +2,8 @@ name: Dev Test
 
 on:
   push:
+    branches:    
+    - '!releases/**-alpha'
   pull_request:
 
 jobs:
