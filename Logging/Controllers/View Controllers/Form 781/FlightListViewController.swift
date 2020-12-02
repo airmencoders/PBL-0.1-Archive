@@ -109,7 +109,7 @@ class FlightListViewController: UIViewController {
     }
     
     @IBAction func continueButtonTapped(_ sender: UIButton) {
-        
+
     }
     
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
