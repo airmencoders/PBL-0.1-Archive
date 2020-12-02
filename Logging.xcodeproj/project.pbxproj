@@ -38,12 +38,6 @@
 		4DBFB356256C61FF0017C9B8 /* Form781Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C38BF3256858C300E8D919 /* Form781Error.swift */; };
 		4DBFB35A256C62000017C9B8 /* Form781Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C38BF3256858C300E8D919 /* Form781Error.swift */; };
 		7C3790BDC466879F81B1B28B /* Pods_Logging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E2B17BC9BB310463EA2A32E /* Pods_Logging.framework */; };
-		7F0086E82540AC6800564A52 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0086E72540AC6800564A52 /* SideMenuTableViewController.swift */; };
-		7F0086E92540AC6800564A52 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0086E72540AC6800564A52 /* SideMenuTableViewController.swift */; };
-		7F0086EA2540AC6800564A52 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0086E72540AC6800564A52 /* SideMenuTableViewController.swift */; };
-		7F0086EF2540B5FD00564A52 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0086EE2540B5FD00564A52 /* ContainerViewController.swift */; };
-		7F0086F02540B5FD00564A52 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0086EE2540B5FD00564A52 /* ContainerViewController.swift */; };
-		7F0086F12540B5FD00564A52 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0086EE2540B5FD00564A52 /* ContainerViewController.swift */; };
 		7F1EC55E2551F0C4006A644D /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F1EC55C2551F0C4006A644D /* DMSans-Bold.ttf */; };
 		7F1EC55F2551F0C4006A644D /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F1EC55C2551F0C4006A644D /* DMSans-Bold.ttf */; };
 		7F1EC5602551F0C4006A644D /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7F1EC55C2551F0C4006A644D /* DMSans-Bold.ttf */; };
@@ -135,6 +129,15 @@
 		7FEE987C2554588D00971F60 /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7FEE987B2554588D00971F60 /* DMSans-Regular.ttf */; };
 		7FEE987D2554588D00971F60 /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7FEE987B2554588D00971F60 /* DMSans-Regular.ttf */; };
 		7FEE987E2554588D00971F60 /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7FEE987B2554588D00971F60 /* DMSans-Regular.ttf */; };
+		7FFE01A02577001600EBADF1 /* AircrewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE019F2577001600EBADF1 /* AircrewViewController.swift */; };
+		7FFE01A12577001600EBADF1 /* AircrewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE019F2577001600EBADF1 /* AircrewViewController.swift */; };
+		7FFE01A22577001600EBADF1 /* AircrewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE019F2577001600EBADF1 /* AircrewViewController.swift */; };
+		7FFE01AD2577F93B00EBADF1 /* MissionDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE01AC2577F93B00EBADF1 /* MissionDataViewController.swift */; };
+		7FFE01AE2577F93B00EBADF1 /* MissionDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE01AC2577F93B00EBADF1 /* MissionDataViewController.swift */; };
+		7FFE01AF2577F93B00EBADF1 /* MissionDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE01AC2577F93B00EBADF1 /* MissionDataViewController.swift */; };
+		7FFE01B42577FCA700EBADF1 /* AircrewDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE01B32577FCA700EBADF1 /* AircrewDataViewController.swift */; };
+		7FFE01B52577FCA700EBADF1 /* AircrewDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE01B32577FCA700EBADF1 /* AircrewDataViewController.swift */; };
+		7FFE01B62577FCA700EBADF1 /* AircrewDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFE01B32577FCA700EBADF1 /* AircrewDataViewController.swift */; };
 		83D8407B24D3402A00F336E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D8407A24D3402A00F336E3 /* AppDelegate.swift */; };
 		83D8407D24D3402A00F336E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D8407C24D3402A00F336E3 /* SceneDelegate.swift */; };
 		83D8408424D3402A00F336E3 /* Form781.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83D8408224D3402A00F336E3 /* Form781.storyboard */; };
@@ -178,8 +181,6 @@
 		56785B42F81CEB0155B65640 /* Pods-Logging-LoggingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Logging-LoggingUITests.release.xcconfig"; path = "Target Support Files/Pods-Logging-LoggingUITests/Pods-Logging-LoggingUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6FEF2540CD77AC4D9725058A /* Pods-LoggingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoggingTests.debug.xcconfig"; path = "Target Support Files/Pods-LoggingTests/Pods-LoggingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7192C4E0628E4E7D0C02BFBC /* Pods_Logging_LoggingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Logging_LoggingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7F0086E72540AC6800564A52 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
-		7F0086EE2540B5FD00564A52 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		7F1EC55C2551F0C4006A644D /* DMSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Bold.ttf"; sourceTree = "<group>"; };
 		7F1EC55D2551F0C4006A644D /* DMSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Medium.ttf"; sourceTree = "<group>"; };
 		7F1EC56A2551F2FA006A644D /* PBLLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBLLabel.swift; sourceTree = "<group>"; };
@@ -215,6 +216,9 @@
 		7FAB8CA3254363F600868215 /* CrewMemberController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewMemberController.swift; sourceTree = "<group>"; };
 		7FE48BB7255088D600F26760 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		7FEE987B2554588D00971F60 /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
+		7FFE019F2577001600EBADF1 /* AircrewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircrewViewController.swift; sourceTree = "<group>"; };
+		7FFE01AC2577F93B00EBADF1 /* MissionDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDataViewController.swift; sourceTree = "<group>"; };
+		7FFE01B32577FCA700EBADF1 /* AircrewDataViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircrewDataViewController.swift; sourceTree = "<group>"; };
 		83D8407724D3402A00F336E3 /* Logging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83D8407A24D3402A00F336E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83D8407C24D3402A00F336E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -301,9 +305,8 @@
 			isa = PBXGroup;
 			children = (
 				7F680CEC2548C46900625ECC /* FlightListViewController.swift */,
+				7FFE019B2576FF8800EBADF1 /* ContainerViews */,
 				7F680CE22548C1E000625ECC /* FlightTableViewCell.swift */,
-				7F0086EE2540B5FD00564A52 /* ContainerViewController.swift */,
-				7F0086E72540AC6800564A52 /* SideMenuTableViewController.swift */,
 			);
 			path = "Form 781";
 			sourceTree = "<group>";
@@ -437,6 +440,16 @@
 				7F2D11D0254B2A580062AC7A /* AircrewDetailViewController.swift */,
 			);
 			path = Aircrew;
+			sourceTree = "<group>";
+		};
+		7FFE019B2576FF8800EBADF1 /* ContainerViews */ = {
+			isa = PBXGroup;
+			children = (
+				7FFE019F2577001600EBADF1 /* AircrewViewController.swift */,
+				7FFE01AC2577F93B00EBADF1 /* MissionDataViewController.swift */,
+				7FFE01B32577FCA700EBADF1 /* AircrewDataViewController.swift */,
+			);
+			path = ContainerViews;
 			sourceTree = "<group>";
 		};
 		83D8406E24D3402A00F336E3 = {
@@ -773,7 +786,6 @@
 				7F2D11942549DDA00062AC7A /* CrewMember.swift in Sources */,
 				7FAB8CA4254363F600868215 /* CrewMemberController.swift in Sources */,
 				7F574327254C77E700794C57 /* SplitFlightConditionsViewController.swift in Sources */,
-				7F0086E82540AC6800564A52 /* SideMenuTableViewController.swift in Sources */,
 				7FE48BB8255088D600F26760 /* HelperFunctions.swift in Sources */,
 				7F7E0E3D2538B4560041C4E9 /* PBLView.swift in Sources */,
 				83D8407B24D3402A00F336E3 /* AppDelegate.swift in Sources */,
@@ -784,8 +796,10 @@
 				7FAB8C8D25434E2300868215 /* ErrorViewController.swift in Sources */,
 				7FAB8C5E254337F700868215 /* SplitTimeViewController.swift in Sources */,
 				7FAB8C5725422E1000868215 /* AircrewTableViewCell.swift in Sources */,
+				7FFE01AD2577F93B00EBADF1 /* MissionDataViewController.swift in Sources */,
+				7FFE01A02577001600EBADF1 /* AircrewViewController.swift in Sources */,
+				7FFE01B42577FCA700EBADF1 /* AircrewDataViewController.swift in Sources */,
 				7F2D11C7254B252E0062AC7A /* SplitFlightTimeViewController.swift in Sources */,
-				7F0086EF2540B5FD00564A52 /* ContainerViewController.swift in Sources */,
 				7F1EC578255207C5006A644D /* Alerts.swift in Sources */,
 				7FAB8C8625434E1400868215 /* OverviewViewController.swift in Sources */,
 				7F1EC56B2551F2FA006A644D /* PBLLabel.swift in Sources */,
@@ -819,11 +833,12 @@
 				7F5453D1254CA22800968BFA /* FlightTimeTableViewCell.swift in Sources */,
 				130D7211255AD7D00025C589 /* SceneDelegate.swift in Sources */,
 				130D71CC255AD7260025C589 /* Form781.swift in Sources */,
-				7F0086E92540AC6800564A52 /* SideMenuTableViewController.swift in Sources */,
-				7F0086F02540B5FD00564A52 /* ContainerViewController.swift in Sources */,
 				7FAB8C5825422E1000868215 /* AircrewTableViewCell.swift in Sources */,
 				130D71EC255AD7560025C589 /* PBLTextField.swift in Sources */,
+				7FFE01A12577001600EBADF1 /* AircrewViewController.swift in Sources */,
+				7FFE01AE2577F93B00EBADF1 /* MissionDataViewController.swift in Sources */,
 				7F1EC579255207C5006A644D /* Alerts.swift in Sources */,
+				7FFE01B52577FCA700EBADF1 /* AircrewDataViewController.swift in Sources */,
 				7F680CE42548C1E000625ECC /* FlightTableViewCell.swift in Sources */,
 				7F1EC56C2551F2FA006A644D /* PBLLabel.swift in Sources */,
 				7FAB8C5F254337F700868215 /* SplitTimeViewController.swift in Sources */,
@@ -858,11 +873,12 @@
 				7F5453D2254CA22800968BFA /* FlightTimeTableViewCell.swift in Sources */,
 				130D7215255AD7D10025C589 /* SceneDelegate.swift in Sources */,
 				130D71D0255AD7270025C589 /* Form781.swift in Sources */,
-				7F0086EA2540AC6800564A52 /* SideMenuTableViewController.swift in Sources */,
-				7F0086F12540B5FD00564A52 /* ContainerViewController.swift in Sources */,
 				7FAB8C5925422E1000868215 /* AircrewTableViewCell.swift in Sources */,
 				130D71F0255AD7570025C589 /* PBLTextField.swift in Sources */,
+				7FFE01A22577001600EBADF1 /* AircrewViewController.swift in Sources */,
+				7FFE01AF2577F93B00EBADF1 /* MissionDataViewController.swift in Sources */,
 				7F1EC57A255207C5006A644D /* Alerts.swift in Sources */,
+				7FFE01B62577FCA700EBADF1 /* AircrewDataViewController.swift in Sources */,
 				7F680CE52548C1E000625ECC /* FlightTableViewCell.swift in Sources */,
 				7F1EC56D2551F2FA006A644D /* PBLLabel.swift in Sources */,
 				7FAB8C60254337F700868215 /* SplitTimeViewController.swift in Sources */,
