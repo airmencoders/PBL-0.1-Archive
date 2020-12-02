@@ -2,7 +2,9 @@ name: Dev Test
 
 on:
   push:
-    branches: [ dev, release/*, feat/* ]
+    branches:    
+    - '!releases/**-alpha'
+  pull_request:
 
 jobs:
   test:
@@ -26,6 +28,9 @@ jobs:
           PROVISIONING_PROFILE_DATA: ${{ secrets.PROVISIONING_PROFILE_DATA }}
         run: |
           exec .github/scripts/import-profile.sh
+      - name: Update Fastlane
+        run: |
+          sudo gem install fastlane
       - name: Build app
         run: |
           fastlane run build_app
