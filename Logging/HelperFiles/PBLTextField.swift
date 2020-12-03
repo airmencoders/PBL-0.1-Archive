@@ -25,7 +25,7 @@ class PBLTextField: UITextField {
     
     #warning("set up placeholder font?")
     
-    let padding = UIEdgeInsets(top: UIScreen.main.bounds.height/55.8, left: UIScreen.main.bounds.width/41, bottom: UIScreen.main.bounds.height/55.8, right: UIScreen.main.bounds.width/41)
+    let padding = UIEdgeInsets(top: UIScreen.main.bounds.height/90, left: UIScreen.main.bounds.width/41, bottom: UIScreen.main.bounds.height/90, right: UIScreen.main.bounds.width/41)
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
