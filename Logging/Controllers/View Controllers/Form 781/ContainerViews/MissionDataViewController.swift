@@ -300,7 +300,7 @@ class MissionDataViewController: UIViewController {
     
     @IBAction func checkTime(_ sender: UITextField) {
         do {
-            let _ = try Helper.validateTime(timeFromTextField: sender)
+            let _ = try Helper.validateTime(timeString: sender.text!)
             Helper.unhighlight(textField: sender)
             NSLog("Time is valid")
         } catch Form781Error.InvalidHours {
@@ -326,7 +326,7 @@ class MissionDataViewController: UIViewController {
                 landTimeString = landTime.text!
                 Helper.unhighlight(textField: landTime)
                 
-                let decimalTime = Helper().vmCalculateTotalTime(takeOffTime: takeOffTime, landTime: landTime)
+                let decimalTime = Helper.vmCalculateTotalTime(takeOffTime: takeOffTime.text, landTime: landTime.text)
                 totalTime.text = decimalTime
             } else {
                 if landTime.text == "" {
@@ -358,7 +358,7 @@ class MissionDataViewController: UIViewController {
             if Helper.validateNumericalInput(input: fullStop){
                 Helper.unhighlight(textField: touchAndGo)
                 Helper.unhighlight(textField: fullStop)
-                totalLandings.text = Helper().vmCalculateLandings(touchAndGo: touchAndGo, fullStop: fullStop)
+                totalLandings.text = Helper.vmCalculateLandings(touchAndGo: touchAndGo.text!, fullStop: fullStop.text!)
             } else {
                 Helper.unhighlight(textField: touchAndGo)
                 Helper.highlightRed(textField: fullStop)
