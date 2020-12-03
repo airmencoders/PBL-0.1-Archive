@@ -13,30 +13,41 @@ class LoggingUITests: XCTestCase {
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        let app = XCUIApplication()
+        app.launch()
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testEnteringApp() throws{
         
         let app = XCUIApplication()
-        app.launch()
-        do {
-            try runMissionData(app: app)
-//            do {
-//                try addAFlight(app: app)
-//            } catch {
-//                print("Flight data error")
-//            }
-        } catch {
-            NSLog("Mission Data Failure")
-        }
+        app.buttons["AFTO FORM 781"].tap()
+        app.buttons["SAVE & CONTINUE"].tap()
         
     }
+    
+
+    
+//    func testExample() throws {
+//        // This is an example of a functional test case.
+//        // Use XCTAssert and related functions to verify your tests produce the correct results.
+//
+//
+//        do {
+//            try runMissionData(app: app)
+////            do {
+////                try addAFlight(app: app)
+////            } catch {
+////                print("Flight data error")
+////            }
+//        } catch {
+//            NSLog("Mission Data Failure")
+//        }
+//
+//    }
     func addAFlight(app: XCUIApplication) throws {
         let element = app.keyboards.children(matching: .other).element.children(matching: .other).element
         let moreKey = element/*@START_MENU_TOKEN@*/.children(matching: .key).matching(identifier: "more").element(boundBy: 0)/*[[".children(matching: .key).matching(identifier: \"letters\").element(boundBy: 0)",".children(matching: .key).matching(identifier: \"more\").element(boundBy: 0)"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/

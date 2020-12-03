@@ -59,7 +59,7 @@ class Helper {
         return true
     }
     
-    func separateHoursAndMins(strInput: String, pointer: String) -> String {
+    static func separateHoursAndMins(strInput: String, pointer: String) -> String {
 
         let index0 = strInput.index(strInput.startIndex, offsetBy: 0)
         let index1 = strInput.index(strInput.startIndex, offsetBy: 1)
@@ -73,28 +73,29 @@ class Helper {
         }
     }
 
-    func vmCalculateLandings(touchAndGo: UITextField, fullStop: UITextField) -> String{
+    static func vmCalculateLandings(touchAndGo: String, fullStop: String) -> String {
         // First we need to cast our text in to integers
         var intTouchAndGo: Int = 0
         var intFullStop: Int = 0
         
-        if touchAndGo.text! != "" {
-            intTouchAndGo = Int(touchAndGo.text!)!
+        if touchAndGo != "" {
+            intTouchAndGo = Int(touchAndGo)!
         }
         
         
-        if fullStop.text! != "" {
-            intFullStop = Int(fullStop.text!)!
+        if fullStop != "" {
+            intFullStop = Int(fullStop)!
         }
         // Can't forget about input validation:
         
         let total = intTouchAndGo + intFullStop
         return "\(total)"
     }
+
     /**
         Validate time function is used to ensure the time entered lies within the 0000 - 2359 time frame.  The fuction breaks down the UITextField in to the 4 digits, converts it to an Int and then ensures it lies within the parameters of miltary time.
 
-     - Parameter timeFromTextField: UITextField - Represents the time to test
+     - Parameter timeString: String - Represents the time to test
 
      - Throws: Form781Error.InvalidHours, Form781Error.InvalidMins
 
@@ -102,23 +103,18 @@ class Helper {
      
         Just a simple function to validate the hours and minutes
      */
-    
-    static func validateTime(timeFromTextField: UITextField) throws {
-        
-        
-        let timeString: String = timeFromTextField.text!
+    static func validateTime(timeString: String) throws {
         NSLog("Time: \(timeString)")
         if timeString.count > 0 {
             let hours: Int = Int("\(timeString[timeString.index(timeString.startIndex, offsetBy: 0)])\(timeString[timeString.index(timeString.startIndex, offsetBy: 1)])")!
             NSLog("Hours: \(hours)")
             if 0...23 ~= hours {
                 NSLog("Valid hour")
-            }
-            
-            else {
+            } else {
                 NSLog("ERROR: Form781Error.InvalidHours")
                 throw Form781Error.InvalidHours
             }
+
             let mins: Int = Int("\(timeString[timeString.index(timeString.startIndex, offsetBy: 2)])\(timeString[timeString.index(timeString.startIndex, offsetBy: 3)])")!
             NSLog("Minutes: \(mins)")
             if 0...59 ~= mins {
@@ -130,7 +126,7 @@ class Helper {
         }
     }
 
-    func vmCalculateTotalTime(takeOffTime: UITextField, landTime: UITextField) -> String{
+    static func vmCalculateTotalTime(takeOffTime: String?, landTime: String?) -> String {
         // Thought here is to calculate the flying hours.
         var diffMin: Int = 0
         var diffHrs: Int = 0
@@ -140,126 +136,119 @@ class Helper {
         var toMinStr: String = ""
         var laHrsStr: String = ""
         var laMinStr: String = ""
-        
+
         var toHrsTime: Int
         var toMinTime: Int
         var laHrsTime: Int
         var laMinTime: Int
-        
-        
+
         // Technically, the first thing we should do is count characters to make sure
-        
-        if takeOffTime.text != nil {
-            if landTime.text != nil {
-                // First thing we need to do is see if someone put in a : by mistake
-                let colon = CharacterSet(charactersIn: ":")
-                if takeOffTime.text!.rangeOfCharacter(from: colon) != nil {
-                    let toTime = takeOffTime.text!
-                    toHrsStr = separateHoursAndMins(strInput: toTime, pointer: "hour")
-                    toMinStr = separateHoursAndMins(strInput: toTime, pointer: "min")
-                } else {
-                    let toTime = takeOffTime.text!
-                    let hrIndex0 = toTime.index(toTime.startIndex, offsetBy: 0)
-                    let hrIndex1 = toTime.index(toTime.startIndex, offsetBy: 1)
-                    
-                    let mnIndex0 = toTime.index(toTime.startIndex, offsetBy: 2)
-                    let mnIndex1 = toTime.index(toTime.startIndex, offsetBy: 3)
-                    
-                    let hr0 = toTime[hrIndex0]
-                    let hr1 = toTime[hrIndex1]
-                    
-                    let mn0 = toTime[mnIndex0]
-                    let mn1 = toTime[mnIndex1]
-                    
-                    toHrsStr = "\(hr0)\(hr1)"
-                    toMinStr = "\(mn0)\(mn1)"
-                }
-                    if landTime.text!.rangeOfCharacter(from: colon) != nil {
-                        let laTime = landTime.text!
-                        laHrsStr = separateHoursAndMins(strInput: laTime, pointer: "hour")
-                        laMinStr = separateHoursAndMins(strInput: laTime, pointer: "min")
-                    } else {
-                        let laTime = landTime.text!
-                        let hrIndex0 = laTime.index(laTime.startIndex, offsetBy: 0)
-                        let hrIndex1 = laTime.index(laTime.startIndex, offsetBy: 1)
-                        
-                        let mnIndex0 = laTime.index(laTime.startIndex, offsetBy: 2)
-                        let mnIndex1 = laTime.index(laTime.startIndex, offsetBy: 3)
-                        
-                        let hr0 = laTime[hrIndex0]
-                        let hr1 = laTime[hrIndex1]
-                        
-                        let mn0 = laTime[mnIndex0]
-                        let mn1 = laTime[mnIndex1]
-                        
-                        laHrsStr = "\(hr0)\(hr1)"
-                        laMinStr = "\(mn0)\(mn1)"
-                    }
-                    
-                    laHrsTime = Int(laHrsStr)!
-                    toHrsTime = Int(toHrsStr)!
-                    
-                    laMinTime = Int(laMinStr)!
-                    toMinTime = Int(toMinStr)!
-                    
-                    if laHrsTime < toHrsTime {
-                        diffHrs = (laHrsTime - toHrsTime) + 24
-                    } else {
-                        diffHrs = laHrsTime - toHrsTime
-                    }
-                    
-                    if laMinTime < toMinTime {
-                        diffHrs -= 1
-                        diffMin = (laMinTime - toMinTime) + 60
-                    } else {
-                        diffMin = laMinTime - toMinTime
-                    }
-                    
-                    
-                    
-                    if 0...2 ~= diffMin || 58...60 ~= diffMin{
-                        decMin = 0
-                    }
-                    if 3...8 ~= diffMin{
-                        decMin = 1
-                    }
-                    if 9...14 ~= diffMin{
-                        decMin = 2
-                    }
-                    if 15...20 ~= diffMin{
-                        decMin = 3
-                    }
-                    if 21...26 ~= diffMin{
-                        decMin = 4
-                    }
-                    if 27...33 ~= diffMin{
-                        decMin = 5
-                    }
-                    if 34...39 ~= diffMin{
-                        decMin = 6
-                    }
-                    if 40...45 ~= diffMin{
-                        decMin = 7
-                    }
-                    if 46...51 ~= diffMin{
-                        decMin = 8
-                    }
-                    if 52...57 ~= diffMin{
-                        decMin = 9
-                    }
-                    
-                    // NSLog("\(diffHrs)\(diffMin)")
-                    
-                    // return statement here
-                
-                    return "\(diffHrs).\(decMin)"
-            } else {
-                return "0"
-            }
-        } else {
+
+        guard let toTime = takeOffTime else {
             return "0"
         }
+        guard let laTime = landTime else {
+            return "0"
+        }
+
+        // First thing we need to do is see if someone put in a : by mistake
+        let colon = CharacterSet(charactersIn: ":")
+        if toTime.rangeOfCharacter(from: colon) != nil {
+            toHrsStr = separateHoursAndMins(strInput: toTime, pointer: "hour")
+            toMinStr = separateHoursAndMins(strInput: toTime, pointer: "min")
+        } else {
+            let hrIndex0 = toTime.index(toTime.startIndex, offsetBy: 0)
+            let hrIndex1 = toTime.index(toTime.startIndex, offsetBy: 1)
+
+            let mnIndex0 = toTime.index(toTime.startIndex, offsetBy: 2)
+            let mnIndex1 = toTime.index(toTime.startIndex, offsetBy: 3)
+
+            let hr0 = toTime[hrIndex0]
+            let hr1 = toTime[hrIndex1]
+
+            let mn0 = toTime[mnIndex0]
+            let mn1 = toTime[mnIndex1]
+
+            toHrsStr = "\(hr0)\(hr1)"
+            toMinStr = "\(mn0)\(mn1)"
+        }
+
+        if laTime.rangeOfCharacter(from: colon) != nil {
+            laHrsStr = separateHoursAndMins(strInput: laTime, pointer: "hour")
+            laMinStr = separateHoursAndMins(strInput: laTime, pointer: "min")
+        } else {
+            let hrIndex0 = laTime.index(laTime.startIndex, offsetBy: 0)
+            let hrIndex1 = laTime.index(laTime.startIndex, offsetBy: 1)
+
+            let mnIndex0 = laTime.index(laTime.startIndex, offsetBy: 2)
+            let mnIndex1 = laTime.index(laTime.startIndex, offsetBy: 3)
+
+            let hr0 = laTime[hrIndex0]
+            let hr1 = laTime[hrIndex1]
+
+            let mn0 = laTime[mnIndex0]
+            let mn1 = laTime[mnIndex1]
+
+            laHrsStr = "\(hr0)\(hr1)"
+            laMinStr = "\(mn0)\(mn1)"
+        }
+
+        laHrsTime = Int(laHrsStr)!
+        toHrsTime = Int(toHrsStr)!
+
+        laMinTime = Int(laMinStr)!
+        toMinTime = Int(toMinStr)!
+
+        if laHrsTime < toHrsTime {
+            diffHrs = (laHrsTime - toHrsTime) + 24
+        } else {
+            diffHrs = laHrsTime - toHrsTime
+        }
+
+        if laMinTime < toMinTime {
+            diffHrs -= 1
+            diffMin = (laMinTime - toMinTime) + 60
+        } else {
+            diffMin = laMinTime - toMinTime
+        }
+
+        // Convert Int minutes to decimal minutes.
+        if 0...2 ~= diffMin || 58...60 ~= diffMin{
+            decMin = 0
+        }
+        if 3...8 ~= diffMin{
+            decMin = 1
+        }
+        if 9...14 ~= diffMin{
+            decMin = 2
+        }
+        if 15...20 ~= diffMin{
+            decMin = 3
+        }
+        if 21...26 ~= diffMin{
+            decMin = 4
+        }
+        if 27...33 ~= diffMin{
+            decMin = 5
+        }
+        if 34...39 ~= diffMin{
+            decMin = 6
+        }
+        if 40...45 ~= diffMin{
+            decMin = 7
+        }
+        if 46...51 ~= diffMin{
+            decMin = 8
+        }
+        if 52...57 ~= diffMin{
+            decMin = 9
+        }
+
+        // NSLog("\(diffHrs)\(diffMin)")
+
+        // return statement here
     
+        return "\(diffHrs).\(decMin)"
     }
        
     

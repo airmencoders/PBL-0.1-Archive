@@ -16,7 +16,7 @@ class PBLButtonClear: UIButton {
         super.awakeFromNib()
         self.backgroundColor = .clear
         self.setTitleColor(.slate, for: .normal)
-        self.titleLabel?.font = UIFont(name: FontNames.dmSansRegular, size: UIScreen.main.bounds.height/56.9)
+        self.titleLabel?.font = UIFont(name: FontNames.dmSansRegular, size: 24)
     }
 }
 
