@@ -41,32 +41,13 @@ class FlightListViewController: UIViewController {
     // MARK: - Methods
     
     func setUpViews() {
-        loadFromData()
-        //disableButtons()
+        // loadFromData()
+        // disableButtons()
         guard let form = Form781Controller.shared.forms.last else { return }
         missionDateLabel.text = "MISSION \(form.date)"
     }
     
-    func loadFromData(){
-        do {
-            try Form781Controller.shared.loadForms()
-        } catch {
-            NSLog("\(Form781Error.FileNotFound)")
-        }
-        
-//        let form = Form781Controller.shared.forms.last
-//        if Helper.checkForFile(filePath: Form781Controller.shared.fileURL()){
-//            dateTextField.text = form?.date
-//            mdsTextField.text = form?.mds
-//            serialNumTextField.text = form?.serialNumber
-//            unitChargedTextField.text = form?.unitCharged
-//            harmLocationTextField.text = form?.harmLocation
-//            flightAuthTextField.text = form?.flightAuthNum
-//            issuingUnitTextField.text = form?.issuingUnit
-//        } else {
-//            dateTextField.text = Helper.getTodaysDate()
-//        }
-    }
+
     
     //disable and enable within container views (popUp)
     func disableButtons() {
