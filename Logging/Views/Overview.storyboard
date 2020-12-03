@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BXu-yv-Oz6">
-<<<<<<< HEAD
-    <device id="ipad9_7" orientation="portrait" layout="fullscreen" appearance="light"/>
-=======
     <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
->>>>>>> origin/main
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
@@ -77,11 +73,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your forms for this mission:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wZ-NV-sMB" customClass="PBLLabelLight" customModule="Logging" customModuleProvider="target">
-<<<<<<< HEAD
-                                <rect key="frame" x="148.5" y="379" width="471.5" height="48"/>
-=======
                                 <rect key="frame" x="276.5" y="476" width="471.5" height="48"/>
->>>>>>> origin/main
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="40"/>
                                 <color key="textColor" name="fog"/>
                                 <nil key="highlightedColor"/>
