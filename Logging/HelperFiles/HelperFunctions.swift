@@ -312,7 +312,7 @@ class Helper {
             ]
             
             // MARK: - Section 1
-            let form = Form781Controller.shared.forms.last
+            let form = Form781Controller.shared.getCurrentForm()
             
             let dateString = NSAttributedString(string: form?.date ?? " ", attributes: attrs)
             dateString.draw(with: CGRect(x: 330, y: 335, width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)

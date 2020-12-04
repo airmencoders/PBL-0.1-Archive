@@ -24,7 +24,7 @@ class SplitTimeViewController: UIViewController {
     // MARK: - Methods
     
     func setUpViews() {
-        if let form = Form781Controller.shared.forms.last {
+        if let form = Form781Controller.shared.getCurrentForm() {
             if form.crewMembers.count == 1 {
                 descriptionLabel.text = "You've added \(form.crewMembers.count) crew member to this mission. Would you like to split their time equally?"
             } else {

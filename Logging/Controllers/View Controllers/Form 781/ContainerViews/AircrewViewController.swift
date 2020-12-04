@@ -67,7 +67,7 @@ class AircrewViewController: UIViewController {
             }
         } else {
             
-            guard let form = Form781Controller.shared.forms.last
+            guard let form = Form781Controller.shared.getCurrentForm()
             else {
                 return
             }
@@ -150,7 +150,6 @@ class AircrewViewController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         highlight()
-        
         guard let lastName = lastName.text, !lastName.isEmpty,
               let firstName = firstName.text, !firstName.isEmpty,
               let ssn = ssn.text, !ssn.isEmpty,
@@ -171,7 +170,7 @@ class AircrewViewController: UIViewController {
             
         } else {
             
-            guard let form = Form781Controller.shared.forms.last else {
+            guard let form = Form781Controller.shared.getCurrentForm() else {
                 return
             }
             
@@ -196,7 +195,7 @@ class AircrewViewController: UIViewController {
 extension AircrewViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        Form781Controller.shared.forms.last?.crewMembers.count ?? 0
+        Form781Controller.shared.getCurrentForm()?.crewMembers.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -205,7 +204,7 @@ extension AircrewViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.delegate = self
-        if let crewMember = Form781Controller.shared.forms.last?.crewMembers[indexPath.row] {
+        if let crewMember = Form781Controller.shared.getCurrentForm()?.crewMembers[indexPath.row] {
             cell.crewMember = crewMember
             cell.setUpViews(crewMember: crewMember)
         }
@@ -234,7 +233,7 @@ extension AircrewViewController: AircrewTableViewCellDelegate {
     }
 
     func deleteButtonTapped(cell: AircrewTableViewCell) {
-        guard let form = Form781Controller.shared.forms.last,
+        guard let form = Form781Controller.shared.getCurrentForm(),
               let indexPath = aircrewTableView.indexPath(for: cell)
         else {
             return

@@ -73,7 +73,7 @@ extension AircrewDataViewController: FlightTableViewCellDelegate {
     }
     
     func deleteButtonTapped(cell: FlightTableViewCell) {
-//        guard let form = Form781Controller.shared.forms.last,
+//        guard let form = Form781Controller.shared.getCurrentForm(),
 //              let indexPath = flightSeqTableView.indexPath(for: cell) else { return }
 //        let flight = form.flights[indexPath.row]
 //        Form781Controller.shared.remove(flight: flight, from: form)
@@ -90,10 +90,10 @@ extension AircrewDataViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.flightTimeTableView {
-            return Form781Controller.shared.forms.last?.crewMembers.count ?? 0
+            return Form781Controller.shared.getCurrentForm()?.crewMembers.count ?? 0
         }
         if tableView == self.flightSeqTableView {
-            return Form781Controller.shared.forms.last?.flights.count ?? 0
+            return Form781Controller.shared.getCurrentForm()?.flights.count ?? 0
         }
         return 0
     }
@@ -103,7 +103,7 @@ extension AircrewDataViewController: UITableViewDelegate, UITableViewDataSource 
         if tableView == self.flightTimeTableView {
             guard let cell = self.flightTimeTableView.dequeueReusableCell(withIdentifier: "FlightTimeCell", for: indexPath) as? FlightTimeTableViewCell else { return UITableViewCell() }
             
-            if let crewMember = Form781Controller.shared.forms.last?.crewMembers[indexPath.row] {
+            if let crewMember = Form781Controller.shared.getCurrentForm()?.crewMembers[indexPath.row] {
                 cell.setUpViews(crewMember: crewMember)
             }
             
@@ -113,7 +113,7 @@ extension AircrewDataViewController: UITableViewDelegate, UITableViewDataSource 
             guard let cell = self.flightSeqTableView.dequeueReusableCell(withIdentifier: "FlightCell", for: indexPath) as? FlightTableViewCell else { return UITableViewCell() }
             
             cell.delegate = self
-            if let flight = Form781Controller.shared.forms.last?.flights[indexPath.row] {
+            if let flight = Form781Controller.shared.getCurrentForm()?.flights[indexPath.row] {
                 cell.setUpViews(flight: flight)
             }
             

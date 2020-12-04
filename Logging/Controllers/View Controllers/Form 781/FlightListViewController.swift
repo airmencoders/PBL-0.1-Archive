@@ -38,7 +38,7 @@ class FlightListViewController: UIViewController {
     // MARK: - Methods
     
     func setUpViews() {
-        guard let form = Form781Controller.shared.forms.last else {
+        guard let form = Form781Controller.shared.getCurrentForm() else {
             return
         }
         missionDateLabel.text = "MISSION \(form.date)"

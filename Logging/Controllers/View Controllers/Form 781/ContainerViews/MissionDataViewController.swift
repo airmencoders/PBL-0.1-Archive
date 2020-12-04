@@ -82,7 +82,7 @@ class MissionDataViewController: UIViewController {
         flightSeqTableView.dataSource = self
         dateTextField.delegate = self
         disableButtons()
-        guard let form = Form781Controller.shared.forms.last else {
+        guard let form = Form781Controller.shared.getCurrentForm() else {
             return
         }
         updateLabels()
@@ -96,7 +96,7 @@ class MissionDataViewController: UIViewController {
             NSLog("\(Form781Error.FileNotFound)")
         }
         
-        let form = Form781Controller.shared.forms.last
+        let form = Form781Controller.shared.getCurrentForm()
         if Helper.checkForFile(filePath: Form781Controller.shared.fileURL()){
             dateTextField.text = form?.date
             mdsTextField.text = form?.mds
@@ -111,7 +111,7 @@ class MissionDataViewController: UIViewController {
     }
     
     func updateLabels() {
-        guard let form = Form781Controller.shared.forms.last else {
+        guard let form = Form781Controller.shared.getCurrentForm() else {
             return
         }
 
@@ -165,7 +165,7 @@ class MissionDataViewController: UIViewController {
     }
     
     func presentAlertIfFlightInputError() {
-        guard let form = Form781Controller.shared.forms.last,
+        guard let form = Form781Controller.shared.getCurrentForm(),
               let missionNumber = missionNumber.text,
               let missionSymbol = missionSymbol.text,
               let fromICAO = fromICAO.text,
@@ -305,7 +305,7 @@ class MissionDataViewController: UIViewController {
     }
     
     @IBAction func newFlightButtonTapped(_ sender: UIButton) {
-        guard let form = Form781Controller.shared.forms.last else {
+        guard let form = Form781Controller.shared.getCurrentForm() else {
             return Alerts.showNoFormAlert(on: self)
         }
         guard form.flights.count < 6 else {
@@ -393,7 +393,7 @@ class MissionDataViewController: UIViewController {
     }
 
     @IBAction func saveFlightButtonTapped(_ sender: UIButton) {
-        guard let form = Form781Controller.shared.forms.last else { return }
+        guard let form = Form781Controller.shared.getCurrentForm() else { return }
         highlightFlightSeq()
                 
         guard let missionNumber = missionNumber.text, !missionNumber.isEmpty,
@@ -465,7 +465,7 @@ extension MissionDataViewController: FlightTableViewCellDelegate {
     }
     
     func deleteButtonTapped(cell: FlightTableViewCell) {
-        guard let form = Form781Controller.shared.forms.last,
+        guard let form = Form781Controller.shared.getCurrentForm(),
               let indexPath = flightSeqTableView.indexPath(for: cell) else { return }
         let flight = form.flights[indexPath.row]
         Form781Controller.shared.remove(flight: flight, from: form)
@@ -481,7 +481,7 @@ extension MissionDataViewController: FlightTableViewCellDelegate {
 extension MissionDataViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Form781Controller.shared.forms.last?.flights.count ?? 0
+        return Form781Controller.shared.getCurrentForm()?.flights.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -489,7 +489,7 @@ extension MissionDataViewController: UITableViewDelegate, UITableViewDataSource 
         guard let cell = self.flightSeqTableView.dequeueReusableCell(withIdentifier: "FlightCell", for: indexPath) as? FlightTableViewCell else { return UITableViewCell() }
         
         cell.delegate = self
-        if let flight = Form781Controller.shared.forms.last?.flights[indexPath.row] {
+        if let flight = Form781Controller.shared.getCurrentForm()?.flights[indexPath.row] {
             cell.setUpViews(flight: flight)
         }
         

@@ -57,10 +57,10 @@ extension SplitFlightConditionsViewController: UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.flightConditionsTableView {
-            return Form781Controller.shared.forms.last?.crewMembers.count ?? 0
+            return Form781Controller.shared.getCurrentForm()?.crewMembers.count ?? 0
         }
         if tableView == self.flightSeqTableView {
-            return Form781Controller.shared.forms.last?.flights.count ?? 0
+            return Form781Controller.shared.getCurrentForm()?.flights.count ?? 0
         }
         return 0
     }
@@ -69,7 +69,7 @@ extension SplitFlightConditionsViewController: UITableViewDelegate, UITableViewD
         if tableView == self.flightConditionsTableView {
             guard let cell = self.flightConditionsTableView.dequeueReusableCell(withIdentifier: "FlightConditionsCell", for: indexPath) as? FlightConditionsTableViewCell else { return UITableViewCell() }
             
-            if let crewMember = Form781Controller.shared.forms.last?.crewMembers[indexPath.row] {
+            if let crewMember = Form781Controller.shared.getCurrentForm()?.crewMembers[indexPath.row] {
                 cell.setUpViews(crewMember: crewMember)
             }
             
@@ -79,7 +79,7 @@ extension SplitFlightConditionsViewController: UITableViewDelegate, UITableViewD
             guard let cell = self.flightSeqTableView.dequeueReusableCell(withIdentifier: "FlightCell", for: indexPath) as? FlightTableViewCell else { return UITableViewCell() }
             
             cell.delegate = self
-            if let flight = Form781Controller.shared.forms.last?.flights[indexPath.row] {
+            if let flight = Form781Controller.shared.getCurrentForm()?.flights[indexPath.row] {
                 cell.setUpViews(flight: flight)
             }
             

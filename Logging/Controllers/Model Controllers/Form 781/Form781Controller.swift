@@ -18,7 +18,7 @@ class Form781Controller {
     
     // MARK: - Properties
     
-    var forms = [Form781]()
+    private var forms = [Form781]()
     var formCreated = false
     
     // MARK: - Create
@@ -35,20 +35,16 @@ class Form781Controller {
     
     //populates from previous form
     func populateFlights() {
-        let numberOfForms = forms.count
-        if numberOfForms > 1 {
-            let flightsArray = forms[numberOfForms - 2].flights
-            forms.last?.flights = flightsArray
+        if let flightsArray = getPreviousForm()?.flights {
+            getCurrentForm()?.flights = flightsArray
             NSLog("Populated flights")
         }
     }
     
     //populates from previous form
     func populateCrewMembers() {
-        let numberOfForms = forms.count
-        if numberOfForms > 1 {
-            let crewMemberArray = forms[numberOfForms - 2].crewMembers
-            forms.last?.crewMembers = crewMemberArray
+        if let crewMemberArray = getPreviousForm()?.crewMembers {
+            getCurrentForm()?.crewMembers = crewMemberArray
             NSLog("Populated crew members")
         }
     }
@@ -57,7 +53,9 @@ class Form781Controller {
     
     func updateMissionData(date: String, mds: String, serialNumber: String, unitCharged: String, harmLocation: String, flightAuthNum: String, issuingUnit: String) {
         
-        guard let form = forms.last else { return }
+        guard let form = getCurrentForm() else {
+            return
+        }
         form.date = date
         form.mds = mds
         form.serialNumber = serialNumber
@@ -137,7 +135,7 @@ class Form781Controller {
     }
     
     func updateFlightSeqLetters() {
-        guard let flights = forms.last?.flights else { return }
+        guard let flights = getCurrentForm()?.flights else { return }
         for (index, flight) in flights.enumerated() {
             
             switch index {
@@ -170,6 +168,25 @@ class Form781Controller {
         //delete form from array
     }
     
+    // MARK: - Form access
+
+    func numberOfForms() -> Int {
+        return forms.count
+    }
+
+    func getCurrentForm() -> Form781? {
+        return forms.last
+    }
+
+    func getPreviousForm() -> Form781? {
+        let count = self.numberOfForms()
+        if count > 1 {
+            return forms[count - 2]
+        }
+
+        return nil
+    }
+
     // MARK: - Persistance
     
     func fileURL() -> URL {
