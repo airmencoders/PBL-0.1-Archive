@@ -25,6 +25,7 @@ class AircrewTableViewCell: UITableViewCell {
     // MARK: - Properties
     
     weak var delegate: AircrewTableViewCellDelegate?
+    var crewMember: CrewMember?
     
     // MARK: - Methods and Actions
     

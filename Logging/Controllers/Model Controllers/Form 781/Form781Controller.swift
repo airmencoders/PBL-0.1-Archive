@@ -91,13 +91,20 @@ class Form781Controller {
         save()
     }
     
-    func updateCrewMember(crewMember: CrewMember, lastName: String, firstName: String, ssnLast4: String, flightAuthDutyCode: String, flyingOrigin: String, primary: String, secondary: String, instructor: String, evaluator: String, other: String, time: String, srty: String, nightPSIE: String, insPIE: String, simIns: String, nvg: String, combatTime: String, combatSrty: String, combatSptTime: String, combatSptSrty: String, resvStatus: String) {
+    func updateCrewMemberInfo(crewMember: CrewMember, lastName: String, firstName: String, ssnLast4: String, flightAuthDutyCode: String, flyingOrigin: String) {
         
         crewMember.lastName = lastName
         crewMember.firstName = firstName
         crewMember.ssnLast4 = ssnLast4
         crewMember.flyingOrigin = flyingOrigin
         crewMember.flightAuthDutyCode = flightAuthDutyCode
+                
+        NSLog("Updated crew member info")
+        save()
+    }
+    
+    func updateCrewMemberTime(crewMember: CrewMember, primary: String, secondary: String, instructor: String, evaluator: String, other: String, time: String, srty: String, nightPSIE: String, insPIE: String, simIns: String, nvg: String, combatTime: String, combatSrty: String, combatSptTime: String, combatSptSrty: String, resvStatus: String) {
+        
         crewMember.primary = primary
         crewMember.secondary = secondary
         crewMember.instructor = instructor
@@ -115,7 +122,7 @@ class Form781Controller {
         crewMember.combatSptSrty = combatSptSrty
         crewMember.resvStatus = resvStatus
                 
-        NSLog("Updated crew member")
+        NSLog("Updated crew member time")
         save()
     }
     

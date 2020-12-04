@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AircrewDataViewControllerDelegate: class {
+    func updateDimView(toHidden: Bool)
+}
+
 class AircrewDataViewController: UIViewController {
 
     // MARK: - Outlets
@@ -35,11 +39,12 @@ class AircrewDataViewController: UIViewController {
     
     // MARK: - Properties
     
-    var takeOffTimeString: String = " "
-    var landTimeString: String = " "
+    weak var delegate: AircrewDataViewControllerDelegate?
+//    var takeOffTimeString: String = " "
+//    var landTimeString: String = " "
     
     // MARK: - Local variables
-    private var saveddateTextFieldText: String = ""
+//    private var saveddateTextFieldText: String = ""
 
     // MARK: - Lifecycle
     
