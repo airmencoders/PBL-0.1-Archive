@@ -37,6 +37,7 @@
 		13C38BF4256858C300E8D919 /* Form781Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C38BF3256858C300E8D919 /* Form781Error.swift */; };
 		13F08EA125221F7D00CDAEE4 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 13F08EA025221F7D00CDAEE4 /* header.png */; };
 		13F08EAE252222A800CDAEE4 /* separator line.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13F08EAD252222A800CDAEE4 /* separator line.jpg */; };
+		4D40D8AD257B214300738AEE /* Form781ControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D40D8AC257B214300738AEE /* Form781ControllerTests.swift */; };
 		4DBFB356256C61FF0017C9B8 /* Form781Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C38BF3256858C300E8D919 /* Form781Error.swift */; };
 		4DBFB35A256C62000017C9B8 /* Form781Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C38BF3256858C300E8D919 /* Form781Error.swift */; };
 		7C3790BDC466879F81B1B28B /* Pods_Logging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E2B17BC9BB310463EA2A32E /* Pods_Logging.framework */; };
@@ -175,6 +176,7 @@
 		2E2B17BC9BB310463EA2A32E /* Pods_Logging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Logging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		429BDF4BA793A82002D5F5B1 /* Pods-Logging-LoggingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Logging-LoggingUITests.debug.xcconfig"; path = "Target Support Files/Pods-Logging-LoggingUITests/Pods-Logging-LoggingUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		47FE006718C4942F5FE50BB0 /* Pods_LoggingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoggingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D40D8AC257B214300738AEE /* Form781ControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form781ControllerTests.swift; sourceTree = "<group>"; };
 		56785B42F81CEB0155B65640 /* Pods-Logging-LoggingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Logging-LoggingUITests.release.xcconfig"; path = "Target Support Files/Pods-Logging-LoggingUITests/Pods-Logging-LoggingUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6FEF2540CD77AC4D9725058A /* Pods-LoggingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoggingTests.debug.xcconfig"; path = "Target Support Files/Pods-LoggingTests/Pods-LoggingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7192C4E0628E4E7D0C02BFBC /* Pods_Logging_LoggingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Logging_LoggingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -494,6 +496,7 @@
 			isa = PBXGroup;
 			children = (
 				83D8409324D3402D00F336E3 /* LoggingTests.swift */,
+				4D40D8AC257B214300738AEE /* Form781ControllerTests.swift */,
 				83D8409524D3402D00F336E3 /* Info.plist */,
 			);
 			path = LoggingTests;
@@ -816,6 +819,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83D8409424D3402D00F336E3 /* LoggingTests.swift in Sources */,
+				4D40D8AD257B214300738AEE /* Form781ControllerTests.swift in Sources */,
 				7FAB8C8E25434E2300868215 /* ErrorViewController.swift in Sources */,
 				7FAB8C8725434E1400868215 /* OverviewViewController.swift in Sources */,
 				7F574328254C77E700794C57 /* SplitFlightConditionsViewController.swift in Sources */,

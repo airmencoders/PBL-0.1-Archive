@@ -8,8 +8,6 @@
 
 import Foundation
 
-import Foundation
-
 class Form781Controller {
     
     // MARK: - Singleton
@@ -21,6 +19,8 @@ class Form781Controller {
     private var forms = [Form781]()
     var formCreated = false
     
+    var loggingFileName = "Logging.json"
+
     // MARK: - Create
     
     func create(date: String, mds: String, serialNumber: String, unitCharged: String, harmLocation: String, flightAuthNum: String, issuingUnit: String) {
@@ -191,7 +191,7 @@ class Form781Controller {
     
     func fileURL() -> URL {
         let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let fileURL = url[0].appendingPathComponent("Logging.json")
+        let fileURL = url[0].appendingPathComponent(loggingFileName)
         //print("File URL: \(fileURL)")
         return fileURL
     }
@@ -209,8 +209,14 @@ class Form781Controller {
     
     func loadForms() throws{
         let decoder = JSONDecoder()
-        let data = try Data(contentsOf: fileURL())
-        forms = try decoder.decode([Form781].self, from: data)
+        do {
+            let data = try Data(contentsOf: fileURL())
+            forms = try decoder.decode([Form781].self, from: data)
+        } catch {
+            // No data to load, so clear out the array.
+            forms = []
+            throw error
+        }
     }
         
 } //End
