@@ -26,6 +26,8 @@ class AircrewViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var dimView: UIView!
     
+    // MARK: - Properties
+    
     var isEditingMember = false
     var crewMemberToEdit: CrewMember?
     weak var delegate: AircrewViewControllerDelegate?
@@ -42,6 +44,11 @@ class AircrewViewController: UIViewController {
     func setUpViews() {
         aircrewTableView.delegate = self
         aircrewTableView.dataSource = self
+        lastName.delegate = self
+        firstName.delegate = self
+        ssn.delegate = self
+        flightAuthDutyCode.delegate = self
+        flyingOrigin.delegate = self
     }
     
     func presentAlertIfInputError() {
@@ -113,6 +120,14 @@ class AircrewViewController: UIViewController {
         flyingOrigin.text = crewMember.flyingOrigin
     }
     
+    func openPopUp() {
+        unhighlight()
+        popUpView.isHidden = false
+        dimView.isHidden = false
+        delegate?.updateDimView(toHidden: false)
+        disableBackground()
+    }
+    
     func closePopUp() {
         aircrewTableView.reloadData()
         isEditingMember = false
@@ -121,27 +136,21 @@ class AircrewViewController: UIViewController {
         delegate?.updateDimView(toHidden: true)
         clearFields()
         saveButton.setTitle("+ ADD NEW CREW", for: .normal)
-        enableButtons()
+        enableBackground()
     }
     
-    func disableButtons() {
+    func disableBackground() {
         aircrewTableView.isUserInteractionEnabled = false
-        //delegate method for main view? Maybe dim view takes care of this
     }
     
-    func enableButtons() {
+    func enableBackground() {
         aircrewTableView.isUserInteractionEnabled = true
-        //delegate method for main view? Maybe dim view takes care of this
     }
     
     // MARK: - Actions
     
     @IBAction func addButtonTapped(_ sender: UIButton) {
-        unhighlight()
-        popUpView.isHidden = false
-        dimView.isHidden = false
-        delegate?.updateDimView(toHidden: false)
-        disableButtons()
+        openPopUp()
     }
     
     @IBAction func exitButtonTapped(_ sender: UIButton) {
@@ -222,14 +231,11 @@ extension AircrewViewController: AircrewTableViewCellDelegate {
         guard let crewMember = cell.crewMember else {
             return
         }
-        unhighlight()
         populateFields(crewMember: crewMember)
         isEditingMember = true
         crewMemberToEdit = cell.crewMember
         saveButton.setTitle("SAVE", for: .normal)
-        popUpView.isHidden = false
-        dimView.isHidden = false
-        delegate?.updateDimView(toHidden: false)
+        openPopUp()
     }
 
     func deleteButtonTapped(cell: AircrewTableViewCell) {
@@ -241,6 +247,15 @@ extension AircrewViewController: AircrewTableViewCellDelegate {
         let crewMember = form.crewMembers[indexPath.row]
         Form781Controller.shared.remove(crewMember: crewMember, from: form)
         aircrewTableView.reloadData()
+    }
+    
+} //End
+
+extension AircrewViewController: UITextFieldDelegate{
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
 } //End

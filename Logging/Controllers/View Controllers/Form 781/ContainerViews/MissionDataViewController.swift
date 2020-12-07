@@ -63,7 +63,7 @@ class MissionDataViewController: UIViewController {
     var takeOffTimeString: String = " "
     var landTimeString: String = " "
     
-    // MARK: - Local variables
+    // MARK: - Local Variables
     
     private var saveddateTextFieldText: String = ""
 
@@ -81,7 +81,26 @@ class MissionDataViewController: UIViewController {
         flightSeqTableView.delegate = self
         flightSeqTableView.dataSource = self
         dateTextField.delegate = self
-        disableButtons()
+        mdsTextField.delegate = self
+        serialNumTextField.delegate = self
+        unitChargedTextField.delegate = self
+        harmLocationTextField.delegate = self
+        flightAuthTextField.delegate = self
+        issuingUnitTextField.delegate = self
+        missionNumber.delegate = self
+        missionSymbol.delegate = self
+        fromICAO.delegate = self
+        toICAO.delegate = self
+        specialUse.delegate = self
+        takeOffTime.delegate = self
+        landTime.delegate = self
+        totalTime.delegate = self
+        touchAndGo.delegate = self
+        fullStop.delegate = self
+        totalLandings.delegate = self
+        sorties.delegate = self
+        disableBackground()
+        disableBackground()
         guard let form = Form781Controller.shared.getCurrentForm() else {
             return
         }
@@ -258,15 +277,15 @@ class MissionDataViewController: UIViewController {
         missionDataPopUp.isHidden = true
         dimView.isHidden = true
         delegate?.updateDimView(toHidden: true)
-        enableButtons()
+        enableBackground()
     }
     
-    func disableButtons() {
+    func disableBackground() {
         flightSeqTableView.isUserInteractionEnabled = false
         editButton.isUserInteractionEnabled = false
     }
     
-    func enableButtons() {
+    func enableBackground() {
         flightSeqTableView.isUserInteractionEnabled = true
         editButton.isUserInteractionEnabled = true
     }
@@ -278,7 +297,7 @@ class MissionDataViewController: UIViewController {
         missionDataPopUp.isHidden = false
         dimView.isHidden = false
         delegate?.updateDimView(toHidden: false)
-        disableButtons()
+        disableBackground()
     }
     
     @IBAction func saveMissionDataTapped(_ sender: UIButton) {
@@ -315,7 +334,7 @@ class MissionDataViewController: UIViewController {
         flightSeqPopUp.isHidden = false
         dimView.isHidden = false
         delegate?.updateDimView(toHidden: false)
-        disableButtons()
+        disableBackground()
     }
     
     @IBAction func exitButtonTapped(_ sender: UIButton) {
@@ -501,6 +520,7 @@ extension MissionDataViewController: UITableViewDelegate, UITableViewDataSource 
 // MARK: - UITextField Delegate
 
 extension MissionDataViewController: UITextFieldDelegate {
+    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == self.dateTextField {
             self.saveddateTextFieldText = self.dateTextField.text ?? ""
@@ -522,5 +542,10 @@ extension MissionDataViewController: UITextFieldDelegate {
             }
         }
     }
-
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
 } //End
