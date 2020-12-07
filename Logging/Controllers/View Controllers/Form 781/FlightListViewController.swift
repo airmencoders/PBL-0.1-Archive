@@ -13,6 +13,7 @@ class FlightListViewController: UIViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var missionDateLabel: UILabel!
     @IBOutlet weak var formSegmentedControl: UISegmentedControl!
     @IBOutlet weak var printButton: UIButton!
@@ -38,10 +39,31 @@ class FlightListViewController: UIViewController {
     // MARK: - Methods
     
     func setUpViews() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
         guard let form = Form781Controller.shared.getCurrentForm() else {
             return
         }
         missionDateLabel.text = "MISSION \(form.date)"
+    }
+    
+    @objc func keyboardWillShow(notification:NSNotification) {
+
+        guard let userInfo = notification.userInfo else {
+            return
+        }
+        var keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
+
+        var contentInset: UIEdgeInsets = self.scrollView.contentInset
+        contentInset.bottom = keyboardFrame.size.height + 20
+        scrollView.contentInset = contentInset
+    }
+
+    @objc func keyboardWillHide(notification:NSNotification) {
+
+        let contentInset: UIEdgeInsets = UIEdgeInsets.zero
+        scrollView.contentInset = contentInset
     }
 
     // MARK: - Actions
@@ -76,7 +98,11 @@ class FlightListViewController: UIViewController {
     }
     
     @IBAction func continueButtonTapped(_ sender: UIButton) {
-
+        if let viewController = UIStoryboard(name: "Overview", bundle: nil).instantiateViewController(withIdentifier: "Overview") as? OverviewViewController {
+            if let navigator = navigationController {
+                navigator.pushViewController(viewController, animated: true)
+            }
+        }
     }
     
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
