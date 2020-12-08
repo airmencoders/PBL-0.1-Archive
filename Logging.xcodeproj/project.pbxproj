@@ -30,9 +30,13 @@
 		130D7219255AD7DA0025C589 /* afto781.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 131239A22518EFCF00F3B636 /* afto781.pdf */; };
 		130D721D255AD7DB0025C589 /* afto781.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 131239A22518EFCF00F3B636 /* afto781.pdf */; };
 		131239A32518EFCF00F3B636 /* afto781.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 131239A22518EFCF00F3B636 /* afto781.pdf */; };
-		131239A82518F98100F3B636 /* afto781.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 131239A72518F98000F3B636 /* afto781.jpg */; };
 		1346480A256EFF6F00DB7783 /* SplitTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13464808256EFF6F00DB7783 /* SplitTime.swift */; };
 		1346480B256EFF6F00DB7783 /* SplitTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13464808256EFF6F00DB7783 /* SplitTime.swift */; };
+		134E78D0257AA92500A1D4A1 /* ImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134E78CE257AA92500A1D4A1 /* ImageGenerator.swift */; };
+		134E78D1257AA92500A1D4A1 /* ImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134E78CE257AA92500A1D4A1 /* ImageGenerator.swift */; };
+		134E78DE257E7DCD00A1D4A1 /* ImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134E78CE257AA92500A1D4A1 /* ImageGenerator.swift */; };
+		134E7962257FED7C00A1D4A1 /* Form781-Front.png in Resources */ = {isa = PBXBuildFile; fileRef = 134E7960257FED7C00A1D4A1 /* Form781-Front.png */; };
+		134E7963257FED7C00A1D4A1 /* Form781-Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 134E7961257FED7C00A1D4A1 /* Form781-Back.png */; };
 		138809FE25683876005B93FF /* (null) in Sources */ = {isa = PBXBuildFile; };
 		13C38BF4256858C300E8D919 /* Form781Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C38BF3256858C300E8D919 /* Form781Error.swift */; };
 		13F08EA125221F7D00CDAEE4 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 13F08EA025221F7D00CDAEE4 /* header.png */; };
@@ -162,8 +166,10 @@
 
 /* Begin PBXFileReference section */
 		131239A22518EFCF00F3B636 /* afto781.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = afto781.pdf; sourceTree = "<group>"; };
-		131239A72518F98000F3B636 /* afto781.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = afto781.jpg; sourceTree = "<group>"; };
 		13464808256EFF6F00DB7783 /* SplitTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitTime.swift; sourceTree = "<group>"; };
+		134E78CE257AA92500A1D4A1 /* ImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerator.swift; sourceTree = "<group>"; };
+		134E7960257FED7C00A1D4A1 /* Form781-Front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Form781-Front.png"; sourceTree = "<group>"; };
+		134E7961257FED7C00A1D4A1 /* Form781-Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Form781-Back.png"; sourceTree = "<group>"; };
 		135CFC4B255098D7008D1F1E /* HelperFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
 		13965D85DFCED656F8ABF8B0 /* Pods-Logging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Logging.debug.xcconfig"; path = "Target Support Files/Pods-Logging/Pods-Logging.debug.xcconfig"; sourceTree = "<group>"; };
 		13C38BF3256858C300E8D919 /* Form781Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Form781Error.swift; sourceTree = "<group>"; };
@@ -267,9 +273,10 @@
 		131239AC2518FA7400F3B636 /* res */ = {
 			isa = PBXGroup;
 			children = (
+				134E7961257FED7C00A1D4A1 /* Form781-Back.png */,
+				134E7960257FED7C00A1D4A1 /* Form781-Front.png */,
 				13F08EAD252222A800CDAEE4 /* separator line.jpg */,
 				13F08EA025221F7D00CDAEE4 /* header.png */,
-				131239A72518F98000F3B636 /* afto781.jpg */,
 			);
 			path = res;
 			sourceTree = "<group>";
@@ -366,6 +373,7 @@
 				7F7E0E412538BCCC0041C4E9 /* PBLTextField.swift */,
 				7F7E0DDF253110330041C4E9 /* PBLButton.swift */,
 				13464808256EFF6F00DB7783 /* SplitTime.swift */,
+				134E78CE257AA92500A1D4A1 /* ImageGenerator.swift */,
 			);
 			path = HelperFiles;
 			sourceTree = "<group>";
@@ -629,10 +637,11 @@
 			files = (
 				13F08EA125221F7D00CDAEE4 /* header.png in Resources */,
 				7FAB8C7C25434D5800868215 /* Error.storyboard in Resources */,
+				134E7962257FED7C00A1D4A1 /* Form781-Front.png in Resources */,
 				13F08EAE252222A800CDAEE4 /* separator line.jpg in Resources */,
 				7FEE987C2554588D00971F60 /* DMSans-Regular.ttf in Resources */,
+				134E7963257FED7C00A1D4A1 /* Form781-Back.png in Resources */,
 				83D8408924D3402D00F336E3 /* LaunchScreen.storyboard in Resources */,
-				131239A82518F98100F3B636 /* afto781.jpg in Resources */,
 				7F1EC5612551F0C4006A644D /* DMSans-Medium.ttf in Resources */,
 				7F1EC55E2551F0C4006A644D /* DMSans-Bold.ttf in Resources */,
 				131239A32518EFCF00F3B636 /* afto781.pdf in Resources */,
@@ -772,6 +781,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				134E78DE257E7DCD00A1D4A1 /* ImageGenerator.swift in Sources */,
 				138809FE25683876005B93FF /* (null) in Sources */,
 				7F7E0E422538BCCC0041C4E9 /* PBLTextField.swift in Sources */,
 				7F5453D0254CA22800968BFA /* FlightTimeTableViewCell.swift in Sources */,
@@ -840,6 +850,7 @@
 				7F680CEE2548C46900625ECC /* FlightListViewController.swift in Sources */,
 				7FAB8CA5254363F600868215 /* CrewMemberController.swift in Sources */,
 				7F97DFF7253F9A80005B0892 /* WelcomeViewController.swift in Sources */,
+				134E78D0257AA92500A1D4A1 /* ImageGenerator.swift in Sources */,
 				130D7209255AD7C70025C589 /* AppDelegate.swift in Sources */,
 				1346480A256EFF6F00DB7783 /* SplitTime.swift in Sources */,
 				7F680C6C25476A0A00625ECC /* FlightController.swift in Sources */,
@@ -879,6 +890,7 @@
 				7F680CEF2548C46900625ECC /* FlightListViewController.swift in Sources */,
 				7FAB8CA6254363F600868215 /* CrewMemberController.swift in Sources */,
 				7F97DFF8253F9A80005B0892 /* WelcomeViewController.swift in Sources */,
+				134E78D1257AA92500A1D4A1 /* ImageGenerator.swift in Sources */,
 				130D720D255AD7C80025C589 /* AppDelegate.swift in Sources */,
 				1346480B256EFF6F00DB7783 /* SplitTime.swift in Sources */,
 				7F680C6D25476A0A00625ECC /* FlightController.swift in Sources */,

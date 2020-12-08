@@ -70,6 +70,9 @@
                                                 <state key="normal" title="PRINT " image="printer.fill" catalog="system">
                                                     <color key="titleColor" name="slate"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="printButtonTapped:" destination="gFV-3G-E5E" eventType="touchUpInside" id="sD7-uh-WSq"/>
+                                                </connections>
                                             </button>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Apc-Nh-lAc">
                                                 <rect key="frame" x="205" y="102.5" width="614" height="32"/>

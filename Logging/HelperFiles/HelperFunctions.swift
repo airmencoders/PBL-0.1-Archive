@@ -10,9 +10,9 @@ import Foundation
 import PDFKit
 
 class Helper {
-    
-    static let WIDTH: Int = 3300
-    static let HEIGHT: Int = 2550
+    // Letter size paper at 300 ppi
+    static let WIDTH: Int = 3250
+    static let HEIGHT: Int = 2300
 
     static let DATE_FORMAT = "dd MMM yyyy"
 
@@ -211,44 +211,25 @@ class Helper {
         } else {
             diffMin = laMinTime - toMinTime
         }
-
-        // Convert Int minutes to decimal minutes.
-        if 0...2 ~= diffMin || 58...60 ~= diffMin{
+        
+        let checkMin = decimalTime(num: Double(diffMin))
+        
+        if checkMin == 10 {
             decMin = 0
+        } else {
+            decMin = Int(checkMin)
         }
-        if 3...8 ~= diffMin{
-            decMin = 1
-        }
-        if 9...14 ~= diffMin{
-            decMin = 2
-        }
-        if 15...20 ~= diffMin{
-            decMin = 3
-        }
-        if 21...26 ~= diffMin{
-            decMin = 4
-        }
-        if 27...33 ~= diffMin{
-            decMin = 5
-        }
-        if 34...39 ~= diffMin{
-            decMin = 6
-        }
-        if 40...45 ~= diffMin{
-            decMin = 7
-        }
-        if 46...51 ~= diffMin{
-            decMin = 8
-        }
-        if 52...57 ~= diffMin{
-            decMin = 9
-        }
+        
 
         // NSLog("\(diffHrs)\(diffMin)")
 
         // return statement here
     
         return "\(diffHrs).\(decMin)"
+    }
+    
+    static func decimalTime(num: Double) -> Double{
+        return (num / 6).rounded()
     }
        
     
@@ -261,215 +242,85 @@ class Helper {
         textField.layer.borderColor = color.cgColor
     }
 
-    func printFormFunc() {
+    static func printFormFunc() {
+                
+        let frontOfForm = UIImage(named: "Form781-Front.png")
+        let frontDataImage = ImageGenerator.generateFrontOfForm()
         
-        let formImage = UIImage(named: "afto781.jpg")
-        let dataImage = generateImage()
+        let rearOfForm = UIImage(named: "Form781-Back.png")
+        let rearDataImage = ImageGenerator.generateBackOfForm()
         
         let size = CGSize(width: Helper.WIDTH, height: Helper.HEIGHT)
         UIGraphicsBeginImageContext(size)
         
         let areaSize = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-        formImage!.draw(in: areaSize)
-        dataImage!.draw(in: areaSize, blendMode: .normal, alpha: 0.8)
+        frontOfForm!.draw(in: areaSize)
+        frontDataImage!.draw(in: areaSize, blendMode: .normal, alpha: 0.8)
         
-        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        let newImageFront: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        
         UIGraphicsEndImageContext()
         
+        // Rear of form
+        
+        UIGraphicsBeginImageContext(size)
+        
+        let area2 = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        rearOfForm!.draw(in: area2)
+        rearDataImage!.draw(in: area2, blendMode: .normal, alpha: 0.8)
+        
+        let newImageBack: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        
+        UIGraphicsEndImageContext()
+
+        // Save the image to disc
+        
+        let docDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
+        let fileURLFront = docDir?.appendingPathComponent("newImageFront.png")
+        
+        Helper.saveToDisc(image: newImageFront, fileName: "newImageFront.png")
+        
+        let fileURLBack = docDir?.appendingPathComponent("newImageBack.png")
+        Helper.saveToDisc(image: newImageBack, fileName: "newImageBack.png")
+        
+        let strPathFront = Helper.convertURLtoString(fileURL: fileURLFront!)
+        let strPathBack = Helper.convertURLtoString(fileURL: fileURLBack!)
+//
+        let htmlString: String = Helper.createHTMLString(image1: strPathFront, image2: strPathBack)
+        let formatter = UIMarkupTextPrintFormatter(markupText: htmlString)
+
         let printInfo = UIPrintInfo(dictionary: nil)
         printInfo.jobName = "781_print"
-        printInfo.outputType = .photo
-        
+        printInfo.outputType = .grayscale
+        printInfo.orientation = .landscape
+        printInfo.duplex = .shortEdge
+
         let printController = UIPrintInteractionController.shared
         printController.printInfo = printInfo
-        printController.showsNumberOfCopies = false
+        printController.showsNumberOfCopies = true
         
-        printController.printingItem = newImage
-        
+        let renderer = UIPrintPageRenderer()
+        renderer.addPrintFormatter(formatter, startingAtPageAt: 0)
+
+        printController.printPageRenderer = renderer
+
         printController.present(animated: true, completionHandler: nil)
 
     }
-
     
-    /**
-     - The generateImage function is used to pull the data written in our JSON file and overlay it on an image of the AFTO Form 781.
-
-     - Parameter none: All data is being retrieved from the stored JSON.
-
-     - Throws: none
-
-     - Returns: An image that can be rendered with the printController.
-     
-        throughout the function, any hard coded numbers represent pixels on the underlay image.  We use an NSAttributedString which gives the ability to control the font size.  Then we use the draw function to position it on the page.
-     */
-
-    func generateImage() -> UIImage? {
-        let renderer = UIGraphicsImageRenderer(size: CGSize(width: Helper.WIDTH, height: Helper.HEIGHT))
+    static func convertURLtoString(fileURL: URL) -> String{
         
-        let img = renderer.image { ctx in
-            let attrs: [NSAttributedString.Key: Any] = [
-                .font: UIFont.systemFont(ofSize: 36)
-            ]
-            
-            // MARK: - Section 1
-            let form = Form781Controller.shared.getCurrentForm()
-            
-            let dateString = NSAttributedString(string: form?.date ?? " ", attributes: attrs)
-            dateString.draw(with: CGRect(x: 330, y: 335, width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
-            
-            let mdsString = NSAttributedString(string: form?.mds ?? " ", attributes: attrs)
-            mdsString.draw(with: CGRect(x: 700, y: 335, width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
-            
-            let serialNumberString = NSAttributedString(string: form?.serialNumber ?? " ", attributes: attrs)
-            serialNumberString.draw(with: CGRect(x: 1035, y: 330, width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
-            
-            let unitChargedString = NSAttributedString(string: form?.unitCharged ?? " ", attributes: attrs)
-            unitChargedString.draw(with: CGRect(x: 1390, y: 330, width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
-            
-            let harmLocationString = NSAttributedString(string: form?.harmLocation ?? " ", attributes: attrs)
-            harmLocationString.draw(with: CGRect(x: 2120, y: 330, width: 980, height: 50), options: .usesLineFragmentOrigin, context: nil)
-            
-            let flightAuthString = NSAttributedString(string: form?.flightAuthNum ?? " ", attributes: attrs)
-            flightAuthString.draw(with: CGRect(x: 595, y: 930, width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
-            
-            let issuingUnitString = NSAttributedString(string: form?.issuingUnit ?? " ", attributes: attrs)
-            issuingUnitString.draw(with: CGRect(x: 1130, y: 930, width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
-            
-            let grandTotalTimeString = NSAttributedString(string: "\(form?.grandTotalTime ?? 0)", attributes: attrs)
-            grandTotalTimeString.draw(with: CGRect(x: 1935, y: 930, width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
-            
-            let grandTotalTandGString = NSAttributedString(string: "\(form?.grandTotalTouchAndGo ?? 0)", attributes: attrs)
-            grandTotalTandGString.draw(with: CGRect(x: 2130, y: 930, width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
-            
-            let grandTotalFullStopString = NSAttributedString(string: "\(form?.grandTotalFullStop ?? 0)", attributes: attrs)
-            grandTotalFullStopString.draw(with: CGRect(x: 2260, y: 930, width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
-            
-            let grandTotalLandingString = NSAttributedString(string: "\(form?.grandTotalLandings ?? 0)", attributes: attrs)
-            grandTotalLandingString.draw(with: CGRect(x: 2370, y: 930, width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
-            
-            let grandTotalSoritesString = NSAttributedString(string: "\(form?.grandTotalSorties ?? 0)", attributes: attrs)
-            grandTotalSoritesString.draw(with: CGRect(x: 2500, y: 930, width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
-            
-            // MARK: - Flight Sequence
-            
-            for x in 0...(form!.flights.count - 1){
-                let msnNumberString = NSAttributedString(string: form?.flights[x].missionNumber ?? " ", attributes: attrs)
-                msnNumberString.draw(with: CGRect(x: 445, y: 545 + (x * 65), width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                
-                let msnSymbolString = NSAttributedString(string: form?.flights[x].missionSymbol ?? " ", attributes: attrs)
-                msnSymbolString.draw(with: CGRect(x: 915, y: 545 + (x * 65), width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                
-                let fromICAOString = NSAttributedString(string: form?.flights[x].fromICAO ?? " ", attributes: attrs)
-                fromICAOString.draw(with: CGRect(x: 1135, y: 545 + (x * 65), width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                
-                let toICAOString = NSAttributedString(string: form?.flights[x].toICAO ?? " ", attributes: attrs)
-                toICAOString.draw(with: CGRect(x: 1325, y: 545 + (x * 65), width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                
-                let toTime = NSAttributedString(string: form?.flights[x].takeOffTime ?? " ", attributes: attrs)
-                toTime.draw(with: CGRect(x: 1525, y: 545 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                
-                let landTime = NSAttributedString(string: form?.flights[x].landTime ?? " ", attributes: attrs)
-                landTime.draw(with: CGRect(x: 1710, y: 545 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                
-                let totalTime = NSAttributedString(string: form?.flights[x].totalTime ?? " ", attributes: attrs)
-                totalTime.draw(with: CGRect(x: 1935, y: 545 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                
-                let touchAndGo = NSAttributedString(string: form?.flights[x].touchAndGo ?? " ", attributes: attrs)
-                touchAndGo.draw(with: CGRect(x: 2130, y: 545 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                
-                let fullStop = NSAttributedString(string: form?.flights[x].fullStop ?? " ", attributes: attrs)
-                fullStop.draw(with: CGRect(x: 2260, y: 545 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                
-                let totalLanding = NSAttributedString(string: form?.flights[x].totalLandings ?? " ", attributes: attrs)
-                totalLanding.draw(with: CGRect(x: 2370, y: 545 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                
-                let sorties = NSAttributedString(string: form?.flights[x].sorties ?? " ", attributes: attrs)
-                sorties.draw(with: CGRect(x: 2500, y: 545 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                
-                let specialUse = NSAttributedString(string: form?.flights[x].specialUse ?? " ", attributes: attrs)
-                specialUse.draw(with: CGRect(x: 2600, y: 545 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-            }
-            
-            
-            
-            
-            // MARK: - AirCrew
-            // Section 2
-            if form!.crewMembers.count > 0 {
-                for x in 0...form!.crewMembers.count - 1{
-                    let orgString = NSAttributedString(string: form?.crewMembers[x].flyingOrigin ?? " ", attributes: attrs)
-                    orgString.draw(with: CGRect(x: 325, y: 1210 + (x * 60), width: 100, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                    
-                    let last4String = NSAttributedString(string: form?.crewMembers[x].ssnLast4 ?? " ", attributes: attrs)
-                    last4String.draw(with: CGRect(x: 465, y: 1210 + (x * 60), width: 100, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                    
-                    let lastNameString = NSAttributedString(string: form?.crewMembers[x].lastName ?? " ", attributes: attrs)
-                    lastNameString.draw(with: CGRect(x: 595, y: 1210 + (x * 60), width: 505, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                    
-                    let flightAuthCodeString = NSAttributedString(string: form?.crewMembers[x].flightAuthDutyCode ?? " ", attributes: attrs)
-                    flightAuthCodeString.draw(with: CGRect(x: 1130, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                    
-                    let primaryString = NSAttributedString(string: form?.crewMembers[x].primary ?? " ", attributes: attrs)
-                    primaryString.draw(with: CGRect(x: 1380, y: 1210 + (x * 60), width: 50, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                    
-                    let secString = NSAttributedString(string: form?.crewMembers[x].secondary ?? " ", attributes: attrs)
-                    secString.draw(with: CGRect(x: 1490, y: 1210 + (x * 60), width: 50, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                    
-                    let instString = NSAttributedString(string: form?.crewMembers[x].instructor ?? " ", attributes:  attrs)
-                    instString.draw(with: CGRect(x: 1605, y: 1210 + (x * 60), width: 50, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                    
-                    let evalString = NSAttributedString(string: form?.crewMembers[x].evaluator ?? " ", attributes: attrs)
-                    evalString.draw(with: CGRect(x: 1720, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                    
-                    let otherString = NSAttributedString(string: form?.crewMembers[x].other ?? " ", attributes: attrs)
-                    otherString.draw(with: CGRect(x: 1840, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                    
-                    let timeTotalString = NSAttributedString(string: form?.crewMembers[x].time ?? " ", attributes: attrs)
-                    timeTotalString.draw(with: CGRect(x: 1955, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                    
-                    let sortyTotalString = NSAttributedString(string: form?.crewMembers[x].srty ?? " ", attributes: attrs)
-                    sortyTotalString.draw(with: CGRect(x: 2065, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                    
-                    let nightString = NSAttributedString(string: form?.crewMembers[x].nightPSIE ?? " ", attributes: attrs)
-                    nightString.draw(with: CGRect(x: 2160, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                    
-                    let insPIEString = NSAttributedString(string: form?.crewMembers[x].insPIE ?? " ", attributes: attrs)
-                    insPIEString.draw(with: CGRect(x: 2280, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                    
-                    let simInsString = NSAttributedString(string: form?.crewMembers[x].simIns ?? " ", attributes: attrs)
-                    simInsString.draw(with: CGRect(x: 2400, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                    
-                    let nvgString = NSAttributedString(string: form?.crewMembers[x].nvg ?? " ", attributes: attrs)
-                    nvgString.draw(with: CGRect(x: 2515, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                    
-                    let cbtTimeString = NSAttributedString(string: form?.crewMembers[x].combatTime ?? " ", attributes: attrs)
-                    cbtTimeString.draw(with: CGRect(x: 2630, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                    
-                    let cbtSrtyString = NSAttributedString(string: form?.crewMembers[x].combatSrty ?? " ", attributes: attrs)
-                    cbtSrtyString.draw(with: CGRect(x: 2730, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                    
-                    let cbtSptTimeString = NSAttributedString(string: form?.crewMembers[x].combatSptTime ?? " ", attributes: attrs)
-                    cbtSptTimeString.draw(with: CGRect(x: 2830, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                    
-                    let cbtSptSrtyString = NSAttributedString(string: form?.crewMembers[x].combatSptSrty ?? " ", attributes: attrs)
-                    cbtSptSrtyString.draw(with: CGRect(x: 2940, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                    
-                    let resvStatusString = NSAttributedString(string: form?.crewMembers[x].resvStatus ?? " ", attributes: attrs)
-                    resvStatusString.draw(with: CGRect(x: 3040, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                    
-                }
-            }
-        }
+        let stringURL = fileURL.absoluteString
+//        let finalString = stringURL.replacingOccurrences(of: "file://", with: "")
         
-        return img
+        return stringURL
     }
-//    func getPage1Info(date: String) {
-//        let filepath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
-//        let file = "swift/jsonHandler/Sources/jsonHandler/Resources/file.json"
-//        // let fullpath = "\(filepath)\(file)"
-//        let fileURL = filepath!.appendingPathComponent("test.json")
-//    }
-//
+
+    static func createHTMLString(image1: String, image2: String) -> String {
+       
+        return "<html lang=\"en\"><head><meta charset=\"UTF-8\" /><meta name=\"viewport\" /><style>img{margin-left: auto; margin-right: auto; margin-top: auto; margin-bottom: auto; max-height: 100%; max-width: 100%;}</style></head><body><img src=\(image1)><img src=\(image2)></body></html>"
+    }
+   
     // Try to turn the Sring contents into a Date object.
     // If we can not, return nil.
     static func dateFromString(_ dateStr: String) -> Date? {
@@ -488,9 +339,12 @@ class Helper {
     
     static func exportPDF(image: UIImage) {
         let pdfDoc = PDFDocument()
-        let image = Helper().generateImage()
-        let pdfPage = PDFPage(image: image!)
+        let front = ImageGenerator.generateFrontOfForm()
+        let rear = ImageGenerator.generateBackOfForm()
+        let pdfPage = PDFPage(image: front!)
+        let pdfRear = PDFPage(image: rear!)
         pdfDoc.insert(pdfPage!, at: 0)
+        pdfDoc.insert(pdfRear!, at: 1)
         let data = pdfDoc.dataRepresentation()
         
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
@@ -500,6 +354,26 @@ class Helper {
             try data!.write(to: url!)
         } catch {
             NSLog("PDF creation error")
+        }
+    }
+    
+    static func saveToDisc(image: UIImage, fileName: String) {
+        let docDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
+        let fileURL = docDir?.appendingPathComponent(fileName)
+        if let data = image.pngData() {
+            try? data.write(to: fileURL!)
+        } else {
+            NSLog("image.pngData() error")
+        }
+    }
+    
+    static func deleteFileFromDisc(fileName: String) {
+        let docDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
+        let fileURL = docDir?.appendingPathComponent(fileName)
+        do {
+            try FileManager.default.removeItem(at: fileURL!)
+        } catch let error as NSError {
+            NSLog("Couldn't find file at \(fileURL!) \n \(error.domain)")
         }
     }
 } //End

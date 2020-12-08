@@ -93,6 +93,10 @@ class FlightListViewController: UIViewController {
         }
     }
     
+    @IBAction func printButtonTapped(_ sender: UIButton) {
+        Helper.printFormFunc()
+    }
+    
     @IBAction func backButtonTapped(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
