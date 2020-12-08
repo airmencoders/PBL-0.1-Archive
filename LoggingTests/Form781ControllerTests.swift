@@ -32,7 +32,8 @@ class Form781ControllerTests: XCTestCase {
         } catch {
             XCTAssert(false, "Failed to delete test file.")
         }
-
+    
+        Form781Controller.shared.loggingFileName = "Logging.json"
         super.tearDown()
     }
 
