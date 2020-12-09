@@ -105,7 +105,7 @@ class AircrewViewController: UIViewController {
     }
     
     func clearFields() {
-        lastName.text = ""
+        lastName.text = nil
         firstName.text = nil
         ssn.text = nil
         flightAuthDutyCode.text = nil
@@ -233,7 +233,7 @@ extension AircrewViewController: AircrewTableViewCellDelegate {
         }
         populateFields(crewMember: crewMember)
         isEditingMember = true
-        crewMemberToEdit = cell.crewMember
+        crewMemberToEdit = crewMember
         saveButton.setTitle("SAVE", for: .normal)
         openPopUp()
     }

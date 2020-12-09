@@ -16,6 +16,7 @@ class Form781ControllerTests: XCTestCase {
     let bogusDate = "not really a date"
     let goodDate = "1 Jan 2021"
     let flightSeqOne = "ONE"
+    let flightOne = "ABCDEFGHIJKL"
     let crewMemberBob = "BOB"
     let crewMemberBobLast = "SMITH"
 
@@ -75,7 +76,7 @@ class Form781ControllerTests: XCTestCase {
 
     private func _makeFlightOne() -> Flight {
         return Flight(flightSeq: flightSeqOne,
-                      missionNumber: "9999",
+                      missionNumber: flightOne,
                       missionSymbol: "RISE",
                       fromICAO: "STARBASE",
                       toICAO: "MOONONE",
@@ -191,6 +192,23 @@ class Form781ControllerTests: XCTestCase {
         let flights = form.flights
         XCTAssertEqual(flights.count, 1)
         XCTAssertEqual(flights[0].flightSeq, flightSeqOne)
+        
+        let flight = flights[0]
+        Form781Controller.shared.updateFlight(flight: flight,
+                                              missionNumber: flight.missionNumber,
+                                              missionSymbol: flight.missionSymbol,
+                                              fromICAO: flight.fromICAO,
+                                              toICAO: flight.toICAO,
+                                              takeOffTime: flight.takeOffTime,
+                                              landTime: flight.landTime,
+                                              totalTime: flight.totalTime,
+                                              touchAndGo: flight.touchAndGo,
+                                              fullStop: flight.fullStop,
+                                              totalLandings: flight.totalLandings,
+                                              sorties: flight.sorties,
+                                              specialUse: flight.specialUse)
+        
+        XCTAssertEqual(flight.missionNumber, self.flightOne)
 
         Form781Controller.shared.remove(flight: flightOne, from: form)
         XCTAssertEqual(flights.count, 1)

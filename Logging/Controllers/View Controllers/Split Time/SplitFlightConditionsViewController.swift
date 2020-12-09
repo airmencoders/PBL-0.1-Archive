@@ -91,6 +91,10 @@ extension SplitFlightConditionsViewController: UITableViewDelegate, UITableViewD
 } //End
 
 extension SplitFlightConditionsViewController: FlightTableViewCellDelegate {
+    func editButtonTapped(cell: FlightTableViewCell) {
+        
+    }
+    
     func deleteButtonTapped(cell: FlightTableViewCell) {
     }
 }

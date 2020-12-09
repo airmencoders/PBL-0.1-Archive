@@ -28,6 +28,7 @@ class MissionDataViewController: UIViewController {
     @IBOutlet weak var issuingUnitLabel: UILabel!
     
     @IBOutlet weak var missionDataPopUp: UIView!
+    
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var mdsTextField: UITextField!
     @IBOutlet weak var serialNumTextField: UITextField!
@@ -38,6 +39,7 @@ class MissionDataViewController: UIViewController {
     
     @IBOutlet weak var flightSeqTableView: UITableView!
     @IBOutlet weak var flightSeqPopUp: UIView!
+    
     @IBOutlet weak var missionNumber: UITextField!
     @IBOutlet weak var missionSymbol: UITextField!
     @IBOutlet weak var fromICAO: UITextField!
@@ -60,12 +62,14 @@ class MissionDataViewController: UIViewController {
     // MARK: - Properties
     
     weak var delegate: MissionDataViewControllerDelegate?
-    var takeOffTimeString: String = " "
-    var landTimeString: String = " "
+    var isEditingFlight = false
+    var flightToEdit: Flight?
+    var takeOffTimeString: String = ""
+    var landTimeString: String = ""
     
     // MARK: - Local Variables
     
-    private var saveddateTextFieldText: String = ""
+    private var savedDateTextFieldText: String = ""
 
     // MARK: - Lifecycle
     
@@ -99,7 +103,6 @@ class MissionDataViewController: UIViewController {
         fullStop.delegate = self
         totalLandings.delegate = self
         sorties.delegate = self
-        disableBackground()
         disableBackground()
         guard let form = Form781Controller.shared.getCurrentForm() else {
             return
@@ -184,8 +187,11 @@ class MissionDataViewController: UIViewController {
     }
     
     func presentAlertIfFlightInputError() {
-        guard let form = Form781Controller.shared.getCurrentForm(),
-              let missionNumber = missionNumber.text,
+        guard let form = Form781Controller.shared.getCurrentForm() else {
+            return
+        }
+                
+        guard let missionNumber = missionNumber.text,
               let missionSymbol = missionSymbol.text,
               let fromICAO = fromICAO.text,
               let toICAO = toICAO.text,
@@ -198,29 +204,44 @@ class MissionDataViewController: UIViewController {
         else {
             return
         }
-                
-        var flightSeq = "A"
-        switch form.flights.count + 1 {
-        case 2:
-            flightSeq = "B"
-        case 3:
-            flightSeq = "C"
-        case 4:
-            flightSeq = "D"
-        case 5:
-            flightSeq = "E"
-        case 6:
-            flightSeq = "F"
-        default:
-            flightSeq = "A"
-        }
         
-        Alerts.showInputErrorAlert(on: self) { (_) in
+        if isEditingFlight {
             
-            FlightController.create(form: form, flightSeq: flightSeq, missionNumber: missionNumber, missionSymbol: missionSymbol, fromICAO: fromICAO, toICAO: toICAO, takeOffTime: self.takeOffTimeString, landTime: self.landTimeString, totalTime: totalTime, touchAndGo: touchAndGo, fullStop: fullStop, totalLandings: totalLandings, sorties: sorties, specialUse: specialUse)
+            guard let flight = self.flightToEdit else {
+                return
+            }
             
-            self.updateGrandTotals(form: form)
-            self.closePopUp()
+            Alerts.showInputErrorAlert(on: self) { (_) in
+            
+                Form781Controller.shared.updateFlight(flight: flight, missionNumber: missionNumber, missionSymbol: missionSymbol, fromICAO: fromICAO, toICAO: toICAO, takeOffTime: self.takeOffTimeString, landTime: self.landTimeString, totalTime: totalTime, touchAndGo: touchAndGo, fullStop: fullStop, totalLandings: totalLandings, sorties: sorties, specialUse: specialUse)
+                
+                self.closePopUp()
+            }
+        } else {
+            
+            var flightSeq = "A"
+            switch form.flights.count + 1 {
+            case 2:
+                flightSeq = "B"
+            case 3:
+                flightSeq = "C"
+            case 4:
+                flightSeq = "D"
+            case 5:
+                flightSeq = "E"
+            case 6:
+                flightSeq = "F"
+            default:
+                flightSeq = "A"
+            }
+            
+            Alerts.showInputErrorAlert(on: self) { (_) in
+                
+                FlightController.create(form: form, flightSeq: flightSeq, missionNumber: missionNumber, missionSymbol: missionSymbol, fromICAO: fromICAO, toICAO: toICAO, takeOffTime: self.takeOffTimeString, landTime: self.landTimeString, totalTime: totalTime, touchAndGo: touchAndGo, fullStop: fullStop, totalLandings: totalLandings, sorties: sorties, specialUse: specialUse)
+                
+                self.updateGrandTotals(form: form)
+                self.closePopUp()
+            }
         }
     }
     
@@ -270,13 +291,53 @@ class MissionDataViewController: UIViewController {
         Helper.unhighlight(textField: sorties)
     }
     
+    func clearFlightFields() {
+        missionNumber.text = nil
+        missionSymbol.text = nil
+        fromICAO.text = nil
+        toICAO.text = nil
+        specialUse.text = nil
+        takeOffTime.text = nil
+        landTime.text = nil
+        totalTime.text = nil
+        touchAndGo.text = nil
+        fullStop.text = nil
+        totalLandings.text = nil
+        sorties.text = nil
+    }
+    
+    func populateFlightFields(flight: Flight) {
+        missionNumber.text = flight.missionNumber
+        missionSymbol.text = flight.missionSymbol
+        fromICAO.text = flight.fromICAO
+        toICAO.text = flight.toICAO
+        specialUse.text = flight.specialUse
+        takeOffTime.text = flight.takeOffTime
+        landTime.text = flight.landTime
+        totalTime.text = flight.totalTime
+        touchAndGo.text = flight.touchAndGo
+        fullStop.text = flight.fullStop
+        totalLandings.text = flight.totalLandings
+        sorties.text = flight.sorties
+    }
+    
+    func openFlightPopUp() {
+        unhighlight()
+        flightSeqPopUp.isHidden = false
+        dimView.isHidden = false
+        delegate?.updateDimView(toHidden: false)
+        disableBackground()
+    }
+    
     func closePopUp() {
         updateLabels()
         flightSeqTableView.reloadData()
+        isEditingFlight = false
         flightSeqPopUp.isHidden = true
         missionDataPopUp.isHidden = true
         dimView.isHidden = true
         delegate?.updateDimView(toHidden: true)
+        clearFlightFields()
         enableBackground()
     }
     
@@ -330,11 +391,7 @@ class MissionDataViewController: UIViewController {
         guard form.flights.count < 6 else {
             return Alerts.showFlightsErrorAlert(on: self)
         }
-        unhighlight()
-        flightSeqPopUp.isHidden = false
-        dimView.isHidden = false
-        delegate?.updateDimView(toHidden: false)
-        disableBackground()
+        openFlightPopUp()
     }
     
     @IBAction func exitButtonTapped(_ sender: UIButton) {
@@ -412,7 +469,9 @@ class MissionDataViewController: UIViewController {
     }
 
     @IBAction func saveFlightButtonTapped(_ sender: UIButton) {
-        guard let form = Form781Controller.shared.getCurrentForm() else { return }
+        guard let form = Form781Controller.shared.getCurrentForm() else {
+            return
+        }
         highlightFlightSeq()
                 
         guard let missionNumber = missionNumber.text, !missionNumber.isEmpty,
@@ -425,28 +484,43 @@ class MissionDataViewController: UIViewController {
               let totalLandings = totalLandings.text, !totalLandings.isEmpty,
               let sorties = sorties.text, !sorties.isEmpty,
               let specialUse = specialUse.text
-        else { return presentAlertIfFlightInputError() }
-                
-        var flightSeq = "A"
-        switch form.flights.count + 1 {
-        case 2:
-            flightSeq = "B"
-        case 3:
-            flightSeq = "C"
-        case 4:
-            flightSeq = "D"
-        case 5:
-            flightSeq = "E"
-        case 6:
-            flightSeq = "F"
-        default:
-            flightSeq = "A"
+        else {
+            return presentAlertIfFlightInputError()
         }
         
-        FlightController.create(form: form, flightSeq: flightSeq, missionNumber: missionNumber, missionSymbol: missionSymbol, fromICAO: fromICAO, toICAO: toICAO, takeOffTime: takeOffTimeString, landTime: landTimeString, totalTime: totalTime, touchAndGo: touchAndGo, fullStop: fullStop, totalLandings: totalLandings, sorties: sorties, specialUse: specialUse)
-        
-        updateGrandTotals(form: form)
-        closePopUp()
+        if isEditingFlight {
+            
+            guard let flight = self.flightToEdit else {
+                return
+            }
+            
+            Form781Controller.shared.updateFlight(flight: flight, missionNumber: missionNumber, missionSymbol: missionSymbol, fromICAO: fromICAO, toICAO: toICAO, takeOffTime: takeOffTimeString, landTime: landTimeString, totalTime: totalTime, touchAndGo: touchAndGo, fullStop: fullStop, totalLandings: totalLandings, sorties: sorties, specialUse: specialUse)
+            
+            closePopUp()
+            
+        } else {
+            
+            var flightSeq = "A"
+            switch form.flights.count + 1 {
+            case 2:
+                flightSeq = "B"
+            case 3:
+                flightSeq = "C"
+            case 4:
+                flightSeq = "D"
+            case 5:
+                flightSeq = "E"
+            case 6:
+                flightSeq = "F"
+            default:
+                flightSeq = "A"
+            }
+            
+            FlightController.create(form: form, flightSeq: flightSeq, missionNumber: missionNumber, missionSymbol: missionSymbol, fromICAO: fromICAO, toICAO: toICAO, takeOffTime: takeOffTimeString, landTime: landTimeString, totalTime: totalTime, touchAndGo: touchAndGo, fullStop: fullStop, totalLandings: totalLandings, sorties: sorties, specialUse: specialUse)
+            
+            updateGrandTotals(form: form)
+            closePopUp()
+        }
     }
     
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
@@ -480,7 +554,13 @@ class MissionDataViewController: UIViewController {
 extension MissionDataViewController: FlightTableViewCellDelegate {
     
     func editButtonTapped(cell: FlightTableViewCell) {
-        
+        guard let flight = cell.flight else {
+            return
+        }
+        populateFlightFields(flight: flight)
+        isEditingFlight = true
+        flightToEdit = flight
+        openFlightPopUp()
     }
     
     func deleteButtonTapped(cell: FlightTableViewCell) {
@@ -509,6 +589,7 @@ extension MissionDataViewController: UITableViewDelegate, UITableViewDataSource 
         
         cell.delegate = self
         if let flight = Form781Controller.shared.getCurrentForm()?.flights[indexPath.row] {
+            cell.flight = flight
             cell.setUpViews(flight: flight)
         }
         
@@ -523,14 +604,14 @@ extension MissionDataViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == self.dateTextField {
-            self.saveddateTextFieldText = self.dateTextField.text ?? ""
+            self.savedDateTextFieldText = self.dateTextField.text ?? ""
         }
     }
 
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == self.dateTextField {
             guard let dateString = textField.text else {
-                textField.text = self.saveddateTextFieldText
+                textField.text = self.savedDateTextFieldText
                 return
             }
             let date = Helper.dateFromString(dateString)
@@ -538,7 +619,7 @@ extension MissionDataViewController: UITextFieldDelegate {
             if let date = date {
                 textField.text = Helper.stdFormattedDate(with: date)
             } else {
-                textField.text = self.saveddateTextFieldText
+                textField.text = self.savedDateTextFieldText
             }
         }
     }

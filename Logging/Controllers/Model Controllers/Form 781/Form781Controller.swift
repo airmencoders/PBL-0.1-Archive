@@ -124,6 +124,25 @@ class Form781Controller {
         save()
     }
     
+    func updateFlight(flight: Flight, missionNumber: String, missionSymbol: String, fromICAO: String, toICAO: String, takeOffTime: String, landTime: String, totalTime: String, touchAndGo: String, fullStop: String, totalLandings: String, sorties: String, specialUse: String) {
+        
+        flight.missionNumber = missionNumber
+        flight.missionSymbol = missionSymbol
+        flight.fromICAO = fromICAO
+        flight.toICAO = toICAO
+        flight.takeOffTime = takeOffTime
+        flight.landTime = landTime
+        flight.totalTime = totalTime
+        flight.touchAndGo = touchAndGo
+        flight.fullStop = fullStop
+        flight.totalLandings = totalLandings
+        flight.sorties = sorties
+        flight.specialUse = specialUse
+        
+        NSLog("Updated flight")
+        save()
+    }
+    
     // MARK: - Delete
     
     func remove(flight: Flight, from form: Form781) {
