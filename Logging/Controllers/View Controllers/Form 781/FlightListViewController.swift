@@ -16,9 +16,6 @@ class FlightListViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var missionDateLabel: UILabel!
     @IBOutlet weak var formSegmentedControl: UISegmentedControl!
-    @IBOutlet weak var printButton: UIButton!
-    @IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var dimView: UIView!
     
     @IBOutlet weak var aircrewListView: UIView!
@@ -93,6 +90,10 @@ class FlightListViewController: UIViewController {
         }
     }
     
+    @IBAction func sendButtonTapped(_ sender: UIButton) {
+        
+    }
+        
     @IBAction func printButtonTapped(_ sender: UIButton) {
         Helper.printFormFunc()
     }

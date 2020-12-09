@@ -8,14 +8,11 @@
 
 import UIKit
 
-protocol AircrewDataViewControllerDelegate: class {
-    func updateDimView(toHidden: Bool)
-}
-
 class AircrewDataViewController: UIViewController {
 
     // MARK: - Outlets
     
+    @IBOutlet weak var showFlightSeqButton: UIButton!
     @IBOutlet weak var flightSeqTableView: UITableView!
     @IBOutlet weak var flightTimeTableView: UITableView!
     
@@ -36,15 +33,6 @@ class AircrewDataViewController: UIViewController {
     @IBOutlet weak var combatSptTime: UITextField!
     @IBOutlet weak var combatSptSrty: UITextField!
     @IBOutlet weak var resvStatus: UITextField!
-    
-    // MARK: - Properties
-    
-    weak var delegate: AircrewDataViewControllerDelegate?
-//    var takeOffTimeString: String = " "
-//    var landTimeString: String = " "
-    
-    // MARK: - Local variables
-//    private var saveddateTextFieldText: String = ""
 
     // MARK: - Lifecycle
     
@@ -61,27 +49,20 @@ class AircrewDataViewController: UIViewController {
         flightTimeTableView.delegate = self
         flightTimeTableView.dataSource = self
     }
-
-} //End
-
-// MARK: - FlightTableViewCell Delegate
-
-extension AircrewDataViewController: FlightTableViewCellDelegate {
     
-    func editButtonTapped(cell: FlightTableViewCell) {
-        
+    // MARK: - Actions
+    
+    @IBAction func flightSeqButtonTapped(_ sender: UIButton) {
+        showFlightSeqButton.isSelected.toggle()
+        if showFlightSeqButton.isSelected {
+            showFlightSeqButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+            flightSeqTableView.isHidden = false
+        } else {
+            showFlightSeqButton.setImage(UIImage(systemName: "chevron.up"), for: .normal)
+            flightSeqTableView.isHidden = true
+        }
     }
-    
-    func deleteButtonTapped(cell: FlightTableViewCell) {
-//        guard let form = Form781Controller.shared.getCurrentForm(),
-//              let indexPath = flightSeqTableView.indexPath(for: cell) else { return }
-//        let flight = form.flights[indexPath.row]
-//        Form781Controller.shared.remove(flight: flight, from: form)
-//        flightSeqTableView.reloadData()
-//
-//        updateGrandTotals(form: form)
-    }
-    
+
 } //End
 
 // MARK: - TableView Delegate
@@ -120,6 +101,25 @@ extension AircrewDataViewController: UITableViewDelegate, UITableViewDataSource 
             return cell
         }
         return UITableViewCell()
+    }
+    
+} //End
+
+// MARK: - FlightTableViewCell Delegate
+
+extension AircrewDataViewController: FlightTableViewCellDelegate {
+    
+    func editButtonTapped(cell: FlightTableViewCell) {
+    }
+    
+    func deleteButtonTapped(cell: FlightTableViewCell) {
+//        guard let form = Form781Controller.shared.getCurrentForm(),
+//              let indexPath = flightSeqTableView.indexPath(for: cell) else { return }
+//        let flight = form.flights[indexPath.row]
+//        Form781Controller.shared.remove(flight: flight, from: form)
+//        flightSeqTableView.reloadData()
+//
+//        updateGrandTotals(form: form)
     }
     
 } //End

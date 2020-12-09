@@ -91,6 +91,10 @@ extension SplitFlightTimeViewController: UITableViewDelegate, UITableViewDataSou
 } //End
 
 extension SplitFlightTimeViewController: FlightTableViewCellDelegate {
+    func editButtonTapped(cell: FlightTableViewCell) {
+        
+    }
+    
     func deleteButtonTapped(cell: FlightTableViewCell) {
     }
 }
