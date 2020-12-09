@@ -75,7 +75,7 @@ class PBLOverviewButton: PBLButtonClear {
     }
 }
 
-class PBLPrintButton: PBLButtonClear {
+class PBLIconButton: PBLButtonClear {
     
     override func awakeFromNib() {
         super.awakeFromNib()

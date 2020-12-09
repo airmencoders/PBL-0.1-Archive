@@ -27,12 +27,32 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5L-a4-byR">
+                                        <rect key="frame" x="897.5" y="16.5" width="24" height="22"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="house.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="homeButtonTapped:" destination="gFV-3G-E5E" eventType="touchUpInside" id="Aw0-Kw-Eoc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2h-D0-dw7" customClass="PBLIconButton" customModule="Logging" customModuleProvider="target">
+                                        <rect key="frame" x="695" y="16.5" width="146" height="22"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="HELP CENTER  " image="questionmark.square.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="helpButtonTapped:" destination="gFV-3G-E5E" eventType="touchUpInside" id="XBS-Mi-zfl"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="notBlack"/>
                                 <constraints>
                                     <constraint firstItem="yE7-dH-j87" firstAttribute="centerX" secondItem="g9K-2n-qpg" secondAttribute="centerX" multiplier="0.12" id="14s-g3-0Rs"/>
                                     <constraint firstItem="yE7-dH-j87" firstAttribute="width" secondItem="g9K-2n-qpg" secondAttribute="width" multiplier="0.0727539" id="FDn-hU-jLY"/>
                                     <constraint firstItem="yE7-dH-j87" firstAttribute="centerY" secondItem="g9K-2n-qpg" secondAttribute="centerY" id="MAD-JP-zBk"/>
+                                    <constraint firstItem="b2h-D0-dw7" firstAttribute="centerX" secondItem="g9K-2n-qpg" secondAttribute="centerX" multiplier="1.5" id="N6u-KM-TfS"/>
+                                    <constraint firstItem="b2h-D0-dw7" firstAttribute="centerY" secondItem="g9K-2n-qpg" secondAttribute="centerY" id="ShS-6F-JxY"/>
+                                    <constraint firstItem="a5L-a4-byR" firstAttribute="trailing" secondItem="g9K-2n-qpg" secondAttribute="centerX" multiplier="1.8" id="alu-S7-hyc"/>
+                                    <constraint firstItem="a5L-a4-byR" firstAttribute="centerY" secondItem="g9K-2n-qpg" secondAttribute="centerY" id="kbe-3H-ehG"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m7u-0p-f5e">
@@ -63,7 +83,7 @@
                                                 <color key="textColor" name="slate"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6O-VQ-EZd" customClass="PBLPrintButton" customModule="Logging" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6O-VQ-EZd" customClass="PBLIconButton" customModule="Logging" customModuleProvider="target">
                                                 <rect key="frame" x="813.5" y="69.5" width="63" height="18.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="tintColor" name="slate"/>
@@ -74,7 +94,7 @@
                                                     <action selector="sendButtonTapped:" destination="gFV-3G-E5E" eventType="touchUpInside" id="LKh-GE-i46"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2kt-uY-5Th" userLabel="printForm" customClass="PBLPrintButton" customModule="Logging" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2kt-uY-5Th" userLabel="printForm" customClass="PBLIconButton" customModule="Logging" customModuleProvider="target">
                                                 <rect key="frame" x="915" y="69" width="68" height="20"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <color key="tintColor" name="slate"/>
@@ -2478,10 +2498,12 @@
     <resources>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="minus.circle" catalog="system" width="128" height="121"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
         <image name="printer.fill" catalog="system" width="128" height="111"/>
+        <image name="questionmark.square.fill" catalog="system" width="128" height="114"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="fog">
             <color red="0.71764705882352942" green="0.73333333333333328" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
