@@ -82,3 +82,11 @@ class PBLIconButton: PBLButtonClear {
         self.titleLabel?.font = UIFont(name: FontNames.dmSansBold, size: UIScreen.main.bounds.height/97.6)
     }
 }
+
+class PBLIconButtonWhite: PBLIconButton {
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.setTitleColor(.white, for: .normal)
+    }
+}

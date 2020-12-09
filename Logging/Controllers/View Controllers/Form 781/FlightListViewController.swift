@@ -108,21 +108,13 @@ class FlightListViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func continueButtonTapped(_ sender: UIButton) {
-        if let viewController = UIStoryboard(name: "Overview", bundle: nil).instantiateViewController(withIdentifier: "Overview") as? OverviewViewController {
-            if let navigator = navigationController {
-                navigator.pushViewController(viewController, animated: true)
-            }
-        }
-    }
-    
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
         // resign first responder in container view
     }
     
 } //End
 
-extension FlightListViewController: AircrewViewControllerDelegate, MissionDataViewControllerDelegate {
+extension FlightListViewController: AircrewViewControllerDelegate, MissionDataViewControllerDelegate, AircrewDataViewControllerDelegate {
     func updateDimView(toHidden: Bool) {
         toHidden ? (dimView.isHidden = true) : (dimView.isHidden = false)
     }
@@ -136,6 +128,12 @@ extension FlightListViewController: AircrewViewControllerDelegate, MissionDataVi
         }
         if segue.identifier == "ToMissionDataVC" {
             guard let destinationVC = segue.destination as? MissionDataViewController else {
+                return
+            }
+            destinationVC.delegate = self
+        }
+        if segue.identifier == "ToAircrewDataVC" {
+            guard let destinationVC = segue.destination as? AircrewDataViewController else {
                 return
             }
             destinationVC.delegate = self
