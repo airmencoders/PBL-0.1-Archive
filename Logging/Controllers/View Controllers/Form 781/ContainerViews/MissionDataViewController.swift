@@ -66,9 +66,6 @@ class MissionDataViewController: UIViewController {
     var flightToEdit: Flight?
     var takeOffTimeString: String = ""
     var landTimeString: String = ""
-    
-    // MARK: - Local Variables
-    
     private var savedDateTextFieldText: String = ""
 
     // MARK: - Lifecycle
@@ -104,10 +101,10 @@ class MissionDataViewController: UIViewController {
         totalLandings.delegate = self
         sorties.delegate = self
         disableBackground()
+        updateLabels()
         guard let form = Form781Controller.shared.getCurrentForm() else {
             return
         }
-        updateLabels()
         updateGrandTotals(form: form)
     }
     
@@ -133,17 +130,23 @@ class MissionDataViewController: UIViewController {
     }
     
     func updateLabels() {
-        guard let form = Form781Controller.shared.getCurrentForm() else {
-            return
+        if let form = Form781Controller.shared.getCurrentForm() {
+            dateLabel.text = form.date
+            mdsLabel.text = form.mds
+            serialNumberLabel.text = form.serialNumber
+            unitChargedLabel.text = form.unitCharged
+            harmLocationLabel.text = form.harmLocation
+            issuingUnitLabel.text = form.issuingUnit
+            flightAuthLabel.text = form.flightAuthNum
+        } else {
+            dateLabel.text = nil
+            mdsLabel.text = nil
+            serialNumberLabel.text = nil
+            unitChargedLabel.text = nil
+            harmLocationLabel.text = nil
+            issuingUnitLabel.text = nil
+            flightAuthLabel.text = nil
         }
-
-        dateLabel.text = form.date
-        mdsLabel.text = form.mds
-        serialNumberLabel.text = form.serialNumber
-        unitChargedLabel.text = form.unitCharged
-        harmLocationLabel.text = form.harmLocation
-        issuingUnitLabel.text = form.issuingUnit
-        flightAuthLabel.text = form.flightAuthNum
     }
     
     func updateGrandTotals(form: Form781) {
@@ -549,6 +552,29 @@ class MissionDataViewController: UIViewController {
     
 } //End
 
+// MARK: - TableView Delegate
+
+extension MissionDataViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Form781Controller.shared.getCurrentForm()?.flights.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = self.flightSeqTableView.dequeueReusableCell(withIdentifier: "FlightCell", for: indexPath) as? FlightTableViewCell else { return UITableViewCell() }
+        
+        cell.delegate = self
+        if let flight = Form781Controller.shared.getCurrentForm()?.flights[indexPath.row] {
+            cell.flight = flight
+            cell.setUpViews(flight: flight)
+        }
+        
+        return cell
+    }
+    
+} //End
+
 // MARK: - FlightTableViewCell Delegate
 
 extension MissionDataViewController: FlightTableViewCellDelegate {
@@ -571,29 +597,6 @@ extension MissionDataViewController: FlightTableViewCellDelegate {
         flightSeqTableView.reloadData()
         
         updateGrandTotals(form: form)
-    }
-    
-} //End
-
-// MARK: - TableView Delegate
-
-extension MissionDataViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Form781Controller.shared.getCurrentForm()?.flights.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = self.flightSeqTableView.dequeueReusableCell(withIdentifier: "FlightCell", for: indexPath) as? FlightTableViewCell else { return UITableViewCell() }
-        
-        cell.delegate = self
-        if let flight = Form781Controller.shared.getCurrentForm()?.flights[indexPath.row] {
-            cell.flight = flight
-            cell.setUpViews(flight: flight)
-        }
-        
-        return cell
     }
     
 } //End

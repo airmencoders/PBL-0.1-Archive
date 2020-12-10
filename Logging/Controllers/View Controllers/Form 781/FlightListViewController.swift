@@ -98,8 +98,7 @@ class FlightListViewController: UIViewController {
         Helper.printFormFunc()
     }
     
-    @IBAction func backButtonTapped(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
+    @IBAction func helpButtonTapped(_ sender: UIButton) {
     }
     
     @IBAction func continueButtonTapped(_ sender: UIButton) {
@@ -109,6 +108,13 @@ class FlightListViewController: UIViewController {
             }
         }
     }
+
+    @IBAction func homeButtonTapped(_ sender: UIButton) {
+    }
+    
+    @IBAction func backButtonTapped(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
     
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
         // resign first responder in container view
@@ -116,7 +122,7 @@ class FlightListViewController: UIViewController {
     
 } //End
 
-extension FlightListViewController: AircrewViewControllerDelegate, MissionDataViewControllerDelegate {
+extension FlightListViewController: AircrewViewControllerDelegate, MissionDataViewControllerDelegate, AircrewDataViewControllerDelegate {
     func updateDimView(toHidden: Bool) {
         toHidden ? (dimView.isHidden = true) : (dimView.isHidden = false)
     }
@@ -130,6 +136,12 @@ extension FlightListViewController: AircrewViewControllerDelegate, MissionDataVi
         }
         if segue.identifier == "ToMissionDataVC" {
             guard let destinationVC = segue.destination as? MissionDataViewController else {
+                return
+            }
+            destinationVC.delegate = self
+        }
+        if segue.identifier == "ToAircrewDataVC" {
+            guard let destinationVC = segue.destination as? AircrewDataViewController else {
                 return
             }
             destinationVC.delegate = self
