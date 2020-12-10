@@ -14,9 +14,15 @@ class CrewMemberController {
     
     static func create(form: Form781, lastName: String, firstName: String, ssnLast4: String, flightAuthDutyCode: String, flyingOrigin: String) {
         
-        let crewMember = CrewMember(lastName: lastName, firstName: firstName, ssnLast4: ssnLast4, flightAuthDutyCode: flightAuthDutyCode, flyingOrigin: flyingOrigin)
-        
-        Form781Controller.shared.updateFormwith(crewMember: crewMember, form: form)
+        if let crewMember = CrewMember(lastName: lastName,
+                                       firstName: firstName,
+                                       ssnLast4: ssnLast4,
+                                       flightAuthDutyCode: flightAuthDutyCode,
+                                       flyingOrigin: flyingOrigin) {
+            Form781Controller.shared.updateFormwith(crewMember: crewMember, form: form)
+        } else {
+            NSLog("Error cresting crew member!")
+        }
     }
     
 //    static func create(form: Form781, lastName: String, firstName: String, ssnLast4: String, flightAuthDutyCode: String, flyingOrigin: String, primary: String, secondary: String, instructor: String, evaluator: String, other: String, time: String, srty: String, nightPSIE: String, insPIE: String, simIns: String, nvg: String, combatTime: String, combatSrty: String, combatSptTime: String, combatSptSrty: String, resvStatus: String) {

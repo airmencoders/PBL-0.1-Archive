@@ -1,34 +1,17 @@
 //
-//  Form781.swift
-//  Logging
+//  Form781+CoreDataClass.swift
+//  
 //
-//  Created by Bethany Morris on 10/26/20.
-//  Copyright © 2020 Christian Brechbuhl. All rights reserved.
+//  Created by Pete Hoch on 12/10/20.
+//
 //
 
 import Foundation
+import CoreData
 
-class Form781: Codable {
-    
-    var date: String
-    var mds: String
-    var serialNumber: String
-    var unitCharged: String
-    var harmLocation: String
-    var flightAuthNum: String
-    var issuingUnit: String
-    
-    var grandTotalTime: Double?
-    var grandTotalTouchAndGo: Int?
-    var grandTotalFullStop: Int?
-    var grandTotalLandings: Int?
-    var grandTotalSorties: Int?
-    
-    var flights: [Flight]
-    var crewMembers: [CrewMember]
-    
-    #warning("TO DO: add maint and pilot review")
-    
+@objc(Form781)
+public class Form781: NSManagedObject {
+
     public init(date: String,
         mds: String,
         serialNumber: String,
@@ -59,8 +42,7 @@ class Form781: Codable {
         self.flights = flights
         self.crewMembers = crewMembers
     }
-    
-} //End
+}
 
 extension Form781: Equatable {
     

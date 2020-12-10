@@ -42,7 +42,7 @@ class SplitFlightConditionsViewController: UIViewController {
     @IBAction func continueButtonTapped(_ sender: UIButton) {
         #warning("Save here?")
         
-        if let viewController = UIStoryboard(name: "Overview", bundle: nil).instantiateViewController(withIdentifier: "Page1") as? OverviewViewController {
+        if let viewController = UIStoryboard(name: "Overview", bundle: Bundle(for: type(of: self))).instantiateViewController(withIdentifier: "Page1") as? OverviewViewController {
             if let navigator = navigationController {
                 navigator.pushViewController(viewController, animated: true)
             }

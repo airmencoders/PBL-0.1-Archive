@@ -6,7 +6,7 @@
 //  Copyright © 2020 Christian Brechbuhl. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class Form781Controller {
     
@@ -15,6 +15,9 @@ class Form781Controller {
     static let shared = Form781Controller()
     
     // MARK: - Properties
+    
+    private let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    private let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     private var forms = [Form781]()
     var formCreated = false
@@ -207,26 +210,21 @@ class Form781Controller {
     }
 
     // MARK: - Persistance
-    
+
     func fileURL() -> URL {
         let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let fileURL = url[0].appendingPathComponent(loggingFileName)
         //print("File URL: \(fileURL)")
         return fileURL
     }
-    
+
     func save() {
-        let encoder = JSONEncoder()
-        do {
-            encoder.outputFormatting = .prettyPrinted
-            let data = try encoder.encode(forms)
-            try data.write(to: fileURL())
-        } catch {
-            NSLog("There was an error encoding the data: \(error.localizedDescription)")
-        }
+        appDelegate.saveContext()
     }
-    
-    func loadForms() throws{
+
+    func loadForms() throws {
+        /*
+        Do we want to read in old data?
         let decoder = JSONDecoder()
         do {
             let data = try Data(contentsOf: fileURL())
@@ -236,7 +234,11 @@ class Form781Controller {
             forms = []
             throw error
         }
+        */
+
+        #warning("Need to load from core data")
+        forms = []
     }
-        
+
 } //End
  

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17511" systemVersion="20B29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CrewMember" representedClassName=".CrewMember" syncable="YES">
+        <attribute name="combatSptSrty" optional="YES" attributeType="String"/>
+        <attribute name="combatSptTime" optional="YES" attributeType="String"/>
+        <attribute name="combatSrty" optional="YES" attributeType="String"/>
+        <attribute name="combatTime" optional="YES" attributeType="String"/>
+        <attribute name="evaluator" optional="YES" attributeType="String"/>
+        <attribute name="firstName" attributeType="String"/>
+        <attribute name="flightAuthDutyCode" attributeType="String"/>
+        <attribute name="flyingOrigin" attributeType="String"/>
+        <attribute name="insPIE" optional="YES" attributeType="String"/>
+        <attribute name="instructor" optional="YES" attributeType="String"/>
+        <attribute name="lastName" attributeType="String"/>
+        <attribute name="nightPSIE" optional="YES" attributeType="String"/>
+        <attribute name="nvg" optional="YES" attributeType="String"/>
+        <attribute name="other" optional="YES" attributeType="String"/>
+        <attribute name="primary" optional="YES" attributeType="String"/>
+        <attribute name="resvStatus" optional="YES" attributeType="String"/>
+        <attribute name="secondary" optional="YES" attributeType="String"/>
+        <attribute name="simIns" optional="YES" attributeType="String"/>
+        <attribute name="srty" optional="YES" attributeType="String"/>
+        <attribute name="ssnLast4" attributeType="String"/>
+        <attribute name="time" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Flight" representedClassName=".Flight" syncable="YES">
+        <attribute name="flightSeq" attributeType="String"/>
+        <attribute name="fromICAO" attributeType="String"/>
+        <attribute name="fullStop" attributeType="String"/>
+        <attribute name="landTime" attributeType="String"/>
+        <attribute name="missionNumber" attributeType="String"/>
+        <attribute name="missionSymbol" attributeType="String"/>
+        <attribute name="sorties" attributeType="String"/>
+        <attribute name="specialUse" attributeType="String"/>
+        <attribute name="takeOffTime" attributeType="String"/>
+        <attribute name="toICAO" attributeType="String"/>
+        <attribute name="totalLandings" attributeType="String"/>
+        <attribute name="totalTime" attributeType="String"/>
+        <attribute name="touchAndGo" attributeType="String"/>
+    </entity>
+    <entity name="Form781" representedClassName=".Form781" syncable="YES">
+        <attribute name="date" attributeType="String"/>
+        <attribute name="flightAuthNum" attributeType="String"/>
+        <attribute name="grandTotalFullStop" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="grandTotalLandings" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="grandTotalSorties" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="grandTotalTime" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="grandTotalTouchAndGo" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="harmLocation" attributeType="String"/>
+        <attribute name="issuingUnit" attributeType="String"/>
+        <attribute name="mds" attributeType="String"/>
+        <attribute name="serialNumber" attributeType="String"/>
+        <attribute name="unitCharged" attributeType="String"/>
+        <relationship name="crewMembers" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CrewMember"/>
+        <relationship name="flights" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Flight"/>
+    </entity>
+    <elements>
+        <element name="CrewMember" positionX="-63" positionY="-18" width="128" height="344"/>
+        <element name="Flight" positionX="-54" positionY="153" width="128" height="224"/>
+        <element name="Form781" positionX="-36" positionY="162" width="128" height="239"/>
+    </elements>
+</model>

@@ -67,8 +67,10 @@ extension SplitFlightTimeViewController: UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == self.flightTimeTableView {
-            guard let cell = self.flightTimeTableView.dequeueReusableCell(withIdentifier: "FlightTimeCell", for: indexPath) as? FlightTimeTableViewCell else { return UITableViewCell() }
-            
+            guard let cell = self.flightTimeTableView.dequeueReusableCell(withIdentifier: "FlightTimeCell", for: indexPath) as? FlightTimeTableViewCell else {
+                return UITableViewCell()
+            }
+
             if let crewMember = Form781Controller.shared.getCurrentForm()?.crewMembers[indexPath.row] {
                 cell.setUpViews(crewMember: crewMember)
             }

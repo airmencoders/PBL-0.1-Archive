@@ -103,7 +103,7 @@ class FlightListViewController: UIViewController {
     }
     
     @IBAction func continueButtonTapped(_ sender: UIButton) {
-        if let viewController = UIStoryboard(name: "Overview", bundle: nil).instantiateViewController(withIdentifier: "Overview") as? OverviewViewController {
+        if let viewController = UIStoryboard(name: "Overview", bundle: Bundle(for: type(of: self))).instantiateViewController(withIdentifier: "Overview") as? OverviewViewController {
             if let navigator = navigationController {
                 navigator.pushViewController(viewController, animated: true)
             }

@@ -1,29 +1,17 @@
 //
-//  FlightData.swift
-//  Logging
+//  Flight+CoreDataClass.swift
+//  
 //
-//  Created by Bethany Morris on 10/26/20.
-//  Copyright © 2020 Christian Brechbuhl. All rights reserved.
+//  Created by Pete Hoch on 12/10/20.
+//
 //
 
-import Foundation
+import UIKit
+import CoreData
 
-class Flight: Codable {
-    
-    var flightSeq: String
-    var missionNumber: String
-    var missionSymbol: String
-    var fromICAO: String
-    var toICAO: String
-    var takeOffTime: String
-    var landTime: String
-    var totalTime: String
-    var touchAndGo: String
-    var fullStop: String
-    var totalLandings: String
-    var sorties: String
-    var specialUse: String
-    
+@objc(Flight)
+public class Flight: NSManagedObject {
+
     public init(flightSeq: String,
          missionNumber: String,
          missionSymbol: String,
@@ -37,7 +25,16 @@ class Flight: Codable {
          totalLandings: String,
          sorties: String,
          specialUse: String) {
-        
+
+//        let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+//        guard let Context = context else {
+//            return nil
+//        }
+//        guard let entitiyDesc = NSEntityDescription.entity(forEntityName: "CrewMember", in: Context) else {
+//            return nil
+//        }
+//        super.init(entity: entitiyDesc, insertInto: context)
+
         self.flightSeq = flightSeq
         self.missionNumber = missionNumber
         self.missionSymbol = missionSymbol
@@ -52,8 +49,7 @@ class Flight: Codable {
         self.sorties = sorties
         self.specialUse = specialUse
     }
-    
-} //End
+}
 
 extension Flight: Equatable {
     
