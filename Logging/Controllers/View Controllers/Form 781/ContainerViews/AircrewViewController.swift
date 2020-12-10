@@ -105,7 +105,7 @@ class AircrewViewController: UIViewController {
     }
     
     func clearFields() {
-        lastName.text = ""
+        lastName.text = nil
         firstName.text = nil
         ssn.text = nil
         flightAuthDutyCode.text = nil
@@ -233,7 +233,7 @@ extension AircrewViewController: AircrewTableViewCellDelegate {
         }
         populateFields(crewMember: crewMember)
         isEditingMember = true
-        crewMemberToEdit = cell.crewMember
+        crewMemberToEdit = crewMember
         saveButton.setTitle("SAVE", for: .normal)
         openPopUp()
     }
@@ -251,7 +251,9 @@ extension AircrewViewController: AircrewTableViewCellDelegate {
     
 } //End
 
-extension AircrewViewController: UITextFieldDelegate{
+// MARK: - UITextField Delegate
+
+extension AircrewViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()

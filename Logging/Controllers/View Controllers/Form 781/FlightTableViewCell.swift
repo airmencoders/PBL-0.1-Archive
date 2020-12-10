@@ -9,7 +9,7 @@
 import UIKit
 
 protocol FlightTableViewCellDelegate: class {
-    //func editButtonTapped(cell: FlightTableViewCell)
+    func editButtonTapped(cell: FlightTableViewCell)
     func deleteButtonTapped(cell: FlightTableViewCell)
 }
 
@@ -34,6 +34,7 @@ class FlightTableViewCell: UITableViewCell {
     // MARK: - Properties
     
     weak var delegate: FlightTableViewCellDelegate?
+    var flight: Flight?
     
     // MARK: - Methods and Actions
     
@@ -51,6 +52,10 @@ class FlightTableViewCell: UITableViewCell {
         totalLandings.text = flight.totalLandings
         sorties.text = flight.sorties
         specialUse.text = flight.specialUse
+    }
+    
+    @IBAction func editButtonTapped(_ sender: UIButton) {
+        delegate?.editButtonTapped(cell: self)
     }
     
     @IBAction func deleteButtonTapped(_ sender: UIButton) {
