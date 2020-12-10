@@ -22,7 +22,7 @@ class FlightController {
     }
     
     static func calculateTotalTime() -> Double {
-        guard let form = Form781Controller.shared.forms.last else { return 0 }
+        guard let form = Form781Controller.shared.getCurrentForm() else { return 0 }
         var totalTime = 0.0
 
         for flight in form.flights {
@@ -32,7 +32,7 @@ class FlightController {
     }
     
     static func calculateTotalTouchGo() -> Int {
-        guard let form = Form781Controller.shared.forms.last else { return 0 }
+        guard let form = Form781Controller.shared.getCurrentForm() else { return 0 }
         var touchGo = 0
 
         for flight in form.flights {
@@ -42,7 +42,7 @@ class FlightController {
     }
     
     static func calculateTotalFullStop() -> Int {
-        guard let form = Form781Controller.shared.forms.last else { return 0 }
+        guard let form = Form781Controller.shared.getCurrentForm() else { return 0 }
         var fullStop = 0
 
         for flight in form.flights {
@@ -52,7 +52,7 @@ class FlightController {
     }
     
     static func calculateTotalLandings() -> Int {
-        guard let form = Form781Controller.shared.forms.last else { return 0 }
+        guard let form = Form781Controller.shared.getCurrentForm() else { return 0 }
         var totalLandings = 0
 
         for flight in form.flights {
@@ -62,7 +62,7 @@ class FlightController {
     }
     
     static func calculateTotalSorties() -> Int {
-        guard let form = Form781Controller.shared.forms.last else { return 0 }
+        guard let form = Form781Controller.shared.getCurrentForm() else { return 0 }
         var sorties = 0
 
         for flight in form.flights {

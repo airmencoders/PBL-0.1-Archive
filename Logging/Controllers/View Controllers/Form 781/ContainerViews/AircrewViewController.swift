@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AircrewViewControllerDelegate: class {
+    func updateDimView(toHidden: Bool)
+}
+
 class AircrewViewController: UIViewController {
 
     // MARK: - Outlets
@@ -19,6 +23,14 @@ class AircrewViewController: UIViewController {
     @IBOutlet weak var ssn: UITextField!
     @IBOutlet weak var flightAuthDutyCode: UITextField!
     @IBOutlet weak var flyingOrigin: UITextField!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var dimView: UIView!
+    
+    // MARK: - Properties
+    
+    var isEditingMember = false
+    var crewMemberToEdit: CrewMember?
+    weak var delegate: AircrewViewControllerDelegate?
     
     // MARK: - Lifecycle
     
@@ -32,26 +44,47 @@ class AircrewViewController: UIViewController {
     func setUpViews() {
         aircrewTableView.delegate = self
         aircrewTableView.dataSource = self
+        lastName.delegate = self
+        firstName.delegate = self
+        ssn.delegate = self
+        flightAuthDutyCode.delegate = self
+        flyingOrigin.delegate = self
     }
     
-    func presentInputErrorAlert() {
-//        guard let form = Form781Controller.shared.forms.last,
-//              let lastName = lastName.text,
-//              let firstName = firstName.text,
-//              let ssn = ssn.text,
-//              let flightAuthDutyCode = flightAuthDutyCode.text,
-//              let flyingOrigin = flyingOrigin.text,
-//        else {
-//            return
-//        }
+    func presentAlertIfInputError() {
+        guard let lastName = lastName.text,
+              let firstName = firstName.text,
+              let ssn = ssn.text,
+              let flightAuthDutyCode = flightAuthDutyCode.text,
+              let flyingOrigin = flyingOrigin.text
+        else {
+            return
+        }
         
-        Alerts.showInputErrorAlert(on: self) { (_) in
+        if isEditingMember {
+            guard let crewMember = self.crewMemberToEdit else {
+                return
+            }
             
-            //CrewMemberController.create(form: form, lastName: lastName, firstName: firstName, ssnLast4: ssn, flightAuthDutyCode: flightAuthDutyCode, flyingOrigin: flyingOrigin, primary: primary, secondary: secondary, instructor: instructor, evaluator: evaluator, other: other, time: time, srty: srty, nightPSIE: nightPSIE, insPIE: ins, simIns: simIns, nvg: nvg, combatTime: combatTime, combatSrty: combatSrty, combatSptTime: combatSptTime, combatSptSrty: combatSptSrty, resvStatus: resvStatus)
+            Alerts.showInputErrorAlert(on: self) { (_) in
+                
+                Form781Controller.shared.updateCrewMemberInfo(crewMember: crewMember, lastName: lastName, firstName: firstName, ssnLast4: ssn, flightAuthDutyCode: flightAuthDutyCode, flyingOrigin: flyingOrigin)
+                
+                self.closePopUp()
+            }
+        } else {
             
-            self.aircrewTableView.reloadData()
-            self.popUpView.isHidden = true
-            self.enableButtons()
+            guard let form = Form781Controller.shared.getCurrentForm()
+            else {
+                return
+            }
+            
+            Alerts.showInputErrorAlert(on: self) { (_) in
+                
+                CrewMemberController.create(form: form, lastName: lastName, firstName: firstName, ssnLast4: ssn, flightAuthDutyCode: flightAuthDutyCode, flyingOrigin: flyingOrigin)
+                
+                self.closePopUp()
+            }
         }
     }
     
@@ -71,42 +104,89 @@ class AircrewViewController: UIViewController {
         Helper.unhighlight(textField: flyingOrigin)
     }
     
-    func disableButtons() {
+    func clearFields() {
+        lastName.text = nil
+        firstName.text = nil
+        ssn.text = nil
+        flightAuthDutyCode.text = nil
+        flyingOrigin.text = nil
+    }
+    
+    func populateFields(crewMember: CrewMember) {
+        lastName.text = crewMember.lastName
+        firstName.text = crewMember.firstName
+        ssn.text = crewMember.ssnLast4
+        flightAuthDutyCode.text = crewMember.flightAuthDutyCode
+        flyingOrigin.text = crewMember.flyingOrigin
+    }
+    
+    func openPopUp() {
+        unhighlight()
+        popUpView.isHidden = false
+        dimView.isHidden = false
+        delegate?.updateDimView(toHidden: false)
+        disableBackground()
+    }
+    
+    func closePopUp() {
+        aircrewTableView.reloadData()
+        isEditingMember = false
+        popUpView.isHidden = true
+        dimView.isHidden = true
+        delegate?.updateDimView(toHidden: true)
+        clearFields()
+        saveButton.setTitle("+ ADD NEW CREW", for: .normal)
+        enableBackground()
+    }
+    
+    func disableBackground() {
         aircrewTableView.isUserInteractionEnabled = false
     }
     
-    func enableButtons() {
+    func enableBackground() {
         aircrewTableView.isUserInteractionEnabled = true
     }
     
     // MARK: - Actions
     
     @IBAction func addButtonTapped(_ sender: UIButton) {
-        unhighlight()
-        popUpView.isHidden = false
-        disableButtons()
+        openPopUp()
     }
     
     @IBAction func exitButtonTapped(_ sender: UIButton) {
-        popUpView.isHidden = true
-        enableButtons()
+        closePopUp()
     }
     
-    @IBAction func addNewAircrewButtonTapped(_ sender: UIButton) {
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
         highlight()
-//        guard let form = Form781Controller.shared.forms.last else { return }
-//        guard let lastName = lastName.text, !lastName.isEmpty,
-//              let firstName = firstName.text, !firstName.isEmpty,
-//              let ssn = ssn.text, !ssn.isEmpty,
-//              let flightAuthDutyCode = flightAuthDutyCode.text, !flightAuthDutyCode.isEmpty,
-//              let flyingOrigin = flyingOrigin.text, !flyingOrigin.isEmpty,
-//        else { return presentInputErrorAlert() }
+        guard let lastName = lastName.text, !lastName.isEmpty,
+              let firstName = firstName.text, !firstName.isEmpty,
+              let ssn = ssn.text, !ssn.isEmpty,
+              let flyingOrigin = flyingOrigin.text, !flyingOrigin.isEmpty,
+              let flightAuthDutyCode = flightAuthDutyCode.text, !flightAuthDutyCode.isEmpty
+        else {
+            return self.presentAlertIfInputError()
+        }
         
-        //CrewMemberController.create(form: form, lastName: lastName, firstName: firstName, ssnLast4: ssn, flightAuthDutyCode: flightAuthDutyCode, flyingOrigin: flyingOrigin, primary: primary, secondary: secondary, instructor: instructor, evaluator: evaluator, other: other, time: time, srty: srty, nightPSIE: nightPSIE, insPIE: insPIE, simIns: simIns, nvg: nvg, combatTime: combatTime, combatSrty: combatSrty, combatSptTime: combatSptTime, combatSptSrty: combatSptSrty, resvStatus: resvStatus)
-        
-        aircrewTableView.reloadData()
-        popUpView.isHidden = true
-        enableButtons()
+        if isEditingMember {
+            guard let crewMember = self.crewMemberToEdit else {
+                return
+            }
+            
+            Form781Controller.shared.updateCrewMemberInfo(crewMember: crewMember, lastName: lastName, firstName: firstName, ssnLast4: ssn, flightAuthDutyCode: flightAuthDutyCode, flyingOrigin: flyingOrigin)
+            
+            closePopUp()
+            
+        } else {
+            
+            guard let form = Form781Controller.shared.getCurrentForm() else {
+                return
+            }
+            
+            CrewMemberController.create(form: form, lastName: lastName, firstName: firstName, ssnLast4: ssn, flightAuthDutyCode: flightAuthDutyCode, flyingOrigin: flyingOrigin)
+            
+            closePopUp()
+        }
     }
     
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
@@ -124,14 +204,17 @@ class AircrewViewController: UIViewController {
 extension AircrewViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        Form781Controller.shared.forms.last?.crewMembers.count ?? 0
+        Form781Controller.shared.getCurrentForm()?.crewMembers.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = self.aircrewTableView.dequeueReusableCell(withIdentifier: "AircrewCell", for: indexPath) as? AircrewTableViewCell else { return UITableViewCell() }
+        guard let cell = self.aircrewTableView.dequeueReusableCell(withIdentifier: "AircrewCell", for: indexPath) as? AircrewTableViewCell else {
+            return UITableViewCell()
+        }
         
         cell.delegate = self
-        if let crewMember = Form781Controller.shared.forms.last?.crewMembers[indexPath.row] {
+        if let crewMember = Form781Controller.shared.getCurrentForm()?.crewMembers[indexPath.row] {
+            cell.crewMember = crewMember
             cell.setUpViews(crewMember: crewMember)
         }
         
@@ -145,12 +228,22 @@ extension AircrewViewController: UITableViewDelegate, UITableViewDataSource {
 extension AircrewViewController: AircrewTableViewCellDelegate {
     
     func editButtonTapped(cell: AircrewTableViewCell) {
-        self.performSegue(withIdentifier: "ToAircrewDetailVC", sender: self)
+        guard let crewMember = cell.crewMember else {
+            return
+        }
+        populateFields(crewMember: crewMember)
+        isEditingMember = true
+        crewMemberToEdit = crewMember
+        saveButton.setTitle("SAVE", for: .normal)
+        openPopUp()
     }
 
     func deleteButtonTapped(cell: AircrewTableViewCell) {
-        guard let form = Form781Controller.shared.forms.last,
-              let indexPath = aircrewTableView.indexPath(for: cell) else { return }
+        guard let form = Form781Controller.shared.getCurrentForm(),
+              let indexPath = aircrewTableView.indexPath(for: cell)
+        else {
+            return
+        }
         let crewMember = form.crewMembers[indexPath.row]
         Form781Controller.shared.remove(crewMember: crewMember, from: form)
         aircrewTableView.reloadData()
@@ -158,20 +251,13 @@ extension AircrewViewController: AircrewTableViewCellDelegate {
     
 } //End
 
-// MARK: - Detail View Delegate
+// MARK: - UITextField Delegate
 
-extension AircrewViewController: AircrewDetailViewControllerDelegate {
-
-    func exitButtonTapped() {
-        navigationController?.dismiss(animated: true, completion: {
-            self.aircrewTableView.reloadData()
-        })
-    }
+extension AircrewViewController: UITextFieldDelegate {
     
-    func saveButtonTapped() {
-        navigationController?.dismiss(animated: true, completion: {
-            self.aircrewTableView.reloadData()
-        })
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
 } //End

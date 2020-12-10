@@ -8,8 +8,6 @@
 
 import Foundation
 
-import Foundation
-
 class Form781Controller {
     
     // MARK: - Singleton
@@ -18,9 +16,11 @@ class Form781Controller {
     
     // MARK: - Properties
     
-    var forms = [Form781]()
+    private var forms = [Form781]()
     var formCreated = false
     
+    var loggingFileName = "Logging.json"
+
     // MARK: - Create
     
     func create(date: String, mds: String, serialNumber: String, unitCharged: String, harmLocation: String, flightAuthNum: String, issuingUnit: String) {
@@ -35,20 +35,16 @@ class Form781Controller {
     
     //populates from previous form
     func populateFlights() {
-        let numberOfForms = forms.count
-        if numberOfForms > 1 {
-            let flightsArray = forms[numberOfForms - 2].flights
-            forms.last?.flights = flightsArray
+        if let flightsArray = getPreviousForm()?.flights {
+            getCurrentForm()?.flights = flightsArray
             NSLog("Populated flights")
         }
     }
     
     //populates from previous form
     func populateCrewMembers() {
-        let numberOfForms = forms.count
-        if numberOfForms > 1 {
-            let crewMemberArray = forms[numberOfForms - 2].crewMembers
-            forms.last?.crewMembers = crewMemberArray
+        if let crewMemberArray = getPreviousForm()?.crewMembers {
+            getCurrentForm()?.crewMembers = crewMemberArray
             NSLog("Populated crew members")
         }
     }
@@ -57,7 +53,9 @@ class Form781Controller {
     
     func updateMissionData(date: String, mds: String, serialNumber: String, unitCharged: String, harmLocation: String, flightAuthNum: String, issuingUnit: String) {
         
-        guard let form = forms.last else { return }
+        guard let form = getCurrentForm() else {
+            return
+        }
         form.date = date
         form.mds = mds
         form.serialNumber = serialNumber
@@ -91,13 +89,20 @@ class Form781Controller {
         save()
     }
     
-    func updateCrewMember(crewMember: CrewMember, lastName: String, firstName: String, ssnLast4: String, flightAuthDutyCode: String, flyingOrigin: String, primary: String, secondary: String, instructor: String, evaluator: String, other: String, time: String, srty: String, nightPSIE: String, insPIE: String, simIns: String, nvg: String, combatTime: String, combatSrty: String, combatSptTime: String, combatSptSrty: String, resvStatus: String) {
+    func updateCrewMemberInfo(crewMember: CrewMember, lastName: String, firstName: String, ssnLast4: String, flightAuthDutyCode: String, flyingOrigin: String) {
         
         crewMember.lastName = lastName
         crewMember.firstName = firstName
         crewMember.ssnLast4 = ssnLast4
         crewMember.flyingOrigin = flyingOrigin
         crewMember.flightAuthDutyCode = flightAuthDutyCode
+                
+        NSLog("Updated crew member info")
+        save()
+    }
+    
+    func updateCrewMemberTime(crewMember: CrewMember, primary: String, secondary: String, instructor: String, evaluator: String, other: String, time: String, srty: String, nightPSIE: String, insPIE: String, simIns: String, nvg: String, combatTime: String, combatSrty: String, combatSptTime: String, combatSptSrty: String, resvStatus: String) {
+        
         crewMember.primary = primary
         crewMember.secondary = secondary
         crewMember.instructor = instructor
@@ -115,7 +120,26 @@ class Form781Controller {
         crewMember.combatSptSrty = combatSptSrty
         crewMember.resvStatus = resvStatus
                 
-        NSLog("Updated crew member")
+        NSLog("Updated crew member time")
+        save()
+    }
+    
+    func updateFlight(flight: Flight, missionNumber: String, missionSymbol: String, fromICAO: String, toICAO: String, takeOffTime: String, landTime: String, totalTime: String, touchAndGo: String, fullStop: String, totalLandings: String, sorties: String, specialUse: String) {
+        
+        flight.missionNumber = missionNumber
+        flight.missionSymbol = missionSymbol
+        flight.fromICAO = fromICAO
+        flight.toICAO = toICAO
+        flight.takeOffTime = takeOffTime
+        flight.landTime = landTime
+        flight.totalTime = totalTime
+        flight.touchAndGo = touchAndGo
+        flight.fullStop = fullStop
+        flight.totalLandings = totalLandings
+        flight.sorties = sorties
+        flight.specialUse = specialUse
+        
+        NSLog("Updated flight")
         save()
     }
     
@@ -130,7 +154,7 @@ class Form781Controller {
     }
     
     func updateFlightSeqLetters() {
-        guard let flights = forms.last?.flights else { return }
+        guard let flights = getCurrentForm()?.flights else { return }
         for (index, flight) in flights.enumerated() {
             
             switch index {
@@ -163,11 +187,30 @@ class Form781Controller {
         //delete form from array
     }
     
+    // MARK: - Form access
+
+    func numberOfForms() -> Int {
+        return forms.count
+    }
+
+    func getCurrentForm() -> Form781? {
+        return forms.last
+    }
+
+    func getPreviousForm() -> Form781? {
+        let count = self.numberOfForms()
+        if count > 1 {
+            return forms[count - 2]
+        }
+
+        return nil
+    }
+
     // MARK: - Persistance
     
     func fileURL() -> URL {
         let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let fileURL = url[0].appendingPathComponent("Logging.json")
+        let fileURL = url[0].appendingPathComponent(loggingFileName)
         //print("File URL: \(fileURL)")
         return fileURL
     }
@@ -185,8 +228,14 @@ class Form781Controller {
     
     func loadForms() throws{
         let decoder = JSONDecoder()
-        let data = try Data(contentsOf: fileURL())
-        forms = try decoder.decode([Form781].self, from: data)
+        do {
+            let data = try Data(contentsOf: fileURL())
+            forms = try decoder.decode([Form781].self, from: data)
+        } catch {
+            // No data to load, so clear out the array.
+            forms = []
+            throw error
+        }
     }
         
 } //End

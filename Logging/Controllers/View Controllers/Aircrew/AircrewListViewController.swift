@@ -58,12 +58,12 @@ class AircrewListViewController: UIViewController {
         aircrewTableView.delegate = self
         aircrewTableView.dataSource = self
         
-        guard let form = Form781Controller.shared.forms.last else { return }
+        guard let form = Form781Controller.shared.getCurrentForm() else { return }
         headerTitleLabel.text = "Mission \(form.date)"
     }
     
     func presentInputErrorAlert() {
-        guard let form = Form781Controller.shared.forms.last,
+        guard let form = Form781Controller.shared.getCurrentForm(),
               let lastName = lastName.text,
               let firstName = firstName.text,
               let ssn = ssn.text,
@@ -196,7 +196,7 @@ class AircrewListViewController: UIViewController {
     
     @IBAction func addNewAircrewButtonTapped(_ sender: UIButton) {
         highlight()
-        guard let form = Form781Controller.shared.forms.last else { return }
+        guard let form = Form781Controller.shared.getCurrentForm() else { return }
         guard let lastName = lastName.text, !lastName.isEmpty,
               let firstName = firstName.text, !firstName.isEmpty,
               let ssn = ssn.text, !ssn.isEmpty,
@@ -268,7 +268,7 @@ class AircrewListViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToAircrewDetailVC" {
             guard let indexPath = aircrewTableView.indexPathForSelectedRow, let destinationVC = segue.destination as? AircrewDetailViewController else { return }
-            let crewMember = Form781Controller.shared.forms.last?.crewMembers[indexPath.row]
+            let crewMember = Form781Controller.shared.getCurrentForm()?.crewMembers[indexPath.row]
             destinationVC.crewMember = crewMember
             destinationVC.delegate = self
         }
@@ -281,14 +281,14 @@ class AircrewListViewController: UIViewController {
 extension AircrewListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        Form781Controller.shared.forms.last?.crewMembers.count ?? 0
+        Form781Controller.shared.getCurrentForm()?.crewMembers.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = self.aircrewTableView.dequeueReusableCell(withIdentifier: "AircrewCell", for: indexPath) as? AircrewTableViewCell else { return UITableViewCell() }
         
         cell.delegate = self
-        if let crewMember = Form781Controller.shared.forms.last?.crewMembers[indexPath.row] {
+        if let crewMember = Form781Controller.shared.getCurrentForm()?.crewMembers[indexPath.row] {
             cell.setUpViews(crewMember: crewMember)
         }
         
@@ -306,7 +306,7 @@ extension AircrewListViewController: AircrewTableViewCellDelegate {
     }
 
     func deleteButtonTapped(cell: AircrewTableViewCell) {
-        guard let form = Form781Controller.shared.forms.last,
+        guard let form = Form781Controller.shared.getCurrentForm(),
               let indexPath = aircrewTableView.indexPath(for: cell) else { return }
         let crewMember = form.crewMembers[indexPath.row]
         Form781Controller.shared.remove(crewMember: crewMember, from: form)
