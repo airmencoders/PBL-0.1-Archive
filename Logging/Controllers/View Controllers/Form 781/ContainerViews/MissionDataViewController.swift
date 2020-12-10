@@ -101,10 +101,10 @@ class MissionDataViewController: UIViewController {
         totalLandings.delegate = self
         sorties.delegate = self
         disableBackground()
+        updateLabels()
         guard let form = Form781Controller.shared.getCurrentForm() else {
             return
         }
-        updateLabels()
         updateGrandTotals(form: form)
     }
     
@@ -130,17 +130,23 @@ class MissionDataViewController: UIViewController {
     }
     
     func updateLabels() {
-        guard let form = Form781Controller.shared.getCurrentForm() else {
-            return
+        if let form = Form781Controller.shared.getCurrentForm() {
+            dateLabel.text = form.date
+            mdsLabel.text = form.mds
+            serialNumberLabel.text = form.serialNumber
+            unitChargedLabel.text = form.unitCharged
+            harmLocationLabel.text = form.harmLocation
+            issuingUnitLabel.text = form.issuingUnit
+            flightAuthLabel.text = form.flightAuthNum
+        } else {
+            dateLabel.text = nil
+            mdsLabel.text = nil
+            serialNumberLabel.text = nil
+            unitChargedLabel.text = nil
+            harmLocationLabel.text = nil
+            issuingUnitLabel.text = nil
+            flightAuthLabel.text = nil
         }
-
-        dateLabel.text = form.date
-        mdsLabel.text = form.mds
-        serialNumberLabel.text = form.serialNumber
-        unitChargedLabel.text = form.unitCharged
-        harmLocationLabel.text = form.harmLocation
-        issuingUnitLabel.text = form.issuingUnit
-        flightAuthLabel.text = form.flightAuthNum
     }
     
     func updateGrandTotals(form: Form781) {
