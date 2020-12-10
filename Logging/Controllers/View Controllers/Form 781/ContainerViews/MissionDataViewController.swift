@@ -66,9 +66,6 @@ class MissionDataViewController: UIViewController {
     var flightToEdit: Flight?
     var takeOffTimeString: String = ""
     var landTimeString: String = ""
-    
-    // MARK: - Local Variables
-    
     private var savedDateTextFieldText: String = ""
 
     // MARK: - Lifecycle
@@ -549,6 +546,29 @@ class MissionDataViewController: UIViewController {
     
 } //End
 
+// MARK: - TableView Delegate
+
+extension MissionDataViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Form781Controller.shared.getCurrentForm()?.flights.count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = self.flightSeqTableView.dequeueReusableCell(withIdentifier: "FlightCell", for: indexPath) as? FlightTableViewCell else { return UITableViewCell() }
+        
+        cell.delegate = self
+        if let flight = Form781Controller.shared.getCurrentForm()?.flights[indexPath.row] {
+            cell.flight = flight
+            cell.setUpViews(flight: flight)
+        }
+        
+        return cell
+    }
+    
+} //End
+
 // MARK: - FlightTableViewCell Delegate
 
 extension MissionDataViewController: FlightTableViewCellDelegate {
@@ -571,29 +591,6 @@ extension MissionDataViewController: FlightTableViewCellDelegate {
         flightSeqTableView.reloadData()
         
         updateGrandTotals(form: form)
-    }
-    
-} //End
-
-// MARK: - TableView Delegate
-
-extension MissionDataViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Form781Controller.shared.getCurrentForm()?.flights.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard let cell = self.flightSeqTableView.dequeueReusableCell(withIdentifier: "FlightCell", for: indexPath) as? FlightTableViewCell else { return UITableViewCell() }
-        
-        cell.delegate = self
-        if let flight = Form781Controller.shared.getCurrentForm()?.flights[indexPath.row] {
-            cell.flight = flight
-            cell.setUpViews(flight: flight)
-        }
-        
-        return cell
     }
     
 } //End
