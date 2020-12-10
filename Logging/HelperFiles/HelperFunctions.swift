@@ -337,7 +337,7 @@ class Helper {
         return nil
     }
     
-    static func exportPDF(image: UIImage) {
+    static func exportPDF() {
         let pdfDoc = PDFDocument()
         let front = ImageGenerator.generateFrontOfForm()
         let rear = ImageGenerator.generateBackOfForm()
