@@ -66,7 +66,7 @@
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OLx-T7-Tjq" userLabel="AFTO Container View">
                                 <rect key="frame" x="41" y="54.5" width="983" height="1311.5"/>
                                 <connections>
-                                    <segue destination="gFV-3G-E5E" kind="embed" identifier="ToFlightListVC" id="Dlb-uF-pgZ"/>
+                                    <segue destination="gFV-3G-E5E" kind="embed" identifier="ToForm781VC" id="Dlb-uF-pgZ"/>
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWe-tN-T4K" userLabel="Show Menu Button">
@@ -118,10 +118,10 @@
             </objects>
             <point key="canvasLocation" x="1352" y="-54"/>
         </scene>
-        <!--Flight List View Controller-->
+        <!--Form781 View Controller-->
         <scene sceneID="dbc-4b-XtW">
             <objects>
-                <viewController storyboardIdentifier="FlightList" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gFV-3G-E5E" customClass="FlightListViewController" customModule="Logging" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FlightList" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gFV-3G-E5E" customClass="Form781ViewController" customModule="Logging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xUH-4b-EGE">
                         <rect key="frame" x="0.0" y="0.0" width="983" height="1311.5"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -177,18 +177,7 @@
                                                     <action selector="printButtonTapped:" destination="gFV-3G-E5E" eventType="touchUpInside" id="sD7-uh-WSq"/>
                                                 </connections>
                                             </button>
-                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Apc-Nh-lAc">
-                                                <rect key="frame" x="221" y="102.5" width="590" height="32"/>
-                                                <segments>
-                                                    <segment title="Aircrew List"/>
-                                                    <segment title="Mission Data"/>
-                                                    <segment title="Aircrew Data"/>
-                                                </segments>
-                                                <connections>
-                                                    <action selector="formSegmentedControlChanged:" destination="gFV-3G-E5E" eventType="valueChanged" id="VfS-nT-k4Y"/>
-                                                </connections>
-                                            </segmentedControl>
-                                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvs-n6-FjA">
+                                            <view hidden="YES" alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvs-n6-FjA">
                                                 <rect key="frame" x="0.0" y="0.0" width="983" height="1311.5"/>
                                                 <color key="backgroundColor" name="slate"/>
                                             </view>
@@ -216,12 +205,10 @@
                                             <constraint firstItem="YHT-QX-Vw3" firstAttribute="top" secondItem="XJa-dx-bcD" secondAttribute="top" id="0pN-uD-njt"/>
                                             <constraint firstItem="HkU-Hp-kPG" firstAttribute="height" secondItem="abM-LW-dth" secondAttribute="height" multiplier="0.04" id="70Q-6M-h6s"/>
                                             <constraint firstItem="g6O-VQ-EZd" firstAttribute="centerY" secondItem="wJ7-7N-1G3" secondAttribute="centerY" id="Dcp-vR-dhH"/>
-                                            <constraint firstItem="Apc-Nh-lAc" firstAttribute="centerY" secondItem="abM-LW-dth" secondAttribute="centerY" multiplier="0.18" id="I8J-BP-T7I"/>
                                             <constraint firstItem="HkU-Hp-kPG" firstAttribute="top" secondItem="abM-LW-dth" secondAttribute="top" id="IL7-bu-aek"/>
                                             <constraint firstAttribute="bottom" secondItem="jvs-n6-FjA" secondAttribute="bottom" id="IMz-ui-HUD"/>
                                             <constraint firstItem="jvs-n6-FjA" firstAttribute="top" secondItem="abM-LW-dth" secondAttribute="top" id="Itu-E8-BW2"/>
                                             <constraint firstItem="XJa-dx-bcD" firstAttribute="centerX" secondItem="abM-LW-dth" secondAttribute="centerX" id="K2u-DG-4g2"/>
-                                            <constraint firstItem="Apc-Nh-lAc" firstAttribute="width" secondItem="abM-LW-dth" secondAttribute="width" multiplier="0.6" id="O69-H9-1GY"/>
                                             <constraint firstItem="YHT-QX-Vw3" firstAttribute="leading" secondItem="XJa-dx-bcD" secondAttribute="leading" id="Vmt-Uo-gIS"/>
                                             <constraint firstItem="wJ7-7N-1G3" firstAttribute="leading" secondItem="pIP-we-FoW" secondAttribute="leading" id="Wok-eM-qyu"/>
                                             <constraint firstItem="2kt-uY-5Th" firstAttribute="trailing" secondItem="XJa-dx-bcD" secondAttribute="trailing" id="YcW-KD-fUH"/>
@@ -235,7 +222,6 @@
                                             <constraint firstItem="H9Z-I3-T6g" firstAttribute="trailing" secondItem="XJa-dx-bcD" secondAttribute="trailing" id="d6e-OV-sX8"/>
                                             <constraint firstItem="HkU-Hp-kPG" firstAttribute="width" secondItem="abM-LW-dth" secondAttribute="width" id="e9m-if-HH3"/>
                                             <constraint firstItem="wJ7-7N-1G3" firstAttribute="centerY" secondItem="abM-LW-dth" secondAttribute="centerY" multiplier="0.12" id="fTe-kg-WVA"/>
-                                            <constraint firstItem="Apc-Nh-lAc" firstAttribute="centerX" secondItem="abM-LW-dth" secondAttribute="centerX" multiplier="1.05" id="fd5-Ee-606"/>
                                             <constraint firstItem="H9Z-I3-T6g" firstAttribute="leading" secondItem="XJa-dx-bcD" secondAttribute="leading" id="hrX-mc-1KY"/>
                                             <constraint firstItem="YHT-QX-Vw3" firstAttribute="bottom" secondItem="XJa-dx-bcD" secondAttribute="bottom" id="iRT-Vr-3F6"/>
                                             <constraint firstItem="XJa-dx-bcD" firstAttribute="centerY" secondItem="abM-LW-dth" secondAttribute="centerY" multiplier="1.06" id="kT8-RF-enQ"/>
@@ -282,7 +268,6 @@
                         <outlet property="flightAuthTextField" destination="qtR-qz-4wH" id="9lY-Y4-3tA"/>
                         <outlet property="flightSeqTableView" destination="89Q-Op-sJj" id="rtM-q5-6Ar"/>
                         <outlet property="flyingOrigin" destination="YGF-TL-gMe" id="Wyy-c5-OKv"/>
-                        <outlet property="formSegmentedControl" destination="Apc-Nh-lAc" id="UEK-wk-4Q8"/>
                         <outlet property="harmLocationTextField" destination="Omy-ru-fYK" id="cfo-ki-xhR"/>
                         <outlet property="issuingUnitTextField" destination="wQb-zd-kSB" id="jay-FK-Tnr"/>
                         <outlet property="lastName" destination="ogi-CJ-P7W" id="Igj-en-gBc"/>
@@ -508,11 +493,11 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vxf-dS-THd">
+                            <view hidden="YES" alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vxf-dS-THd">
                                 <rect key="frame" x="0.0" y="0.0" width="835" height="1088.5"/>
                                 <color key="backgroundColor" name="slate"/>
                             </view>
-                            <view alpha="0.94999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gm-6O-mze" customClass="popUpView" customModule="Logging" customModuleProvider="target">
+                            <view hidden="YES" alpha="0.94999998807907104" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gm-6O-mze" customClass="popUpView" customModule="Logging" customModuleProvider="target">
                                 <rect key="frame" x="83.5" y="0.0" width="668" height="871"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bPK-aM-7Ko" userLabel="Exit">
@@ -713,7 +698,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2778" y="-315"/>
+            <point key="canvasLocation" x="2778" y="220"/>
         </scene>
         <!--Mission Data View Controller-->
         <scene sceneID="1zX-tr-fUq">
@@ -2043,7 +2028,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2778" y="220"/>
+            <point key="canvasLocation" x="2778" y="-315"/>
         </scene>
         <!--Aircrew Data View Controller-->
         <scene sceneID="2ue-oO-tWI">
@@ -3080,7 +3065,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="t1D-Dw-AX7">
-                                <rect key="frame" x="0.0" y="179.5" width="225.5" height="100"/>
+                                <rect key="frame" x="0.0" y="181.5" width="225.5" height="135"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjC-Qv-6u9" customClass="PBLSideMenuButton" customModule="Logging" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="225.5" height="30"/>
@@ -3106,10 +3091,18 @@
                                             <action selector="aircrewListButtonTapped:" destination="83w-Ih-qzk" eventType="touchUpInside" id="wur-nZ-2A6"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="47s-hX-MmH" customClass="PBLSideMenuButton" customModule="Logging" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="105" width="225.5" height="30"/>
+                                        <color key="backgroundColor" name="fog"/>
+                                        <state key="normal" title="AIRCREW DATA"/>
+                                        <connections>
+                                            <action selector="aircrewDataButtonTapped:" destination="83w-Ih-qzk" eventType="touchUpInside" id="OH8-oQ-fs4"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DAYS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhb-00-rC8" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="13.5" y="383" width="42.5" height="20.5"/>
+                                <rect key="frame" x="13.5" y="449" width="42.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -3119,10 +3112,10 @@
                         <color key="backgroundColor" name="mist"/>
                         <constraints>
                             <constraint firstItem="xgf-6v-KHj" firstAttribute="centerX" secondItem="qAO-SR-uv4" secondAttribute="centerX" multiplier="0.7" id="65C-SY-qnE"/>
-                            <constraint firstItem="t1D-Dw-AX7" firstAttribute="centerY" secondItem="jAH-wa-OUb" secondAttribute="centerY" multiplier="0.35" id="7S5-qO-3np"/>
+                            <constraint firstItem="t1D-Dw-AX7" firstAttribute="centerY" secondItem="jAH-wa-OUb" secondAttribute="centerY" multiplier="0.38" id="7S5-qO-3np"/>
                             <constraint firstItem="t1D-Dw-AX7" firstAttribute="centerX" secondItem="jAH-wa-OUb" secondAttribute="centerX" id="A4v-EV-JXh"/>
                             <constraint firstItem="xgf-6v-KHj" firstAttribute="centerY" secondItem="qAO-SR-uv4" secondAttribute="centerY" multiplier="0.1" id="AnW-an-cwf"/>
-                            <constraint firstItem="uhb-00-rC8" firstAttribute="centerY" secondItem="qAO-SR-uv4" secondAttribute="centerY" multiplier="0.6" id="Lhl-k3-h85"/>
+                            <constraint firstItem="uhb-00-rC8" firstAttribute="centerY" secondItem="qAO-SR-uv4" secondAttribute="centerY" multiplier="0.7" id="Lhl-k3-h85"/>
                             <constraint firstItem="tD9-SY-FGa" firstAttribute="centerX" secondItem="jAH-wa-OUb" secondAttribute="centerX" multiplier="1.8" id="VRe-qM-yYy"/>
                             <constraint firstItem="tD9-SY-FGa" firstAttribute="centerY" secondItem="jAH-wa-OUb" secondAttribute="centerY" multiplier="0.1" id="cfs-64-jWd"/>
                             <constraint firstItem="uhb-00-rC8" firstAttribute="leading" secondItem="xgf-6v-KHj" secondAttribute="leading" id="nRq-kq-HVA"/>
@@ -3130,6 +3123,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="aircrewDataButton" destination="47s-hX-MmH" id="9PO-48-fQA"/>
                         <outlet property="aircrewListButton" destination="Es9-3S-Vvb" id="Llw-WN-QmQ"/>
                         <outlet property="missionDataButton" destination="gRv-H4-tc8" id="Qtu-GA-ca6"/>
                         <outlet property="overviewButton" destination="qjC-Qv-6u9" id="geF-9b-p0h"/>
