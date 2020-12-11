@@ -22,6 +22,7 @@
         <attribute name="srty" optional="YES" attributeType="String"/>
         <attribute name="ssnLast4" attributeType="String"/>
         <attribute name="time" optional="YES" attributeType="String"/>
+        <relationship name="form781" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Form781" inverseName="crewMembers" inverseEntity="Form781"/>
     </entity>
     <entity name="Flight" representedClassName=".Flight" syncable="YES">
         <attribute name="flightSeq" attributeType="String"/>
@@ -37,6 +38,7 @@
         <attribute name="totalLandings" attributeType="String"/>
         <attribute name="totalTime" attributeType="String"/>
         <attribute name="touchAndGo" attributeType="String"/>
+        <relationship name="form781" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Form781" inverseName="flights" inverseEntity="Form781"/>
     </entity>
     <entity name="Form781" representedClassName=".Form781" syncable="YES">
         <attribute name="date" attributeType="String"/>
@@ -51,12 +53,12 @@
         <attribute name="mds" attributeType="String"/>
         <attribute name="serialNumber" attributeType="String"/>
         <attribute name="unitCharged" attributeType="String"/>
-        <relationship name="crewMembers" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CrewMember"/>
-        <relationship name="flights" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Flight"/>
+        <relationship name="crewMembers" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="CrewMember" inverseName="form781" inverseEntity="CrewMember"/>
+        <relationship name="flights" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Flight" inverseName="form781" inverseEntity="Flight"/>
     </entity>
     <elements>
-        <element name="CrewMember" positionX="-63" positionY="-18" width="128" height="344"/>
-        <element name="Flight" positionX="-54" positionY="153" width="128" height="224"/>
+        <element name="CrewMember" positionX="-63" positionY="-18" width="128" height="359"/>
+        <element name="Flight" positionX="-54" positionY="153" width="128" height="239"/>
         <element name="Form781" positionX="-36" positionY="162" width="128" height="239"/>
     </elements>
 </model>

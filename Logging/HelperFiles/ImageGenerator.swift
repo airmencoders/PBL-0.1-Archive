@@ -72,40 +72,40 @@ class ImageGenerator {
             // MARK: - Flight Sequence
             
             for x in 0...(form!.flights.count - 1){
-                let msnNumberString = NSAttributedString(string: form?.flights[x].missionNumber ?? " ", attributes: attrs)
+                let msnNumberString = NSAttributedString(string: (form?.flights[x] as? Flight)?.missionNumber ?? " ", attributes: attrs)
                 msnNumberString.draw(with: CGRect(x: 345, y: 455 + (x * 65), width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
                 
-                let msnSymbolString = NSAttributedString(string: form?.flights[x].missionSymbol ?? " ", attributes: attrs)
+                let msnSymbolString = NSAttributedString(string: (form?.flights[x] as? Flight)?.missionSymbol ?? " ", attributes: attrs)
                 msnSymbolString.draw(with: CGRect(x: 825, y: 455 + (x * 65), width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
                 
-                let fromICAOString = NSAttributedString(string: form?.flights[x].fromICAO ?? " ", attributes: attrs)
+                let fromICAOString = NSAttributedString(string: (form?.flights[x] as? Flight)?.fromICAO ?? " ", attributes: attrs)
                 fromICAOString.draw(with: CGRect(x: 1045, y: 455 + (x * 65), width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
                 
-                let toICAOString = NSAttributedString(string: form?.flights[x].toICAO ?? " ", attributes: attrs)
+                let toICAOString = NSAttributedString(string: (form?.flights[x] as? Flight)?.toICAO ?? " ", attributes: attrs)
                 toICAOString.draw(with: CGRect(x: 1265, y: 455 + (x * 65), width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
                 
-                let toTime = NSAttributedString(string: form?.flights[x].takeOffTime ?? " ", attributes: attrs)
+                let toTime = NSAttributedString(string: (form?.flights[x] as? Flight)?.takeOffTime ?? " ", attributes: attrs)
                 toTime.draw(with: CGRect(x: 1465, y: 455 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                 
-                let landTime = NSAttributedString(string: form?.flights[x].landTime ?? " ", attributes: attrs)
+                let landTime = NSAttributedString(string: (form?.flights[x] as? Flight)?.landTime ?? " ", attributes: attrs)
                 landTime.draw(with: CGRect(x: 1680, y: 455 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                 
-                let totalTime = NSAttributedString(string: form?.flights[x].totalTime ?? " ", attributes: attrs)
+                let totalTime = NSAttributedString(string: (form?.flights[x] as? Flight)?.totalTime ?? " ", attributes: attrs)
                 totalTime.draw(with: CGRect(x: 1875, y: 455 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                 
-                let touchAndGo = NSAttributedString(string: form?.flights[x].touchAndGo ?? " ", attributes: attrs)
+                let touchAndGo = NSAttributedString(string: (form?.flights[x] as? Flight)?.touchAndGo ?? " ", attributes: attrs)
                 touchAndGo.draw(with: CGRect(x: 2060, y: 455 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                 
-                let fullStop = NSAttributedString(string: form?.flights[x].fullStop ?? " ", attributes: attrs)
+                let fullStop = NSAttributedString(string: (form?.flights[x] as? Flight)?.fullStop ?? " ", attributes: attrs)
                 fullStop.draw(with: CGRect(x: 2200, y: 455 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                 
-                let totalLanding = NSAttributedString(string: form?.flights[x].totalLandings ?? " ", attributes: attrs)
+                let totalLanding = NSAttributedString(string: (form?.flights[x] as? Flight)?.totalLandings ?? " ", attributes: attrs)
                 totalLanding.draw(with: CGRect(x: 2310, y: 455 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                 
-                let sorties = NSAttributedString(string: form?.flights[x].sorties ?? " ", attributes: attrs)
+                let sorties = NSAttributedString(string: (form?.flights[x] as? Flight)?.sorties ?? " ", attributes: attrs)
                 sorties.draw(with: CGRect(x: 2490, y: 455 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                 
-                let specialUse = NSAttributedString(string: form?.flights[x].specialUse ?? " ", attributes: attrs)
+                let specialUse = NSAttributedString(string: (form?.flights[x] as? Flight)?.specialUse ?? " ", attributes: attrs)
                 specialUse.draw(with: CGRect(x: 2590, y: 455 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
             }
             
@@ -122,126 +122,126 @@ class ImageGenerator {
                 let crewSize: Int = form!.crewMembers.count
                 if crewSize <= 15 {
                     for x in 0...crewSize - 1 {
-                        let orgString = NSAttributedString(string: form?.crewMembers[x].flyingOrigin ?? " ", attributes: attrs)
+                        let orgString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.flyingOrigin ?? " ", attributes: attrs)
                         orgString.draw(with: CGRect(x: 175, y: 1085 + (x * 60), width: 100, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let last4String = NSAttributedString(string: form?.crewMembers[x].ssnLast4 ?? " ", attributes: attrs)
+                        let last4String = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.ssnLast4 ?? " ", attributes: attrs)
                         last4String.draw(with: CGRect(x: 315, y: 1085 + (x * 60), width: 100, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let lastNameString = NSAttributedString(string: form?.crewMembers[x].lastName ?? " ", attributes: attrs)
+                        let lastNameString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.lastName ?? " ", attributes: attrs)
                         lastNameString.draw(with: CGRect(x: 455, y: 1085 + (x * 60), width: 505, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let flightAuthCodeString = NSAttributedString(string: form?.crewMembers[x].flightAuthDutyCode ?? " ", attributes: attrs)
+                        let flightAuthCodeString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.flightAuthDutyCode ?? " ", attributes: attrs)
                         flightAuthCodeString.draw(with: CGRect(x: 1035, y: 1085 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let primaryString = NSAttributedString(string: form?.crewMembers[x].primary ?? " ", attributes: attrs)
+                        let primaryString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.primary ?? " ", attributes: attrs)
                         primaryString.draw(with: CGRect(x: 1130, y: 1085 + (x * 60), width: 50, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let secString = NSAttributedString(string: form?.crewMembers[x].secondary ?? " ", attributes: attrs)
+                        let secString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.secondary ?? " ", attributes: attrs)
                         secString.draw(with: CGRect(x: 1240, y: 1085 + (x * 60), width: 50, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let instString = NSAttributedString(string: form?.crewMembers[x].instructor ?? " ", attributes:  attrs)
+                        let instString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.instructor ?? " ", attributes:  attrs)
                         instString.draw(with: CGRect(x: 1355, y: 1085 + (x * 60), width: 50, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let evalString = NSAttributedString(string: form?.crewMembers[x].evaluator ?? " ", attributes: attrs)
+                        let evalString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.evaluator ?? " ", attributes: attrs)
                         evalString.draw(with: CGRect(x: 1670, y: 1085 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let otherString = NSAttributedString(string: form?.crewMembers[x].other ?? " ", attributes: attrs)
+                        let otherString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.other ?? " ", attributes: attrs)
                         otherString.draw(with: CGRect(x: 1790, y: 1085 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let timeTotalString = NSAttributedString(string: form?.crewMembers[x].time ?? " ", attributes: attrs)
+                        let timeTotalString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.time ?? " ", attributes: attrs)
                         timeTotalString.draw(with: CGRect(x: 1905, y: 1085 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let sortyTotalString = NSAttributedString(string: form?.crewMembers[x].srty ?? " ", attributes: attrs)
+                        let sortyTotalString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.srty ?? " ", attributes: attrs)
                         sortyTotalString.draw(with: CGRect(x: 2015, y: 1085 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let nightString = NSAttributedString(string: form?.crewMembers[x].nightPSIE ?? " ", attributes: attrs)
+                        let nightString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.nightPSIE ?? " ", attributes: attrs)
                         nightString.draw(with: CGRect(x: 2160, y: 1085 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let insPIEString = NSAttributedString(string: form?.crewMembers[x].insPIE ?? " ", attributes: attrs)
+                        let insPIEString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.insPIE ?? " ", attributes: attrs)
                         insPIEString.draw(with: CGRect(x: 2280, y: 1085 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let simInsString = NSAttributedString(string: form?.crewMembers[x].simIns ?? " ", attributes: attrs)
+                        let simInsString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.simIns ?? " ", attributes: attrs)
                         simInsString.draw(with: CGRect(x: 2300, y: 1085 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let nvgString = NSAttributedString(string: form?.crewMembers[x].nvg ?? " ", attributes: attrs)
+                        let nvgString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.nvg ?? " ", attributes: attrs)
                         nvgString.draw(with: CGRect(x: 2415, y: 1085 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let cbtTimeString = NSAttributedString(string: form?.crewMembers[x].combatTime ?? " ", attributes: attrs)
+                        let cbtTimeString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.combatTime ?? " ", attributes: attrs)
                         cbtTimeString.draw(with: CGRect(x: 2530, y: 1085 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let cbtSrtyString = NSAttributedString(string: form?.crewMembers[x].combatSrty ?? " ", attributes: attrs)
+                        let cbtSrtyString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.combatSrty ?? " ", attributes: attrs)
                         cbtSrtyString.draw(with: CGRect(x: 2630, y: 1085 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let cbtSptTimeString = NSAttributedString(string: form?.crewMembers[x].combatSptTime ?? " ", attributes: attrs)
+                        let cbtSptTimeString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.combatSptTime ?? " ", attributes: attrs)
                         cbtSptTimeString.draw(with: CGRect(x: 2730, y: 1085 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let cbtSptSrtyString = NSAttributedString(string: form?.crewMembers[x].combatSptSrty ?? " ", attributes: attrs)
+                        let cbtSptSrtyString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.combatSptSrty ?? " ", attributes: attrs)
                         cbtSptSrtyString.draw(with: CGRect(x: 2840, y: 1085 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let resvStatusString = NSAttributedString(string: form?.crewMembers[x].resvStatus ?? " ", attributes: attrs)
+                        let resvStatusString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.resvStatus ?? " ", attributes: attrs)
                         resvStatusString.draw(with: CGRect(x: 2940, y: 1085 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                     }
                 } else {
                     for x in 0...14 {
-                        let orgString = NSAttributedString(string: form?.crewMembers[x].flyingOrigin ?? " ", attributes: attrs)
+                        let orgString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.flyingOrigin ?? " ", attributes: attrs)
                         orgString.draw(with: CGRect(x: 325, y: 1210 + (x * 60), width: 100, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let last4String = NSAttributedString(string: form?.crewMembers[x].ssnLast4 ?? " ", attributes: attrs)
+                        let last4String = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.ssnLast4 ?? " ", attributes: attrs)
                         last4String.draw(with: CGRect(x: 465, y: 1210 + (x * 60), width: 100, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let lastNameString = NSAttributedString(string: form?.crewMembers[x].lastName ?? " ", attributes: attrs)
+                        let lastNameString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.lastName ?? " ", attributes: attrs)
                         lastNameString.draw(with: CGRect(x: 595, y: 1210 + (x * 60), width: 505, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let flightAuthCodeString = NSAttributedString(string: form?.crewMembers[x].flightAuthDutyCode ?? " ", attributes: attrs)
+                        let flightAuthCodeString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.flightAuthDutyCode ?? " ", attributes: attrs)
                         flightAuthCodeString.draw(with: CGRect(x: 1130, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let primaryString = NSAttributedString(string: form?.crewMembers[x].primary ?? " ", attributes: attrs)
+                        let primaryString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.primary ?? " ", attributes: attrs)
                         primaryString.draw(with: CGRect(x: 1380, y: 1210 + (x * 60), width: 50, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let secString = NSAttributedString(string: form?.crewMembers[x].secondary ?? " ", attributes: attrs)
+                        let secString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.secondary ?? " ", attributes: attrs)
                         secString.draw(with: CGRect(x: 1490, y: 1210 + (x * 60), width: 50, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let instString = NSAttributedString(string: form?.crewMembers[x].instructor ?? " ", attributes:  attrs)
+                        let instString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.instructor ?? " ", attributes:  attrs)
                         instString.draw(with: CGRect(x: 1605, y: 1210 + (x * 60), width: 50, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let evalString = NSAttributedString(string: form?.crewMembers[x].evaluator ?? " ", attributes: attrs)
+                        let evalString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.evaluator ?? " ", attributes: attrs)
                         evalString.draw(with: CGRect(x: 1720, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let otherString = NSAttributedString(string: form?.crewMembers[x].other ?? " ", attributes: attrs)
+                        let otherString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.other ?? " ", attributes: attrs)
                         otherString.draw(with: CGRect(x: 1840, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let timeTotalString = NSAttributedString(string: form?.crewMembers[x].time ?? " ", attributes: attrs)
+                        let timeTotalString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.time ?? " ", attributes: attrs)
                         timeTotalString.draw(with: CGRect(x: 1955, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let sortyTotalString = NSAttributedString(string: form?.crewMembers[x].srty ?? " ", attributes: attrs)
+                        let sortyTotalString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.srty ?? " ", attributes: attrs)
                         sortyTotalString.draw(with: CGRect(x: 2065, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let nightString = NSAttributedString(string: form?.crewMembers[x].nightPSIE ?? " ", attributes: attrs)
+                        let nightString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.nightPSIE ?? " ", attributes: attrs)
                         nightString.draw(with: CGRect(x: 2160, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let insPIEString = NSAttributedString(string: form?.crewMembers[x].insPIE ?? " ", attributes: attrs)
+                        let insPIEString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.insPIE ?? " ", attributes: attrs)
                         insPIEString.draw(with: CGRect(x: 2280, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let simInsString = NSAttributedString(string: form?.crewMembers[x].simIns ?? " ", attributes: attrs)
+                        let simInsString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.simIns ?? " ", attributes: attrs)
                         simInsString.draw(with: CGRect(x: 2400, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let nvgString = NSAttributedString(string: form?.crewMembers[x].nvg ?? " ", attributes: attrs)
+                        let nvgString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.nvg ?? " ", attributes: attrs)
                         nvgString.draw(with: CGRect(x: 2515, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let cbtTimeString = NSAttributedString(string: form?.crewMembers[x].combatTime ?? " ", attributes: attrs)
+                        let cbtTimeString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.combatTime ?? " ", attributes: attrs)
                         cbtTimeString.draw(with: CGRect(x: 2630, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let cbtSrtyString = NSAttributedString(string: form?.crewMembers[x].combatSrty ?? " ", attributes: attrs)
+                        let cbtSrtyString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.combatSrty ?? " ", attributes: attrs)
                         cbtSrtyString.draw(with: CGRect(x: 2730, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let cbtSptTimeString = NSAttributedString(string: form?.crewMembers[x].combatSptTime ?? " ", attributes: attrs)
+                        let cbtSptTimeString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.combatSptTime ?? " ", attributes: attrs)
                         cbtSptTimeString.draw(with: CGRect(x: 2830, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let cbtSptSrtyString = NSAttributedString(string: form?.crewMembers[x].combatSptSrty ?? " ", attributes: attrs)
+                        let cbtSptSrtyString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.combatSptSrty ?? " ", attributes: attrs)
                         cbtSptSrtyString.draw(with: CGRect(x: 2940, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                         
-                        let resvStatusString = NSAttributedString(string: form?.crewMembers[x].resvStatus ?? " ", attributes: attrs)
+                        let resvStatusString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.resvStatus ?? " ", attributes: attrs)
                         resvStatusString.draw(with: CGRect(x: 3040, y: 1210 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                     }
                 }
@@ -276,64 +276,64 @@ class ImageGenerator {
             if crewSize >= 15 {
                 let remainingCrew = crewSize - 15
                 for x in 0...remainingCrew {
-                    let orgString = NSAttributedString(string: form?.crewMembers[x].flyingOrigin ?? " ", attributes: attrs)
+                    let orgString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.flyingOrigin ?? " ", attributes: attrs)
                     orgString.draw(with: CGRect(x: 310, y: 705 + (x * 60), width: 100, height: 50), options: .usesLineFragmentOrigin, context: nil)
                     
-                    let last4String = NSAttributedString(string: form?.crewMembers[x].ssnLast4 ?? " ", attributes: attrs)
+                    let last4String = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.ssnLast4 ?? " ", attributes: attrs)
                     last4String.draw(with: CGRect(x: 450, y: 705 + (x * 60), width: 100, height: 50), options: .usesLineFragmentOrigin, context: nil)
                     
-                    let lastNameString = NSAttributedString(string: form?.crewMembers[x].lastName ?? " ", attributes: attrs)
+                    let lastNameString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.lastName ?? " ", attributes: attrs)
                     lastNameString.draw(with: CGRect(x: 580, y: 705 + (x * 60), width: 505, height: 50), options: .usesLineFragmentOrigin, context: nil)
                     
-                    let flightAuthCodeString = NSAttributedString(string: form?.crewMembers[x].flightAuthDutyCode ?? " ", attributes: attrs)
+                    let flightAuthCodeString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.flightAuthDutyCode ?? " ", attributes: attrs)
                     flightAuthCodeString.draw(with: CGRect(x: 1115, y: 705 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                     
-                    let primaryString = NSAttributedString(string: form?.crewMembers[x].primary ?? " ", attributes: attrs)
+                    let primaryString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.primary ?? " ", attributes: attrs)
                     primaryString.draw(with: CGRect(x: 1365, y: 705 + (x * 60), width: 50, height: 50), options: .usesLineFragmentOrigin, context: nil)
                     
-                    let secString = NSAttributedString(string: form?.crewMembers[x].secondary ?? " ", attributes: attrs)
+                    let secString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.secondary ?? " ", attributes: attrs)
                     secString.draw(with: CGRect(x: 1475, y: 705 + (x * 60), width: 50, height: 50), options: .usesLineFragmentOrigin, context: nil)
                     
-                    let instString = NSAttributedString(string: form?.crewMembers[x].instructor ?? " ", attributes:  attrs)
+                    let instString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.instructor ?? " ", attributes:  attrs)
                     instString.draw(with: CGRect(x: 1590, y: 705 + (x * 60), width: 50, height: 50), options: .usesLineFragmentOrigin, context: nil)
                     
-                    let evalString = NSAttributedString(string: form?.crewMembers[x].evaluator ?? " ", attributes: attrs)
+                    let evalString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.evaluator ?? " ", attributes: attrs)
                     evalString.draw(with: CGRect(x: 1705, y: 705 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                     
-                    let otherString = NSAttributedString(string: form?.crewMembers[x].other ?? " ", attributes: attrs)
+                    let otherString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.other ?? " ", attributes: attrs)
                     otherString.draw(with: CGRect(x: 1825, y: 705 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                     
-                    let timeTotalString = NSAttributedString(string: form?.crewMembers[x].time ?? " ", attributes: attrs)
+                    let timeTotalString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.time ?? " ", attributes: attrs)
                     timeTotalString.draw(with: CGRect(x: 1940, y: 705 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                     
-                    let sortyTotalString = NSAttributedString(string: form?.crewMembers[x].srty ?? " ", attributes: attrs)
+                    let sortyTotalString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.srty ?? " ", attributes: attrs)
                     sortyTotalString.draw(with: CGRect(x: 2050, y: 705 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                     
-                    let nightString = NSAttributedString(string: form?.crewMembers[x].nightPSIE ?? " ", attributes: attrs)
+                    let nightString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.nightPSIE ?? " ", attributes: attrs)
                     nightString.draw(with: CGRect(x: 2145, y: 705 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                     
-                    let insPIEString = NSAttributedString(string: form?.crewMembers[x].insPIE ?? " ", attributes: attrs)
+                    let insPIEString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.insPIE ?? " ", attributes: attrs)
                     insPIEString.draw(with: CGRect(x: 2265, y: 705 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                     
-                    let simInsString = NSAttributedString(string: form?.crewMembers[x].simIns ?? " ", attributes: attrs)
+                    let simInsString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.simIns ?? " ", attributes: attrs)
                     simInsString.draw(with: CGRect(x: 2385, y: 705 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                     
-                    let nvgString = NSAttributedString(string: form?.crewMembers[x].nvg ?? " ", attributes: attrs)
+                    let nvgString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.nvg ?? " ", attributes: attrs)
                     nvgString.draw(with: CGRect(x: 2500, y: 705 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                     
-                    let cbtTimeString = NSAttributedString(string: form?.crewMembers[x].combatTime ?? " ", attributes: attrs)
+                    let cbtTimeString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.combatTime ?? " ", attributes: attrs)
                     cbtTimeString.draw(with: CGRect(x: 2615, y: 705 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                     
-                    let cbtSrtyString = NSAttributedString(string: form?.crewMembers[x].combatSrty ?? " ", attributes: attrs)
+                    let cbtSrtyString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.combatSrty ?? " ", attributes: attrs)
                     cbtSrtyString.draw(with: CGRect(x: 2715, y: 705 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                     
-                    let cbtSptTimeString = NSAttributedString(string: form?.crewMembers[x].combatSptTime ?? " ", attributes: attrs)
+                    let cbtSptTimeString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.combatSptTime ?? " ", attributes: attrs)
                     cbtSptTimeString.draw(with: CGRect(x: 2815, y: 705 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                     
-                    let cbtSptSrtyString = NSAttributedString(string: form?.crewMembers[x].combatSptSrty ?? " ", attributes: attrs)
+                    let cbtSptSrtyString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.combatSptSrty ?? " ", attributes: attrs)
                     cbtSptSrtyString.draw(with: CGRect(x: 2925, y: 705 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                     
-                    let resvStatusString = NSAttributedString(string: form?.crewMembers[x].resvStatus ?? " ", attributes: attrs)
+                    let resvStatusString = NSAttributedString(string: (form?.crewMembers[x] as? CrewMember)?.resvStatus ?? " ", attributes: attrs)
                     resvStatusString.draw(with: CGRect(x: 3025, y: 705 + (x * 60), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
                 }
             }

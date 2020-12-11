@@ -13,7 +13,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "LoggerData")
+        let container = NSPersistentContainer(name: "LoggingModel")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             NSLog("\(storeDescription)")
             if let error = error as NSError? {

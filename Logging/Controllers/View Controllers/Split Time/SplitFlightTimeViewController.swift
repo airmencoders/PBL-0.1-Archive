@@ -71,7 +71,7 @@ extension SplitFlightTimeViewController: UITableViewDelegate, UITableViewDataSou
                 return UITableViewCell()
             }
 
-            if let crewMember = Form781Controller.shared.getCurrentForm()?.crewMembers[indexPath.row] {
+            if let crewMember = Form781Controller.shared.getCurrentForm()?.crewMembers[indexPath.row] as? CrewMember {
                 cell.setUpViews(crewMember: crewMember)
             }
             
@@ -81,7 +81,7 @@ extension SplitFlightTimeViewController: UITableViewDelegate, UITableViewDataSou
             guard let cell = self.flightSeqTableView.dequeueReusableCell(withIdentifier: "FlightCell", for: indexPath) as? FlightTableViewCell else { return UITableViewCell() }
             
             cell.delegate = self
-            if let flight = Form781Controller.shared.getCurrentForm()?.flights[indexPath.row] {
+            if let flight = Form781Controller.shared.getCurrentForm()?.flights[indexPath.row] as? Flight {
                 cell.setUpViews(flight: flight)
             }
             

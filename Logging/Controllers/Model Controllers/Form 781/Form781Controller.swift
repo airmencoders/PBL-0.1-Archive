@@ -27,7 +27,9 @@ class Form781Controller {
     // MARK: - Create
     
     func create(date: String, mds: String, serialNumber: String, unitCharged: String, harmLocation: String, flightAuthNum: String, issuingUnit: String) {
-        let form = Form781(date: date, mds: mds, serialNumber: serialNumber, unitCharged: unitCharged, harmLocation: harmLocation, flightAuthNum: flightAuthNum, issuingUnit: issuingUnit)
+        guard let form = Form781(date: date, mds: mds, serialNumber: serialNumber, unitCharged: unitCharged, harmLocation: harmLocation, flightAuthNum: flightAuthNum, issuingUnit: issuingUnit) else {
+            return
+        }
         forms.append(form)
         formCreated = true
         populateFlights()
@@ -71,23 +73,23 @@ class Form781Controller {
     }
     
     func updateFormWith(flight: Flight, form: Form781) {
-        form.flights.append(flight)
+        form.addToFlights(flight)
         NSLog("Added flight")
         save()
     }
     
     func updateFormWith(grandTotalTime: Double, grandTouchGo: Int, grandFullStop: Int, grandTotalLandings: Int, grandTotalSorties: Int, form: Form781) {
         form.grandTotalTime = grandTotalTime
-        form.grandTotalTouchAndGo = grandTouchGo
-        form.grandTotalFullStop = grandFullStop
-        form.grandTotalLandings = grandTotalLandings
-        form.grandTotalSorties = grandTotalSorties
+        form.grandTotalTouchAndGo = Int32(grandTouchGo)
+        form.grandTotalFullStop = Int32(grandFullStop)
+        form.grandTotalLandings = Int32(grandTotalLandings)
+        form.grandTotalSorties = Int32(grandTotalSorties)
         NSLog("Updated grand totals")
         save()
     }
     
     func updateFormwith(crewMember: CrewMember, form: Form781) {
-        form.crewMembers.append(crewMember)
+        form.addToCrewMembers(crewMember)
         NSLog("Added crew member")
         save()
     }
@@ -149,8 +151,11 @@ class Form781Controller {
     // MARK: - Delete
     
     func remove(flight: Flight, from form: Form781) {
-        guard let index = form.flights.firstIndex(of: flight) else { return }
-        form.flights.remove(at: index)
+        let index = form.flights.index(of: flight)
+        guard index != NSNotFound else {
+            return
+        }
+        form.removeFromFlights(at: index)
         updateFlightSeqLetters()
         NSLog("Removed flight")
         save()
@@ -158,9 +163,13 @@ class Form781Controller {
     
     func updateFlightSeqLetters() {
         guard let flights = getCurrentForm()?.flights else { return }
-        for (index, flight) in flights.enumerated() {
+        for flight in flights {
             
-            switch index {
+            guard let flight = flight as? Flight else {
+                continue
+            }
+
+            switch flights.index(of: flight) {
             case 0:
                 flight.flightSeq = "A"
             case 1:
@@ -180,8 +189,11 @@ class Form781Controller {
     }
     
     func remove(crewMember: CrewMember, from form: Form781) {
-        guard let index = form.crewMembers.firstIndex(of: crewMember) else { return }
-        form.crewMembers.remove(at: index)
+        let index = form.crewMembers.index(of: crewMember)
+        guard index != NSNotFound else {
+            return
+        }
+        form.removeFromCrewMembers(at: index)
         NSLog("Removed crew member")
         save()
     }
@@ -236,8 +248,12 @@ class Form781Controller {
         }
         */
 
-        #warning("Need to load from core data")
-        forms = []
+        do {
+            forms = try context.fetch(Form781.createFetchRequest())
+        } catch let error as NSError {
+            NSLog("Could not fetch Forms. \(error), \(error.userInfo)")
+            forms = []
+        }
     }
 
 } //End

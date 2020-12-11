@@ -400,7 +400,7 @@ extension AircrewDataViewController: UITableViewDelegate, UITableViewDataSource 
             guard let cell = self.flightSeqTableView.dequeueReusableCell(withIdentifier: "FlightCell", for: indexPath) as? FlightTableViewCell else { return UITableViewCell() }
             
             cell.delegate = self
-            if let flight = Form781Controller.shared.getCurrentForm()?.flights[indexPath.row] {
+            if let flight = Form781Controller.shared.getCurrentForm()?.flights[indexPath.row] as? Flight {
                 cell.flight = flight
                 cell.setUpViews(flight: flight)
             }
@@ -410,7 +410,7 @@ extension AircrewDataViewController: UITableViewDelegate, UITableViewDataSource 
         if tableView == self.flightTimeTableView {
             guard let cell = self.flightTimeTableView.dequeueReusableCell(withIdentifier: "FlightTimeCell", for: indexPath) as? FlightTimeTableViewCell else { return UITableViewCell() }
             
-            if let crewMember = Form781Controller.shared.getCurrentForm()?.crewMembers[indexPath.row] {
+            if let crewMember = Form781Controller.shared.getCurrentForm()?.crewMembers[indexPath.row] as? CrewMember {
                 cell.setUpViews(crewMember: crewMember)
             }
             
@@ -437,12 +437,15 @@ extension AircrewDataViewController: FlightTableViewCellDelegate {
     
     func deleteButtonTapped(cell: FlightTableViewCell) {
         guard let form = Form781Controller.shared.getCurrentForm(),
-              let indexPath = flightSeqTableView.indexPath(for: cell) else { return }
-        let flight = form.flights[indexPath.row]
-        Form781Controller.shared.remove(flight: flight, from: form)
-        flightSeqTableView.reloadData()
+              let indexPath = flightSeqTableView.indexPath(for: cell) else {
+            return
+        }
+        if let flight = form.flights[indexPath.row] as? Flight {
+            Form781Controller.shared.remove(flight: flight, from: form)
+            flightSeqTableView.reloadData()
+        }
     }
-    
+
 } //End
 
 // MARK: - UITextField Delegate

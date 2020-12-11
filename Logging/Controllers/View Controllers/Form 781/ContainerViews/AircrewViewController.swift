@@ -213,7 +213,7 @@ extension AircrewViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.delegate = self
-        if let crewMember = Form781Controller.shared.getCurrentForm()?.crewMembers[indexPath.row] {
+        if let crewMember = Form781Controller.shared.getCurrentForm()?.crewMembers[indexPath.row] as? CrewMember {
             cell.crewMember = crewMember
             cell.setUpViews(crewMember: crewMember)
         }
@@ -244,9 +244,10 @@ extension AircrewViewController: AircrewTableViewCellDelegate {
         else {
             return
         }
-        let crewMember = form.crewMembers[indexPath.row]
-        Form781Controller.shared.remove(crewMember: crewMember, from: form)
-        aircrewTableView.reloadData()
+        if let crewMember = form.crewMembers[indexPath.row] as? CrewMember {
+            Form781Controller.shared.remove(crewMember: crewMember, from: form)
+            aircrewTableView.reloadData()
+        }
     }
     
 } //End

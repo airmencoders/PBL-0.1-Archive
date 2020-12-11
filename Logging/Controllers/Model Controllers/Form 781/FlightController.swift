@@ -16,17 +16,22 @@ class FlightController {
     
     static func create(form: Form781, flightSeq: String, missionNumber: String, missionSymbol: String, fromICAO: String, toICAO: String, takeOffTime: String, landTime: String, totalTime: String, touchAndGo: String, fullStop: String, totalLandings: String, sorties: String, specialUse: String) {
             
-        let flight = Flight(flightSeq: flightSeq, missionNumber: missionNumber, missionSymbol: missionSymbol, fromICAO: fromICAO, toICAO: toICAO, takeOffTime: takeOffTime, landTime: landTime, totalTime: totalTime, touchAndGo: touchAndGo, fullStop: fullStop, totalLandings: totalLandings, sorties: sorties, specialUse: specialUse)
+        if let flight = Flight(flightSeq: flightSeq, missionNumber: missionNumber, missionSymbol: missionSymbol, fromICAO: fromICAO, toICAO: toICAO, takeOffTime: takeOffTime, landTime: landTime, totalTime: totalTime, touchAndGo: touchAndGo, fullStop: fullStop, totalLandings: totalLandings, sorties: sorties, specialUse: specialUse) {
         
-        Form781Controller.shared.updateFormWith(flight: flight, form: form)
+            Form781Controller.shared.updateFormWith(flight: flight, form: form)
+        }
     }
     
     static func calculateTotalTime() -> Double {
-        guard let form = Form781Controller.shared.getCurrentForm() else { return 0 }
+        guard let form = Form781Controller.shared.getCurrentForm() else {
+            return 0
+        }
         var totalTime = 0.0
 
         for flight in form.flights {
-            totalTime += Double(flight.totalTime) ?? 0.0
+            if let flight = flight as? Flight {
+                totalTime += Double(flight.totalTime) ?? 0.0
+            }
         }
         return totalTime.truncate(places: 1)
     }
@@ -36,7 +41,9 @@ class FlightController {
         var touchGo = 0
 
         for flight in form.flights {
-            touchGo += Int(flight.touchAndGo) ?? 0
+            if let flight = flight as? Flight {
+                touchGo += Int(flight.touchAndGo) ?? 0
+            }
         }
         return touchGo
     }
@@ -46,7 +53,9 @@ class FlightController {
         var fullStop = 0
 
         for flight in form.flights {
-            fullStop += Int(flight.fullStop) ?? 0
+            if let flight = flight as? Flight {
+                fullStop += Int(flight.fullStop) ?? 0
+            }
         }
         return fullStop
     }
@@ -56,7 +65,9 @@ class FlightController {
         var totalLandings = 0
 
         for flight in form.flights {
-            totalLandings += Int(flight.totalLandings) ?? 0
+            if let flight = flight as? Flight {
+                totalLandings += Int(flight.totalLandings) ?? 0
+            }
         }
         return totalLandings
     }
@@ -66,13 +77,13 @@ class FlightController {
         var sorties = 0
 
         for flight in form.flights {
-            sorties += Int(flight.sorties) ?? 0
+            if let flight = flight as? Flight {
+                sorties += Int(flight.sorties) ?? 0
+            }
         }
         return sorties
     }
-    
 
-    
 } //End
 
 extension Double {

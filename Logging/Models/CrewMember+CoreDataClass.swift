@@ -6,9 +6,6 @@
 //
 //
 
-import UIKit
-import CoreData
-
 /*
  From: AFTO Form 781 descriptions and inputs
  
@@ -17,57 +14,43 @@ import CoreData
  ATTN: Should this be renamed to flyingOrganization?
 
  20     ssnLast4                                        tied to crew memeber?
- 
  21     lastName                                        should populate from Puckboard
- 
  22     flightAuthDutyCode  4-5 digit alpha numeric     default to persons crew qualification, should populate from Puckboard
                             qualification code
-
  23     primary (PRIM)      primay (# of hours flown)   decimal hours
  24     secondary (SEC)     secondary                   decimal hours
  25     instructor (INSTR)  instructor                  decimal hours
  26     evaluator (EVAL)    evaluator                   decimal hours
  27     other (OTHER )      other                       decimal hours
-
  28     time                grand total of 23-28 for    cannot exceed total flight time (13)
                             that person
- 
  29     srty                                            should be able to edit
- 
  30     nightPSIE           combat time/support - up    decimal hours
                             to total time of each crew
                             member, loadmasters and
                             flight attendants can
                             exceed total flight time
- 
  31     insPIE              combat time/support - up    decimal hours
                             to total time of each crew
                             member, loadmasters and
                             flight attendants can
                             exceed total flight time
-
  32     simIns              combat time/support - up    decimal hours, cannot exceed total flight time
                             to total time of each crew
                             member, loadmasters and
                             flight attendants can
                             exceed total flight time
- 
  33     nvg                 combat time/support - up    decimal hours, cannot exceed total flight time
                             to total time of each crew
                             member, loadmasters and
                             flight attendants can
                             exceed total flight time
- 
  34     combatTime          combat time/support - up    decimal hours, cannot exceed total flight time
                             to total time of each crew
                             member
- 
  35     combatSrty          # of sorties                whole numbers
- 
  36     combatSptTime                                   decimal hours
- 
- 37    combatSptSrty        # of sorties                whole numbers
- 
+ 37     combatSptSrty       # of sorties                whole numbers
  38     resvStatus          number 1-5, way to get paid can be 1, 2, 3, 33, 4 (33 is double 3 shift)
  
  *** Fields we do not seem to have data for. Other than line 40? ***
@@ -81,9 +64,16 @@ import CoreData
  @NSManaged public var firstName: String?
  */
 
+import UIKit
+import CoreData
+
 public class CrewMember: NSManagedObject {
 
-    init(lastName: String,
+    override public init(entity: NSEntityDescription, insertInto context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertInto: context)
+    }
+
+    init?(lastName: String,
          firstName: String,
          ssnLast4: String,
          flightAuthDutyCode: String,
@@ -105,14 +95,14 @@ public class CrewMember: NSManagedObject {
          combatSptSrty: String? = nil,
          resvStatus: String? = nil) {
         
-//        let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
-//        guard let Context = context else {
-//            return nil
-//        }
-//        guard let entitiyDesc = NSEntityDescription.entity(forEntityName: "CrewMember", in: Context) else {
-//            return nil
-//        }
-//        super.init(entity: entitiyDesc, insertInto: context)
+        let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+        guard let Context = context else {
+            return nil
+        }
+        guard let entitiyDesc = NSEntityDescription.entity(forEntityName: "CrewMember", in: Context) else {
+            return nil
+        }
+        super.init(entity: entitiyDesc, insertInto: context)
 
         self.lastName = lastName
         self.firstName = firstName
@@ -138,7 +128,7 @@ public class CrewMember: NSManagedObject {
     }
 }
 
-extension CrewMember: Equatable {
+extension CrewMember {  //: Equatable {
     
     // make sure it equals what we want it to
     static func ==(lhs: CrewMember, rhs: CrewMember) -> Bool {
