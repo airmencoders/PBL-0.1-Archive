@@ -65,7 +65,7 @@ class Form781ViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func sendButtonTapped(_ sender: UIButton) {
-        
+        Helper.exportPDF()
     }
         
     @IBAction func printButtonTapped(_ sender: UIButton) {
