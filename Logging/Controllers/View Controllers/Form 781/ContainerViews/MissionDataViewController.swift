@@ -116,7 +116,7 @@ class MissionDataViewController: UIViewController {
         }
         
         let form = Form781Controller.shared.getCurrentForm()
-        if Helper.checkForFile(filePath: Form781Controller.shared.fileURL()){
+        if Helper.checkForFile(filePath: Form781Controller.shared.fileURL(filename: Form781Controller.shared.loggingFileName)){
             dateTextField.text = form?.date
             mdsTextField.text = form?.mds
             serialNumTextField.text = form?.serialNumber

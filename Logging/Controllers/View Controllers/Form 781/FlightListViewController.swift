@@ -92,6 +92,7 @@ class FlightListViewController: UIViewController {
     
     @IBAction func sendButtonTapped(_ sender: UIButton) {
         Helper.exportPDF()
+        Alerts.showPDFCreation(on: self)
     }
         
     @IBAction func printButtonTapped(_ sender: UIButton) {
