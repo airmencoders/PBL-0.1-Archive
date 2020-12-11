@@ -70,48 +70,47 @@ class ImageGenerator {
             grandTotalSoritesString.draw(with: CGRect(x: 2490, y: 820, width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
             
             // MARK: - Flight Sequence
-            
-            for x in 0...(form!.flights.count - 1){
-                let msnNumberString = NSAttributedString(string: (form?.flights[x] as? Flight)?.missionNumber ?? " ", attributes: attrs)
-                msnNumberString.draw(with: CGRect(x: 345, y: 455 + (x * 65), width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                
-                let msnSymbolString = NSAttributedString(string: (form?.flights[x] as? Flight)?.missionSymbol ?? " ", attributes: attrs)
-                msnSymbolString.draw(with: CGRect(x: 825, y: 455 + (x * 65), width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                
-                let fromICAOString = NSAttributedString(string: (form?.flights[x] as? Flight)?.fromICAO ?? " ", attributes: attrs)
-                fromICAOString.draw(with: CGRect(x: 1045, y: 455 + (x * 65), width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                
-                let toICAOString = NSAttributedString(string: (form?.flights[x] as? Flight)?.toICAO ?? " ", attributes: attrs)
-                toICAOString.draw(with: CGRect(x: 1265, y: 455 + (x * 65), width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                
-                let toTime = NSAttributedString(string: (form?.flights[x] as? Flight)?.takeOffTime ?? " ", attributes: attrs)
-                toTime.draw(with: CGRect(x: 1465, y: 455 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                
-                let landTime = NSAttributedString(string: (form?.flights[x] as? Flight)?.landTime ?? " ", attributes: attrs)
-                landTime.draw(with: CGRect(x: 1680, y: 455 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                
-                let totalTime = NSAttributedString(string: (form?.flights[x] as? Flight)?.totalTime ?? " ", attributes: attrs)
-                totalTime.draw(with: CGRect(x: 1875, y: 455 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                
-                let touchAndGo = NSAttributedString(string: (form?.flights[x] as? Flight)?.touchAndGo ?? " ", attributes: attrs)
-                touchAndGo.draw(with: CGRect(x: 2060, y: 455 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                
-                let fullStop = NSAttributedString(string: (form?.flights[x] as? Flight)?.fullStop ?? " ", attributes: attrs)
-                fullStop.draw(with: CGRect(x: 2200, y: 455 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                
-                let totalLanding = NSAttributedString(string: (form?.flights[x] as? Flight)?.totalLandings ?? " ", attributes: attrs)
-                totalLanding.draw(with: CGRect(x: 2310, y: 455 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                
-                let sorties = NSAttributedString(string: (form?.flights[x] as? Flight)?.sorties ?? " ", attributes: attrs)
-                sorties.draw(with: CGRect(x: 2490, y: 455 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
-                
-                let specialUse = NSAttributedString(string: (form?.flights[x] as? Flight)?.specialUse ?? " ", attributes: attrs)
-                specialUse.draw(with: CGRect(x: 2590, y: 455 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
+            if Form781Controller.shared.getCurrentForm()?.flights.count ?? 0 > 0 {
+                for x in 0...(form!.flights.count - 1){
+                    let msnNumberString = NSAttributedString(string: (form?.flights[x] as? Flight)?.missionNumber ?? " ", attributes: attrs)
+                    msnNumberString.draw(with: CGRect(x: 345, y: 455 + (x * 65), width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
+                    
+                    let msnSymbolString = NSAttributedString(string: (form?.flights[x] as? Flight)?.missionSymbol ?? " ", attributes: attrs)
+                    msnSymbolString.draw(with: CGRect(x: 825, y: 455 + (x * 65), width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
+                    
+                    let fromICAOString = NSAttributedString(string: (form?.flights[x] as? Flight)?.fromICAO ?? " ", attributes: attrs)
+                    fromICAOString.draw(with: CGRect(x: 1045, y: 455 + (x * 65), width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
+                    
+                    let toICAOString = NSAttributedString(string: (form?.flights[x] as? Flight)?.toICAO ?? " ", attributes: attrs)
+                    toICAOString.draw(with: CGRect(x: 1265, y: 455 + (x * 65), width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
+                    
+                    let toTime = NSAttributedString(string: (form?.flights[x] as? Flight)?.takeOffTime ?? " ", attributes: attrs)
+                    toTime.draw(with: CGRect(x: 1465, y: 455 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
+                    
+                    let landTime = NSAttributedString(string: (form?.flights[x] as? Flight)?.landTime ?? " ", attributes: attrs)
+                    landTime.draw(with: CGRect(x: 1680, y: 455 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
+                    
+                    let totalTime = NSAttributedString(string: (form?.flights[x] as? Flight)?.totalTime ?? " ", attributes: attrs)
+                    totalTime.draw(with: CGRect(x: 1875, y: 455 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
+                    
+                    let touchAndGo = NSAttributedString(string: (form?.flights[x] as? Flight)?.touchAndGo ?? " ", attributes: attrs)
+                    touchAndGo.draw(with: CGRect(x: 2060, y: 455 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
+                    
+                    let fullStop = NSAttributedString(string: (form?.flights[x] as? Flight)?.fullStop ?? " ", attributes: attrs)
+                    fullStop.draw(with: CGRect(x: 2200, y: 455 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
+                    
+                    let totalLanding = NSAttributedString(string: (form?.flights[x] as? Flight)?.totalLandings ?? " ", attributes: attrs)
+                    totalLanding.draw(with: CGRect(x: 2310, y: 455 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
+                    
+                    let sorties = NSAttributedString(string: (form?.flights[x] as? Flight)?.sorties ?? " ", attributes: attrs)
+                    sorties.draw(with: CGRect(x: 2490, y: 455 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
+                    
+                    let specialUse = NSAttributedString(string: (form?.flights[x] as? Flight)?.specialUse ?? " ", attributes: attrs)
+                    specialUse.draw(with: CGRect(x: 2590, y: 455 + (x * 65), width: 200, height: 50), options: .usesLineFragmentOrigin, context: nil)
+                }
             }
             
-            
-            
-            
+
             // MARK: - AirCrew
             // Section 2
             
