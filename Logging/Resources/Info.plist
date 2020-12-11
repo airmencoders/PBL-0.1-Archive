@@ -36,7 +36,7 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-					<string>Welcome</string>
+					<string>Form781</string>
 				</dict>
 			</array>
 		</dict>
@@ -46,7 +46,7 @@
 	<key>UIMainStoryboardFile</key>
 	<string>Form781</string>
 	<key>UIMainStoryboardFile~ipad</key>
-	<string>Welcome</string>
+	<string>Form781</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
