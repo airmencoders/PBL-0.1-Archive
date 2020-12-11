@@ -13,11 +13,7 @@ class OverviewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    @IBAction func backButtonTapped(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
-    }
-    
+        
     @IBAction func editButtonTapped(_ sender: UIButton) {
         
     }

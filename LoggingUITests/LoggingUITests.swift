@@ -21,13 +21,13 @@ class LoggingUITests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testEnteringApp() throws{
-        
-        let app = XCUIApplication()
-        app.buttons["AFTO FORM 781"].tap()
-        app.buttons["SAVE & CONTINUE"].tap()
-        
-    }
+//    func testEnteringApp() throws{
+//
+//        let app = XCUIApplication()
+//        app.buttons["AFTO FORM 781"].tap()
+//        app.buttons["SAVE & CONTINUE"].tap()
+//
+//    }
     
 
     
