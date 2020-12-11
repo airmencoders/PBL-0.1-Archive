@@ -12,6 +12,7 @@ protocol SideMenuViewControllerDelegate: class {
     func hideMenuButtonTapped()
     func overviewButtonTapped()
     func missionDataButtonTapped()
+    func aircrewListButtonTapped()
 }
 
 class SideMenuViewController: UIViewController {
@@ -20,6 +21,7 @@ class SideMenuViewController: UIViewController {
     
     @IBOutlet weak var overviewButton: PBLSideMenuButton!
     @IBOutlet weak var missionDataButton: PBLSideMenuButton!
+    @IBOutlet weak var aircrewListButton: PBLSideMenuButton!
     
     // MARK: - Properties
     
@@ -52,6 +54,13 @@ class SideMenuViewController: UIViewController {
         delegate?.missionDataButtonTapped()
     }
     
+    @IBAction func aircrewListButtonTapped(_ sender: UIButton) {
+        deselectAllButtons()
+        aircrewListButton.isSelected = true
+        updateButtons()
+        delegate?.aircrewListButtonTapped()
+    }
+    
     // MARK: - Methods
     
     func setUpViews() {
@@ -62,11 +71,13 @@ class SideMenuViewController: UIViewController {
     func updateButtons() {
         overviewButton.isSelected ? overviewButton.buttonSelected() : overviewButton.buttonNotSelected()
         missionDataButton.isSelected ? missionDataButton.buttonSelected() : missionDataButton.buttonNotSelected()
+        aircrewListButton.isSelected ? aircrewListButton.buttonSelected() : aircrewListButton.buttonNotSelected()
     }
     
     func deselectAllButtons() {
         overviewButton.isSelected = false
         missionDataButton.isSelected = false
+        aircrewListButton.isSelected = false
     }
     
 } //End

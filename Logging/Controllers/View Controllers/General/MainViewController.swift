@@ -55,24 +55,17 @@ extension MainViewController: SideMenuViewControllerDelegate {
         overviewView.isHidden = true
     }
     
+    func aircrewListButtonTapped() {
+        form781View.isHidden = false
+        overviewView.isHidden = true
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToSideMenuVC" {
             guard let destinationVC = segue.destination as? SideMenuViewController else {
                 return
             }
             destinationVC.delegate = self
-        }
-        if segue.identifier == "ToOverviewVC" {
-            guard let destinationVC = segue.destination as? OverviewViewController else {
-                return
-            }
-            //destinationVC.delegate = self
-        }
-        if segue.identifier == "ToFlightListVC" {
-            guard let destinationVC = segue.destination as? FlightListViewController else {
-                return
-            }
-            //destinationVC.delegate = self
         }
     }
     

@@ -78,7 +78,7 @@
                                 </connections>
                             </button>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Atl-sg-ccR" userLabel="Menu Container View">
-                                <rect key="frame" x="0.0" y="54.5" width="256" height="1311.5"/>
+                                <rect key="frame" x="0.0" y="54.5" width="225.5" height="1311.5"/>
                                 <connections>
                                     <segue destination="83w-Ih-qzk" kind="embed" identifier="ToSideMenuVC" id="Cy4-QP-uRM"/>
                                 </connections>
@@ -98,7 +98,7 @@
                             <constraint firstItem="gjV-4l-OK8" firstAttribute="leading" secondItem="Atl-sg-ccR" secondAttribute="leading" id="HQc-d9-hwQ"/>
                             <constraint firstAttribute="bottom" secondItem="HUy-lD-b6q" secondAttribute="bottom" id="RdH-SS-0zP"/>
                             <constraint firstItem="KVQ-xw-3v8" firstAttribute="top" secondItem="gjV-4l-OK8" secondAttribute="top" id="Vse-VW-vkH"/>
-                            <constraint firstItem="Atl-sg-ccR" firstAttribute="width" secondItem="sjE-Rs-Rb8" secondAttribute="width" multiplier="0.25" id="a4C-88-oHW"/>
+                            <constraint firstItem="Atl-sg-ccR" firstAttribute="width" secondItem="sjE-Rs-Rb8" secondAttribute="width" multiplier="0.22" id="a4C-88-oHW"/>
                             <constraint firstItem="gjV-4l-OK8" firstAttribute="trailing" secondItem="HUy-lD-b6q" secondAttribute="trailing" id="be2-Gs-cYJ"/>
                             <constraint firstItem="OLx-T7-Tjq" firstAttribute="top" secondItem="HUy-lD-b6q" secondAttribute="top" id="gZb-1c-m2A"/>
                             <constraint firstAttribute="bottom" secondItem="Atl-sg-ccR" secondAttribute="bottom" id="oEN-mE-hOy"/>
@@ -3062,21 +3062,28 @@
             <objects>
                 <viewController id="83w-Ih-qzk" customClass="SideMenuViewController" customModule="Logging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jAH-wa-OUb">
-                        <rect key="frame" x="0.0" y="0.0" width="256" height="1311"/>
+                        <rect key="frame" x="0.0" y="0.0" width="225.5" height="1311.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MISSION FORMS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgf-6v-KHj" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="34" y="47" width="131" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MISSION FORMS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgf-6v-KHj" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
+                                <rect key="frame" x="13.5" y="55.5" width="130.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tD9-SY-FGa" customClass="PBLIconButton" customModule="Logging" customModuleProvider="target">
+                                <rect key="frame" x="196.5" y="54.5" width="12.5" height="22"/>
+                                <color key="tintColor" name="slate"/>
+                                <state key="normal" image="chevron.right" catalog="system"/>
+                                <connections>
+                                    <action selector="hideMenuButtonTapped:" destination="83w-Ih-qzk" eventType="touchUpInside" id="XBt-bZ-Xwl"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="t1D-Dw-AX7">
-                                <rect key="frame" x="0.0" y="164" width="256" height="65"/>
+                                <rect key="frame" x="0.0" y="179.5" width="225.5" height="100"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjC-Qv-6u9" customClass="PBLSideMenuButton" customModule="Logging" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="256" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="225.5" height="30"/>
                                         <color key="backgroundColor" name="fog"/>
                                         <state key="normal" title="OVERVIEW"/>
                                         <connections>
@@ -3084,35 +3091,46 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRv-H4-tc8" customClass="PBLSideMenuButton" customModule="Logging" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="35" width="256" height="30"/>
+                                        <rect key="frame" x="0.0" y="35" width="225.5" height="30"/>
                                         <color key="backgroundColor" name="fog"/>
                                         <state key="normal" title="MISSION DATA"/>
                                         <connections>
                                             <action selector="missionDataButtonTapped:" destination="83w-Ih-qzk" eventType="touchUpInside" id="bNB-BR-1FZ"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Es9-3S-Vvb" customClass="PBLSideMenuButton" customModule="Logging" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="70" width="225.5" height="30"/>
+                                        <color key="backgroundColor" name="fog"/>
+                                        <state key="normal" title="AIRCREW LIST"/>
+                                        <connections>
+                                            <action selector="aircrewListButtonTapped:" destination="83w-Ih-qzk" eventType="touchUpInside" id="wur-nZ-2A6"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tD9-SY-FGa" customClass="PBLIconButton" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="224" y="54.5" width="12.5" height="22"/>
-                                <color key="tintColor" name="slate"/>
-                                <state key="normal" image="chevron.right" catalog="system"/>
-                                <connections>
-                                    <action selector="hideMenuButtonTapped:" destination="83w-Ih-qzk" eventType="touchUpInside" id="XBt-bZ-Xwl"/>
-                                </connections>
-                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DAYS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uhb-00-rC8" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
+                                <rect key="frame" x="13.5" y="383" width="42.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="qAO-SR-uv4"/>
                         <color key="backgroundColor" name="mist"/>
                         <constraints>
-                            <constraint firstItem="t1D-Dw-AX7" firstAttribute="centerY" secondItem="jAH-wa-OUb" secondAttribute="centerY" multiplier="0.3" id="7S5-qO-3np"/>
+                            <constraint firstItem="xgf-6v-KHj" firstAttribute="centerX" secondItem="qAO-SR-uv4" secondAttribute="centerX" multiplier="0.7" id="65C-SY-qnE"/>
+                            <constraint firstItem="t1D-Dw-AX7" firstAttribute="centerY" secondItem="jAH-wa-OUb" secondAttribute="centerY" multiplier="0.35" id="7S5-qO-3np"/>
                             <constraint firstItem="t1D-Dw-AX7" firstAttribute="centerX" secondItem="jAH-wa-OUb" secondAttribute="centerX" id="A4v-EV-JXh"/>
+                            <constraint firstItem="xgf-6v-KHj" firstAttribute="centerY" secondItem="qAO-SR-uv4" secondAttribute="centerY" multiplier="0.1" id="AnW-an-cwf"/>
+                            <constraint firstItem="uhb-00-rC8" firstAttribute="centerY" secondItem="qAO-SR-uv4" secondAttribute="centerY" multiplier="0.6" id="Lhl-k3-h85"/>
                             <constraint firstItem="tD9-SY-FGa" firstAttribute="centerX" secondItem="jAH-wa-OUb" secondAttribute="centerX" multiplier="1.8" id="VRe-qM-yYy"/>
                             <constraint firstItem="tD9-SY-FGa" firstAttribute="centerY" secondItem="jAH-wa-OUb" secondAttribute="centerY" multiplier="0.1" id="cfs-64-jWd"/>
+                            <constraint firstItem="uhb-00-rC8" firstAttribute="leading" secondItem="xgf-6v-KHj" secondAttribute="leading" id="nRq-kq-HVA"/>
                             <constraint firstItem="t1D-Dw-AX7" firstAttribute="width" secondItem="jAH-wa-OUb" secondAttribute="width" id="xVX-hK-N4G"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="aircrewListButton" destination="Es9-3S-Vvb" id="Llw-WN-QmQ"/>
                         <outlet property="missionDataButton" destination="gRv-H4-tc8" id="Qtu-GA-ca6"/>
                         <outlet property="overviewButton" destination="qjC-Qv-6u9" id="geF-9b-p0h"/>
                     </connections>
