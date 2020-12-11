@@ -245,34 +245,8 @@ class Helper {
     static func printFormFunc() {
         if Form781Controller.shared.numberOfForms() > 0{
             
-            let frontOfForm = UIImage(named: "Form781-Front.png")
-            let frontDataImage = ImageGenerator.generateFrontOfForm()
-            
-            let rearOfForm = UIImage(named: "Form781-Back.png")
-            let rearDataImage = ImageGenerator.generateBackOfForm()
-            
-            let size = CGSize(width: Helper.WIDTH, height: Helper.HEIGHT)
-            UIGraphicsBeginImageContext(size)
-            
-            let areaSize = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-            frontOfForm!.draw(in: areaSize)
-            frontDataImage!.draw(in: areaSize, blendMode: .normal, alpha: 0.8)
-            
-            let newImageFront: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-            
-            UIGraphicsEndImageContext()
-            
-            // Rear of form
-            
-            UIGraphicsBeginImageContext(size)
-            
-            let area2 = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-            rearOfForm!.draw(in: area2)
-            rearDataImage!.draw(in: area2, blendMode: .normal, alpha: 0.8)
-            
-            let newImageBack: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-            
-            UIGraphicsEndImageContext()
+            let newImageFront = generateSideOfForm(side: "front")
+            let newImageBack = generateSideOfForm(side: "back")
 
             // Save the image to disc
             
@@ -339,16 +313,61 @@ class Helper {
         return nil
     }
     
+    static func generateSideOfForm(side: String) -> UIImage {
+        let frontOfForm = UIImage(named: "Form781-Front.png")
+        let frontDataImage = ImageGenerator.generateFrontOfForm()
+        
+        
+        //Rear of Form
+        let rearOfForm = UIImage(named: "Form781-Back.png")
+        let rearDataImage = ImageGenerator.generateBackOfForm()
+        
+        let size = CGSize(width: Helper.WIDTH, height: Helper.HEIGHT)
+        UIGraphicsBeginImageContext(size)
+        
+        let areaSize = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        frontOfForm!.draw(in: areaSize)
+        frontDataImage!.draw(in: areaSize, blendMode: .normal, alpha: 0.8)
+        
+        let newImageFront: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        
+        UIGraphicsEndImageContext()
+        
+        // Rear of form
+        
+        UIGraphicsBeginImageContext(size)
+        
+        let area2 = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        rearOfForm!.draw(in: area2)
+        rearDataImage!.draw(in: area2, blendMode: .normal, alpha: 0.8)
+        
+        let newImageBack: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        
+        UIGraphicsEndImageContext()
+        
+        if side == "front" {
+            return newImageFront
+        } else {
+            return newImageBack
+        }
+    }
+    
     static func exportPDF() {
         let pdfDoc = PDFDocument()
-        let front = ImageGenerator.generateFrontOfForm()
-        let rear = ImageGenerator.generateBackOfForm()
-        let pdfPage = PDFPage(image: front!)
-        let pdfRear = PDFPage(image: rear!)
+        // Front of form
+        
+        let newImageFront = generateSideOfForm(side: "front")
+        let newImageBack = generateSideOfForm(side: "back")
+        
+        // Place in PDF
+        let pdfPage = PDFPage(image: newImageFront)
+        let pdfRear = PDFPage(image: newImageBack)
         pdfDoc.insert(pdfPage!, at: 0)
         pdfDoc.insert(pdfRear!, at: 1)
         let data = pdfDoc.dataRepresentation()
         
+        
+        //Save the form
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
         let url = path?.appendingPathComponent("781.pdf", isDirectory: false)
         
