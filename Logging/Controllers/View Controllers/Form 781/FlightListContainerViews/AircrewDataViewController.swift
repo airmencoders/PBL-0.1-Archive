@@ -85,9 +85,10 @@ class AircrewDataViewController: UIViewController {
     
     func presentAlertIfFlightInputError() {
         guard let form = Form781Controller.shared.getCurrentForm() else {
+            NSLog("AircrewDataViewController: presentAlertIfFlightInputError(cell: - there is no current form, returning.")
             return
         }
-                
+        #warning("Should we split this up? If *.text is nil this is some other error. If the item is empty, we handle it with presentAlertIfInputError().")
         guard let missionNumber = missionNumber.text,
               let missionSymbol = missionSymbol.text,
               let fromICAO = fromICAO.text,
@@ -105,6 +106,7 @@ class AircrewDataViewController: UIViewController {
         if isEditingFlight {
             
             guard let flight = self.flightToEdit else {
+                NSLog("ERROR: AircrewDataViewController: presentAlertIfFlightInputError() isEditingFlight = true, but no flightToEdit.")
                 return
             }
             
@@ -242,7 +244,7 @@ class AircrewDataViewController: UIViewController {
     
     @IBAction func newFlightButtonTapped(_ sender: UIButton) {
         guard let form = Form781Controller.shared.getCurrentForm() else {
-            return Alerts.showNoFormAlert(on: self)
+           return Alerts.showNoFormAlert(on: self)
         }
         guard form.flights.count < 6 else {
             return Alerts.showFlightsErrorAlert(on: self)
@@ -326,10 +328,12 @@ class AircrewDataViewController: UIViewController {
 
     @IBAction func saveFlightButtonTapped(_ sender: UIButton) {
         guard let form = Form781Controller.shared.getCurrentForm() else {
+            NSLog("AircrewDataViewController: saveFlightButtonTapped( - there is no current form, returning.")
             return
         }
         highlightFlightSeq()
                 
+        #warning("Should we split this up? If *.text is nil this is some other error. If the item is empty, we handle it with presentAlertIfInputError().")
         guard let missionNumber = missionNumber.text, !missionNumber.isEmpty,
               let missionSymbol = missionSymbol.text, !missionSymbol.isEmpty,
               let fromICAO = fromICAO.text, !fromICAO.isEmpty,
@@ -347,6 +351,7 @@ class AircrewDataViewController: UIViewController {
         if isEditingFlight {
             
             guard let flight = self.flightToEdit else {
+                NSLog("ERROR: MissionDataViewController: presentAlertIfFlightInputError() isEditingFlight = true, but no flightToEdit.")
                 return
             }
             
@@ -397,7 +402,10 @@ extension AircrewDataViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == self.flightSeqTableView {
-            guard let cell = self.flightSeqTableView.dequeueReusableCell(withIdentifier: "FlightCell", for: indexPath) as? FlightTableViewCell else { return UITableViewCell() }
+            guard let cell = self.flightSeqTableView.dequeueReusableCell(withIdentifier: "FlightCell", for: indexPath) as? FlightTableViewCell else {
+                NSLog("ERROR: AircrewDataViewController: tableView(cellForRowAt:) - dequeue failed for \"FlightCell\", if it's there it's not a FlightTableViewCell.")
+                return UITableViewCell()
+            }
             
             cell.delegate = self
             if let flight = Form781Controller.shared.getCurrentForm()?.flights[indexPath.row] {
@@ -408,7 +416,10 @@ extension AircrewDataViewController: UITableViewDelegate, UITableViewDataSource 
             return cell
         }
         if tableView == self.flightTimeTableView {
-            guard let cell = self.flightTimeTableView.dequeueReusableCell(withIdentifier: "FlightTimeCell", for: indexPath) as? FlightTimeTableViewCell else { return UITableViewCell() }
+            guard let cell = self.flightTimeTableView.dequeueReusableCell(withIdentifier: "FlightTimeCell", for: indexPath) as? FlightTimeTableViewCell else {
+                NSLog("ERROR: AircrewDataViewController: tableView(cellForRowAt:) - dequeue failed for \"FlightTimeCell\", if it's there it's not a FlightTimeTableViewCell.")
+                return UITableViewCell()
+            }
             
             if let crewMember = Form781Controller.shared.getCurrentForm()?.crewMembers[indexPath.row] {
                 cell.setUpViews(crewMember: crewMember)
@@ -427,6 +438,7 @@ extension AircrewDataViewController: FlightTableViewCellDelegate {
     
     func editButtonTapped(cell: FlightTableViewCell) {
         guard let flight = cell.flight else {
+            NSLog("ERROR: AircrewDataViewController: editButtonTapped(cell: - cell \(cell) has no flight property defined.")
             return
         }
         populateFlightFields(flight: flight)
@@ -436,8 +448,14 @@ extension AircrewDataViewController: FlightTableViewCellDelegate {
     }
     
     func deleteButtonTapped(cell: FlightTableViewCell) {
-        guard let form = Form781Controller.shared.getCurrentForm(),
-              let indexPath = flightSeqTableView.indexPath(for: cell) else { return }
+        guard let form = Form781Controller.shared.getCurrentForm() else {
+            NSLog("AircrewDataViewController: deleteButtonTapped(cell: - there is no current form, nothing to delete..")
+            return
+        }
+        guard let indexPath = flightSeqTableView.indexPath(for: cell) else {
+            NSLog("ERROR: MissionDataViewController: deleteButtonTapped() Cell \(cell) not found in flightSeqTableView, nothing deleted.")
+            return
+        }
         let flight = form.flights[indexPath.row]
         Form781Controller.shared.remove(flight: flight, from: form)
         flightSeqTableView.reloadData()
