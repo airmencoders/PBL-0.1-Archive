@@ -91,21 +91,11 @@ class FlightListViewController: UIViewController {
     }
     
     @IBAction func sendButtonTapped(_ sender: UIButton) {
-        
+        Helper.exportPDF()
     }
         
     @IBAction func printButtonTapped(_ sender: UIButton) {
         Helper.printFormFunc()
-    }
-    
-    @IBAction func helpButtonTapped(_ sender: UIButton) {
-    }
-    
-    @IBAction func homeButtonTapped(_ sender: UIButton) {
-    }
-    
-    @IBAction func backButtonTapped(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
@@ -113,6 +103,8 @@ class FlightListViewController: UIViewController {
     }
     
 } //End
+
+// MARK: - Delegates
 
 extension FlightListViewController: AircrewViewControllerDelegate, MissionDataViewControllerDelegate, AircrewDataViewControllerDelegate {
     func updateDimView(toHidden: Bool) {
