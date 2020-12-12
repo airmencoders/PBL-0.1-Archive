@@ -88,7 +88,6 @@ extension Form781ViewController: MainViewControllerDelegate {
         aircrewDataView.isHidden = true
         if firstTimeToMissionData {
             dimView.isHidden = false
-            firstTimeToMissionData = false
         }
     }
     
@@ -96,17 +95,24 @@ extension Form781ViewController: MainViewControllerDelegate {
         missionDataView.isHidden = true
         aircrewListView.isHidden = false
         aircrewDataView.isHidden = true
+        dimView.isHidden = true
     }
     
     func aircrewDataButtonTapped() {
         missionDataView.isHidden = true
         aircrewListView.isHidden = true
         aircrewDataView.isHidden = false
+        dimView.isHidden = true
     }
     
 } //End
 
 extension Form781ViewController: AircrewViewControllerDelegate, MissionDataViewControllerDelegate, AircrewDataViewControllerDelegate {
+    
+    func updateFirstTimeToMissionData() {
+        firstTimeToMissionData = false
+    }
+    
     func updateDimView(toHidden: Bool) {
         toHidden ? (dimView.isHidden = true) : (dimView.isHidden = false)
     }

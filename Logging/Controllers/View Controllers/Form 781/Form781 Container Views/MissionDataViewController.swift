@@ -10,6 +10,7 @@ import UIKit
 
 protocol MissionDataViewControllerDelegate: class {
     func updateDimView(toHidden: Bool)
+    func updateFirstTimeToMissionData()
 }
 
 class MissionDataViewController: UIViewController {
@@ -342,6 +343,7 @@ class MissionDataViewController: UIViewController {
         delegate?.updateDimView(toHidden: true)
         clearFlightFields()
         enableBackground()
+        delegate?.updateFirstTimeToMissionData()
     }
     
     func disableBackground() {
