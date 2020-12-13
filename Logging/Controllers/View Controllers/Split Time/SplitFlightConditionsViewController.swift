@@ -67,7 +67,10 @@ extension SplitFlightConditionsViewController: UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == self.flightConditionsTableView {
-            guard let cell = self.flightConditionsTableView.dequeueReusableCell(withIdentifier: "FlightConditionsCell", for: indexPath) as? FlightConditionsTableViewCell else { return UITableViewCell() }
+            guard let cell = self.flightConditionsTableView.dequeueReusableCell(withIdentifier: "FlightConditionsCell", for: indexPath) as? FlightConditionsTableViewCell else {
+                NSLog("ERROR: SplitFlightConditionsViewController: tableView(cellForRowAt:) - dequeue failed for \"FlightConditionsCell\", if it's there it's not a FlightConditionsTableViewCell.")
+                return UITableViewCell()
+            }
             
             if let crewMember = Form781Controller.shared.getCurrentForm()?.crewMembers[indexPath.row] {
                 cell.setUpViews(crewMember: crewMember)
@@ -76,7 +79,10 @@ extension SplitFlightConditionsViewController: UITableViewDelegate, UITableViewD
             return cell
         }
         if tableView == self.flightSeqTableView {
-            guard let cell = self.flightSeqTableView.dequeueReusableCell(withIdentifier: "FlightCell", for: indexPath) as? FlightTableViewCell else { return UITableViewCell() }
+            guard let cell = self.flightSeqTableView.dequeueReusableCell(withIdentifier: "FlightCell", for: indexPath) as? FlightTableViewCell else {
+                NSLog("ERROR: SplitFlightConditionsViewController: tableView(cellForRowAt:) - dequeue failed for \"FlightCell\", if it's there it's not a FlightTableViewCell.")
+                return UITableViewCell()
+            }
             
             cell.delegate = self
             if let flight = Form781Controller.shared.getCurrentForm()?.flights[indexPath.row] {

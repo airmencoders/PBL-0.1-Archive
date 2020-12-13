@@ -104,6 +104,7 @@ class MissionDataViewController: UIViewController {
         disableBackground()
         updateLabels()
         guard let form = Form781Controller.shared.getCurrentForm() else {
+            // Noting else to do if we don't have a form.
             return
         }
         updateGrandTotals(form: form)
@@ -167,14 +168,32 @@ class MissionDataViewController: UIViewController {
     }
     
     func presentAlertIfMissionInputError() {
-        guard let date = dateTextField.text,
-              let mds = mdsTextField.text,
-              let serialNumber = serialNumTextField.text,
-              let unitCharged = unitChargedTextField.text,
-              let harmLocation = harmLocationTextField.text,
-              let flightAuthNum = flightAuthTextField.text,
-              let issuingUnit = issuingUnitTextField.text
-        else {
+        guard let date = dateTextField.text else {
+            NSLog("ERROR: MissionDataViewController: presentAlertIfMissionInputError() dateTextField.text undefined.")
+            return
+        }
+        guard let mds = mdsTextField.text else {
+            NSLog("ERROR: MissionDataViewController: presentAlertIfMissionInputError() mdsTextField.text undefined.")
+            return
+        }
+        guard let serialNumber = serialNumTextField.text else {
+            NSLog("ERROR: MissionDataViewController: presentAlertIfMissionInputError() serialNumTextField.text undefined.")
+            return
+        }
+        guard let unitCharged = unitChargedTextField.text else {
+            NSLog("ERROR: MissionDataViewController: presentAlertIfMissionInputError() unitChargedTextField.text undefined.")
+            return
+        }
+        guard let harmLocation = harmLocationTextField.text else {
+            NSLog("ERROR: MissionDataViewController: presentAlertIfMissionInputError() harmLocationTextField.text undefined.")
+            return
+        }
+        guard let flightAuthNum = flightAuthTextField.text else {
+            NSLog("ERROR: MissionDataViewController: presentAlertIfMissionInputError() flightAuthTextField.text undefined.")
+            return
+        }
+        guard let issuingUnit = issuingUnitTextField.text else {
+            NSLog("ERROR: MissionDataViewController: presentAlertIfMissionInputError() issuingUnitTextField.text undefined.")
             return
         }
         
@@ -192,26 +211,55 @@ class MissionDataViewController: UIViewController {
     
     func presentAlertIfFlightInputError() {
         guard let form = Form781Controller.shared.getCurrentForm() else {
+            NSLog("WARNING: MissionDataViewController: presentAlertIfFlightInputError() No current form, so nothing will be saved.")
             return
         }
                 
-        guard let missionNumber = missionNumber.text,
-              let missionSymbol = missionSymbol.text,
-              let fromICAO = fromICAO.text,
-              let toICAO = toICAO.text,
-              let totalTime = totalTime.text,
-              let touchAndGo = touchAndGo.text,
-              let fullStop = fullStop.text,
-              let totalLandings = totalLandings.text,
-              let sorties = sorties.text,
-              let specialUse = specialUse.text
-        else {
+        guard let missionNumber = missionNumber.text else {
+            NSLog("ERROR: MissionDataViewController: presentAlertIfFlightInputError() missionNumber.text undefined.")
+            return
+        }
+        guard let missionSymbol = missionSymbol.text else {
+            NSLog("ERROR: MissionDataViewController: presentAlertIfFlightInputError() missionSymbol.text undefined.")
+            return
+        }
+        guard let fromICAO = fromICAO.text else {
+            NSLog("ERROR: MissionDataViewController: presentAlertIfFlightInputError() fromICAO.text undefined.")
+            return
+        }
+        guard let toICAO = toICAO.text else {
+            NSLog("ERROR: MissionDataViewController: presentAlertIfFlightInputError() toICAO.text undefined.")
+            return
+        }
+        guard let totalTime = totalTime.text else {
+            NSLog("ERROR: MissionDataViewController: presentAlertIfFlightInputError() totalTime.text undefined.")
+            return
+        }
+        guard let touchAndGo = touchAndGo.text else {
+            NSLog("ERROR: MissionDataViewController: presentAlertIfFlightInputError() touchAndGo.text undefined.")
+            return
+        }
+        guard let fullStop = fullStop.text else {
+            NSLog("ERROR: MissionDataViewController: presentAlertIfFlightInputError() fullStop.text undefined.")
+            return
+        }
+        guard let totalLandings = totalLandings.text else {
+            NSLog("ERROR: MissionDataViewController: presentAlertIfFlightInputError() totalLandings.text undefined.")
+            return
+        }
+        guard let sorties = sorties.text else {
+            NSLog("ERROR: MissionDataViewController: presentAlertIfFlightInputError() sorties.text undefined.")
+            return
+        }
+        guard let specialUse = specialUse.text else {
+            NSLog("ERROR: MissionDataViewController: presentAlertIfFlightInputError() specialUse.text undefined.")
             return
         }
         
         if isEditingFlight {
             
             guard let flight = self.flightToEdit else {
+                NSLog("ERROR: MissionDataViewController: presentAlertIfFlightInputError() isEditingFlight = true, but no flightToEdit.")
                 return
             }
             
@@ -368,7 +416,7 @@ class MissionDataViewController: UIViewController {
     
     @IBAction func saveMissionDataTapped(_ sender: UIButton) {
         highlightMissionData()
-        
+        #warning("Should we split this up? If *.text is nil this is some other error. If the item is empty, we handle it with presentAlertIfInputError().")
         guard let date = dateTextField.text, !date.isEmpty,
               let mds = mdsTextField.text, !mds.isEmpty,
               let serialNumber = serialNumTextField.text, !serialNumber.isEmpty,
@@ -475,10 +523,11 @@ class MissionDataViewController: UIViewController {
 
     @IBAction func saveFlightButtonTapped(_ sender: UIButton) {
         guard let form = Form781Controller.shared.getCurrentForm() else {
+            NSLog("ERROR: MissionDataViewController: saveFlightButtonTapped() No current form so nothing was saved.")
             return
         }
         highlightFlightSeq()
-                
+        #warning("Should we split this up? If *.text is nil this is some other error. If the item is empty, we handle it with presentAlertIfInputError().")
         guard let missionNumber = missionNumber.text, !missionNumber.isEmpty,
               let missionSymbol = missionSymbol.text, !missionSymbol.isEmpty,
               let fromICAO = fromICAO.text, !fromICAO.isEmpty,
@@ -496,6 +545,7 @@ class MissionDataViewController: UIViewController {
         if isEditingFlight {
             
             guard let flight = self.flightToEdit else {
+                NSLog("ERROR: MissionDataViewController: saveFlightButtonTapped() isEditingFlight = true, but no flightToEdit.")
                 return
             }
             
@@ -564,7 +614,10 @@ extension MissionDataViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = self.flightSeqTableView.dequeueReusableCell(withIdentifier: "FlightCell", for: indexPath) as? FlightTableViewCell else { return UITableViewCell() }
+        guard let cell = self.flightSeqTableView.dequeueReusableCell(withIdentifier: "FlightCell", for: indexPath) as? FlightTableViewCell else {
+            NSLog("ERROR: MissionDataViewController: tableView(cellForRowAt:) - dequeue failed for \"FlightCell\", if it's there it's not a FlightTableViewCell.")
+            return UITableViewCell()
+        }
         
         cell.delegate = self
         if let flight = Form781Controller.shared.getCurrentForm()?.flights[indexPath.row] {
@@ -583,6 +636,7 @@ extension MissionDataViewController: FlightTableViewCellDelegate {
     
     func editButtonTapped(cell: FlightTableViewCell) {
         guard let flight = cell.flight else {
+            NSLog("ERROR: MissionDataViewController: editButtonTapped(cell: the cell does not have a valid flight property.")
             return
         }
         populateFlightFields(flight: flight)
@@ -592,8 +646,14 @@ extension MissionDataViewController: FlightTableViewCellDelegate {
     }
     
     func deleteButtonTapped(cell: FlightTableViewCell) {
-        guard let form = Form781Controller.shared.getCurrentForm(),
-              let indexPath = flightSeqTableView.indexPath(for: cell) else { return }
+        guard let form = Form781Controller.shared.getCurrentForm() else {
+            NSLog("ERROR: MissionDataViewController: deleteButtonTapped() No current form so nothing was deleted.")
+            return
+        }
+        guard let indexPath = flightSeqTableView.indexPath(for: cell) else {
+            NSLog("ERROR: MissionDataViewController: deleteButtonTapped() Cell \(cell) not found in flightSeqTableView, nothing deleted.")
+            return
+        }
         let flight = form.flights[indexPath.row]
         Form781Controller.shared.remove(flight: flight, from: form)
         flightSeqTableView.reloadData()

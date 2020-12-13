@@ -67,7 +67,10 @@ extension SplitFlightTimeViewController: UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == self.flightTimeTableView {
-            guard let cell = self.flightTimeTableView.dequeueReusableCell(withIdentifier: "FlightTimeCell", for: indexPath) as? FlightTimeTableViewCell else { return UITableViewCell() }
+            guard let cell = self.flightTimeTableView.dequeueReusableCell(withIdentifier: "FlightTimeCell", for: indexPath) as? FlightTimeTableViewCell else {
+                NSLog("ERROR: SplitFlightTimeViewController: tableView(cellForRowAt:) - dequeue failed for \"FlightTimeCell\", if it's there it's not a FlightTimeTableViewCell.")
+                return UITableViewCell()
+            }
             
             if let crewMember = Form781Controller.shared.getCurrentForm()?.crewMembers[indexPath.row] {
                 cell.setUpViews(crewMember: crewMember)
@@ -76,7 +79,10 @@ extension SplitFlightTimeViewController: UITableViewDelegate, UITableViewDataSou
             return cell
         }
         if tableView == self.flightSeqTableView {
-            guard let cell = self.flightSeqTableView.dequeueReusableCell(withIdentifier: "FlightCell", for: indexPath) as? FlightTableViewCell else { return UITableViewCell() }
+            guard let cell = self.flightSeqTableView.dequeueReusableCell(withIdentifier: "FlightCell", for: indexPath) as? FlightTableViewCell else {
+                NSLog("ERROR: SplitFlightTimeViewController: tableView(cellForRowAt:) - dequeue failed for \"FlightCell\", if it's there it's not a FlightTableViewCell.")
+                return UITableViewCell()
+            }
             
             cell.delegate = self
             if let flight = Form781Controller.shared.getCurrentForm()?.flights[indexPath.row] {

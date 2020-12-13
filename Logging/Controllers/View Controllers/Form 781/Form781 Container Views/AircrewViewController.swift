@@ -52,17 +52,31 @@ class AircrewViewController: UIViewController {
     }
     
     func presentAlertIfInputError() {
-        guard let lastName = lastName.text,
-              let firstName = firstName.text,
-              let ssn = ssn.text,
-              let flightAuthDutyCode = flightAuthDutyCode.text,
-              let flyingOrigin = flyingOrigin.text
-        else {
+        #warning("Why don't we post the error is the text field is undefined?")
+        guard let lastName = lastName.text else {
+            NSLog("ERROR: AircrewViewController: presentAlertIfInputError() - optional text is nil - lastName")
+            return
+        }
+        guard let firstName = firstName.text else {
+            NSLog("ERROR: AircrewViewController: presentAlertIfInputError() - optional text is nil - firstName")
+            return
+        }
+        guard let ssn = ssn.text else {
+            NSLog("ERROR: AircrewViewController: presentAlertIfInputError() - optional text is nil - ssn")
+            return
+        }
+        guard let flightAuthDutyCode = flightAuthDutyCode.text else {
+            NSLog("ERROR: AircrewViewController: presentAlertIfInputError() - optional text is nil - flightAuthDutyCode")
+            return
+        }
+        guard let flyingOrigin = flyingOrigin.text else {
+            NSLog("ERROR: AircrewViewController: presentAlertIfInputError() - optional text is nil - flyingOrigin")
             return
         }
         
         if isEditingMember {
             guard let crewMember = self.crewMemberToEdit else {
+                NSLog("ERROR: AircrewViewController: presentAlertIfInputError() - isEditingMember = true, but crewMemberToEdit undefined.")
                 return
             }
             
@@ -74,8 +88,8 @@ class AircrewViewController: UIViewController {
             }
         } else {
             
-            guard let form = Form781Controller.shared.getCurrentForm()
-            else {
+            guard let form = Form781Controller.shared.getCurrentForm() else {
+                NSLog("WARNING: AircrewViewController: presentAlertIfInputError() - isEditingMember = false, but no current form.")
                 return
             }
             
@@ -159,6 +173,7 @@ class AircrewViewController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         highlight()
+        #warning("Should we split this up? If *.text is nil this is some other error. If the item is empty, we handle it with presentAlertIfInputError().")
         guard let lastName = lastName.text, !lastName.isEmpty,
               let firstName = firstName.text, !firstName.isEmpty,
               let ssn = ssn.text, !ssn.isEmpty,
@@ -170,6 +185,7 @@ class AircrewViewController: UIViewController {
         
         if isEditingMember {
             guard let crewMember = self.crewMemberToEdit else {
+                NSLog("ERROR: AircrewViewController: saveButtonTapped() - isEditingMember = true, but crewMemberToEdit undefined.")
                 return
             }
             
@@ -180,6 +196,7 @@ class AircrewViewController: UIViewController {
         } else {
             
             guard let form = Form781Controller.shared.getCurrentForm() else {
+                NSLog("WARNING: AircrewViewController: saveButtonTapped() - isEditingMember = false, but no current form.")
                 return
             }
             
@@ -209,6 +226,7 @@ extension AircrewViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = self.aircrewTableView.dequeueReusableCell(withIdentifier: "AircrewCell", for: indexPath) as? AircrewTableViewCell else {
+            NSLog("ERROR: AircrewViewController: tableView(cellForRowAt:) - dequeue failed for \"AircrewCell\", if it's there it's not a AircrewTableViewCell.")
             return UITableViewCell()
         }
         
@@ -229,6 +247,7 @@ extension AircrewViewController: AircrewTableViewCellDelegate {
     
     func editButtonTapped(cell: AircrewTableViewCell) {
         guard let crewMember = cell.crewMember else {
+            NSLog("AircrewViewController: editButtonTapped() the cell \(cell) does not have a crewMember.")
             return
         }
         populateFields(crewMember: crewMember)
@@ -239,9 +258,12 @@ extension AircrewViewController: AircrewTableViewCellDelegate {
     }
 
     func deleteButtonTapped(cell: AircrewTableViewCell) {
-        guard let form = Form781Controller.shared.getCurrentForm(),
-              let indexPath = aircrewTableView.indexPath(for: cell)
-        else {
+        guard let form = Form781Controller.shared.getCurrentForm() else {
+            NSLog("AircrewViewController: deleteButtonTapped(cell: - there is no current form, returning.")
+            return
+        }
+        guard let indexPath = aircrewTableView.indexPath(for: cell) else {
+            NSLog("ERROR: AircrewViewController: deleteButtonTapped(cell: - The cell \(cell) is not in the table view..")
             return
         }
         let crewMember = form.crewMembers[indexPath.row]

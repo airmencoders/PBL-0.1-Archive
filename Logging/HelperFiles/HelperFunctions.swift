@@ -54,8 +54,9 @@ class Helper {
         - Returns - None
      */
     static func validateNumericalInput(input: UITextField) -> Bool {
-       
-            guard let _ = Int(input.text!) else { return false}
+        guard let _ = Int(input.text!) else {
+            return false
+        }
         return true
     }
     
