@@ -9,13 +9,12 @@
 import UIKit
 import Foundation
 
-class FlightListViewController: UIViewController {
+class Form781ViewController: UIViewController {
     
     // MARK: - Outlets
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var missionDateLabel: UILabel!
-    @IBOutlet weak var formSegmentedControl: UISegmentedControl!
     @IBOutlet weak var dimView: UIView!
     
     @IBOutlet weak var aircrewListView: UIView!
@@ -65,31 +64,6 @@ class FlightListViewController: UIViewController {
 
     // MARK: - Actions
     
-    @IBAction func formSegmentedControlChanged(_ sender: UISegmentedControl) {
-        switch formSegmentedControl.selectedSegmentIndex {
-        case 0:
-            aircrewListView.isHidden = false
-            missionDataView.isHidden = true
-            aircrewDataView.isHidden = true
-        case 1:
-            aircrewListView.isHidden = true
-            missionDataView.isHidden = false
-            aircrewDataView.isHidden = true
-            if firstTimeToMissionData {
-                dimView.isHidden = false
-                firstTimeToMissionData = false
-            }
-        case 2:
-            aircrewListView.isHidden = true
-            missionDataView.isHidden = true
-            aircrewDataView.isHidden = false
-        default:
-            aircrewListView.isHidden = false
-            missionDataView.isHidden = true
-            aircrewDataView.isHidden = true
-        }
-    }
-    
     @IBAction func sendButtonTapped(_ sender: UIButton) {
         Helper.exportPDF()
     }
@@ -106,7 +80,39 @@ class FlightListViewController: UIViewController {
 
 // MARK: - Delegates
 
-extension FlightListViewController: AircrewViewControllerDelegate, MissionDataViewControllerDelegate, AircrewDataViewControllerDelegate {
+extension Form781ViewController: MainViewControllerDelegate {
+    
+    func missionDataButtonTapped() {
+        missionDataView.isHidden = false
+        aircrewListView.isHidden = true
+        aircrewDataView.isHidden = true
+        if firstTimeToMissionData {
+            dimView.isHidden = false
+        }
+    }
+    
+    func aircrewListButtonTapped() {
+        missionDataView.isHidden = true
+        aircrewListView.isHidden = false
+        aircrewDataView.isHidden = true
+        dimView.isHidden = true
+    }
+    
+    func aircrewDataButtonTapped() {
+        missionDataView.isHidden = true
+        aircrewListView.isHidden = true
+        aircrewDataView.isHidden = false
+        dimView.isHidden = true
+    }
+    
+} //End
+
+extension Form781ViewController: AircrewViewControllerDelegate, MissionDataViewControllerDelegate, AircrewDataViewControllerDelegate {
+    
+    func updateFirstTimeToMissionData() {
+        firstTimeToMissionData = false
+    }
+    
     func updateDimView(toHidden: Bool) {
         toHidden ? (dimView.isHidden = true) : (dimView.isHidden = false)
     }
