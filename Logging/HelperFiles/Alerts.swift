@@ -65,4 +65,12 @@ struct Alerts {
         
         vc.present(alert, animated: true, completion: nil)
     }
+    
+    static func showPDFCreation(on vc: UIViewController) {
+        let alert = UIAlertController(title: "PDF Created", message: "Your pdf has been generated and is located at \(Form781Controller.shared.fileURL(filename: "781.pdf"))", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        
+        vc.present(alert, animated: true, completion: nil)
+    }
 } //End

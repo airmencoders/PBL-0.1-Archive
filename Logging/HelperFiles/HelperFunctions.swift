@@ -369,21 +369,32 @@ class Helper {
         
         
         //Save the form
-        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
-        let url = path?.appendingPathComponent("781.pdf", isDirectory: false)
+        let path = getDocDir()
+        let url = path.appendingPathComponent("781.pdf", isDirectory: false)
         
         do {
-            try data!.write(to: url!)
+            try data!.write(to: url)
         } catch {
             NSLog("PDF creation error")
         }
     }
     
+    static func loadPDFFromDisc() -> PDFDocument {
+        let docDir = getDocDir()
+        let url = docDir.appendingPathComponent("781.pdf", isDirectory: false)
+        
+        return PDFDocument(url: url)!
+    }
+    
+    static func getDocDir() -> URL {
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last!
+    }
+    
     static func saveToDisc(image: UIImage, fileName: String) {
-        let docDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
-        let fileURL = docDir?.appendingPathComponent(fileName)
+        let docDir = getDocDir()
+        let fileURL = docDir.appendingPathComponent(fileName)
         if let data = image.pngData() {
-            try? data.write(to: fileURL!)
+            try? data.write(to: fileURL)
         } else {
             NSLog("image.pngData() error")
         }
