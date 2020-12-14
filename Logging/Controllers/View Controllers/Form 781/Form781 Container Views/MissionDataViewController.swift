@@ -10,7 +10,7 @@ import UIKit
 
 protocol MissionDataViewControllerDelegate: class {
     func updateDimView(toHidden: Bool)
-    func updateFirstTimeToMissionData()
+    func updateMissionDataDimViewHidden(toHidden: Bool)
 }
 
 class MissionDataViewController: UIViewController {
@@ -378,6 +378,7 @@ class MissionDataViewController: UIViewController {
         flightSeqPopUp.isHidden = false
         dimView.isHidden = false
         delegate?.updateDimView(toHidden: false)
+        delegate?.updateMissionDataDimViewHidden(toHidden: false)
         disableBackground()
     }
     
@@ -389,9 +390,9 @@ class MissionDataViewController: UIViewController {
         missionDataPopUp.isHidden = true
         dimView.isHidden = true
         delegate?.updateDimView(toHidden: true)
+        delegate?.updateMissionDataDimViewHidden(toHidden: true)
         clearFlightFields()
         enableBackground()
-        delegate?.updateFirstTimeToMissionData()
     }
     
     func disableBackground() {
@@ -411,6 +412,7 @@ class MissionDataViewController: UIViewController {
         missionDataPopUp.isHidden = false
         dimView.isHidden = false
         delegate?.updateDimView(toHidden: false)
+        delegate?.updateMissionDataDimViewHidden(toHidden: false)
         disableBackground()
     }
     

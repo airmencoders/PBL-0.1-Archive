@@ -10,6 +10,7 @@ import UIKit
 
 protocol AircrewDataViewControllerDelegate: class {
     func updateDimView(toHidden: Bool)
+    func updateAircrewDataDimViewHidden(toHidden: Bool)
 }
 
 class AircrewDataViewController: UIViewController {
@@ -208,6 +209,7 @@ class AircrewDataViewController: UIViewController {
         flightSeqPopUp.isHidden = false
         dimView.isHidden = false
         delegate?.updateDimView(toHidden: false)
+        delegate?.updateAircrewDataDimViewHidden(toHidden: false)
         disableBackground()
     }
     
@@ -217,6 +219,7 @@ class AircrewDataViewController: UIViewController {
         flightSeqPopUp.isHidden = true
         dimView.isHidden = true
         delegate?.updateDimView(toHidden: true)
+        delegate?.updateAircrewDataDimViewHidden(toHidden: true)
         clearFlightFields()
         enableBackground()
     }
