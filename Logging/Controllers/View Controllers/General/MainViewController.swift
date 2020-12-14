@@ -50,6 +50,9 @@ extension MainViewController: SideMenuViewControllerDelegate {
     
     func menuButtonTapped(isOpen: Bool) {
         isOpen ? (sideMenuLeadingConstraint.constant = 0) :(sideMenuLeadingConstraint.constant = sideMenuClosedConstraint)
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     func overviewButtonTapped() {
