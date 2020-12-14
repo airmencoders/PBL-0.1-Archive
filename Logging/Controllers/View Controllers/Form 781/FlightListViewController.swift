@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PDFKit
 import Foundation
 
 class FlightListViewController: UIViewController {
@@ -91,8 +92,16 @@ class FlightListViewController: UIViewController {
     }
     
     @IBAction func sendButtonTapped(_ sender: UIButton) {
-        Helper.exportPDF()
-        Alerts.showPDFCreation(on: self)
+        // Load the PDF
+        
+        NSLog("***** Send button tapped *****")
+        let _ = Helper.exportPDF()
+        NSLog("***** PDF Saved to disc *****")
+        // Alerts.showPDFCreation(on: self)
+        let pdfPulled: PDFDocument = Helper.loadPDFFromDisc()
+        NSLog("***** PDF Loaded *****")
+        
+        FlightListActivityController.share(title: "Form 781", message: "Current 781", pdfDoc: pdfPulled, on: self)
     }
         
     @IBAction func printButtonTapped(_ sender: UIButton) {
@@ -134,3 +143,24 @@ extension FlightListViewController: AircrewViewControllerDelegate, MissionDataVi
     }
     
 } //End
+
+
+struct FlightListActivityController {
+    static func share(title: String, message: String, pdfDoc: PDFDocument, on vc: UIViewController) {
+        let formattedMessage = "\n\(message)"
+        
+        let objectsToShare = [
+            title,
+            formattedMessage,
+            pdfDoc.dataRepresentation()!
+        ] as [Any]
+        
+        let avc = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        avc.setValue(title, forKey: "Subject")
+        
+        vc.present(avc, animated: true, completion: nil)
+        if let popOver = avc.popoverPresentationController {
+            popOver.sourceView = vc.view
+        }
+    }
+}
