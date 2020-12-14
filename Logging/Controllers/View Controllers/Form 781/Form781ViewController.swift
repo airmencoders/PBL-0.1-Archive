@@ -165,6 +165,8 @@ struct FlightListActivityController {
             pdfDoc.dataRepresentation()!
         ] as [Any]
         
+        let activities = [UIActivity.]
+        
         let avc = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
         avc.setValue(title, forKey: "Subject")
         
