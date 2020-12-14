@@ -27,7 +27,7 @@ class Form781ControllerTests: XCTestCase {
     }
 
     override  func tearDown() {
-        let url = Form781Controller.shared.fileURL()
+        let url = Form781Controller.shared.fileURL(filename: "TestLogging.json")
         do {
             try FileManager.default.removeItem(at: url)
         } catch {
