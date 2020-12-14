@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol MainViewControllerDelegate: class {
+    func missionDataButtonTapped()
+    func aircrewListButtonTapped()
+    func aircrewDataButtonTapped()
+}
+
 class MainViewController: UIViewController {
     
     // MARK: - Outlets
@@ -16,11 +22,14 @@ class MainViewController: UIViewController {
     @IBOutlet weak var overviewView: UIView!
     @IBOutlet weak var form781View: UIView!
     
+    // MARK: - Properties
+    
+    weak var delegate: MainViewControllerDelegate?
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     // MARK: - Actions
@@ -46,13 +55,26 @@ extension MainViewController: SideMenuViewControllerDelegate {
     }
     
     func overviewButtonTapped() {
-        overviewView.isHidden = false
         form781View.isHidden = true
+        overviewView.isHidden = false
     }
     
     func missionDataButtonTapped() {
         form781View.isHidden = false
         overviewView.isHidden = true
+        delegate?.missionDataButtonTapped()
+    }
+    
+    func aircrewListButtonTapped() {
+        form781View.isHidden = false
+        overviewView.isHidden = true
+        delegate?.aircrewListButtonTapped()
+    }
+    
+    func aircrewDataButtonTapped() {
+        form781View.isHidden = false
+        overviewView.isHidden = true
+        delegate?.aircrewDataButtonTapped()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -62,17 +84,11 @@ extension MainViewController: SideMenuViewControllerDelegate {
             }
             destinationVC.delegate = self
         }
-        if segue.identifier == "ToOverviewVC" {
-            guard let destinationVC = segue.destination as? OverviewViewController else {
+        if segue.identifier == "ToForm781VC" {
+            guard let destinationVC = segue.destination as? Form781ViewController else {
                 return
             }
-            //destinationVC.delegate = self
-        }
-        if segue.identifier == "ToFlightListVC" {
-            guard let destinationVC = segue.destination as? FlightListViewController else {
-                return
-            }
-            //destinationVC.delegate = self
+            self.delegate = destinationVC
         }
     }
     
