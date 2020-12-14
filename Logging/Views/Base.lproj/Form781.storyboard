@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,40 +22,63 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KVQ-xw-3v8">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="54.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUCKBOARD LOGGING" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2KR-Ay-mHD" customClass="PBLLabelWhiteBold" customModule="Logging" customModuleProvider="target">
-                                        <rect key="frame" x="24" y="13" width="74.5" height="29"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38b-KQ-hBA" customClass="PBLIconButtonWhite" customModule="Logging" customModuleProvider="target">
-                                        <rect key="frame" x="695" y="16.5" width="146" height="22"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="HELP CENTER  " image="questionmark.square.fill" catalog="system"/>
-                                        <connections>
-                                            <action selector="helpButtonTapped:" destination="gFV-3G-E5E" eventType="touchUpInside" id="GiN-LG-EJv"/>
-                                            <action selector="helpButtonTapped:" destination="yg5-Qs-Yzd" eventType="touchUpInside" id="VD3-tt-UbW"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJK-Rd-c0q" userLabel="Home Button">
-                                        <rect key="frame" x="897.5" y="16.5" width="24" height="22"/>
-                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="house.fill" catalog="system"/>
-                                        <connections>
-                                            <action selector="homeButtonTapped:" destination="yg5-Qs-Yzd" eventType="touchUpInside" id="5Sk-YW-2EW"/>
-                                            <action selector="homeButtonTapped:" destination="gFV-3G-E5E" eventType="touchUpInside" id="eF7-fq-iqe"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Fcf-vo-3og">
+                                        <rect key="frame" x="5" y="0.0" width="1014" height="54.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8qj-pY-PM4">
+                                                <rect key="frame" x="0.0" y="0.0" width="124.5" height="54.5"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PB_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="k3e-1I-ABp">
+                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="54.5"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="eyT-kw-gyY"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PUCKBOARD LOGGING" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2KR-Ay-mHD" customClass="PBLLabelWhiteBold" customModule="Logging" customModuleProvider="target">
+                                                        <rect key="frame" x="50" y="13" width="74.5" height="29"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="74.5" id="bs5-iG-ujP"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gMa-SY-q2Y">
+                                                <rect key="frame" x="804.5" y="16.5" width="209.5" height="22"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38b-KQ-hBA" customClass="PBLIconButtonWhite" customModule="Logging" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="165.5" height="22"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                        <state key="normal" title="HELP CENTER  " image="questionmark.square.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="helpButtonTapped:" destination="gFV-3G-E5E" eventType="touchUpInside" id="GiN-LG-EJv"/>
+                                                            <action selector="helpButtonTapped:" destination="yg5-Qs-Yzd" eventType="touchUpInside" id="VD3-tt-UbW"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJK-Rd-c0q" userLabel="Home Button">
+                                                        <rect key="frame" x="165.5" y="0.0" width="44" height="22"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                        <state key="normal" image="house.fill" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="homeButtonTapped:" destination="yg5-Qs-Yzd" eventType="touchUpInside" id="5Sk-YW-2EW"/>
+                                                            <action selector="homeButtonTapped:" destination="gFV-3G-E5E" eventType="touchUpInside" id="eF7-fq-iqe"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" name="notBlack"/>
                                 <constraints>
-                                    <constraint firstItem="2KR-Ay-mHD" firstAttribute="width" secondItem="KVQ-xw-3v8" secondAttribute="width" multiplier="0.0727539" id="36f-Z8-iie"/>
-                                    <constraint firstItem="oJK-Rd-c0q" firstAttribute="trailing" secondItem="KVQ-xw-3v8" secondAttribute="centerX" multiplier="1.8" id="D6U-vn-hd6"/>
-                                    <constraint firstItem="38b-KQ-hBA" firstAttribute="centerY" secondItem="KVQ-xw-3v8" secondAttribute="centerY" id="UYe-iS-FZK"/>
-                                    <constraint firstItem="2KR-Ay-mHD" firstAttribute="centerY" secondItem="KVQ-xw-3v8" secondAttribute="centerY" id="XSQ-WK-dhZ"/>
-                                    <constraint firstItem="oJK-Rd-c0q" firstAttribute="centerY" secondItem="KVQ-xw-3v8" secondAttribute="centerY" id="cP6-cY-9Zm"/>
-                                    <constraint firstItem="2KR-Ay-mHD" firstAttribute="centerX" secondItem="KVQ-xw-3v8" secondAttribute="centerX" multiplier="0.12" id="qVm-Jf-Shn"/>
-                                    <constraint firstItem="38b-KQ-hBA" firstAttribute="centerX" secondItem="KVQ-xw-3v8" secondAttribute="centerX" multiplier="1.5" id="tiZ-To-k2S"/>
+                                    <constraint firstItem="Fcf-vo-3og" firstAttribute="leading" secondItem="KVQ-xw-3v8" secondAttribute="leading" constant="5" id="hMQ-Qd-Arw"/>
+                                    <constraint firstItem="Fcf-vo-3og" firstAttribute="top" secondItem="KVQ-xw-3v8" secondAttribute="top" id="hcq-of-hdY"/>
+                                    <constraint firstAttribute="bottom" secondItem="Fcf-vo-3og" secondAttribute="bottom" id="iA8-eZ-Pd7"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fcf-vo-3og" secondAttribute="trailing" constant="5" id="wEx-w2-0bB"/>
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HUy-lD-b6q" userLabel="Overview Container View">
@@ -70,7 +94,7 @@
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWe-tN-T4K" userLabel="Show Menu Button">
-                                <rect key="frame" x="14" y="123.5" width="13" height="22"/>
+                                <rect key="frame" x="14" y="123.5" width="12.5" height="22"/>
                                 <color key="tintColor" name="slate"/>
                                 <state key="normal" image="chevron.left" catalog="system"/>
                                 <connections>
@@ -116,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V3i-xz-NK2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1352" y="-54"/>
+            <point key="canvasLocation" x="1351.7578125" y="-54.026354319180086"/>
         </scene>
         <!--Form781 View Controller-->
         <scene sceneID="dbc-4b-XtW">
@@ -3047,7 +3071,7 @@
             <objects>
                 <viewController id="83w-Ih-qzk" customClass="SideMenuViewController" customModule="Logging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jAH-wa-OUb">
-                        <rect key="frame" x="0.0" y="0.0" width="205" height="1311.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="256" height="1311.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MISSION FORMS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgf-6v-KHj" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
@@ -3198,6 +3222,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="PB_Logo" width="117" height="90"/>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
