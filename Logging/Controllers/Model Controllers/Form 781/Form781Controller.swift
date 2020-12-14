@@ -218,9 +218,9 @@ class Form781Controller {
 
     // MARK: - Persistance
     
-    func fileURL() -> URL {
+    func fileURL(filename: String) -> URL {
         let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let fileURL = url[0].appendingPathComponent(loggingFileName)
+        let fileURL = url[0].appendingPathComponent(filename)
         //print("File URL: \(fileURL)")
         return fileURL
     }
@@ -230,7 +230,7 @@ class Form781Controller {
         do {
             encoder.outputFormatting = .prettyPrinted
             let data = try encoder.encode(forms)
-            try data.write(to: fileURL())
+            try data.write(to: fileURL(filename: loggingFileName))
         } catch {
             NSLog("There was an error encoding the data: \(error.localizedDescription)")
         }
@@ -239,7 +239,7 @@ class Form781Controller {
     func loadForms() throws{
         let decoder = JSONDecoder()
         do {
-            let data = try Data(contentsOf: fileURL())
+            let data = try Data(contentsOf: fileURL(filename: loggingFileName))
             forms = try decoder.decode([Form781].self, from: data)
         } catch {
             // No data to load, so clear out the array.

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SideMenuViewControllerDelegate: class {
-    func hideMenuButtonTapped()
+    func menuButtonTapped(isOpen: Bool)
     func overviewButtonTapped()
     func missionDataButtonTapped()
     func aircrewListButtonTapped()
@@ -20,6 +20,7 @@ class SideMenuViewController: UIViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var menuButton: UIButton!
     @IBOutlet weak var overviewButton: PBLSideMenuButton!
     @IBOutlet weak var missionDataButton: PBLSideMenuButton!
     @IBOutlet weak var aircrewListButton: PBLSideMenuButton!
@@ -28,6 +29,7 @@ class SideMenuViewController: UIViewController {
     // MARK: - Properties
     
     weak var delegate: SideMenuViewControllerDelegate?
+    var isMenuOpen = true
     
     // MARK: - Lifecycle
 
@@ -36,10 +38,46 @@ class SideMenuViewController: UIViewController {
         setUpViews()
     }
     
+    // MARK: - Methods
+    
+    func setUpViews() {
+        overviewButton.isSelected = true
+        updateButtons()
+    }
+    
+    func updateButtons() {
+        overviewButton.isSelected ? overviewButton.updateUI(toSelected: true) : overviewButton.updateUI(toSelected: false)
+        missionDataButton.isSelected ? missionDataButton.updateUI(toSelected: true) : missionDataButton.updateUI(toSelected: false)
+        aircrewListButton.isSelected ? aircrewListButton.updateUI(toSelected: true) : aircrewListButton.updateUI(toSelected: false)
+        aircrewDataButton.isSelected ? aircrewDataButton.updateUI(toSelected: true) : aircrewDataButton.updateUI(toSelected: false)
+    }
+    
+    func deselectAllButtons() {
+        overviewButton.isSelected = false
+        missionDataButton.isSelected = false
+        aircrewListButton.isSelected = false
+        aircrewDataButton.isSelected = false
+    }
+    
+    func updateButtonVisibility(toHidden: Bool) {
+        overviewButton.isHidden = toHidden
+        missionDataButton.isHidden = toHidden
+        aircrewListButton.isHidden = toHidden
+        aircrewDataButton.isHidden = toHidden
+    }
+    
     // MARK: - Actions
     
-    @IBAction func hideMenuButtonTapped(_ sender: UIButton) {
-        delegate?.hideMenuButtonTapped()
+    @IBAction func menuButtonTapped(_ sender: UIButton) {
+        isMenuOpen.toggle()
+        delegate?.menuButtonTapped(isOpen: isMenuOpen)
+        if isMenuOpen {
+            menuButton.setImage(UIImage(systemName: "chevron.left"), for: .normal)
+            updateButtonVisibility(toHidden: false)
+        } else {
+            menuButton.setImage(UIImage(systemName: "chevron.right"), for: .normal)
+            updateButtonVisibility(toHidden: true)
+        }
     }
     
     @IBAction func overviewButtonTapped(_ sender: UIButton) {
@@ -68,27 +106,6 @@ class SideMenuViewController: UIViewController {
         aircrewDataButton.isSelected = true
         updateButtons()
         delegate?.aircrewDataButtonTapped()
-    }
-    
-    // MARK: - Methods
-    
-    func setUpViews() {
-        overviewButton.isSelected = true
-        updateButtons()
-    }
-    
-    func updateButtons() {
-        overviewButton.isSelected ? overviewButton.buttonSelected() : overviewButton.buttonNotSelected()
-        missionDataButton.isSelected ? missionDataButton.buttonSelected() : missionDataButton.buttonNotSelected()
-        aircrewListButton.isSelected ? aircrewListButton.buttonSelected() : aircrewListButton.buttonNotSelected()
-        aircrewDataButton.isSelected ? aircrewDataButton.buttonSelected() : aircrewDataButton.buttonNotSelected()
-    }
-    
-    func deselectAllButtons() {
-        overviewButton.isSelected = false
-        missionDataButton.isSelected = false
-        aircrewListButton.isSelected = false
-        aircrewDataButton.isSelected = false
     }
     
 } //End

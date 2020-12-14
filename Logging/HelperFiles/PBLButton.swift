@@ -100,13 +100,14 @@ class PBLSideMenuButton: PBLOverviewButton {
         addCornerRadius()
     }
     
-    func buttonSelected() {
-        self.backgroundColor = .slate
-        self.setTitleColor(.white, for: .normal)
+    func updateUI(toSelected: Bool) {
+        if toSelected {
+            self.backgroundColor = .slate
+            self.setTitleColor(.white, for: .normal)
+        } else {
+            self.backgroundColor = .haze
+            self.setTitleColor(.slate, for: .normal)
+        }
     }
-    
-    func buttonNotSelected() {
-        self.backgroundColor = .haze
-        self.setTitleColor(.slate, for: .normal)
-    }
+
 }
