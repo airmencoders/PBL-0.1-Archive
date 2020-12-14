@@ -12,4 +12,5 @@ enum Form781Error: Error {
     case InvalidHours
     case InvalidMins
     case NotANumber
+    case InvalidTimeFormat
 }
