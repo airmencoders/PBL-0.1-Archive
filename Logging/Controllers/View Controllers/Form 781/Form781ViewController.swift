@@ -162,7 +162,7 @@ struct FlightListActivityController {
         let objectsToShare = [
             title,
             formattedMessage,
-            pdfDoc.dataRepresentation()!
+//            pdfDoc.dataRepresentation()!
         ] as [Any]
         
         let avc = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)

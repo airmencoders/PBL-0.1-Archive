@@ -43,7 +43,7 @@ class ImageGenerator {
             serialNumberString.draw(with: CGRect(x: 1035, y: 245, width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
             
             let unitChargedString = NSAttributedString(string: form?.unitCharged ?? " ", attributes: attrs)
-            unitChargedString.draw(with: CGRect(x: 1390, y: 245, width: 300, height: 50), options: .usesLineFragmentOrigin, context: nil)
+            unitChargedString.draw(with: CGRect(x: 1390, y: 245, width: 500, height: 50), options: .usesLineFragmentOrigin, context: nil)
             
             let harmLocationString = NSAttributedString(string: form?.harmLocation ?? " ", attributes: attrs)
             harmLocationString.draw(with: CGRect(x: 2120, y: 245, width: 980, height: 50), options: .usesLineFragmentOrigin, context: nil)
