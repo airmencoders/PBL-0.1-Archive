@@ -358,8 +358,8 @@
 		7FFE019B2576FF8800EBADF1 /* Form781 Container Views */ = {
 			isa = PBXGroup;
 			children = (
-				7FFE019F2577001600EBADF1 /* AircrewViewController.swift */,
 				7FFE01AC2577F93B00EBADF1 /* MissionDataViewController.swift */,
+				7FFE019F2577001600EBADF1 /* AircrewViewController.swift */,
 				7FFE01B32577FCA700EBADF1 /* AircrewDataViewController.swift */,
 			);
 			path = "Form781 Container Views";
