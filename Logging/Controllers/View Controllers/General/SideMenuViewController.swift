@@ -12,6 +12,8 @@ protocol SideMenuViewControllerDelegate: class {
     func hideMenuButtonTapped()
     func overviewButtonTapped()
     func missionDataButtonTapped()
+    func aircrewListButtonTapped()
+    func aircrewDataButtonTapped()
 }
 
 class SideMenuViewController: UIViewController {
@@ -20,6 +22,8 @@ class SideMenuViewController: UIViewController {
     
     @IBOutlet weak var overviewButton: PBLSideMenuButton!
     @IBOutlet weak var missionDataButton: PBLSideMenuButton!
+    @IBOutlet weak var aircrewListButton: PBLSideMenuButton!
+    @IBOutlet weak var aircrewDataButton: PBLSideMenuButton!
     
     // MARK: - Properties
     
@@ -52,6 +56,20 @@ class SideMenuViewController: UIViewController {
         delegate?.missionDataButtonTapped()
     }
     
+    @IBAction func aircrewListButtonTapped(_ sender: UIButton) {
+        deselectAllButtons()
+        aircrewListButton.isSelected = true
+        updateButtons()
+        delegate?.aircrewListButtonTapped()
+    }
+    
+    @IBAction func aircrewDataButtonTapped(_ sender: UIButton) {
+        deselectAllButtons()
+        aircrewDataButton.isSelected = true
+        updateButtons()
+        delegate?.aircrewDataButtonTapped()
+    }
+    
     // MARK: - Methods
     
     func setUpViews() {
@@ -62,11 +80,15 @@ class SideMenuViewController: UIViewController {
     func updateButtons() {
         overviewButton.isSelected ? overviewButton.buttonSelected() : overviewButton.buttonNotSelected()
         missionDataButton.isSelected ? missionDataButton.buttonSelected() : missionDataButton.buttonNotSelected()
+        aircrewListButton.isSelected ? aircrewListButton.buttonSelected() : aircrewListButton.buttonNotSelected()
+        aircrewDataButton.isSelected ? aircrewDataButton.buttonSelected() : aircrewDataButton.buttonNotSelected()
     }
     
     func deselectAllButtons() {
         overviewButton.isSelected = false
         missionDataButton.isSelected = false
+        aircrewListButton.isSelected = false
+        aircrewDataButton.isSelected = false
     }
     
 } //End
