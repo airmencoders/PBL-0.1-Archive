@@ -23,7 +23,9 @@ class Form781ViewController: UIViewController {
     
     // MARK: - Properties
     
-    var firstTimeToMissionData = true
+    var missionDataDimViewHidden = false
+    var aircrewListDimViewHidden = true
+    var aircrewDataDimViewHidden = true
 
     // MARK: - Lifecycle
     
@@ -86,31 +88,37 @@ extension Form781ViewController: MainViewControllerDelegate {
         missionDataView.isHidden = false
         aircrewListView.isHidden = true
         aircrewDataView.isHidden = true
-        if firstTimeToMissionData {
-            dimView.isHidden = false
-        }
+        missionDataDimViewHidden ? (dimView.isHidden = true) : (dimView.isHidden = false)
     }
     
     func aircrewListButtonTapped() {
         missionDataView.isHidden = true
         aircrewListView.isHidden = false
         aircrewDataView.isHidden = true
-        dimView.isHidden = true
+        aircrewListDimViewHidden ? (dimView.isHidden = true) : (dimView.isHidden = false)
     }
     
     func aircrewDataButtonTapped() {
         missionDataView.isHidden = true
         aircrewListView.isHidden = true
         aircrewDataView.isHidden = false
-        dimView.isHidden = true
+        aircrewDataDimViewHidden ? (dimView.isHidden = true) : (dimView.isHidden = false)
     }
     
 } //End
 
 extension Form781ViewController: AircrewViewControllerDelegate, MissionDataViewControllerDelegate, AircrewDataViewControllerDelegate {
     
-    func updateFirstTimeToMissionData() {
-        firstTimeToMissionData = false
+    func updateMissionDataDimViewHidden(toHidden: Bool) {
+        toHidden ? (missionDataDimViewHidden = true) : (missionDataDimViewHidden = false)
+    }
+    
+    func updateAircrewListDimViewHidden(toHidden: Bool) {
+        toHidden ? (aircrewListDimViewHidden = true) : (aircrewListDimViewHidden = false)
+    }
+    
+    func updateAircrewDataDimViewHidden(toHidden: Bool) {
+        toHidden ? (aircrewDataDimViewHidden = true) : (aircrewDataDimViewHidden = false)
     }
     
     func updateDimView(toHidden: Bool) {
