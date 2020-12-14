@@ -93,8 +93,6 @@
                                     <segue destination="gFV-3G-E5E" kind="embed" identifier="ToForm781VC" id="Dlb-uF-pgZ"/>
                                 </connections>
                             </containerView>
-<<<<<<< HEAD
-=======
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWe-tN-T4K" userLabel="Show Menu Button">
                                 <rect key="frame" x="14" y="123.5" width="12.5" height="22"/>
                                 <color key="tintColor" name="slate"/>
@@ -103,7 +101,6 @@
                                     <action selector="showMenuButtonTapped:" destination="yg5-Qs-Yzd" eventType="touchUpInside" id="ajs-aZ-Wej"/>
                                 </connections>
                             </button>
->>>>>>> 414ead21e6f4e9910d934c232e9b89c2c18e99e2
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Atl-sg-ccR" userLabel="Menu Container View">
                                 <rect key="frame" x="0.0" y="54.5" width="205" height="1311.5"/>
                                 <connections>
