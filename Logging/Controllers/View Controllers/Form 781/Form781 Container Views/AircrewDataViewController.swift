@@ -270,9 +270,9 @@ class AircrewDataViewController: UIViewController {
         } catch Form781Error.InvalidMins {
             Alerts.showMinError(on: self)
             Helper.highlightRed(textField: sender)
-//        } catch Form781Error.NoTimeFound {
-//            Helper.highlightRed(textField: sender)
-//            NSLog("No time found")
+        } catch Form781Error.InvalidTimeFormat {
+            Alerts.showTimeErrorAlert(on: self)
+            Helper.highlightRed(textField: sender)
         } catch {
             NSLog("checkTakeOffTime function unknown Error")
         }
