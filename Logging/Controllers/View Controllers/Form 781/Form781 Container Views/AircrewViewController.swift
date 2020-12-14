@@ -10,6 +10,7 @@ import UIKit
 
 protocol AircrewViewControllerDelegate: class {
     func updateDimView(toHidden: Bool)
+    func updateAircrewListDimViewHidden(toHidden: Bool)
 }
 
 class AircrewViewController: UIViewController {
@@ -139,6 +140,7 @@ class AircrewViewController: UIViewController {
         popUpView.isHidden = false
         dimView.isHidden = false
         delegate?.updateDimView(toHidden: false)
+        delegate?.updateAircrewListDimViewHidden(toHidden: false)
         disableBackground()
     }
     
@@ -148,6 +150,7 @@ class AircrewViewController: UIViewController {
         popUpView.isHidden = true
         dimView.isHidden = true
         delegate?.updateDimView(toHidden: true)
+        delegate?.updateAircrewListDimViewHidden(toHidden: true)
         clearFields()
         saveButton.setTitle("+ ADD NEW CREW", for: .normal)
         enableBackground()
