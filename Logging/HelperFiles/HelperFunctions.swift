@@ -106,7 +106,7 @@ class Helper {
      */
     static func validateTime(timeString: String) throws {
         NSLog("Time: \(timeString)")
-        if timeString.count > 0 {
+        if timeString.count == 4 {
             let hours: Int = Int("\(timeString[timeString.index(timeString.startIndex, offsetBy: 0)])\(timeString[timeString.index(timeString.startIndex, offsetBy: 1)])")!
             NSLog("Hours: \(hours)")
             if 0...23 ~= hours {
@@ -124,6 +124,10 @@ class Helper {
                 NSLog("ERROR: Form781Error.InvalidMins")
                 throw Form781Error.InvalidMins
             }
+        } else if timeString.count > 0 {
+            // No error for an empty field.
+            NSLog("ERROR: Form781Error.InvalidTimeFormat")
+            throw Form781Error.InvalidTimeFormat
         }
     }
 
