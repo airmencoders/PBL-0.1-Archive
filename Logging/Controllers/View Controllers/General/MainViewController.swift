@@ -21,10 +21,12 @@ class MainViewController: UIViewController {
     @IBOutlet weak var sideMenuView: UIView!
     @IBOutlet weak var overviewView: UIView!
     @IBOutlet weak var form781View: UIView!
+    @IBOutlet weak var sideMenuLeadingConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
     
     weak var delegate: MainViewControllerDelegate?
+    var sideMenuClosedConstraint = UIScreen.main.bounds.width/6
     
     // MARK: - Lifecycle
     
@@ -40,18 +42,14 @@ class MainViewController: UIViewController {
     @IBAction func homeButtonTapped(_ sender: UIButton) {
     }
     
-    @IBAction func showMenuButtonTapped(_ sender: UIButton) {
-        sideMenuView.isHidden = false
-    }
-    
 } //End
 
 // MARK: - Delegates
 
 extension MainViewController: SideMenuViewControllerDelegate {
     
-    func hideMenuButtonTapped() {
-        sideMenuView.isHidden = true
+    func menuButtonTapped(isOpen: Bool) {
+        isOpen ? (sideMenuLeadingConstraint.constant = 0) :(sideMenuLeadingConstraint.constant = sideMenuClosedConstraint)
     }
     
     func overviewButtonTapped() {
