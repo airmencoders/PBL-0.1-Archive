@@ -19,6 +19,7 @@ class PBLLabel: UILabel {
     
     func updateFont(to font: String) {
         guard let size = self.font?.pointSize else {
+            NSLog("ERROR: updateFont(to:) - PBLLabel does not have a font defined. No default font size, so font was not changed.")
             return
         }
         self.font = UIFont(name: font, size: size)
@@ -36,6 +37,7 @@ class PBLLabelBold: UILabel {
     
     func updateFont(to font: String) {
         guard let size = self.font?.pointSize else {
+            NSLog("ERROR: updateFont(to:) - PBLLabelBold does not have a font defined. No default font size, so font was not changed.")
             return
         }
         self.font = UIFont(name: font, size: size)

@@ -67,7 +67,7 @@ class WelcomeViewController: UIViewController {
     }
     
     @IBAction func continueButtonTapped(_ sender: UIButton) {
-        if let viewController = UIStoryboard(name: "Form781", bundle: nil).instantiateViewController(withIdentifier: "FlightList") as? FlightListViewController {
+        if let viewController = UIStoryboard(name: "Form781", bundle: nil).instantiateViewController(withIdentifier: "FlightList") as? Form781ViewController {
             if let navigator = navigationController {
                 navigator.pushViewController(viewController, animated: true)
             }

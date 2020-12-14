@@ -54,6 +54,7 @@ class Form781Controller {
     func updateMissionData(date: String, mds: String, serialNumber: String, unitCharged: String, harmLocation: String, flightAuthNum: String, issuingUnit: String) {
         
         guard let form = getCurrentForm() else {
+            NSLog("ERROR: updateMissionData - Form781Controller has no current form. Mission Data not updated or saved.")
             return
         }
         form.date = date
@@ -146,7 +147,10 @@ class Form781Controller {
     // MARK: - Delete
     
     func remove(flight: Flight, from form: Form781) {
-        guard let index = form.flights.firstIndex(of: flight) else { return }
+        guard let index = form.flights.firstIndex(of: flight) else {
+            NSLog("WARNING: remove(flight: - Form781Controller tried to remove a flight that is not in the form. Flight = \(flight)")
+            return
+        }
         form.flights.remove(at: index)
         updateFlightSeqLetters()
         NSLog("Removed flight")
@@ -154,7 +158,10 @@ class Form781Controller {
     }
     
     func updateFlightSeqLetters() {
-        guard let flights = getCurrentForm()?.flights else { return }
+        guard let flights = getCurrentForm()?.flights else {
+            NSLog("WARNING: updateFlightSeqLetters() - No flights to update. currentForm = \(String(describing: getCurrentForm()))")
+            return
+        }
         for (index, flight) in flights.enumerated() {
             
             switch index {
@@ -177,7 +184,10 @@ class Form781Controller {
     }
     
     func remove(crewMember: CrewMember, from form: Form781) {
-        guard let index = form.crewMembers.firstIndex(of: crewMember) else { return }
+        guard let index = form.crewMembers.firstIndex(of: crewMember) else {
+            NSLog("WARNING: remove(crewMember: - Form781Controller tried to remove a crew mwmber that is not in the form. CrewMember = \(crewMember)")
+            return
+        }
         form.crewMembers.remove(at: index)
         NSLog("Removed crew member")
         save()
