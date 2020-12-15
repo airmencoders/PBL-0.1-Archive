@@ -882,6 +882,7 @@
 				CURRENT_PROJECT_VERSION = 32;
 				DEVELOPMENT_TEAM = RQ9T47YT3S;
 				INFOPLIST_FILE = Logging/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -906,6 +907,7 @@
 				CURRENT_PROJECT_VERSION = 32;
 				DEVELOPMENT_TEAM = RQ9T47YT3S;
 				INFOPLIST_FILE = Logging/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
