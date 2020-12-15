@@ -22,6 +22,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var overviewView: UIView!
     @IBOutlet weak var form781View: UIView!
     @IBOutlet weak var sideMenuLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var dimView: UIView!
     
     // MARK: - Properties
     
