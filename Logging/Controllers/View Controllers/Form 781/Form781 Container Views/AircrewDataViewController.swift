@@ -57,6 +57,10 @@ class AircrewDataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(currentFormChanged),
+                                               name: Form781Controller.FLIGHT_DATA_CHANGED,
+                                               object: nil)
     }
     
     // MARK: - Methods
@@ -66,6 +70,7 @@ class AircrewDataViewController: UIViewController {
         flightSeqTableView.dataSource = self
         flightTimeTableView.delegate = self
         flightTimeTableView.dataSource = self
+        currentFormChanged()
     }
     
     func updateGrandTotals(form: Form781) {
@@ -75,15 +80,19 @@ class AircrewDataViewController: UIViewController {
         let grandTotalLandings = FlightController.calculateTotalLandings()
         let grandTotalSorties = FlightController.calculateTotalSorties()
         
-        self.grandTotalTime.text = String(grandTotalTime)
-        self.grandTouchGo.text = String(grandTouchGo)
-        self.grandFullStop.text = String(grandFullStop)
-        self.grandTotal.text = String(grandTotalLandings)
-        self.grandSorties.text = String(grandTotalSorties)
-        
         Form781Controller.shared.updateFormWith(grandTotalTime: grandTotalTime, grandTouchGo: grandTouchGo, grandFullStop: grandFullStop, grandTotalLandings: grandTotalLandings, grandTotalSorties: grandTotalSorties, form: form)
     }
     
+    func reloadGrandTotalsView() {
+        if let form = Form781Controller.shared.getCurrentForm() {
+            self.grandTotalTime.text = String(form.grandTotalTime ?? 0.0)
+            self.grandTouchGo.text = String(form.grandTotalTouchAndGo ?? 0)
+            self.grandFullStop.text = String(form.grandTotalFullStop ?? 0)
+            self.grandTotal.text = String(form.grandTotalLandings ?? 0)
+            self.grandSorties.text = String(form.grandTotalSorties ?? 0)
+        }
+    }
+
     func presentAlertIfFlightInputError() {
         guard let form = Form781Controller.shared.getCurrentForm() else {
             NSLog("AircrewDataViewController: presentAlertIfFlightInputError(cell: - there is no current form, returning.")
@@ -115,6 +124,7 @@ class AircrewDataViewController: UIViewController {
             
                 Form781Controller.shared.updateFlight(flight: flight, missionNumber: missionNumber, missionSymbol: missionSymbol, fromICAO: fromICAO, toICAO: toICAO, takeOffTime: self.takeOffTimeString, landTime: self.landTimeString, totalTime: totalTime, touchAndGo: touchAndGo, fullStop: fullStop, totalLandings: totalLandings, sorties: sorties, specialUse: specialUse)
                 
+                self.updateGrandTotals(form: form)
                 self.closePopUp()
             }
         } else {
@@ -214,7 +224,6 @@ class AircrewDataViewController: UIViewController {
     }
     
     func closePopUp() {
-        flightSeqTableView.reloadData()
         isEditingFlight = false
         flightSeqPopUp.isHidden = true
         dimView.isHidden = true
@@ -230,6 +239,11 @@ class AircrewDataViewController: UIViewController {
     
     func enableBackground() {
         flightSeqTableView.isUserInteractionEnabled = true
+    }
+
+    @objc func currentFormChanged() {
+        flightSeqTableView.reloadData()
+        reloadGrandTotalsView()
     }
 
     // MARK: - Actions
@@ -360,6 +374,7 @@ class AircrewDataViewController: UIViewController {
             
             Form781Controller.shared.updateFlight(flight: flight, missionNumber: missionNumber, missionSymbol: missionSymbol, fromICAO: fromICAO, toICAO: toICAO, takeOffTime: takeOffTimeString, landTime: landTimeString, totalTime: totalTime, touchAndGo: touchAndGo, fullStop: fullStop, totalLandings: totalLandings, sorties: sorties, specialUse: specialUse)
             
+            updateGrandTotals(form: form)
             closePopUp()
             
         } else {
@@ -461,7 +476,6 @@ extension AircrewDataViewController: FlightTableViewCellDelegate {
         }
         let flight = form.flights[indexPath.row]
         Form781Controller.shared.remove(flight: flight, from: form)
-        flightSeqTableView.reloadData()
     }
     
 } //End

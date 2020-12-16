@@ -14,6 +14,9 @@ class Form781Controller {
     
     static let shared = Form781Controller()
     
+    // MARK: - Notifications
+    static let FLIGHT_DATA_CHANGED = NSNotification.Name("FlightDataChanged")
+
     // MARK: - Properties
     
     private var forms = [Form781]()
@@ -234,6 +237,8 @@ class Form781Controller {
         } catch {
             NSLog("There was an error encoding the data: \(error.localizedDescription)")
         }
+        // Let the world know that our data has changed.
+        NotificationCenter.default.post(name: Form781Controller.FLIGHT_DATA_CHANGED, object: nil)
     }
     
     func loadForms() throws{

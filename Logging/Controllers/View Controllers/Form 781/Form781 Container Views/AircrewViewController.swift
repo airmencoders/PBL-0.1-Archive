@@ -38,6 +38,10 @@ class AircrewViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(currentFormChanged),
+                                               name: Form781Controller.FLIGHT_DATA_CHANGED,
+                                               object: nil)
     }
     
     // MARK: - Methods
@@ -50,6 +54,7 @@ class AircrewViewController: UIViewController {
         ssn.delegate = self
         flightAuthDutyCode.delegate = self
         flyingOrigin.delegate = self
+        currentFormChanged()
     }
     
     func presentAlertIfInputError() {
@@ -145,7 +150,6 @@ class AircrewViewController: UIViewController {
     }
     
     func closePopUp() {
-        aircrewTableView.reloadData()
         isEditingMember = false
         popUpView.isHidden = true
         dimView.isHidden = true
@@ -164,6 +168,10 @@ class AircrewViewController: UIViewController {
         aircrewTableView.isUserInteractionEnabled = true
     }
     
+    @objc func currentFormChanged() {
+        aircrewTableView.reloadData()
+    }
+
     // MARK: - Actions
     
     @IBAction func addButtonTapped(_ sender: UIButton) {
@@ -271,7 +279,6 @@ extension AircrewViewController: AircrewTableViewCellDelegate {
         }
         let crewMember = form.crewMembers[indexPath.row]
         Form781Controller.shared.remove(crewMember: crewMember, from: form)
-        aircrewTableView.reloadData()
     }
     
 } //End

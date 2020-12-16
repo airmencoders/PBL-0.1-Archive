@@ -74,6 +74,10 @@ class MissionDataViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(currentFormChanged),
+                                               name: Form781Controller.FLIGHT_DATA_CHANGED,
+                                               object: nil)
     }
     
     // MARK: - Methods
@@ -108,15 +112,18 @@ class MissionDataViewController: UIViewController {
             return
         }
         updateGrandTotals(form: form)
+        currentFormChanged()
     }
     
-    func loadFromData(){
+    func loadFromData() {
         do {
             try Form781Controller.shared.loadForms()
         } catch {
             NSLog("\(Form781Error.FileNotFound)")
         }
-        
+    }
+    
+    func reloadCurrentFormViews() {
         let form = Form781Controller.shared.getCurrentForm()
         if Helper.checkForFile(filePath: Form781Controller.shared.fileURL(filename: Form781Controller.shared.loggingFileName)){
             dateTextField.text = form?.date
@@ -130,7 +137,7 @@ class MissionDataViewController: UIViewController {
             dateTextField.text = Helper.getTodaysDate()
         }
     }
-    
+
     func updateLabels() {
         if let form = Form781Controller.shared.getCurrentForm() {
             dateLabel.text = form.date
@@ -158,15 +165,19 @@ class MissionDataViewController: UIViewController {
         let grandTotalLandings = FlightController.calculateTotalLandings()
         let grandTotalSorties = FlightController.calculateTotalSorties()
         
-        self.grandTotalTime.text = String(grandTotalTime)
-        self.grandTouchGo.text = String(grandTouchGo)
-        self.grandFullStop.text = String(grandFullStop)
-        self.grandTotal.text = String(grandTotalLandings)
-        self.grandSorties.text = String(grandTotalSorties)
-        
         Form781Controller.shared.updateFormWith(grandTotalTime: grandTotalTime, grandTouchGo: grandTouchGo, grandFullStop: grandFullStop, grandTotalLandings: grandTotalLandings, grandTotalSorties: grandTotalSorties, form: form)
     }
     
+    func reloadGrandTotalsView() {
+        if let form = Form781Controller.shared.getCurrentForm() {
+            self.grandTotalTime.text = String(form.grandTotalTime ?? 0.0)
+            self.grandTouchGo.text = String(form.grandTotalTouchAndGo ?? 0)
+            self.grandFullStop.text = String(form.grandTotalFullStop ?? 0)
+            self.grandTotal.text = String(form.grandTotalLandings ?? 0)
+            self.grandSorties.text = String(form.grandTotalSorties ?? 0)
+        }
+    }
+
     func presentAlertIfMissionInputError() {
         guard let date = dateTextField.text else {
             NSLog("ERROR: MissionDataViewController: presentAlertIfMissionInputError() dateTextField.text undefined.")
@@ -267,6 +278,7 @@ class MissionDataViewController: UIViewController {
             
                 Form781Controller.shared.updateFlight(flight: flight, missionNumber: missionNumber, missionSymbol: missionSymbol, fromICAO: fromICAO, toICAO: toICAO, takeOffTime: self.takeOffTimeString, landTime: self.landTimeString, totalTime: totalTime, touchAndGo: touchAndGo, fullStop: fullStop, totalLandings: totalLandings, sorties: sorties, specialUse: specialUse)
                 
+                self.updateGrandTotals(form: form)
                 self.closePopUp()
             }
         } else {
@@ -384,7 +396,6 @@ class MissionDataViewController: UIViewController {
     
     func closePopUp() {
         updateLabels()
-        flightSeqTableView.reloadData()
         isEditingFlight = false
         flightSeqPopUp.isHidden = true
         missionDataPopUp.isHidden = true
@@ -403,6 +414,12 @@ class MissionDataViewController: UIViewController {
     func enableBackground() {
         flightSeqTableView.isUserInteractionEnabled = true
         editButton.isUserInteractionEnabled = true
+    }
+
+    @objc func currentFormChanged() {
+        reloadCurrentFormViews()
+        flightSeqTableView.reloadData()
+        reloadGrandTotalsView()
     }
 
     // MARK: - Actions
@@ -553,6 +570,7 @@ class MissionDataViewController: UIViewController {
             
             Form781Controller.shared.updateFlight(flight: flight, missionNumber: missionNumber, missionSymbol: missionSymbol, fromICAO: fromICAO, toICAO: toICAO, takeOffTime: takeOffTimeString, landTime: landTimeString, totalTime: totalTime, touchAndGo: touchAndGo, fullStop: fullStop, totalLandings: totalLandings, sorties: sorties, specialUse: specialUse)
             
+            updateGrandTotals(form: form)
             closePopUp()
             
         } else {
@@ -658,8 +676,6 @@ extension MissionDataViewController: FlightTableViewCellDelegate {
         }
         let flight = form.flights[indexPath.row]
         Form781Controller.shared.remove(flight: flight, from: form)
-        flightSeqTableView.reloadData()
-        
         updateGrandTotals(form: form)
     }
     
