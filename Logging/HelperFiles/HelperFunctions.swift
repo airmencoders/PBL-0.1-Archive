@@ -250,8 +250,10 @@ class Helper {
     static func printFormFunc() {
         if Form781Controller.shared.numberOfForms() > 0{
             
-            let newImageFront = generateSideOfForm(side: "front")
-            let newImageBack = generateSideOfForm(side: "back")
+            guard let newImageFront = generateSideOfForm(side: "front"),
+                  let newImageBack = generateSideOfForm(side: "back") else {
+                return
+            }
 
             // Save the image to disc
             
@@ -318,9 +320,13 @@ class Helper {
         return nil
     }
     
-    static func generateSideOfForm(side: String) -> UIImage {
+    static func generateSideOfForm(side: String) -> UIImage? {
         let frontOfForm = UIImage(named: "Form781-Front.png")
-        let frontDataImage = ImageGenerator.generateFrontOfForm()
+        
+        guard let form = Form781Controller.shared.getCurrentForm() else {
+            return nil
+        }
+        let frontDataImage = ImageGenerator.generateFilledFormPageOneImage(from: form)
         
         
         //Rear of Form
@@ -361,8 +367,10 @@ class Helper {
         let pdfDoc = PDFDocument()
         // Front of form
         
-        let newImageFront = generateSideOfForm(side: "front")
-        let newImageBack = generateSideOfForm(side: "back")
+        guard let newImageFront = generateSideOfForm(side: "front"),
+              let newImageBack = generateSideOfForm(side: "back") else {
+            return
+        }
         
         // Place in PDF
         let pdfPage = PDFPage(image: newImageFront)
