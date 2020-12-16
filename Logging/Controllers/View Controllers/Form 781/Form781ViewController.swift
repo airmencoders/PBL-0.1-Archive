@@ -10,13 +10,24 @@ import UIKit
 import PDFKit
 import Foundation
 
+protocol Form781ViewControllerMainViewDelegate: class {
+    func editMissionDataButtonTapped()
+    func addFlightSeqButtonTapped()
+    func editFlightSeqButtonTapped()
+    func addAircrewButtonTapped()
+    func editAircrewButtonTapped(crewMember: CrewMember)
+}
+
+protocol Form781ViewControllerAircrewDelegate: class {
+    func reloadAircrewTableView()
+}
+
 class Form781ViewController: UIViewController {
     
     // MARK: - Outlets
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var missionDateLabel: UILabel!
-    @IBOutlet weak var dimView: UIView!
     
     @IBOutlet weak var aircrewListView: UIView!
     @IBOutlet weak var missionDataView: UIView!
@@ -24,6 +35,8 @@ class Form781ViewController: UIViewController {
     
     // MARK: - Properties
     
+    weak var mainViewDelegate: Form781ViewControllerMainViewDelegate?
+    weak var aircrewDelegate: Form781ViewControllerAircrewDelegate?
     var missionDataDimViewHidden = false
     var aircrewListDimViewHidden = true
     var aircrewDataDimViewHidden = true
@@ -93,38 +106,45 @@ class Form781ViewController: UIViewController {
 // MARK: - Delegates
 
 extension Form781ViewController: MainViewControllerDelegate {
-    
+
     func missionDataButtonTapped() {
         missionDataView.isHidden = false
         aircrewListView.isHidden = true
         aircrewDataView.isHidden = true
-        missionDataDimViewHidden ? (dimView.isHidden = true) : (dimView.isHidden = false)
+        //missionDataDimViewHidden ? (dimView.isHidden = true) : (dimView.isHidden = false)
     }
     
     func aircrewListButtonTapped() {
         missionDataView.isHidden = true
         aircrewListView.isHidden = false
         aircrewDataView.isHidden = true
-        aircrewListDimViewHidden ? (dimView.isHidden = true) : (dimView.isHidden = false)
     }
     
     func aircrewDataButtonTapped() {
         missionDataView.isHidden = true
         aircrewListView.isHidden = true
         aircrewDataView.isHidden = false
-        aircrewDataDimViewHidden ? (dimView.isHidden = true) : (dimView.isHidden = false)
+        //aircrewDataDimViewHidden ? (dimView.isHidden = true) : (dimView.isHidden = false)
+    }
+    
+    func reloadAircrewTableView() {
+        aircrewDelegate?.reloadAircrewTableView()
     }
     
 } //End
 
-extension Form781ViewController: AircrewViewControllerDelegate, MissionDataViewControllerDelegate, AircrewDataViewControllerDelegate {
+extension Form781ViewController: MissionDataViewControllerDelegate, AircrewViewControllerDelegate, AircrewDataViewControllerDelegate {
+    
+    func addAircrewButtonTapped() {
+        mainViewDelegate?.addAircrewButtonTapped()
+    }
+    
+    func editAircrewButtonTapped(crewMember: CrewMember) {
+        mainViewDelegate?.editAircrewButtonTapped(crewMember: crewMember)
+    }
     
     func updateMissionDataDimViewHidden(toHidden: Bool) {
         toHidden ? (missionDataDimViewHidden = true) : (missionDataDimViewHidden = false)
-    }
-    
-    func updateAircrewListDimViewHidden(toHidden: Bool) {
-        toHidden ? (aircrewListDimViewHidden = true) : (aircrewListDimViewHidden = false)
     }
     
     func updateAircrewDataDimViewHidden(toHidden: Bool) {
@@ -132,9 +152,14 @@ extension Form781ViewController: AircrewViewControllerDelegate, MissionDataViewC
     }
     
     func updateDimView(toHidden: Bool) {
-        toHidden ? (dimView.isHidden = true) : (dimView.isHidden = false)
+        //toHidden ? (dimView.isHidden = true) : (dimView.isHidden = false)
     }
         
+} //End
+
+extension Form781ViewController {
+    
+    // Setting delegates
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToAircrewVC" {
             guard let destinationVC = segue.destination as? AircrewViewController else {
@@ -142,6 +167,7 @@ extension Form781ViewController: AircrewViewControllerDelegate, MissionDataViewC
                 return
             }
             destinationVC.delegate = self
+            aircrewDelegate = destinationVC
         }
         if segue.identifier == "ToMissionDataVC" {
             guard let destinationVC = segue.destination as? MissionDataViewController else {
@@ -162,8 +188,8 @@ extension Form781ViewController: AircrewViewControllerDelegate, MissionDataViewC
     
 } //End
 
-
 struct FlightListActivityController {
+    
     static func share(title: String, message: String, pdfDoc: PDFDocument, on vc: UIViewController) {
         let formattedMessage = "\n\(message)"
         
@@ -181,4 +207,5 @@ struct FlightListActivityController {
             popOver.sourceView = vc.view
         }
     }
-}
+    
+} //End

@@ -25,6 +25,7 @@ class SideMenuViewController: UIViewController {
     @IBOutlet weak var missionDataButton: PBLSideMenuButton!
     @IBOutlet weak var aircrewListButton: PBLSideMenuButton!
     @IBOutlet weak var aircrewDataButton: PBLSideMenuButton!
+    @IBOutlet weak var daysTableView: UITableView!
     
     // MARK: - Properties
     
@@ -64,6 +65,7 @@ class SideMenuViewController: UIViewController {
         missionDataButton.isHidden = toHidden
         aircrewListButton.isHidden = toHidden
         aircrewDataButton.isHidden = toHidden
+        daysTableView.isHidden = toHidden
     }
     
     // MARK: - Actions

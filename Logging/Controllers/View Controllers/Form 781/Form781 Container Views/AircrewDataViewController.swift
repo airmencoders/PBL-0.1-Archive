@@ -70,6 +70,18 @@ class AircrewDataViewController: UIViewController {
         flightSeqTableView.dataSource = self
         flightTimeTableView.delegate = self
         flightTimeTableView.dataSource = self
+        missionNumber.delegate = self
+        missionSymbol.delegate = self
+        fromICAO.delegate = self
+        toICAO.delegate = self
+        specialUse.delegate = self
+        takeOffTime.delegate = self
+        landTime.delegate = self
+        totalTime.delegate = self
+        touchAndGo.delegate = self
+        fullStop.delegate = self
+        totalLandings.delegate = self
+        sorties.delegate = self
         currentFormChanged()
     }
     
