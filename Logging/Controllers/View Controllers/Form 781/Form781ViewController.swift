@@ -90,7 +90,7 @@ class Form781ViewController: UIViewController {
         let pdfPulled: PDFDocument = Helper.loadPDFFromDisc()
         NSLog("***** PDF Loaded *****")
         
-        FlightListActivityController.share(title: "Form 781", message: "Current 781", pdfDoc: pdfPulled, on: self)
+        FlightListActivityController.share(title: "Form 781", message: "Current 781", pdfDoc: pdfPulled, on: self, frame: sender.frame)
     }
         
     @IBAction func printButtonTapped(_ sender: UIButton) {
@@ -190,7 +190,7 @@ extension Form781ViewController {
 
 struct FlightListActivityController {
     
-    static func share(title: String, message: String, pdfDoc: PDFDocument, on vc: UIViewController) {
+    static func share(title: String, message: String, pdfDoc: PDFDocument, on vc: UIViewController, frame: CGRect) {
         let formattedMessage = "\n\(message)"
         
         let objectsToShare = [
@@ -202,6 +202,11 @@ struct FlightListActivityController {
         let avc = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
         avc.setValue(title, forKey: "Subject")
         
+        if let avcppc = avc.popoverPresentationController {
+            avcppc.sourceView = vc.view;
+            avcppc.sourceRect = frame
+        }
+
         vc.present(avc, animated: true, completion: nil)
         if let popOver = avc.popoverPresentationController {
             popOver.sourceView = vc.view
