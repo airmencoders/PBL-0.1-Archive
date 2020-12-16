@@ -21,8 +21,6 @@ class AircrewViewController: UIViewController {
     
     // MARK: - Properties
     
-    var isEditingMember = false
-    var crewMemberToEdit: CrewMember?
     weak var delegate: AircrewViewControllerDelegate?
     
     // MARK: - Lifecycle

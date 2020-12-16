@@ -12,7 +12,17 @@ protocol MainViewControllerDelegate: class {
     func missionDataButtonTapped()
     func aircrewListButtonTapped()
     func aircrewDataButtonTapped()
+    func updateMissionDataLabels()
+    func reloadFlightSeqTableView()
     func reloadAircrewTableView()
+}
+
+protocol MainViewControllerMissionDataPopUpDelegate: class {
+    func editMissionDataButtonTapped()
+}
+
+protocol MainViewControllerFlightSeqPopUpDelegate: class {
+    func editFlightButtonTapped(flight: Flight)
 }
 
 protocol MainViewControllerAircrewPopUpDelegate: class {
@@ -30,11 +40,15 @@ class MainViewController: UIViewController {
     @IBOutlet weak var sideMenuLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var dimView: UIView!
     @IBOutlet weak var headerDimView: UIView!
+    @IBOutlet weak var missionDataPopUp: UIView!
+    @IBOutlet weak var flightSeqPopUp: UIView!
     @IBOutlet weak var aircrewPopUp: UIView!
     
     // MARK: - Properties
     
     weak var delegate: MainViewControllerDelegate?
+    weak var missionDataDelegate: MainViewControllerMissionDataPopUpDelegate?
+    weak var flightSeqDelegate: MainViewControllerFlightSeqPopUpDelegate?
     weak var aircrewDelegate: MainViewControllerAircrewPopUpDelegate?
     var isMenuOpen = true
     var sideMenuClosedConstraintPortrait = -(UIScreen.main.bounds.width/6)
@@ -109,15 +123,19 @@ class MainViewController: UIViewController {
     
     func closePopUp() {
         updateDimViews(toHidden: true)
+        missionDataPopUp.isHidden = true
+        flightSeqPopUp.isHidden = true
         aircrewPopUp.isHidden = true
     }
     
     // MARK: - Actions
     
     @IBAction func helpButtonTapped(_ sender: UIButton) {
+        
     }
     
     @IBAction func homeButtonTapped(_ sender: UIButton) {
+        
     }
     
 } //End
@@ -168,25 +186,59 @@ extension MainViewController: Form781ViewControllerMainViewDelegate {
     
     func editMissionDataButtonTapped() {
         updateDimViews(toHidden: false)
+        missionDataPopUp.isHidden = false
+        flightSeqPopUp.isHidden = true
+        aircrewPopUp.isHidden = true
+        missionDataDelegate?.editMissionDataButtonTapped()
     }
     
-    func addFlightSeqButtonTapped() {
+    func addFlightButtonTapped() {
         updateDimViews(toHidden: false)
+        missionDataPopUp.isHidden = true
+        flightSeqPopUp.isHidden = false
+        aircrewPopUp.isHidden = true
     }
     
-    func editFlightSeqButtonTapped() {
+    func editFlightButtonTapped(flight: Flight) {
         updateDimViews(toHidden: false)
+        missionDataPopUp.isHidden = true
+        flightSeqPopUp.isHidden = false
+        aircrewPopUp.isHidden = true
+        flightSeqDelegate?.editFlightButtonTapped(flight: flight)
     }
     
     func addAircrewButtonTapped() {
         updateDimViews(toHidden: false)
+        missionDataPopUp.isHidden = true
+        flightSeqPopUp.isHidden = true
         aircrewPopUp.isHidden = false
     }
     
     func editAircrewButtonTapped(crewMember: CrewMember) {
         updateDimViews(toHidden: false)
+        missionDataPopUp.isHidden = true
+        flightSeqPopUp.isHidden = true
         aircrewPopUp.isHidden = false
         aircrewDelegate?.editAircrewButtonTapped(crewMember: crewMember)
+    }
+    
+} //End
+
+extension MainViewController: MissionDataPopUpViewControllerDelegate {
+
+    func closeMissionDataPopUp() {
+        delegate?.updateMissionDataLabels()
+        delegate?.reloadFlightSeqTableView()
+        closePopUp()
+    }
+
+} //End
+
+extension MainViewController: FlightSeqPopUpViewControllerDelegate {
+    
+    func closeFlightSeqPopUp() {
+        delegate?.reloadFlightSeqTableView()
+        closePopUp()
     }
     
 } //End
@@ -216,6 +268,20 @@ extension MainViewController {
             }
             self.delegate = destinationVC
             destinationVC.mainViewDelegate = self
+        }
+        if segue.identifier == "ToMissionDataPopUpVC" {
+            guard let destinationVC = segue.destination as? MissionDataPopUpViewController else {
+                return
+            }
+            destinationVC.delegate = self
+            missionDataDelegate = destinationVC
+        }
+        if segue.identifier == "ToFlightSeqPopUpVC" {
+            guard let destinationVC = segue.destination as? FlightSeqPopUpViewController else {
+                return
+            }
+            destinationVC.delegate = self
+            flightSeqDelegate = destinationVC
         }
         if segue.identifier == "ToAircrewPopUpVC" {
             guard let destinationVC = segue.destination as? AircrewPopUpViewController else {
