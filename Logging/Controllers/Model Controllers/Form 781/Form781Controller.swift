@@ -93,12 +93,12 @@ class Form781Controller {
         save()
     }
     
-    func updateCrewMemberInfo(crewMember: CrewMember, lastName: String, firstName: String, ssnLast4: String, flightAuthDutyCode: String, flyingOrigin: String) {
+    func updateCrewMemberInfo(crewMember: CrewMember, lastName: String, firstName: String, ssnLast4: String, flightAuthDutyCode: String, flyingOranization: String) {
         
         crewMember.lastName = lastName
         crewMember.firstName = firstName
         crewMember.ssnLast4 = ssnLast4
-        crewMember.flyingOrigin = flyingOrigin
+        crewMember.flyingOranization = flyingOranization
         crewMember.flightAuthDutyCode = flightAuthDutyCode
                 
         NSLog("Updated crew member info")

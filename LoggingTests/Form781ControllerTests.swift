@@ -95,7 +95,7 @@ class Form781ControllerTests: XCTestCase {
                           firstName: crewMemberBob,
                           ssnLast4: "XXXX",
                         flightAuthDutyCode: "Said Duty",
-                        flyingOrigin: "BEGINNING")
+                        flyingOranization: "BEGINNING")
     }
 
     func testAddAForm() {
@@ -232,7 +232,7 @@ class Form781ControllerTests: XCTestCase {
                                                       firstName: crewMember.firstName,
                                                       ssnLast4: crewMember.ssnLast4,
                                                       flightAuthDutyCode:  crewMember.flightAuthDutyCode,
-                                                      flyingOrigin: crewMember.flyingOrigin)
+                                                      flyingOranization: crewMember.flyingOranization)
         
         XCTAssertEqual(crewMember.lastName, self.crewMemberBobLast)
         // Should this work? Or are we playing too many games here and should we pull from the form object again?

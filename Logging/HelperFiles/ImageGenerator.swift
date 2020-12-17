@@ -73,7 +73,7 @@ class ImageGenerator {
                         
                         let member = form.crewMembers[i]
                         
-                        member.flyingOrigin.drawIn(         CGRect(x: 175,  y: 1085 + (i * 60), width: 100, height: height))
+                        member.flyingOranization.drawIn(    CGRect(x: 175,  y: 1085 + (i * 60), width: 100, height: height))
                         member.ssnLast4.drawIn(             CGRect(x: 315,  y: 1085 + (i * 60), width: 100, height: height))
                         member.lastName.drawIn(             CGRect(x: 455,  y: 1085 + (i * 60), width: 505, height: height))
                         member.flightAuthDutyCode.drawIn(   CGRect(x: 1035, y: 1085 + (i * 60), width: 200, height: height))
@@ -101,7 +101,7 @@ class ImageGenerator {
                         
                         let member = form.crewMembers[i]
                         
-                        member.flyingOrigin.drawIn(         CGRect(x: 325,  y: 1210 + (i * 60), width: 100, height: height))
+                        member.flyingOranization.drawIn(    CGRect(x: 325,  y: 1210 + (i * 60), width: 100, height: height))
                         member.ssnLast4.drawIn(             CGRect(x: 465,  y: 1210 + (i * 60), width: 100, height: height))
                         member.lastName.drawIn(             CGRect(x: 595,  y: 1210 + (i * 60), width: 505, height: height))
                         member.flightAuthDutyCode.drawIn(   CGRect(x: 1130, y: 1210 + (i * 60), width: 200, height: height))
@@ -159,7 +159,7 @@ class ImageGenerator {
                     
                     let member = form.crewMembers[i]
                     
-                    member.flyingOrigin.drawIn(         CGRect(x: 310,  y: 705 + (i * 60), width: 100,  height: height))
+                    member.flyingOranization.drawIn(    CGRect(x: 310,  y: 705 + (i * 60), width: 100,  height: height))
                     member.ssnLast4.drawIn(             CGRect(x: 450,  y: 705 + (i * 60), width: 100,  height: height))
                     member.lastName.drawIn(             CGRect(x: 580,  y: 705 + (i * 60), width: 505,  height: height))
                     member.flightAuthDutyCode.drawIn(   CGRect(x: 1115, y: 705 + (i * 60), width: 200,  height: height))

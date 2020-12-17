@@ -14,7 +14,7 @@ class CrewMember: Codable {
     var firstName: String
     var ssnLast4: String
     var flightAuthDutyCode: String
-    var flyingOrigin: String
+    var flyingOranization: String
     var primary: String?
     var secondary: String?
     var instructor: String?
@@ -36,7 +36,7 @@ class CrewMember: Codable {
          firstName: String,
          ssnLast4: String,
          flightAuthDutyCode: String,
-         flyingOrigin: String,
+         flyingOranization: String,
          primary: String? = nil,
          secondary: String? = nil,
          instructor: String? = nil,
@@ -58,7 +58,7 @@ class CrewMember: Codable {
         self.firstName = firstName
         self.ssnLast4 = ssnLast4
         self.flightAuthDutyCode = flightAuthDutyCode
-        self.flyingOrigin = flyingOrigin
+        self.flyingOranization = flyingOranization
         self.primary = primary
         self.secondary = secondary
         self.instructor = instructor

@@ -19,7 +19,7 @@ class AircrewTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ssnLabel: UILabel!
-    @IBOutlet weak var flyingOriginLabel: UILabel!
+    @IBOutlet weak var flyingOranizationLabel: UILabel!
     @IBOutlet weak var flightAuthDutyCodeLabel: UILabel!
     
     // MARK: - Properties
@@ -32,7 +32,7 @@ class AircrewTableViewCell: UITableViewCell {
     func setUpViews(crewMember: CrewMember) {
         nameLabel.text = "\(crewMember.lastName), \(crewMember.firstName)"
         ssnLabel.text = crewMember.ssnLast4
-        flyingOriginLabel.text = crewMember.flyingOrigin
+        flyingOranizationLabel.text = crewMember.flyingOranization
         flightAuthDutyCodeLabel.text = crewMember.flightAuthDutyCode
     }
     
