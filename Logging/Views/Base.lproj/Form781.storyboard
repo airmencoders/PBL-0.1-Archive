@@ -139,11 +139,9 @@
                                             <constraint firstItem="Atl-sg-ccR" firstAttribute="width" secondItem="WsN-sp-hFS" secondAttribute="width" multiplier="0.2" id="C7L-MM-VlU"/>
                                             <constraint firstAttribute="bottom" secondItem="dh1-24-jop" secondAttribute="bottom" id="DZf-Sn-Nhd"/>
                                             <constraint firstItem="eHx-Y6-dEW" firstAttribute="leading" secondItem="WsN-sp-hFS" secondAttribute="leading" id="Etw-yA-av5"/>
-                                            <constraint firstItem="Ydl-Mz-Adi" firstAttribute="leading" secondItem="eHx-Y6-dEW" secondAttribute="leading" id="M56-us-59q"/>
                                             <constraint firstItem="dh1-24-jop" firstAttribute="leading" secondItem="WsN-sp-hFS" secondAttribute="leading" id="PaP-EW-m2o"/>
                                             <constraint firstItem="XxX-9y-mki" firstAttribute="trailing" secondItem="eHx-Y6-dEW" secondAttribute="trailing" id="QCh-vV-ZTU"/>
                                             <constraint firstAttribute="bottom" secondItem="eHx-Y6-dEW" secondAttribute="bottom" id="RUy-ev-v0c"/>
-                                            <constraint firstItem="Ydl-Mz-Adi" firstAttribute="trailing" secondItem="eHx-Y6-dEW" secondAttribute="trailing" id="TgE-Fv-T01"/>
                                             <constraint firstAttribute="trailing" secondItem="eHx-Y6-dEW" secondAttribute="trailing" id="Vgw-gW-i5P"/>
                                             <constraint firstAttribute="trailing" secondItem="HUy-lD-b6q" secondAttribute="trailing" id="XdX-J8-UJe"/>
                                             <constraint firstItem="HUy-lD-b6q" firstAttribute="leading" secondItem="Atl-sg-ccR" secondAttribute="trailing" id="Yiz-p2-qGf"/>
@@ -153,14 +151,16 @@
                                             <constraint firstItem="OLx-T7-Tjq" firstAttribute="trailing" secondItem="HUy-lD-b6q" secondAttribute="trailing" id="aJK-Xt-fh4"/>
                                             <constraint firstItem="XxX-9y-mki" firstAttribute="leading" secondItem="eHx-Y6-dEW" secondAttribute="leading" id="ca7-6I-f4Z"/>
                                             <constraint firstItem="OLx-T7-Tjq" firstAttribute="leading" secondItem="HUy-lD-b6q" secondAttribute="leading" id="cg6-ie-ojh"/>
+                                            <constraint firstItem="Ydl-Mz-Adi" firstAttribute="leading" secondItem="WsN-sp-hFS" secondAttribute="leading" id="cuV-7k-Efj"/>
                                             <constraint firstItem="XxX-9y-mki" firstAttribute="top" secondItem="eHx-Y6-dEW" secondAttribute="top" id="cxW-Mv-UQZ"/>
                                             <constraint firstItem="OLx-T7-Tjq" firstAttribute="top" secondItem="HUy-lD-b6q" secondAttribute="top" id="eCi-YM-5qh"/>
                                             <constraint firstItem="dh1-24-jop" firstAttribute="top" secondItem="WsN-sp-hFS" secondAttribute="top" id="ftn-wn-9H6"/>
                                             <constraint firstAttribute="trailing" secondItem="dh1-24-jop" secondAttribute="trailing" id="hjE-Hv-aa4"/>
-                                            <constraint firstItem="Ydl-Mz-Adi" firstAttribute="top" secondItem="eHx-Y6-dEW" secondAttribute="top" id="im5-3O-0TM"/>
                                             <constraint firstItem="Atl-sg-ccR" firstAttribute="leading" secondItem="WsN-sp-hFS" secondAttribute="leading" id="jxx-BK-79i"/>
-                                            <constraint firstItem="Ydl-Mz-Adi" firstAttribute="bottom" secondItem="eHx-Y6-dEW" secondAttribute="bottom" id="n2h-5H-E0T"/>
+                                            <constraint firstItem="Ydl-Mz-Adi" firstAttribute="top" secondItem="WsN-sp-hFS" secondAttribute="top" id="pij-bX-IXB"/>
                                             <constraint firstItem="HUy-lD-b6q" firstAttribute="top" secondItem="WsN-sp-hFS" secondAttribute="top" id="qIG-O8-Ihc"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ydl-Mz-Adi" secondAttribute="trailing" id="qtk-mh-4Nj"/>
+                                            <constraint firstAttribute="bottom" secondItem="Ydl-Mz-Adi" secondAttribute="bottom" id="u8B-TM-xEy"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -196,6 +196,7 @@
                         <outlet property="aircrewPopUp" destination="eHx-Y6-dEW" id="LhM-Cm-kl7"/>
                         <outlet property="dimView" destination="dh1-24-jop" id="cSg-KT-Jsp"/>
                         <outlet property="flightSeqPopUp" destination="Ydl-Mz-Adi" id="1Xi-dS-Ydv"/>
+                        <outlet property="flightSeqPopUpBottom" destination="u8B-TM-xEy" id="2U9-8C-A8a"/>
                         <outlet property="form781View" destination="OLx-T7-Tjq" id="b8J-SQ-Out"/>
                         <outlet property="headerDimView" destination="PgN-lS-4XQ" id="otf-yO-ejO"/>
                         <outlet property="missionDataPopUp" destination="XxX-9y-mki" id="lF3-hq-rdx"/>
@@ -1946,7 +1947,7 @@ ORGN</string>
             <objects>
                 <viewController id="83w-Ih-qzk" customClass="SideMenuViewController" customModule="Logging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jAH-wa-OUb">
-                        <rect key="frame" x="0.0" y="0.0" width="205" height="1311.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="205" height="1311"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MISSION FORMS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgf-6v-KHj" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
@@ -2023,6 +2024,9 @@ ORGN</string>
                                             <state key="normal" image="plus.circle" catalog="system">
                                                 <color key="titleColor" name="slate"/>
                                             </state>
+                                            <connections>
+                                                <action selector="addDayButtonTapped:" destination="83w-Ih-qzk" eventType="touchUpInside" id="1vZ-Cs-7Aw"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -2316,7 +2320,7 @@ ORGN</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="vgV-Sb-0t5"/>
+                        <viewLayoutGuide key="safeArea" id="MZ5-k4-f2f"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
@@ -2562,7 +2566,7 @@ ORGN</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="7y4-c0-ceQ"/>
+                        <viewLayoutGuide key="safeArea" id="W2h-Hi-h0y"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
@@ -2603,7 +2607,7 @@ ORGN</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qzq-4X-6Gf" customClass="popUpView" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="154" y="26.5" width="716" height="1127.5"/>
+                                <rect key="frame" x="154" y="65.5" width="716" height="1127.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BCB-ll-Lb1" userLabel="Exit">
                                         <rect key="frame" x="678.5" y="20" width="17.5" height="22"/>
@@ -2947,11 +2951,11 @@ ORGN</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="c8L-Fv-KCb"/>
+                        <viewLayoutGuide key="safeArea" id="ibp-Gs-LrA"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="qzq-4X-6Gf" firstAttribute="centerY" secondItem="tlt-ef-Q1p" secondAttribute="centerY" multiplier="0.9" id="6nq-iW-iFF"/>
+                            <constraint firstItem="qzq-4X-6Gf" firstAttribute="top" secondItem="tlt-ef-Q1p" secondAttribute="centerY" multiplier="0.1" id="6nq-iW-iFF"/>
                             <constraint firstItem="qzq-4X-6Gf" firstAttribute="height" secondItem="tlt-ef-Q1p" secondAttribute="height" multiplier="0.859756" id="B89-5A-qo4"/>
                             <constraint firstItem="qzq-4X-6Gf" firstAttribute="width" secondItem="tlt-ef-Q1p" secondAttribute="width" multiplier="0.699219" id="iNR-gi-Fbq"/>
                             <constraint firstItem="qzq-4X-6Gf" firstAttribute="centerX" secondItem="tlt-ef-Q1p" secondAttribute="centerX" id="yyx-Dc-ESG"/>

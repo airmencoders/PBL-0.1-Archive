@@ -44,6 +44,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var flightSeqPopUp: UIView!
     @IBOutlet weak var aircrewPopUp: UIView!
     
+    @IBOutlet weak var flightSeqPopUpBottom: NSLayoutConstraint!
+    
     // MARK: - Properties
     
     weak var delegate: MainViewControllerDelegate?
@@ -53,6 +55,9 @@ class MainViewController: UIViewController {
     var isMenuOpen = true
     var sideMenuClosedConstraintPortrait = -(UIScreen.main.bounds.width/6)
     var sideMenuClosedConstraintLandscape = -(UIScreen.main.bounds.width/4.5)
+    
+    var flightSeqPopUpLandscapeConstraint = (UIScreen.main.bounds.height/7)
+    
     var statusBarOrientation: UIInterfaceOrientation {
         get {
             guard let orientation = UIApplication.shared.windows.first?.windowScene?.interfaceOrientation else {
@@ -89,11 +94,18 @@ class MainViewController: UIViewController {
             if !isMenuOpen {
                 sideMenuLeadingConstraint.constant = sideMenuClosedConstraintPortrait
             }
+            let contentInset: UIEdgeInsets = UIEdgeInsets.zero
+            scrollView.contentInset = contentInset
+            flightSeqPopUpBottom.constant += flightSeqPopUpLandscapeConstraint
         } else {
             NSLog("Landscape")
             if !isMenuOpen {
                 sideMenuLeadingConstraint.constant = sideMenuClosedConstraintLandscape
             }
+            var contentInset: UIEdgeInsets = self.scrollView.contentInset
+            contentInset.bottom = flightSeqPopUpLandscapeConstraint
+            scrollView.contentInset = contentInset
+            flightSeqPopUpBottom.constant -= flightSeqPopUpLandscapeConstraint
         }
     }
     
@@ -106,7 +118,13 @@ class MainViewController: UIViewController {
         keyboardFrame = self.view.convert(keyboardFrame, from: nil)
 
         var contentInset: UIEdgeInsets = self.scrollView.contentInset
-        contentInset.bottom = keyboardFrame.size.height + 20
+        
+        if UIDevice.current.orientation.isPortrait {
+            contentInset.bottom = keyboardFrame.size.height
+        } else {
+            contentInset.bottom = keyboardFrame.size.height + flightSeqPopUpLandscapeConstraint
+        }
+        
         scrollView.contentInset = contentInset
     }
 

@@ -110,4 +110,8 @@ class SideMenuViewController: UIViewController {
         delegate?.aircrewDataButtonTapped()
     }
     
+    @IBAction func addDayButtonTapped(_ sender: UIButton) {
+        
+    }
+    
 } //End
