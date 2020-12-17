@@ -201,7 +201,7 @@ fileprivate extension Numeric {
         
         let standardAttributes: [NSAttributedString.Key: Any] = [ .font: UIFont.systemFont(ofSize: 36)]
         
-        let s = NSAttributedString(string: self as! String , attributes: standardAttributes)
+        let s = NSAttributedString(string: "\(self)" , attributes: standardAttributes)
         s.draw(with: rect , options: .usesLineFragmentOrigin, context: nil)
     }
 }
