@@ -101,7 +101,7 @@ class Form781ViewController: UIViewController {
     }
         
     @IBAction func printButtonTapped(_ sender: UIButton) {
-        Helper.printFormFunc()
+        Helper.print871()
     }
     
 } //End
