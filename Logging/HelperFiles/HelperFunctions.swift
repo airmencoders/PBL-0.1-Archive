@@ -11,8 +11,7 @@ import PDFKit
 
 class Helper {
     // Letter size paper at 300 ppi
-    static let WIDTH: Int = 3250
-    static let HEIGHT: Int = 2300
+    static let LETTER_SIZE = CGSize(width: 3250, height: 2300)
 
     static let DATE_FORMAT = "dd MMM yyyy"
 
@@ -246,62 +245,31 @@ class Helper {
         let color: UIColor = .fog
         textField.layer.borderColor = color.cgColor
     }
-
-    static func printFormFunc() {
-        if Form781Controller.shared.numberOfForms() > 0{
-            
-            guard let newImageFront = generateSideOfForm(side: "front"),
-                  let newImageBack = generateSideOfForm(side: "back") else {
-                return
-            }
-
-            // Save the image to disc
-            
-            let docDir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
-            let fileURLFront = docDir?.appendingPathComponent("newImageFront.png")
-            
-            Helper.saveToDisc(image: newImageFront, fileName: "newImageFront.png")
-            
-            let fileURLBack = docDir?.appendingPathComponent("newImageBack.png")
-            Helper.saveToDisc(image: newImageBack, fileName: "newImageBack.png")
-            
-            let strPathFront = Helper.convertURLtoString(fileURL: fileURLFront!)
-            let strPathBack = Helper.convertURLtoString(fileURL: fileURLBack!)
-    //
-            let htmlString: String = Helper.createHTMLString(image1: strPathFront, image2: strPathBack)
-            let formatter = UIMarkupTextPrintFormatter(markupText: htmlString)
-
-            let printInfo = UIPrintInfo(dictionary: nil)
-            printInfo.jobName = "781_print"
-            printInfo.outputType = .grayscale
-            printInfo.orientation = .landscape
-            printInfo.duplex = .shortEdge
-
-            let printController = UIPrintInteractionController.shared
-            printController.printInfo = printInfo
-            printController.showsNumberOfCopies = true
-            
-            let renderer = UIPrintPageRenderer()
-            renderer.addPrintFormatter(formatter, startingAtPageAt: 0)
-
-            printController.printPageRenderer = renderer
-
-            printController.present(animated: true, completionHandler: nil)
-        }
-
-    }
     
-    static func convertURLtoString(fileURL: URL) -> String{
+    static func print871() {
         
-        let stringURL = fileURL.absoluteString
-//        let finalString = stringURL.replacingOccurrences(of: "file://", with: "")
+        let printController = UIPrintInteractionController.shared
+        let printInfo = UIPrintInfo(dictionary: [:])
+        printInfo.outputType = .grayscale
+        printInfo.orientation = .landscape
+        printInfo.jobName = "AFTO_871"
+        printInfo.duplex = .shortEdge
+        printController.printInfo = printInfo
         
-        return stringURL
-    }
-
-    static func createHTMLString(image1: String, image2: String) -> String {
-       
-        return "<html lang=\"en\"><head><meta charset=\"UTF-8\" /><meta name=\"viewport\" /><style>img{margin-left: auto; margin-right: auto; margin-top: auto; margin-bottom: auto; max-height: 100%; max-width: 100%;}</style></head><body><img src=\(image1)><img src=\(image2)></body></html>"
+        let form871pdf = generateAFTO871PDF()
+        
+        printController.printingItem = form871pdf?.dataRepresentation()
+        printController.showsNumberOfCopies = true
+        printController.present(animated: true) { (controller, completed, error) in
+            
+            if !completed {
+                print("Print not complete")
+            }
+            if let error = error {
+                print("Print Fail: ", error.localizedDescription)
+            }
+            
+        }
     }
    
     // Try to turn the Sring contents into a Date object.
@@ -319,66 +287,76 @@ class Helper {
 
         return nil
     }
-    
-    static func generateSideOfForm(side: String) -> UIImage? {
-        let frontOfForm = UIImage(named: "Form781-Front.png")
+ 
+    static func combineImages(backGroundImage: UIImage, foreGroundImage:UIImage, size: CGSize) -> UIImage? {
         
-        guard let form = Form781Controller.shared.getCurrentForm() else {
+        UIGraphicsBeginImageContext(size)
+        let areaRect = CGRect(x: 0, y: 0, width: size.width, height: size.height)
+        
+        backGroundImage.draw(in: areaRect)
+        foreGroundImage.draw(in: areaRect, blendMode: .normal, alpha: 0.8)
+        
+        let combinedImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        return combinedImage
+        
+    }
+    
+    static func generate871FirstPageImage(from form: Form781) -> UIImage? {
+        
+        let formImage = UIImage(named: "Form781-Front.png")
+        let formDataImage = ImageGenerator.generateFilledFormPageOneImage(from: form)
+        
+        let image = combineImages(backGroundImage: formImage!, foreGroundImage: formDataImage!, size: Helper.LETTER_SIZE)
+        
+        return image
+    }
+    
+    static func generate871SecondPageImage(from form: Form781) -> UIImage? {
+       
+        let formImage = UIImage(named: "Form781-Back.png")
+        let formDataImage = ImageGenerator.generateFilledFormPageTwoImage(from: form)
+        
+        let image = combineImages(backGroundImage: formImage!, foreGroundImage: formDataImage!, size: Helper.LETTER_SIZE)
+        
+        return image
+    }
+    
+    static func generatePDF(from images:UIImage...) -> PDFDocument?{
+        
+        let pdf = PDFDocument()
+         
+        var pageNumber = 0
+        for image in images{
+            if let page = PDFPage(image: image){
+                pdf.insert(page, at: pageNumber)
+                pageNumber += 1
+            }
+        }
+        
+        return pageNumber > 0 ? pdf : nil
+        
+    }
+    
+    static func generateAFTO871PDF() -> PDFDocument? {
+        guard let currentForm871 = Form781Controller.shared.getCurrentForm(),
+        let frontImage = generate871FirstPageImage(from: currentForm871),
+        let backImage =  generate871SecondPageImage(from: currentForm871) else {
             return nil
         }
-        let frontDataImage = ImageGenerator.generateFilledFormPageOneImage(from: form)
-        
-        
-        //Rear of Form
-        let rearOfForm = UIImage(named: "Form781-Back.png")
-        let rearDataImage = ImageGenerator.generateBackOfForm()
-        
-        let size = CGSize(width: Helper.WIDTH, height: Helper.HEIGHT)
-        UIGraphicsBeginImageContext(size)
-        
-        let areaSize = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-        frontOfForm!.draw(in: areaSize)
-        frontDataImage!.draw(in: areaSize, blendMode: .normal, alpha: 0.8)
-        
-        let newImageFront: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        
-        UIGraphicsEndImageContext()
-        
-        // Rear of form
-        
-        UIGraphicsBeginImageContext(size)
-        
-        let area2 = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-        rearOfForm!.draw(in: area2)
-        rearDataImage!.draw(in: area2, blendMode: .normal, alpha: 0.8)
-        
-        let newImageBack: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
-        
-        UIGraphicsEndImageContext()
-        
-        if side == "front" {
-            return newImageFront
-        } else {
-            return newImageBack
-        }
+        return generatePDF(from: frontImage, backImage)
     }
     
     static func exportPDF() {
-        let pdfDoc = PDFDocument()
-        // Front of form
         
-        guard let newImageFront = generateSideOfForm(side: "front"),
-              let newImageBack = generateSideOfForm(side: "back") else {
+        guard let pdf = generateAFTO871PDF() else {
+            print("pdf generation failed")
             return
         }
         
-        // Place in PDF
-        let pdfPage = PDFPage(image: newImageFront)
-        let pdfRear = PDFPage(image: newImageBack)
-        pdfDoc.insert(pdfPage!, at: 0)
-        pdfDoc.insert(pdfRear!, at: 1)
-        let data = pdfDoc.dataRepresentation()
-        
+        let data = pdf.dataRepresentation()
         
         //Save the form
         let path = getDocDir()
@@ -387,7 +365,7 @@ class Helper {
         do {
             try data!.write(to: url)
         } catch {
-            NSLog("PDF creation error")
+            print("PDF creation error")
         }
     }
     

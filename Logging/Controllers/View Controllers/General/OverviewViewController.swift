@@ -23,7 +23,7 @@ class OverviewViewController: UIViewController {
     }
     
     @IBAction func printButtonTapped(_ sender: UIButton) {
-        Helper.printFormFunc()
+        Helper.print871()
     }
     
     /*

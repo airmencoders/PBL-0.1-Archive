@@ -16,7 +16,7 @@ class ImageGenerator {
     /// Returns nil when if the form can not be generated
     static func generateFilledFormPageOneImage(from form: Form781) -> UIImage? {
         
-        let renderer = UIGraphicsImageRenderer(size: CGSize(width: Helper.WIDTH, height: Helper.HEIGHT))
+        let renderer = UIGraphicsImageRenderer(size: Helper.LETTER_SIZE)
         
         let img = renderer.image { ctx in
             // MARK: - AFTO 781 Section I. Mission Data
@@ -139,16 +139,15 @@ class ImageGenerator {
      
      throughout the function, any hard coded numbers represent pixels on the underlay image.  We use an NSAttributedString which gives the ability to control the font size.  Then we use the draw function to position it on the page.
      */
-    static func generateBackOfForm() -> UIImage? {
+    static func generateFilledFormPageTwoImage(from form: Form781) -> UIImage? {
         
-        let renderer = UIGraphicsImageRenderer(size: CGSize(width: Helper.WIDTH, height: Helper.HEIGHT))
+        let renderer = UIGraphicsImageRenderer(size: Helper.LETTER_SIZE)
         
         let backOfForm = renderer.image { ctx in
             
-            // MARK: - Crew finsihing
-            let form = Form781Controller.shared.getCurrentForm()
+            // MARK: - Crew finishing
             
-            let crewSize:Int = (form?.crewMembers.count)!
+            let crewSize: Int = form.crewMembers.count
             
             if crewSize >= 15 {
                 
@@ -158,10 +157,7 @@ class ImageGenerator {
                 
                 for i in 0...remainingCrew {
                     
-                    guard let member = form?.crewMembers[i] else {
-                        continue
-                        
-                    }
+                    let member = form.crewMembers[i]
                     
                     member.flyingOrigin.drawIn(         CGRect(x: 310,  y: 705 + (i * 60), width: 100,  height: height))
                     member.ssnLast4.drawIn(             CGRect(x: 450,  y: 705 + (i * 60), width: 100,  height: height))
