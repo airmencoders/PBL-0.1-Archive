@@ -20,7 +20,7 @@ class AircrewPopUpViewController: UIViewController {
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var ssn: UITextField!
     @IBOutlet weak var flightAuthDutyCode: UITextField!
-    @IBOutlet weak var flyingOrigin: UITextField!
+    @IBOutlet weak var flyingOranization: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     
     // MARK: - Properties
@@ -43,7 +43,7 @@ class AircrewPopUpViewController: UIViewController {
         firstName.delegate = self
         ssn.delegate = self
         flightAuthDutyCode.delegate = self
-        flyingOrigin.delegate = self
+        flyingOranization.delegate = self
     }
     
     func presentAlertIfInputError() {
@@ -64,8 +64,8 @@ class AircrewPopUpViewController: UIViewController {
             NSLog("ERROR: AircrewViewController: presentAlertIfInputError() - optional text is nil - flightAuthDutyCode")
             return
         }
-        guard let flyingOrigin = flyingOrigin.text else {
-            NSLog("ERROR: AircrewViewController: presentAlertIfInputError() - optional text is nil - flyingOrigin")
+        guard let flyingOranization = flyingOranization.text else {
+            NSLog("ERROR: AircrewViewController: presentAlertIfInputError() - optional text is nil - flyingOranization")
             return
         }
 
@@ -77,7 +77,7 @@ class AircrewPopUpViewController: UIViewController {
 
             Alerts.showInputErrorAlert(on: self) { (_) in
 
-                Form781Controller.shared.updateCrewMemberInfo(crewMember: crewMember, lastName: lastName, firstName: firstName, ssnLast4: ssn, flightAuthDutyCode: flightAuthDutyCode, flyingOrigin: flyingOrigin)
+                Form781Controller.shared.updateCrewMemberInfo(crewMember: crewMember, lastName: lastName, firstName: firstName, ssnLast4: ssn, flightAuthDutyCode: flightAuthDutyCode, flyingOranization: flyingOranization)
 
                 self.closePopUp()
             }
@@ -90,7 +90,7 @@ class AircrewPopUpViewController: UIViewController {
 
             Alerts.showInputErrorAlert(on: self) { (_) in
 
-                CrewMemberController.create(form: form, lastName: lastName, firstName: firstName, ssnLast4: ssn, flightAuthDutyCode: flightAuthDutyCode, flyingOrigin: flyingOrigin)
+                CrewMemberController.create(form: form, lastName: lastName, firstName: firstName, ssnLast4: ssn, flightAuthDutyCode: flightAuthDutyCode, flyingOranization: flyingOranization)
 
                 self.closePopUp()
             }
@@ -102,7 +102,7 @@ class AircrewPopUpViewController: UIViewController {
         firstName.text == "" ? Helper.highlightRed(textField: firstName) : Helper.unhighlight(textField: firstName)
         ssn.text == "" ? Helper.highlightRed(textField: ssn) : Helper.unhighlight(textField: ssn)
         flightAuthDutyCode.text == "" ? Helper.highlightRed(textField: flightAuthDutyCode) : Helper.unhighlight(textField: flightAuthDutyCode)
-        flyingOrigin.text == "" ? Helper.highlightRed(textField: flyingOrigin) : Helper.unhighlight(textField: flyingOrigin)
+        flyingOranization.text == "" ? Helper.highlightRed(textField: flyingOranization) : Helper.unhighlight(textField: flyingOranization)
     }
 
     func unhighlight() {
@@ -110,7 +110,7 @@ class AircrewPopUpViewController: UIViewController {
         Helper.unhighlight(textField: firstName)
         Helper.unhighlight(textField: ssn)
         Helper.unhighlight(textField: flightAuthDutyCode)
-        Helper.unhighlight(textField: flyingOrigin)
+        Helper.unhighlight(textField: flyingOranization)
     }
 
     func clearFields() {
@@ -118,7 +118,7 @@ class AircrewPopUpViewController: UIViewController {
         firstName.text = nil
         ssn.text = nil
         flightAuthDutyCode.text = nil
-        flyingOrigin.text = nil
+        flyingOranization.text = nil
     }
 
     func populateFields(crewMember: CrewMember) {
@@ -126,7 +126,7 @@ class AircrewPopUpViewController: UIViewController {
         firstName.text = crewMember.firstName
         ssn.text = crewMember.ssnLast4
         flightAuthDutyCode.text = crewMember.flightAuthDutyCode
-        flyingOrigin.text = crewMember.flyingOrigin
+        flyingOranization.text = crewMember.flyingOranization
     }
 
     func closePopUp() {
@@ -149,7 +149,7 @@ class AircrewPopUpViewController: UIViewController {
         guard let lastName = lastName.text, !lastName.isEmpty,
               let firstName = firstName.text, !firstName.isEmpty,
               let ssn = ssn.text, !ssn.isEmpty,
-              let flyingOrigin = flyingOrigin.text, !flyingOrigin.isEmpty,
+              let flyingOranization = flyingOranization.text, !flyingOranization.isEmpty,
               let flightAuthDutyCode = flightAuthDutyCode.text, !flightAuthDutyCode.isEmpty
         else {
             return self.presentAlertIfInputError()
@@ -161,7 +161,7 @@ class AircrewPopUpViewController: UIViewController {
                 return
             }
 
-            Form781Controller.shared.updateCrewMemberInfo(crewMember: crewMember, lastName: lastName, firstName: firstName, ssnLast4: ssn, flightAuthDutyCode: flightAuthDutyCode, flyingOrigin: flyingOrigin)
+            Form781Controller.shared.updateCrewMemberInfo(crewMember: crewMember, lastName: lastName, firstName: firstName, ssnLast4: ssn, flightAuthDutyCode: flightAuthDutyCode, flyingOranization: flyingOranization)
 
             closePopUp()
 
@@ -172,7 +172,7 @@ class AircrewPopUpViewController: UIViewController {
                 return
             }
 
-            CrewMemberController.create(form: form, lastName: lastName, firstName: firstName, ssnLast4: ssn, flightAuthDutyCode: flightAuthDutyCode, flyingOrigin: flyingOrigin)
+            CrewMemberController.create(form: form, lastName: lastName, firstName: firstName, ssnLast4: ssn, flightAuthDutyCode: flightAuthDutyCode, flyingOranization: flyingOranization)
 
             closePopUp()
         }
@@ -182,7 +182,7 @@ class AircrewPopUpViewController: UIViewController {
         firstName.resignFirstResponder()
         lastName.resignFirstResponder()
         ssn.resignFirstResponder()
-        flyingOrigin.resignFirstResponder()
+        flyingOranization.resignFirstResponder()
         flightAuthDutyCode.resignFirstResponder()
     }
     

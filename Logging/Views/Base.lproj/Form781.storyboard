@@ -412,8 +412,10 @@
                                             <color key="textColor" name="slate"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLYING ORIGIN" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zf-zX-FfA" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6zf-zX-FfA" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
                                             <rect key="frame" x="358.5" y="5.5" width="49" height="33.5"/>
+                                            <string key="text">FLYING
+ORGN</string>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                             <color key="textColor" name="slate"/>
                                             <nil key="highlightedColor"/>
@@ -548,7 +550,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="flightAuthDutyCodeLabel" destination="X4F-dz-4Y2" id="VWy-JS-R82"/>
-                                            <outlet property="flyingOriginLabel" destination="CeP-Ql-PXu" id="pMI-dn-MXq"/>
+                                            <outlet property="flyingOranizationLabel" destination="CeP-Ql-PXu" id="i1w-2j-c10"/>
                                             <outlet property="nameLabel" destination="qGf-vd-Pgs" id="EDQ-3M-8Qi"/>
                                             <outlet property="ssnLabel" destination="h8w-0f-65O" id="01d-vr-duT"/>
                                         </connections>
@@ -2274,7 +2276,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ji1-Qe-unY">
                                                         <rect key="frame" x="0.0" y="286.5" width="573" height="61"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLYING ORIGIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fkl-pq-xnH" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLYING ORGANIZATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fkl-pq-xnH" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="89.5" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                 <color key="textColor" name="slate"/>
@@ -2314,6 +2316,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="vgV-Sb-0t5"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
@@ -2329,7 +2332,7 @@
                     <connections>
                         <outlet property="firstName" destination="ikX-c3-VYd" id="767-Jd-0k9"/>
                         <outlet property="flightAuthDutyCode" destination="Xgt-6P-pbO" id="E1t-Kl-Yxl"/>
-                        <outlet property="flyingOrigin" destination="YGF-TL-gMe" id="heh-zv-XhK"/>
+                        <outlet property="flyingOranization" destination="YGF-TL-gMe" id="Wyi-gH-Vrp"/>
                         <outlet property="lastName" destination="ogi-CJ-P7W" id="pq0-ff-yIb"/>
                         <outlet property="saveButton" destination="WpX-B1-5Un" id="6z8-dn-y71"/>
                         <outlet property="ssn" destination="ke6-yC-VOs" id="U1a-Et-Cw5"/>
@@ -2349,7 +2352,7 @@
             <objects>
                 <viewController id="usr-Ay-mUb" customClass="MissionDataPopUpViewController" customModule="Logging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6OR-5X-BhB">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1311"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1311.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKZ-CG-2CK" customClass="popUpView" customModule="Logging" customModuleProvider="target">
@@ -2559,6 +2562,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="7y4-c0-ceQ"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
@@ -2943,6 +2947,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="c8L-Fv-KCb"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
