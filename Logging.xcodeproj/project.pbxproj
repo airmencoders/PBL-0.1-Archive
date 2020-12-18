@@ -66,6 +66,7 @@
 		83D8409424D3402D00F336E3 /* LoggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D8409324D3402D00F336E3 /* LoggingTests.swift */; };
 		83D8409F24D3402D00F336E3 /* LoggingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D8409E24D3402D00F336E3 /* LoggingUITests.swift */; };
 		A9D320D7193904F747E1FF90 /* Pods_Logging_LoggingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7192C4E0628E4E7D0C02BFBC /* Pods_Logging_LoggingUITests.framework */; };
+		D20DC354258C2F780012FA2B /* TestImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20DC353258C2F780012FA2B /* TestImageGenerator.swift */; };
 		FC99B2719A65D5512B76F5AC /* Pods_LoggingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47FE006718C4942F5FE50BB0 /* Pods_LoggingTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -157,6 +158,7 @@
 		83D8409A24D3402D00F336E3 /* LoggingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoggingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83D8409E24D3402D00F336E3 /* LoggingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingUITests.swift; sourceTree = "<group>"; };
 		83D840A024D3402D00F336E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D20DC353258C2F780012FA2B /* TestImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestImageGenerator.swift; sourceTree = "<group>"; };
 		ED9788E1C9AF89B0FDD4ABF4 /* Pods-LoggingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoggingTests.release.xcconfig"; path = "Target Support Files/Pods-LoggingTests/Pods-LoggingTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -420,6 +422,7 @@
 		83D8409224D3402D00F336E3 /* LoggingTests */ = {
 			isa = PBXGroup;
 			children = (
+				D20DC353258C2F780012FA2B /* TestImageGenerator.swift */,
 				83D8409324D3402D00F336E3 /* LoggingTests.swift */,
 				4D40D8AC257B214300738AEE /* Form781ControllerTests.swift */,
 				83D8409524D3402D00F336E3 /* Info.plist */,
@@ -729,6 +732,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83D8409424D3402D00F336E3 /* LoggingTests.swift in Sources */,
+				D20DC354258C2F780012FA2B /* TestImageGenerator.swift in Sources */,
 				4D40D8AD257B214300738AEE /* Form781ControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
