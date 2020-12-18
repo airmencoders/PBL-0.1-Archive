@@ -57,12 +57,8 @@ class TestImageGenerator: XCTestCase {
         
         let form2 = Form781(date: date, mds: mds, serialNumber: serialNumber, unitCharged: unitCharged, harmLocation: harmLocation, flightAuthNum: flightAuthNum, issuingUnit: issuingUnit)
         
-        let flightA2 = Flight(flightSeq: "a", missionNumber: "", missionSymbol: "Q1", fromICAO: "KCHS", toICAO: "KCHS", takeOffTime: "1800", landTime: "2100", totalTime: "3.0", touchAndGo: "", fullStop: "4", totalLandings: "4", sorties: "1", specialUse: "")
-
-        
         var form2Flights = [Flight]()
         let letters = Array("ABCDEFGHIJKL")
-        
         
         for i in 0..<6{
             
@@ -142,7 +138,7 @@ class TestImageGenerator: XCTestCase {
             if i == 0 {
                 XCTAssertEqual(hashString, "19785743943585d4fcfde89431390fc9d02a00259d35d63c0f6dd2d5edd82437", "\nFORM\(i):  \(message)")
             } else if i == 1{
-                XCTAssertEqual(hashString, "d24ba6a35ff517198083caabf6bfc874af6399cf0dd84e179bef6faf4ae3dbdd", "\nFORM\(i):  \(message)")
+                XCTAssertEqual(hashString, "d24ba6a35ff517198083caabf6bfc874af6399cf0dd84e179bef6faf4ae3dbdd", "\nFORM\(i):  \(message)") 
             }
             
             //If visual inspection of the forms is desired, change to true and watch the console
