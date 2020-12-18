@@ -216,24 +216,47 @@ class Helper {
             diffMin = laMinTime - toMinTime
         }
         
-        let checkMin = decimalTime(num: Double(diffMin))
+        decMin = decimalTime(num: Double(diffMin))
         
-        if checkMin == 10 {
+        if decMin == 10 {
             decMin = 0
-        } else {
-            decMin = Int(checkMin)
+            diffHrs += 1
         }
-        
 
         // NSLog("\(diffHrs)\(diffMin)")
-
-        // return statement here
-    
         return "\(diffHrs).\(decMin)"
     }
     
-    static func decimalTime(num: Double) -> Double{
-        return (num / 6).rounded()
+    static func decimalTime(num: Double) -> Int {
+        // This is the general idea, but it does not work all the way around the dial.
+        // return (num / 6.0).rounded()
+        // The problem is that the form table does not round evenly around the dial.
+        // For example, 33/6 = 5.5, it should trunk to 5 but it rounds to 6. But you
+        // can't just trunk for minutes greater than 30, becasue 34/6 = 5.6666, so
+        // in this case you want to round.
+        // So the range table seemed the most accurate way.
+        if 0...2 ~= num {
+            return 0
+        } else if 3...8 ~= num {
+            return 1
+        } else if 9...14 ~= num {
+            return 2
+        } else if 15...20 ~= num {
+            return 3
+        } else if 21...26 ~= num {
+            return 4
+        } else if 27...33 ~= num {
+            return 5
+        } else if 34...39 ~= num {
+            return 6
+        } else if 40...45 ~= num {
+            return 7
+        } else if 46...51 ~= num {
+            return 8
+        } else if 52...57 ~= num {
+            return 9
+        }
+        return 10
     }
        
     

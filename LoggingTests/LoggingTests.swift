@@ -88,6 +88,31 @@ class LoggingTests: XCTestCase {
         XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "2301", landTime: "00:01"), "1.0")
         XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "07:30", landTime: "14:35"), "7.1")
         XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "20:12", landTime: "07:20"), "11.1")
+
+        // Test all of the edge cases
+        XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "0000", landTime: "0001"), "0.0")
+        XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "0000", landTime: "0002"), "0.0")
+        XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "0000", landTime: "0003"), "0.1")
+        XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "0000", landTime: "0008"), "0.1")
+        XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "0000", landTime: "0009"), "0.2")
+        XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "0000", landTime: "0014"), "0.2")
+        XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "0000", landTime: "0015"), "0.3")
+        XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "0000", landTime: "0020"), "0.3")
+        XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "0000", landTime: "0021"), "0.4")
+        XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "0000", landTime: "0026"), "0.4")
+        XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "0000", landTime: "0027"), "0.5")
+        XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "0000", landTime: "0033"), "0.5")
+        XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "0000", landTime: "0034"), "0.6")
+        XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "0000", landTime: "0039"), "0.6")
+        XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "0000", landTime: "0040"), "0.7")
+        XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "0000", landTime: "0045"), "0.7")
+        XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "0000", landTime: "0046"), "0.8")
+        XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "0000", landTime: "0051"), "0.8")
+        XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "0000", landTime: "0052"), "0.9")
+        XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "0000", landTime: "0057"), "0.9")
+        XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "0000", landTime: "0058"), "1.0")
+        XCTAssertEqual(Helper.vmCalculateTotalTime(takeOffTime: "0000", landTime: "0059"), "1.0")
+
     }
 
     private func _validateDateConversion(original: String, expected: String) {
