@@ -26,7 +26,7 @@ class ImageGenerator {
             form.date.drawIn(                      CGRect(x: 250,  y: 245, width: 300, height: height))
             form.mds.drawIn(                       CGRect(x: 700,  y: 245, width: 300, height: height))
             form.serialNumber.drawIn(              CGRect(x: 1035, y: 245, width: 300, height: height))
-            form.unitCharged.drawIn(               CGRect(x: 1390, y: 245, width: 500, height: height))
+            form.unitCharged.drawIn(               CGRect(x: 1390, y: 245, width: 900, height: height))
             form.harmLocation.drawIn(              CGRect(x: 2120, y: 245, width: 980, height: height))
             form.flightAuthNum.drawIn(             CGRect(x: 545,  y: 820, width: 300, height: height))
             form.issuingUnit.drawIn(               CGRect(x: 1085, y: 820, width: 300, height: height))
@@ -38,25 +38,27 @@ class ImageGenerator {
             
             
             // MARK: *Flight Sequence
-            if Form781Controller.shared.getCurrentForm()?.flights.count ?? 0 > 0 {
+            if form.flights.count > 0 {
                 
                 // temp: changed var to i from x to prevent confusion with x in the CGRect.
                 for i in 0...(form.flights.count - 1){
                     
                     let flight = form.flights[i]
                     
-                    flight.missionNumber.drawIn(    CGRect(x: 345,  y: 455 + (i * 65), width: 300, height: height))
-                    flight.missionSymbol.drawIn(    CGRect(x: 825,  y: 455 + (i * 65), width: 300, height: height))
-                    flight.fromICAO.drawIn(         CGRect(x: 1045, y: 455 + (i * 65), width: 300, height: height))
-                    flight.toICAO.drawIn(           CGRect(x: 1265, y: 455 + (i * 65), width: 300, height: height))
-                    flight.takeOffTime.drawIn(      CGRect(x: 1465, y: 455 + (i * 65), width: 200, height: height))
-                    flight.landTime.drawIn(         CGRect(x: 1680, y: 455 + (i * 65), width: 200, height: height))
-                    flight.totalTime.drawIn(        CGRect(x: 1875, y: 455 + (i * 65), width: 200, height: height))
-                    flight.touchAndGo.drawIn(       CGRect(x: 2060, y: 455 + (i * 65), width: 200, height: height))
-                    flight.fullStop.drawIn(         CGRect(x: 2200, y: 455 + (i * 65), width: 200, height: height))
-                    flight.totalLandings.drawIn(    CGRect(x: 2310, y: 455 + (i * 65), width: 200, height: height))
-                    flight.sorties.drawIn(          CGRect(x: 2490, y: 455 + (i * 65), width: 200, height: height))
-                    flight.specialUse.drawIn(       CGRect(x: 2590, y: 455 + (i * 65), width: 200, height: height))
+                    let ysp = 60
+                    
+                    flight.missionNumber.drawIn(    CGRect(x: 345,  y: 455 + (i * ysp), width: 300, height: height))
+                    flight.missionSymbol.drawIn(    CGRect(x: 825,  y: 455 + (i * ysp), width: 300, height: height))
+                    flight.fromICAO.drawIn(         CGRect(x: 1045, y: 455 + (i * ysp), width: 300, height: height))
+                    flight.toICAO.drawIn(           CGRect(x: 1265, y: 455 + (i * ysp), width: 300, height: height))
+                    flight.takeOffTime.drawIn(      CGRect(x: 1465, y: 455 + (i * ysp), width: 200, height: height))
+                    flight.landTime.drawIn(         CGRect(x: 1680, y: 455 + (i * ysp), width: 200, height: height))
+                    flight.totalTime.drawIn(        CGRect(x: 1875, y: 455 + (i * ysp), width: 200, height: height))
+                    flight.touchAndGo.drawIn(       CGRect(x: 2060, y: 455 + (i * ysp), width: 200, height: height))
+                    flight.fullStop.drawIn(         CGRect(x: 2200, y: 455 + (i * ysp), width: 200, height: height))
+                    flight.totalLandings.drawIn(    CGRect(x: 2310, y: 455 + (i * ysp), width: 200, height: height))
+                    flight.sorties.drawIn(          CGRect(x: 2490, y: 455 + (i * ysp), width: 200, height: height))
+                    flight.specialUse.drawIn(       CGRect(x: 2590, y: 455 + (i * ysp), width: 200, height: height))
                 }
             }
             
@@ -69,30 +71,32 @@ class ImageGenerator {
                 
                 if crewSize <= 15 {
                     
-                    for i in 0...crewSize - 1 {
+                    for i in 0..<crewSize {
                         
                         let member = form.crewMembers[i]
                         
-                        member.flyingOranization.drawIn(    CGRect(x: 175,  y: 1085 + (i * 60), width: 100, height: height))
-                        member.ssnLast4.drawIn(             CGRect(x: 315,  y: 1085 + (i * 60), width: 100, height: height))
-                        member.lastName.drawIn(             CGRect(x: 455,  y: 1085 + (i * 60), width: 505, height: height))
-                        member.flightAuthDutyCode.drawIn(   CGRect(x: 1035, y: 1085 + (i * 60), width: 200, height: height))
-                        member.primary?.drawIn(             CGRect(x: 1130, y: 1085 + (i * 60), width: 50,  height: height))
-                        member.secondary?.drawIn(           CGRect(x: 1240, y: 1085 + (i * 60), width: 50,  height: height))
-                        member.instructor?.drawIn(          CGRect(x: 1355, y: 1085 + (i * 60), width: 50,  height: height))
-                        member.evaluator?.drawIn(           CGRect(x: 1670, y: 1085 + (i * 60), width: 200, height: height))
-                        member.other?.drawIn(               CGRect(x: 1790, y: 1085 + (i * 60), width: 200, height: height))
-                        member.time?.drawIn(                CGRect(x: 1905, y: 1085 + (i * 60), width: 200, height: height))
-                        member.srty?.drawIn(                CGRect(x: 2015, y: 1085 + (i * 60), width: 200, height: height))
-                        member.nightPSIE?.drawIn(           CGRect(x: 2160, y: 1085 + (i * 60), width: 200, height: height))
-                        member.insPIE?.drawIn(              CGRect(x: 2280, y: 1085 + (i * 60), width: 200, height: height))
-                        member.simIns?.drawIn(              CGRect(x: 2300, y: 1085 + (i * 60), width: 200, height: height))
-                        member.nvg?.drawIn(                 CGRect(x: 2415, y: 1085 + (i * 60), width: 200, height: height))
-                        member.combatTime?.drawIn(          CGRect(x: 2530, y: 1085 + (i * 60), width: 200, height: height))
-                        member.combatSrty?.drawIn(          CGRect(x: 2630, y: 1085 + (i * 60), width: 200, height: height))
-                        member.combatSptTime?.drawIn(       CGRect(x: 2730, y: 1085 + (i * 60), width: 200, height: height))
-                        member.combatSptSrty?.drawIn(       CGRect(x: 2840, y: 1085 + (i * 60), width: 200, height: height))
-                        member.resvStatus?.drawIn(          CGRect(x: 2940, y: 1085 + (i * 60), width: 200, height: height))
+                        let ys = 59
+                        
+                        member.flyingOranization.drawIn(    CGRect(x: 175,  y: 1085 + (i * ys), width: 100, height: height))
+                        member.ssnLast4.drawIn(             CGRect(x: 315,  y: 1085 + (i * ys), width: 100, height: height))
+                        member.lastName.drawIn(             CGRect(x: 455,  y: 1085 + (i * ys), width: 505, height: height))
+                        member.flightAuthDutyCode.drawIn(   CGRect(x: 1035, y: 1085 + (i * ys), width: 200, height: height))
+                        member.primary?.drawIn(             CGRect(x: 1270, y: 1085 + (i * ys), width: 200, height: height))
+                        member.secondary?.drawIn(           CGRect(x: 1390, y: 1085 + (i * ys), width: 200, height: height))
+                        member.instructor?.drawIn(          CGRect(x: 1520, y: 1085 + (i * ys), width: 100, height: height))
+                        member.evaluator?.drawIn(           CGRect(x: 1640, y: 1085 + (i * ys), width: 200, height: height))
+                        member.other?.drawIn(               CGRect(x: 1760, y: 1085 + (i * ys), width: 200, height: height))
+                        member.time?.drawIn(                CGRect(x: 1885, y: 1085 + (i * ys), width: 200, height: height))
+                        member.srty?.drawIn(                CGRect(x: 1990, y: 1085 + (i * ys), width: 200, height: height))
+                        member.nightPSIE?.drawIn(           CGRect(x: 2100, y: 1085 + (i * ys), width: 200, height: height))
+                        member.insPIE?.drawIn(              CGRect(x: 2220, y: 1085 + (i * ys), width: 200, height: height))
+                        member.simIns?.drawIn(              CGRect(x: 2340, y: 1085 + (i * ys), width: 200, height: height))
+                        member.nvg?.drawIn(                 CGRect(x: 2460, y: 1085 + (i * ys), width: 200, height: height))
+                        member.combatTime?.drawIn(          CGRect(x: 2580, y: 1085 + (i * ys), width: 200, height: height))
+                        member.combatSrty?.drawIn(          CGRect(x: 2690, y: 1085 + (i * ys), width: 200, height: height))
+                        member.combatSptTime?.drawIn(       CGRect(x: 2800, y: 1085 + (i * ys), width: 200, height: height))
+                        member.combatSptSrty?.drawIn(       CGRect(x: 2910, y: 1085 + (i * ys), width: 200, height: height))
+                        member.resvStatus?.drawIn(          CGRect(x: 3000, y: 1085 + (i * ys), width: 200, height: height))
                         
                     }
                 } else {
@@ -120,7 +124,7 @@ class ImageGenerator {
                         member.combatSrty?.drawIn(          CGRect(x: 2730, y: 1210 + (i * 60), width: 200, height: height))
                         member.combatSptTime?.drawIn(       CGRect(x: 2830, y: 1210 + (i * 60), width: 200, height: height))
                         member.combatSptSrty?.drawIn(       CGRect(x: 2940, y: 1210 + (i * 60), width: 200, height: height))
-                        member.resvStatus?.drawIn(          CGRect(x: 3040, y: 1210 + (i * 60), width: 200, height: height))
+                        member.resvStatus?.drawIn(          CGRect(x: 3080, y: 1210 + (i * 60), width: 200, height: height))
                         
                     }
                 }
