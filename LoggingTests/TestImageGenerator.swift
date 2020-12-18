@@ -116,8 +116,7 @@ class TestImageGenerator: XCTestCase {
        
         for i in 0..<forms.count{
             
-            let image = Helper.generate871FirstPageImage(from: forms[i])
-            
+            let image = Helper.generate781FirstPageImage(from: forms[i])
             XCTAssert(image?.size == Helper.LETTER_SIZE)
             
             //Comparing the generated images with a hash value of their data.
