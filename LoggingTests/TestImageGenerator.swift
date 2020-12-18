@@ -99,24 +99,28 @@ class TestImageGenerator: XCTestCase {
          
         let directory = NSTemporaryDirectory()
         print(directory)
-        let fileURL = URL(fileURLWithPath: directory).appendingPathComponent("front871Image.png")
+        
+        let fileURL = URL(fileURLWithPath: directory).appendingPathComponent("front781Image.png")
 
         if let data = image?.pngData() {
             do {
                 try data.write(to: fileURL)
+                
             }catch{
                 XCTFail()
+                
             }
           
         }
         
     }
     
-    func testGenerate871FirstPageImage(){
+    func testGenerate781FirstPageImage(){
        
         for i in 0..<forms.count{
             
             let image = Helper.generate781FirstPageImage(from: forms[i])
+            
             XCTAssert(image?.size == Helper.LETTER_SIZE)
             
             //Comparing the generated images with a hash value of their data.
@@ -152,7 +156,7 @@ class TestImageGenerator: XCTestCase {
                 
                 print("Inspection Directory is: \(directory)")
                 
-                let fileURL = URL(fileURLWithPath: directory).appendingPathComponent("front871ImageWithBackground\(i).png")
+                let fileURL = URL(fileURLWithPath: directory).appendingPathComponent("front781ImageWithBackground\(i).png")
                 
                 if let data = image?.pngData() {
                     do {
@@ -160,13 +164,13 @@ class TestImageGenerator: XCTestCase {
                     }catch{
                         XCTFail()
                     }
+                    
                 }
+                
             }
-           
+            
         }
-       
         
     }
-    
     
 }
