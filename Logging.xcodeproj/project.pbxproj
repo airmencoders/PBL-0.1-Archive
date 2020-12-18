@@ -12,6 +12,7 @@
 		134E7962257FED7C00A1D4A1 /* Form781-Front.png in Resources */ = {isa = PBXBuildFile; fileRef = 134E7960257FED7C00A1D4A1 /* Form781-Front.png */; };
 		134E7963257FED7C00A1D4A1 /* Form781-Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 134E7961257FED7C00A1D4A1 /* Form781-Back.png */; };
 		138809FE25683876005B93FF /* (null) in Sources */ = {isa = PBXBuildFile; };
+		13A0D94D258D412F00CECAB7 /* WorkerThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A0D94C258D412F00CECAB7 /* WorkerThread.swift */; };
 		13C38BF4256858C300E8D919 /* Form781Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13C38BF3256858C300E8D919 /* Form781Error.swift */; };
 		13F08EA125221F7D00CDAEE4 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 13F08EA025221F7D00CDAEE4 /* header.png */; };
 		13F08EAE252222A800CDAEE4 /* separator line.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 13F08EAD252222A800CDAEE4 /* separator line.jpg */; };
@@ -93,6 +94,7 @@
 		134E7960257FED7C00A1D4A1 /* Form781-Front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Form781-Front.png"; sourceTree = "<group>"; };
 		134E7961257FED7C00A1D4A1 /* Form781-Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Form781-Back.png"; sourceTree = "<group>"; };
 		13965D85DFCED656F8ABF8B0 /* Pods-Logging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Logging.debug.xcconfig"; path = "Target Support Files/Pods-Logging/Pods-Logging.debug.xcconfig"; sourceTree = "<group>"; };
+		13A0D94C258D412F00CECAB7 /* WorkerThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkerThread.swift; sourceTree = "<group>"; };
 		13C38BF3256858C300E8D919 /* Form781Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Form781Error.swift; sourceTree = "<group>"; };
 		13F08EA025221F7D00CDAEE4 /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header.png; sourceTree = "<group>"; };
 		13F08EAD252222A800CDAEE4 /* separator line.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "separator line.jpg"; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				7F7E0DDF253110330041C4E9 /* PBLButton.swift */,
 				13464808256EFF6F00DB7783 /* SplitTime.swift */,
 				134E78CE257AA92500A1D4A1 /* ImageGenerator.swift */,
+				13A0D94C258D412F00CECAB7 /* WorkerThread.swift */,
 			);
 			path = HelperFiles;
 			sourceTree = "<group>";
@@ -719,6 +722,7 @@
 				7F7E0DE0253110330041C4E9 /* PBLButton.swift in Sources */,
 				7F7E0DDB25310ED80041C4E9 /* StyleGuide.swift in Sources */,
 				7F680C3725475C2500625ECC /* Form781Controller.swift in Sources */,
+				13A0D94D258D412F00CECAB7 /* WorkerThread.swift in Sources */,
 				4D9760482587EF19003B560A /* SplitTime.swift in Sources */,
 				7F97DFF6253F9A80005B0892 /* WelcomeViewController.swift in Sources */,
 			);

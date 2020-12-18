@@ -89,17 +89,9 @@ class Form781ViewController: UIViewController {
     
     @IBAction func sendButtonTapped(_ sender: UIButton) {
         // Load the PDF
-        
-        NSLog("***** Send button tapped *****")
-        let _ = Helper.exportPDF()
-        NSLog("***** PDF Saved to disc *****")
-        // Alerts.showPDFCreation(on: self)
-        let pdfPulled: PDFDocument = Helper.loadPDFFromDisc()
-        NSLog("***** PDF Loaded *****")
-        
-        FlightListActivityController.share(title: "Form 781", message: "Current 781", pdfDoc: pdfPulled, on: self, frame: sender.frame)
+        WorkerThread().genPDFInBackground(button: sender, controller: self)
     }
-        
+    
     @IBAction func printButtonTapped(_ sender: UIButton) {
         Helper.print781()
     }

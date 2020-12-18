@@ -1947,7 +1947,7 @@ ORGN</string>
             <objects>
                 <viewController id="83w-Ih-qzk" customClass="SideMenuViewController" customModule="Logging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jAH-wa-OUb">
-                        <rect key="frame" x="0.0" y="0.0" width="205" height="1311"/>
+                        <rect key="frame" x="0.0" y="0.0" width="205" height="1311.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MISSION FORMS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgf-6v-KHj" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">

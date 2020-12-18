@@ -83,6 +83,10 @@ class Form781Controller {
         form.grandTotalFullStop = grandFullStop
         form.grandTotalLandings = grandTotalLandings
         form.grandTotalSorties = grandTotalSorties
+        
+        // For debugging purposes
+        Helper.setOtherTime()
+        
         NSLog("Updated grand totals")
         save()
     }

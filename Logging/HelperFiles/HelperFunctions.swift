@@ -276,7 +276,7 @@ class Helper {
         printInfo.outputType = .grayscale
         printInfo.orientation = .landscape
         printInfo.jobName = "AFTO_781"
-        printInfo.duplex = .shortEdge
+        // printInfo.duplex = .shortEdge
         printController.printInfo = printInfo
         
         let form781pdf = generateAFTO781PDF()
@@ -372,31 +372,31 @@ class Helper {
         return generatePDF(from: frontImage, backImage)
     }
     
-    static func exportPDF() {
-        DispatchQueue.global(qos: .background).async {
-            guard let pdf = generateAFTO781PDF() else {
-                print("pdf generation failed")
-                return
-            }
-            
-            let data = pdf.dataRepresentation()
-            
-            //Save the form
-            let path = getDocDir()
-            let url = path.appendingPathComponent("781.pdf", isDirectory: false)
-            
-            do {
-                try data!.write(to: url)
-            } catch {
-                print("PDF creation error")
-            }
+    static func exportPDF() -> Bool {
+        
+        guard let pdf = generateAFTO781PDF() else {
+            print("pdf generation failed")
+            return false
+        }
+        
+        let data = pdf.dataRepresentation()
+        
+        //Save the form
+        let path = getDocDir()
+        let url = path.appendingPathComponent("781.pdf", isDirectory: false)
+        
+        do {
+            try data!.write(to: url)
+            return true
+        } catch {
+            print("PDF creation error")
+            return false
         }
     }
     
     static func loadPDFFromDisc() -> PDFDocument {
         let docDir = getDocDir()
         let url = docDir.appendingPathComponent("781.pdf", isDirectory: false)
-        
         return PDFDocument(url: url)!
     }
     
@@ -423,6 +423,28 @@ class Helper {
             NSLog("Couldn't find file at \(fileURL!) \n \(error.domain)")
         }
     }
+    
+    static func setOtherTime() {
+        let form = Form781Controller.shared.getCurrentForm()
+        
+        let totalTime = form?.grandTotalTime
+        let strTime = String(format: "%.1f", totalTime!)
+        
+        if (form?.crewMembers.count)! > 1 {
+            for n in 0...(form?.crewMembers.count)! - 1 {
+                form?.crewMembers[n].other = strTime
+                NSLog("Crew Member \(form?.crewMembers[n].lastName) updated to \(strTime)" )
+            }
+        }
+    }
+    
+    static func threadFinished(sender: UIButton, controller: UIViewController){
+        let pdfPulled: PDFDocument = loadPDFFromDisc()
+        NSLog("***** PDF Loaded *****")
+        
+        FlightListActivityController.share(title: "Form 781", message: "Current 781", pdfDoc: pdfPulled, on: controller, frame: sender.frame)
+    }
+    
 } //End
 
 
