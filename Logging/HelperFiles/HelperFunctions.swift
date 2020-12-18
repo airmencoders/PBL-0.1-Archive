@@ -269,19 +269,19 @@ class Helper {
         textField.layer.borderColor = color.cgColor
     }
     
-    static func print871() {
+    static func print781() {
         
         let printController = UIPrintInteractionController.shared
         let printInfo = UIPrintInfo(dictionary: [:])
         printInfo.outputType = .grayscale
         printInfo.orientation = .landscape
-        printInfo.jobName = "AFTO_871"
+        printInfo.jobName = "AFTO_781"
         printInfo.duplex = .shortEdge
         printController.printInfo = printInfo
         
-        let form871pdf = generateAFTO871PDF()
+        let form781pdf = generateAFTO781PDF()
         
-        printController.printingItem = form871pdf?.dataRepresentation()
+        printController.printingItem = form781pdf?.dataRepresentation()
         printController.showsNumberOfCopies = true
         printController.present(animated: true) { (controller, completed, error) in
             
@@ -327,7 +327,7 @@ class Helper {
         
     }
     
-    static func generate871FirstPageImage(from form: Form781) -> UIImage? {
+    static func generate781FirstPageImage(from form: Form781) -> UIImage? {
         
         let formImage = UIImage(named: "Form781-Front.png")
         let formDataImage = ImageGenerator.generateFilledFormPageOneImage(from: form)
@@ -337,7 +337,7 @@ class Helper {
         return image
     }
     
-    static func generate871SecondPageImage(from form: Form781) -> UIImage? {
+    static func generate781SecondPageImage(from form: Form781) -> UIImage? {
        
         let formImage = UIImage(named: "Form781-Back.png")
         let formDataImage = ImageGenerator.generateFilledFormPageTwoImage(from: form)
@@ -363,32 +363,33 @@ class Helper {
         
     }
     
-    static func generateAFTO871PDF() -> PDFDocument? {
-        guard let currentForm871 = Form781Controller.shared.getCurrentForm(),
-        let frontImage = generate871FirstPageImage(from: currentForm871),
-        let backImage =  generate871SecondPageImage(from: currentForm871) else {
+    static func generateAFTO781PDF() -> PDFDocument? {
+        guard let currentForm781 = Form781Controller.shared.getCurrentForm(),
+        let frontImage = generate781FirstPageImage(from: currentForm781),
+        let backImage =  generate781SecondPageImage(from: currentForm781) else {
             return nil
         }
         return generatePDF(from: frontImage, backImage)
     }
     
     static func exportPDF() {
-        
-        guard let pdf = generateAFTO871PDF() else {
-            print("pdf generation failed")
-            return
-        }
-        
-        let data = pdf.dataRepresentation()
-        
-        //Save the form
-        let path = getDocDir()
-        let url = path.appendingPathComponent("781.pdf", isDirectory: false)
-        
-        do {
-            try data!.write(to: url)
-        } catch {
-            print("PDF creation error")
+        DispatchQueue.global(qos: .background).async {
+            guard let pdf = generateAFTO781PDF() else {
+                print("pdf generation failed")
+                return
+            }
+            
+            let data = pdf.dataRepresentation()
+            
+            //Save the form
+            let path = getDocDir()
+            let url = path.appendingPathComponent("781.pdf", isDirectory: false)
+            
+            do {
+                try data!.write(to: url)
+            } catch {
+                print("PDF creation error")
+            }
         }
     }
     
