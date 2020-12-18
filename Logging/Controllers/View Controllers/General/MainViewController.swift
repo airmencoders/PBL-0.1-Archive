@@ -45,6 +45,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var aircrewPopUp: UIView!
     
     @IBOutlet weak var flightSeqPopUpBottom: NSLayoutConstraint!
+    @IBOutlet weak var dimViewBottom: NSLayoutConstraint!
     
     // MARK: - Properties
     
@@ -52,11 +53,13 @@ class MainViewController: UIViewController {
     weak var missionDataDelegate: MainViewControllerMissionDataPopUpDelegate?
     weak var flightSeqDelegate: MainViewControllerFlightSeqPopUpDelegate?
     weak var aircrewDelegate: MainViewControllerAircrewPopUpDelegate?
+    
     var isMenuOpen = true
     var sideMenuClosedConstraintPortrait = -(UIScreen.main.bounds.width/6)
     var sideMenuClosedConstraintLandscape = -(UIScreen.main.bounds.width/4.5)
     
-    var flightSeqPopUpLandscapeConstraint = (UIScreen.main.bounds.height/7)
+    var isStartingInPortrait = true
+    var flightSeqPopUpLandscapeConstant = (UIScreen.main.bounds.height/7)
     
     var statusBarOrientation: UIInterfaceOrientation {
         get {
@@ -83,29 +86,33 @@ class MainViewController: UIViewController {
     
     func setUpViews() {
         NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: UIDevice.orientationDidChangeNotification, object: nil)
-
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     @objc func rotated() {
-        if UIDevice.current.orientation.isPortrait {
+        if UIApplication.shared.statusBarOrientation.isPortrait {
             NSLog("Portrait")
             if !isMenuOpen {
                 sideMenuLeadingConstraint.constant = sideMenuClosedConstraintPortrait
             }
             let contentInset: UIEdgeInsets = UIEdgeInsets.zero
             scrollView.contentInset = contentInset
-            flightSeqPopUpBottom.constant += flightSeqPopUpLandscapeConstraint
+            if !isStartingInPortrait {
+                flightSeqPopUpBottom.constant += flightSeqPopUpLandscapeConstant
+                dimViewBottom.constant += flightSeqPopUpLandscapeConstant
+            }
         } else {
             NSLog("Landscape")
             if !isMenuOpen {
                 sideMenuLeadingConstraint.constant = sideMenuClosedConstraintLandscape
             }
             var contentInset: UIEdgeInsets = self.scrollView.contentInset
-            contentInset.bottom = flightSeqPopUpLandscapeConstraint
+            contentInset.bottom = flightSeqPopUpLandscapeConstant
             scrollView.contentInset = contentInset
-            flightSeqPopUpBottom.constant -= flightSeqPopUpLandscapeConstraint
+            flightSeqPopUpBottom.constant -= flightSeqPopUpLandscapeConstant
+            dimViewBottom.constant -= flightSeqPopUpLandscapeConstant
+            isStartingInPortrait = false
         }
     }
     
@@ -122,15 +129,15 @@ class MainViewController: UIViewController {
         if UIDevice.current.orientation.isPortrait {
             contentInset.bottom = keyboardFrame.size.height
         } else {
-            contentInset.bottom = keyboardFrame.size.height + flightSeqPopUpLandscapeConstraint
+            contentInset.bottom = keyboardFrame.size.height + flightSeqPopUpLandscapeConstant
         }
         
         scrollView.contentInset = contentInset
     }
 
     @objc func keyboardWillHide(notification:NSNotification) {
-
-        let contentInset: UIEdgeInsets = UIEdgeInsets.zero
+        var contentInset: UIEdgeInsets = UIEdgeInsets.zero
+        contentInset.bottom = flightSeqPopUpLandscapeConstant
         scrollView.contentInset = contentInset
     }
     

@@ -195,6 +195,7 @@
                     <connections>
                         <outlet property="aircrewPopUp" destination="eHx-Y6-dEW" id="LhM-Cm-kl7"/>
                         <outlet property="dimView" destination="dh1-24-jop" id="cSg-KT-Jsp"/>
+                        <outlet property="dimViewBottom" destination="DZf-Sn-Nhd" id="Oww-U2-x86"/>
                         <outlet property="flightSeqPopUp" destination="Ydl-Mz-Adi" id="1Xi-dS-Ydv"/>
                         <outlet property="flightSeqPopUpBottom" destination="u8B-TM-xEy" id="2U9-8C-A8a"/>
                         <outlet property="form781View" destination="OLx-T7-Tjq" id="b8J-SQ-Out"/>
@@ -909,7 +910,7 @@ ORGN</string>
                                             </constraints>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4QG-4E-Hee">
-                                            <rect key="frame" x="665.5" y="13.5" width="20" height="22"/>
+                                            <rect key="frame" x="672.5" y="13.5" width="20" height="22"/>
                                             <color key="tintColor" name="slate"/>
                                             <state key="normal" image="plus.circle" catalog="system"/>
                                             <connections>
@@ -922,7 +923,7 @@ ORGN</string>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="MBO-fX-j2m" secondAttribute="bottom" id="98T-oZ-IVy"/>
                                         <constraint firstItem="4QG-4E-Hee" firstAttribute="centerY" secondItem="ECa-EN-aKU" secondAttribute="centerY" id="Z32-1h-ffK"/>
-                                        <constraint firstItem="4QG-4E-Hee" firstAttribute="trailing" secondItem="ECa-EN-aKU" secondAttribute="centerX" multiplier="1.97" id="btd-YG-o5e"/>
+                                        <constraint firstItem="4QG-4E-Hee" firstAttribute="trailing" secondItem="ECa-EN-aKU" secondAttribute="centerX" multiplier="1.99" id="btd-YG-o5e"/>
                                         <constraint firstItem="MBO-fX-j2m" firstAttribute="leading" secondItem="ECa-EN-aKU" secondAttribute="leading" id="dRf-CB-ioc"/>
                                         <constraint firstAttribute="trailing" secondItem="MBO-fX-j2m" secondAttribute="trailing" id="wag-hH-nUN"/>
                                     </constraints>
@@ -1034,7 +1035,7 @@ ORGN</string>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBO-h2-Jy8" userLabel="Delete Button">
-                                                    <rect key="frame" x="665.5" y="14" width="20" height="22"/>
+                                                    <rect key="frame" x="672.5" y="14" width="20" height="22"/>
                                                     <color key="tintColor" name="slate"/>
                                                     <state key="normal" image="minus.circle" catalog="system"/>
                                                     <connections>
@@ -1048,7 +1049,7 @@ ORGN</string>
                                                 <constraint firstAttribute="bottom" secondItem="0nn-Qq-3ha" secondAttribute="bottom" id="LvE-KX-ufT"/>
                                                 <constraint firstItem="BjA-C1-saM" firstAttribute="centerY" secondItem="Bcw-S7-hn8" secondAttribute="centerY" id="M9m-Xd-LDZ"/>
                                                 <constraint firstItem="yvu-2U-uwb" firstAttribute="width" secondItem="Bcw-S7-hn8" secondAttribute="width" multiplier="0.9" id="OND-Ox-KBc"/>
-                                                <constraint firstItem="mBO-h2-Jy8" firstAttribute="trailing" secondItem="Bcw-S7-hn8" secondAttribute="centerX" multiplier="1.97" id="Ve7-uA-KHG"/>
+                                                <constraint firstItem="mBO-h2-Jy8" firstAttribute="trailing" secondItem="Bcw-S7-hn8" secondAttribute="centerX" multiplier="1.99" id="Ve7-uA-KHG"/>
                                                 <constraint firstAttribute="trailing" secondItem="0nn-Qq-3ha" secondAttribute="trailing" id="ZFm-B9-bnJ"/>
                                                 <constraint firstItem="yvu-2U-uwb" firstAttribute="centerY" secondItem="Bcw-S7-hn8" secondAttribute="centerY" id="kdh-ED-bm3"/>
                                                 <constraint firstItem="Zbm-wi-rI5" firstAttribute="centerX" secondItem="Bcw-S7-hn8" secondAttribute="centerX" multiplier="1.88" id="pt3-Wt-y7B"/>
@@ -1484,7 +1485,7 @@ ORGN</string>
                                             </constraints>
                                         </view>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ok-vs-oHn">
-                                            <rect key="frame" x="665.5" y="13.5" width="20" height="22"/>
+                                            <rect key="frame" x="672.5" y="13.5" width="20" height="22"/>
                                             <color key="tintColor" name="slate"/>
                                             <state key="normal" image="plus.circle" catalog="system"/>
                                             <connections>
@@ -1542,7 +1543,7 @@ ORGN</string>
                                         <constraint firstAttribute="trailing" secondItem="SRG-zP-GEj" secondAttribute="trailing" id="XXn-fr-Yso"/>
                                         <constraint firstItem="Jxf-zw-Vly" firstAttribute="centerY" secondItem="zuR-d0-UDa" secondAttribute="centerY" id="YGV-KN-nhC"/>
                                         <constraint firstItem="SYB-9b-IBv" firstAttribute="centerX" secondItem="zuR-d0-UDa" secondAttribute="centerX" multiplier="1.65" id="atj-s5-wJA"/>
-                                        <constraint firstItem="8ok-vs-oHn" firstAttribute="trailing" secondItem="zuR-d0-UDa" secondAttribute="centerX" multiplier="1.97" id="hKR-Dl-PAS"/>
+                                        <constraint firstItem="8ok-vs-oHn" firstAttribute="trailing" secondItem="zuR-d0-UDa" secondAttribute="centerX" multiplier="1.99" id="hKR-Dl-PAS"/>
                                         <constraint firstItem="Jxf-zw-Vly" firstAttribute="centerX" secondItem="zuR-d0-UDa" secondAttribute="centerX" multiplier="1.2" id="haX-rr-KqA"/>
                                         <constraint firstItem="CRv-9t-G2t" firstAttribute="centerY" secondItem="zuR-d0-UDa" secondAttribute="centerY" id="iYE-ph-PId"/>
                                         <constraint firstAttribute="bottom" secondItem="SRG-zP-GEj" secondAttribute="bottom" id="sTR-Sr-4Ek"/>
@@ -1658,7 +1659,7 @@ ORGN</string>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zA8-on-fjk" userLabel="Delete Button">
-                                                    <rect key="frame" x="665.5" y="14" width="20" height="22"/>
+                                                    <rect key="frame" x="672.5" y="14" width="20" height="22"/>
                                                     <color key="tintColor" name="slate"/>
                                                     <state key="normal" image="minus.circle" catalog="system"/>
                                                     <connections>
@@ -1673,7 +1674,7 @@ ORGN</string>
                                                 <constraint firstItem="NDU-Ks-0wd" firstAttribute="leading" secondItem="Ojs-Dp-Y6g" secondAttribute="centerX" multiplier="0.01" id="Omw-2h-1m5"/>
                                                 <constraint firstItem="cfF-nx-RFq" firstAttribute="centerX" secondItem="Ojs-Dp-Y6g" secondAttribute="centerX" multiplier="1.88" id="T3j-Nb-w7n"/>
                                                 <constraint firstAttribute="trailing" secondItem="gnT-FN-zO5" secondAttribute="trailing" id="XTn-Pm-faM"/>
-                                                <constraint firstItem="zA8-on-fjk" firstAttribute="trailing" secondItem="Ojs-Dp-Y6g" secondAttribute="centerX" multiplier="1.97" id="f4T-wN-Jkh"/>
+                                                <constraint firstItem="zA8-on-fjk" firstAttribute="trailing" secondItem="Ojs-Dp-Y6g" secondAttribute="centerX" multiplier="1.99" id="f4T-wN-Jkh"/>
                                                 <constraint firstItem="jjo-od-abY" firstAttribute="width" secondItem="Ojs-Dp-Y6g" secondAttribute="width" multiplier="0.9" id="fDN-XP-Px5"/>
                                                 <constraint firstItem="jjo-od-abY" firstAttribute="centerX" secondItem="Ojs-Dp-Y6g" secondAttribute="centerX" multiplier="0.96" id="fT7-3m-LhP"/>
                                                 <constraint firstItem="NDU-Ks-0wd" firstAttribute="centerY" secondItem="Ojs-Dp-Y6g" secondAttribute="centerY" id="jWQ-F4-8Rk"/>
@@ -1947,7 +1948,7 @@ ORGN</string>
             <objects>
                 <viewController id="83w-Ih-qzk" customClass="SideMenuViewController" customModule="Logging" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jAH-wa-OUb">
-                        <rect key="frame" x="0.0" y="0.0" width="205" height="1311"/>
+                        <rect key="frame" x="0.0" y="0.0" width="205" height="1311.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MISSION FORMS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgf-6v-KHj" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
@@ -2196,7 +2197,7 @@ ORGN</string>
                                                         <rect key="frame" x="0.0" y="0.0" width="573" height="61"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAST NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yN-ZW-s7a" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="71" height="17"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="80" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
@@ -2209,14 +2210,14 @@ ORGN</string>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstItem="ogi-CJ-P7W" firstAttribute="width" secondItem="Qbl-jO-jVT" secondAttribute="width" id="A7Y-Vx-2nj"/>
-                                                            <constraint firstItem="8yN-ZW-s7a" firstAttribute="width" secondItem="Qbl-jO-jVT" secondAttribute="width" multiplier="0.124031" id="PHz-as-gPg"/>
+                                                            <constraint firstItem="8yN-ZW-s7a" firstAttribute="width" secondItem="Qbl-jO-jVT" secondAttribute="width" multiplier="0.139616" id="vv0-HT-e1B"/>
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="39n-ZH-L05">
                                                         <rect key="frame" x="0.0" y="94" width="573" height="61"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FIRST NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dFe-HW-R9A" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="74" height="17"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="83.5" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
@@ -2229,7 +2230,7 @@ ORGN</string>
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstItem="ikX-c3-VYd" firstAttribute="width" secondItem="39n-ZH-L05" secondAttribute="width" id="KtZ-Es-6SZ"/>
-                                                            <constraint firstItem="dFe-HW-R9A" firstAttribute="width" secondItem="39n-ZH-L05" secondAttribute="width" multiplier="0.129457" id="k8G-aw-NxP"/>
+                                                            <constraint firstItem="dFe-HW-R9A" firstAttribute="width" secondItem="39n-ZH-L05" secondAttribute="width" multiplier="0.145724" id="PH0-qp-Cva"/>
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="RP1-nT-tGv">
@@ -2239,7 +2240,7 @@ ORGN</string>
                                                                 <rect key="frame" x="0.0" y="0.0" width="276.5" height="65.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SSN (LAST 4)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5e-O6-7hY" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="80.5" height="17"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="91" height="17"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                         <color key="textColor" name="slate"/>
                                                                         <nil key="highlightedColor"/>
@@ -2252,14 +2253,14 @@ ORGN</string>
                                                                 </subviews>
                                                                 <constraints>
                                                                     <constraint firstItem="ke6-yC-VOs" firstAttribute="width" secondItem="LeA-1Q-9rp" secondAttribute="width" id="32M-iT-bDF"/>
-                                                                    <constraint firstItem="T5e-O6-7hY" firstAttribute="width" secondItem="LeA-1Q-9rp" secondAttribute="width" multiplier="0.2912" id="7Ee-xD-pPS"/>
+                                                                    <constraint firstItem="T5e-O6-7hY" firstAttribute="width" secondItem="LeA-1Q-9rp" secondAttribute="width" multiplier="0.329114" id="yRe-12-aMv"/>
                                                                 </constraints>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="kWA-IZ-RZG">
                                                                 <rect key="frame" x="296.5" y="0.0" width="276.5" height="65.5"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLIGHT AUTH DUTY CODE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGg-rz-agn" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="157" height="17"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="177.5" height="17"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                         <color key="textColor" name="slate"/>
                                                                         <nil key="highlightedColor"/>
@@ -2272,7 +2273,7 @@ ORGN</string>
                                                                 </subviews>
                                                                 <constraints>
                                                                     <constraint firstItem="Xgt-6P-pbO" firstAttribute="width" secondItem="kWA-IZ-RZG" secondAttribute="width" id="Bf9-Xu-bzQ"/>
-                                                                    <constraint firstItem="iGg-rz-agn" firstAttribute="width" secondItem="kWA-IZ-RZG" secondAttribute="width" multiplier="0.568" id="Dbe-fz-Tq2"/>
+                                                                    <constraint firstItem="iGg-rz-agn" firstAttribute="width" secondItem="kWA-IZ-RZG" secondAttribute="width" multiplier="0.641953" id="Nzm-Wi-QtI"/>
                                                                 </constraints>
                                                             </stackView>
                                                         </subviews>
@@ -2281,7 +2282,7 @@ ORGN</string>
                                                         <rect key="frame" x="0.0" y="286.5" width="573" height="61"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLYING ORGANIZATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fkl-pq-xnH" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="89.5" height="17"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="158" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                                 <color key="textColor" name="slate"/>
                                                                 <nil key="highlightedColor"/>
@@ -2293,7 +2294,7 @@ ORGN</string>
                                                             </textField>
                                                         </subviews>
                                                         <constraints>
-                                                            <constraint firstItem="Fkl-pq-xnH" firstAttribute="width" secondItem="Ji1-Qe-unY" secondAttribute="width" multiplier="0.156589" id="cPg-Io-hsX"/>
+                                                            <constraint firstItem="Fkl-pq-xnH" firstAttribute="width" secondItem="Ji1-Qe-unY" secondAttribute="width" multiplier="0.275742" id="a4b-Zg-njW"/>
                                                         </constraints>
                                                     </stackView>
                                                 </subviews>
@@ -2955,10 +2956,10 @@ ORGN</string>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="qzq-4X-6Gf" firstAttribute="top" secondItem="tlt-ef-Q1p" secondAttribute="centerY" multiplier="0.1" id="6nq-iW-iFF"/>
-                            <constraint firstItem="qzq-4X-6Gf" firstAttribute="height" secondItem="tlt-ef-Q1p" secondAttribute="height" multiplier="0.859756" id="B89-5A-qo4"/>
-                            <constraint firstItem="qzq-4X-6Gf" firstAttribute="width" secondItem="tlt-ef-Q1p" secondAttribute="width" multiplier="0.699219" id="iNR-gi-Fbq"/>
-                            <constraint firstItem="qzq-4X-6Gf" firstAttribute="centerX" secondItem="tlt-ef-Q1p" secondAttribute="centerX" id="yyx-Dc-ESG"/>
+                            <constraint firstItem="qzq-4X-6Gf" firstAttribute="height" secondItem="tlt-ef-Q1p" secondAttribute="height" multiplier="0.859703" id="Fc3-IK-BEV"/>
+                            <constraint firstItem="qzq-4X-6Gf" firstAttribute="centerX" secondItem="ibp-Gs-LrA" secondAttribute="centerX" id="H5F-pY-D3V"/>
+                            <constraint firstItem="qzq-4X-6Gf" firstAttribute="top" secondItem="ibp-Gs-LrA" secondAttribute="centerY" multiplier="0.1" id="f8u-tJ-q42"/>
+                            <constraint firstItem="qzq-4X-6Gf" firstAttribute="width" secondItem="tlt-ef-Q1p" secondAttribute="width" multiplier="0.699219" id="mdT-sv-WnE"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="cC4-gD-viX" appends="YES" id="gCP-Uj-6MC"/>
