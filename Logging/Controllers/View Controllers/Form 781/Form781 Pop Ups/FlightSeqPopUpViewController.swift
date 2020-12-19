@@ -15,9 +15,7 @@ protocol FlightSeqPopUpViewControllerDelegate: class {
 class FlightSeqPopUpViewController: UIViewController {
     
     // MARK: - Outlets
-    
-    @IBOutlet weak var scrollView: UIScrollView!
-    
+
     @IBOutlet weak var missionNumber: UITextField!
     @IBOutlet weak var missionSymbol: UITextField!
     @IBOutlet weak var fromICAO: UITextField!

@@ -14,12 +14,12 @@ protocol AircrewDataViewControllerDelegate: class {
 }
 
 class AircrewDataViewController: UIViewController {
-
+    
     // MARK: - Outlets
     
-    @IBOutlet weak var flightTimeTableView: UITableView!
     @IBOutlet weak var flightSeqTableView: UITableView!
     @IBOutlet weak var showFlightSeqButton: UIButton!
+    @IBOutlet weak var pageControl: UIPageControl!
     
     @IBOutlet weak var grandTotalTime: UILabel!
     @IBOutlet weak var grandTouchGo: UILabel!
@@ -47,8 +47,6 @@ class AircrewDataViewController: UIViewController {
     func setUpViews() {
         flightSeqTableView.delegate = self
         flightSeqTableView.dataSource = self
-        flightTimeTableView.delegate = self
-        flightTimeTableView.dataSource = self
         currentFormChanged()
     }
     
@@ -61,12 +59,12 @@ class AircrewDataViewController: UIViewController {
             self.grandSorties.text = String(form.grandTotalSorties ?? 0)
         }
     }
-
+    
     @objc func currentFormChanged() {
         flightSeqTableView.reloadData()
         reloadGrandTotalsView()
     }
-
+    
     // MARK: - Actions
     
     @IBAction func flightSeqButtonTapped(_ sender: UIButton) {
@@ -82,14 +80,14 @@ class AircrewDataViewController: UIViewController {
     
     @IBAction func newFlightButtonTapped(_ sender: UIButton) {
         guard let form = Form781Controller.shared.getCurrentForm() else {
-           return Alerts.showNoFormAlert(on: self)
+            return Alerts.showNoFormAlert(on: self)
         }
         guard form.flights.count < 6 else {
             return Alerts.showFlightsErrorAlert(on: self)
         }
         delegate?.addFlightButtonTapped()
     }
-
+    
 } //End
 
 // MARK: - TableView Delegate
@@ -97,43 +95,22 @@ class AircrewDataViewController: UIViewController {
 extension AircrewDataViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == self.flightSeqTableView {
             return Form781Controller.shared.getCurrentForm()?.flights.count ?? 0
-        }
-        if tableView == self.flightTimeTableView {
-            return Form781Controller.shared.getCurrentForm()?.crewMembers.count ?? 0
-        }
-        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == self.flightSeqTableView {
-            guard let cell = self.flightSeqTableView.dequeueReusableCell(withIdentifier: "FlightCell", for: indexPath) as? FlightTableViewCell else {
-                NSLog("ERROR: AircrewDataViewController: tableView(cellForRowAt:) - dequeue failed for \"FlightCell\", if it's there it's not a FlightTableViewCell.")
-                return UITableViewCell()
-            }
-            
-            cell.delegate = self
-            if let flight = Form781Controller.shared.getCurrentForm()?.flights[indexPath.row] {
-                cell.flight = flight
-                cell.setUpViews(flight: flight)
-            }
-            
-            return cell
+        guard let cell = self.flightSeqTableView.dequeueReusableCell(withIdentifier: "FlightCell", for: indexPath) as? FlightTableViewCell else {
+            NSLog("ERROR: AircrewDataViewController: tableView(cellForRowAt:) - dequeue failed for \"FlightCell\", if it's there it's not a FlightTableViewCell.")
+            return UITableViewCell()
         }
-        if tableView == self.flightTimeTableView {
-            guard let cell = self.flightTimeTableView.dequeueReusableCell(withIdentifier: "FlightTimeCell", for: indexPath) as? FlightTimeTableViewCell else {
-                NSLog("ERROR: AircrewDataViewController: tableView(cellForRowAt:) - dequeue failed for \"FlightTimeCell\", if it's there it's not a FlightTimeTableViewCell.")
-                return UITableViewCell()
-            }
-            
-            if let crewMember = Form781Controller.shared.getCurrentForm()?.crewMembers[indexPath.row] {
-                cell.setUpViews(crewMember: crewMember)
-            }
-            
-            return cell
+        
+        cell.delegate = self
+        if let flight = Form781Controller.shared.getCurrentForm()?.flights[indexPath.row] {
+            cell.flight = flight
+            cell.setUpViews(flight: flight)
         }
-        return UITableViewCell()
+        
+        return cell
     }
     
 } //End
@@ -173,5 +150,31 @@ extension AircrewDataViewController: Form781ViewControllerFlightSeqDelegate {
         flightSeqTableView.reloadData()
         reloadGrandTotalsView()
     }
-
+    
 } //End
+
+extension AircrewDataViewController: FlightTimePageViewControllerDelegate {
+    
+    func pageViewController(pageViewController: FlightTimePageViewController, didUpdatePageCount count: Int) {
+    }
+    
+    func pageViewController(pageViewController: FlightTimePageViewController, didUpdatePageIndex index: Int) {
+        pageControl.currentPage = index
+    }
+    
+} //End
+
+extension AircrewDataViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToFlightTimePageVC" {
+            guard let destinationVC = segue.destination as? FlightTimePageViewController else {
+                return
+            }
+            destinationVC.tutorialDelegate = self
+        }
+    }
+    
+} //End
+
+

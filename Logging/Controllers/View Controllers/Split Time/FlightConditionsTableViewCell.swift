@@ -35,3 +35,14 @@ class FlightConditionsTableViewCell: UITableViewCell {
     }
 
 } //End
+
+// MARK: - UITextField Delegate
+
+extension FlightConditionsTableViewCell: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+} //End

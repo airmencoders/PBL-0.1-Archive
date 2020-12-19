@@ -1,127 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BXu-yv-Oz6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BXu-yv-Oz6">
     <device id="ipad12_9rounded" orientation="portrait" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="d9F-Ne-84l">
-            <objects>
-                <viewController id="uha-Fd-zSg" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bdK-NX-Lb3">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N1H-o2-Dws">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="54.5"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HfB-Kf-HJH" userLabel="PBL Circle View" customClass="circleView" customModule="Logging" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="11" width="33" height="32.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PBL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gUm-Ix-eiz" customClass="PBLLabelWhiteBold" customModule="Logging" customModuleProvider="target">
-                                                <rect key="frame" x="8.5" y="11.5" width="15.5" height="10"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" name="fog"/>
-                                        <constraints>
-                                            <constraint firstItem="gUm-Ix-eiz" firstAttribute="centerY" secondItem="HfB-Kf-HJH" secondAttribute="centerY" id="GA8-4T-FUE"/>
-                                            <constraint firstAttribute="width" secondItem="HfB-Kf-HJH" secondAttribute="height" multiplier="1:1" id="MZH-ke-uRy"/>
-                                            <constraint firstItem="gUm-Ix-eiz" firstAttribute="centerX" secondItem="HfB-Kf-HJH" secondAttribute="centerX" id="tUx-Yx-fSa"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K2R-HO-P91" userLabel="MC Circle View" customClass="circleView" customModule="Logging" customModuleProvider="target">
-                                        <rect key="frame" x="976" y="11" width="33" height="32.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cL2-8d-fCC" customClass="PBLLabelWhiteBold" customModule="Logging" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="11.5" width="13.5" height="10"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" name="fog"/>
-                                        <constraints>
-                                            <constraint firstItem="cL2-8d-fCC" firstAttribute="centerY" secondItem="K2R-HO-P91" secondAttribute="centerY" id="2DZ-y1-L1w"/>
-                                            <constraint firstAttribute="width" secondItem="K2R-HO-P91" secondAttribute="height" multiplier="1:1" id="DE8-Do-PCj"/>
-                                            <constraint firstItem="cL2-8d-fCC" firstAttribute="centerX" secondItem="K2R-HO-P91" secondAttribute="centerX" id="EUt-aB-mf1"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" name="slate"/>
-                                <constraints>
-                                    <constraint firstItem="K2R-HO-P91" firstAttribute="centerY" secondItem="N1H-o2-Dws" secondAttribute="centerY" id="4Dz-UX-1ZP"/>
-                                    <constraint firstItem="HfB-Kf-HJH" firstAttribute="leading" secondItem="N1H-o2-Dws" secondAttribute="leading" constant="15" id="7n9-Ci-3Ky"/>
-                                    <constraint firstAttribute="trailing" secondItem="K2R-HO-P91" secondAttribute="trailing" constant="15" id="BWC-cA-mHq"/>
-                                    <constraint firstItem="HfB-Kf-HJH" firstAttribute="centerY" secondItem="N1H-o2-Dws" secondAttribute="centerY" id="Nhy-97-uHI"/>
-                                    <constraint firstItem="HfB-Kf-HJH" firstAttribute="height" secondItem="N1H-o2-Dws" secondAttribute="height" multiplier="0.6" id="Ys2-3r-b7w"/>
-                                    <constraint firstItem="K2R-HO-P91" firstAttribute="height" secondItem="N1H-o2-Dws" secondAttribute="height" multiplier="0.6" id="hXK-Ef-pBr"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vFH-Zs-7r0" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="369" y="362" width="286" height="84"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="70"/>
-                                <color key="textColor" name="slate"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your forms for this mission:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8wZ-NV-sMB" customClass="PBLLabelLight" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="276.5" y="476" width="471.5" height="48"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="40"/>
-                                <color key="textColor" name="fog"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AfS-b8-g5Z" customClass="PBLButtonClear" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="227" y="572" width="145" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Add more forms +">
-                                    <color key="titleColor" name="slate"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QRs-la-rpg" customClass="PBLButtonLight" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="50" y="1266" width="41" height="30"/>
-                                <color key="backgroundColor" name="haze"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <state key="normal" title="BACK"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MYN-bR-mOX" customClass="PBLButtonDark" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="838" y="1266" width="136" height="30"/>
-                                <color key="backgroundColor" name="slate"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                <state key="normal" title="SAVE &amp; CONTINUE"/>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="X4g-Dg-Rg4"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="QRs-la-rpg" firstAttribute="leading" secondItem="X4g-Dg-Rg4" secondAttribute="leading" constant="50" id="1hZ-fc-ghe"/>
-                            <constraint firstItem="X4g-Dg-Rg4" firstAttribute="bottom" secondItem="QRs-la-rpg" secondAttribute="bottom" constant="50" id="Aza-DI-EE3"/>
-                            <constraint firstItem="N1H-o2-Dws" firstAttribute="height" secondItem="bdK-NX-Lb3" secondAttribute="height" multiplier="0.04" id="Db9-fy-WzY"/>
-                            <constraint firstItem="X4g-Dg-Rg4" firstAttribute="bottom" secondItem="MYN-bR-mOX" secondAttribute="bottom" constant="50" id="EpB-Pg-Gjb"/>
-                            <constraint firstItem="vFH-Zs-7r0" firstAttribute="centerX" secondItem="X4g-Dg-Rg4" secondAttribute="centerX" id="MQW-1m-0XY"/>
-                            <constraint firstItem="X4g-Dg-Rg4" firstAttribute="trailing" secondItem="MYN-bR-mOX" secondAttribute="trailing" constant="50" id="aG9-XP-ba7"/>
-                            <constraint firstItem="N1H-o2-Dws" firstAttribute="top" secondItem="X4g-Dg-Rg4" secondAttribute="top" id="cCn-or-BI4"/>
-                            <constraint firstItem="vFH-Zs-7r0" firstAttribute="centerY" secondItem="X4g-Dg-Rg4" secondAttribute="centerY" multiplier="0.6" id="dV2-vv-hsF"/>
-                            <constraint firstItem="8wZ-NV-sMB" firstAttribute="centerX" secondItem="X4g-Dg-Rg4" secondAttribute="centerX" id="v0a-hm-1e0"/>
-                            <constraint firstItem="X4g-Dg-Rg4" firstAttribute="trailing" secondItem="N1H-o2-Dws" secondAttribute="trailing" id="y3g-AZ-sUc"/>
-                            <constraint firstItem="8wZ-NV-sMB" firstAttribute="top" secondItem="vFH-Zs-7r0" secondAttribute="bottom" constant="30" id="zZj-oL-M32"/>
-                            <constraint firstItem="N1H-o2-Dws" firstAttribute="leading" secondItem="bdK-NX-Lb3" secondAttribute="leading" id="zkf-fI-NJ5"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="dBh-Af-Ye9"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KJP-vg-1tA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2062" y="622"/>
-        </scene>
         <!--Overview View Controller-->
         <scene sceneID="X3R-Wo-oug">
             <objects>
