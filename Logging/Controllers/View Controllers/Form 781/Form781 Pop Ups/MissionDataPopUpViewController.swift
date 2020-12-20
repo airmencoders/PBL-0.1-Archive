@@ -50,7 +50,7 @@ class MissionDataPopUpViewController: UIViewController {
     
     func reloadCurrentFormViews() {
         let form = Form781Controller.shared.getCurrentForm()
-        if Helper.checkForFile(filePath: Form781Controller.shared.fileURL(filename: Form781Controller.shared.loggingFileName)){
+        if Helper.doesFileExist(atURL: Form781Controller.shared.fileURL(filename: Form781Controller.shared.loggingFileName)){
             dateTextField.text = form?.date
             mdsTextField.text = form?.mds
             serialNumTextField.text = form?.serialNumber

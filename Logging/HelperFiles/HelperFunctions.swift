@@ -27,15 +27,14 @@ class Helper {
         return dateStr
     }
 
-    static func checkForFile(filePath: URL) -> Bool {
-        NSLog("\(filePath.absoluteString)")
-        var strPath = filePath.absoluteString
-        strPath = strPath.replacingOccurrences(of: "file://", with: "")
-        if FileManager.default.fileExists(atPath: strPath) {
-            return true
-        } else {
+    static func doesFileExist(atURL url: URL) -> Bool {
+        do{
+            return try url.checkResourceIsReachable()
+        }catch{
             return false
+            
         }
+
     }
     
     func checkInput(time: String) -> Bool {
