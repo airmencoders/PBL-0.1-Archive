@@ -9,7 +9,7 @@
 import Foundation
 
 extension String{
-    func isLengthFour() -> Bool{
+    func isExactlyFourCharacters() -> Bool{
         return self.count == 4
     }
 }
