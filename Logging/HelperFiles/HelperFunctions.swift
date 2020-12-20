@@ -11,8 +11,6 @@ import PDFKit
 
 class Helper {
     // Letter size paper at 300 ppi
-    static let LETTER_SIZE = CGSize(width: 3250, height: 2300)
- 
     static func doesFileExist(atURL url: URL) -> Bool {
         do{
             return try url.checkResourceIsReachable()
@@ -309,7 +307,7 @@ class Helper {
         let formImage = UIImage(named: "Form781-Front.png")
         let formDataImage = ImageGenerator.generateFilledFormPageOneImage(from: form)
         
-        let image = combineImages(backGroundImage: formImage!, foreGroundImage: formDataImage!, size: Helper.LETTER_SIZE)
+        let image = combineImages(backGroundImage: formImage!, foreGroundImage: formDataImage!, size: Constants.letterPaperResolution)
         
         return image
     }
@@ -319,7 +317,7 @@ class Helper {
         let formImage = UIImage(named: "Form781-Back.png")
         let formDataImage = ImageGenerator.generateFilledFormPageTwoImage(from: form)
         
-        let image = combineImages(backGroundImage: formImage!, foreGroundImage: formDataImage!, size: Helper.LETTER_SIZE)
+        let image = combineImages(backGroundImage: formImage!, foreGroundImage: formDataImage!, size: Constants.letterPaperResolution)
         
         return image
     }

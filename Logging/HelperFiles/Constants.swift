@@ -6,8 +6,10 @@
 //  Copyright © 2020 Christian Brechbuhl. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum Constants {
     static let dateFormat = "dd MMM yyyy"
+    static let letterPaperResolution = CGSize(width: 3250, height: 2300)
+
 }
