@@ -63,6 +63,8 @@
 		A9D320D7193904F747E1FF90 /* Pods_Logging_LoggingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7192C4E0628E4E7D0C02BFBC /* Pods_Logging_LoggingUITests.framework */; };
 		D20DC354258C2F780012FA2B /* TestImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20DC353258C2F780012FA2B /* TestImageGenerator.swift */; };
 		D210F2AB258FC2FB00A59D3A /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210F2AA258FC2FB00A59D3A /* String+Ext.swift */; };
+		D210F2B3258FC4A600A59D3A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210F2B2258FC4A600A59D3A /* Constants.swift */; };
+		D210F2B8258FC5FC00A59D3A /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210F2B7258FC5FC00A59D3A /* Date+Ext.swift */; };
 		FC99B2719A65D5512B76F5AC /* Pods_LoggingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47FE006718C4942F5FE50BB0 /* Pods_LoggingTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -151,6 +153,8 @@
 		83D840A024D3402D00F336E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D20DC353258C2F780012FA2B /* TestImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestImageGenerator.swift; sourceTree = "<group>"; };
 		D210F2AA258FC2FB00A59D3A /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		D210F2B2258FC4A600A59D3A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D210F2B7258FC5FC00A59D3A /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		ED9788E1C9AF89B0FDD4ABF4 /* Pods-LoggingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoggingTests.release.xcconfig"; path = "Target Support Files/Pods-LoggingTests/Pods-LoggingTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -278,6 +282,7 @@
 				7F7E0DDF253110330041C4E9 /* PBLButton.swift */,
 				13464808256EFF6F00DB7783 /* SplitTime.swift */,
 				134E78CE257AA92500A1D4A1 /* ImageGenerator.swift */,
+				D210F2B2258FC4A600A59D3A /* Constants.swift */,
 			);
 			path = HelperFiles;
 			sourceTree = "<group>";
@@ -444,6 +449,7 @@
 			isa = PBXGroup;
 			children = (
 				D210F2AA258FC2FB00A59D3A /* String+Ext.swift */,
+				D210F2B7258FC5FC00A59D3A /* Date+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -680,6 +686,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				134E78DE257E7DCD00A1D4A1 /* ImageGenerator.swift in Sources */,
+				D210F2B3258FC4A600A59D3A /* Constants.swift in Sources */,
 				138809FE25683876005B93FF /* (null) in Sources */,
 				7F7E0E422538BCCC0041C4E9 /* PBLTextField.swift in Sources */,
 				7F5453D0254CA22800968BFA /* FlightTimeTableViewCell.swift in Sources */,
@@ -693,6 +700,7 @@
 				7F574327254C77E700794C57 /* FlightConditionsViewController.swift in Sources */,
 				7FE48BB8255088D600F26760 /* HelperFunctions.swift in Sources */,
 				7F5839A12583E0C80084FE2F /* MainViewController.swift in Sources */,
+				D210F2B8258FC5FC00A59D3A /* Date+Ext.swift in Sources */,
 				7F7E0E3D2538B4560041C4E9 /* PBLView.swift in Sources */,
 				83D8407B24D3402A00F336E3 /* AppDelegate.swift in Sources */,
 				7FF46079258D3F9B00DB408C /* FlightTimePageViewController.swift in Sources */,
