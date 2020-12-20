@@ -59,7 +59,7 @@ class MissionDataPopUpViewController: UIViewController {
             flightAuthTextField.text = form?.flightAuthNum
             issuingUnitTextField.text = form?.issuingUnit
         } else {
-            dateTextField.text = Helper.getTodaysDate()
+            dateTextField.text = Date().aftoFormattedDate()
         }
     }
     
@@ -191,7 +191,7 @@ extension MissionDataPopUpViewController: UITextFieldDelegate {
             let date = Helper.dateFromString(dateString)
             
             if let date = date {
-                textField.text = Helper.stdFormattedDate(with: date)
+                textField.text = date.aftoFormattedDate()
             } else {
                 textField.text = self.savedDateTextFieldText
             }

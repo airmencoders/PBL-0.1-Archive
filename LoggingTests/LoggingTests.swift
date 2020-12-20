@@ -11,32 +11,35 @@ import XCTest
 
 class LoggingTests: XCTestCase {
     
+    //This tests a function by duplicating the function it is meant to test
+//    func testGetTodaysDate() {
+//        let date = Helper.getTodaysDate()
+//
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = Constants.dateFormat
+//        let testDate = dateFormatter.string(from: Date())
+//
+//        XCTAssertEqual(date, testDate)
+//    }
     
-    func testGetTodaysDate() {
-        let date = Helper.getTodaysDate()
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = Helper.DATE_FORMAT
-        let testDate = dateFormatter.string(from: Date())
-        
-        XCTAssertEqual(date, testDate)
-    }
+    //This creates a file if the file isn't there and then returns true.
+    //This is testing file creation, not file not found
+//    func testFileFound() {
+//
+//        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
+//        let url = path?.appendingPathComponent("Logging.json", isDirectory: false)
+//        var result = Helper.doesFileExist(atURL: url!)
+//        if !result {
+//            Form781Controller.shared.create(date: Helper.getTodaysDate(), mds: "C017A", serialNumber: "90-0534", unitCharged: "437 AW (AMC) /DKFX", harmLocation: "JB CHARLESTON SC 29404", flightAuthNum: "20-0772", issuingUnit: "0016AS")
+//            result = Helper.doesFileExist(atURL: url!)
+//        }
+//        XCTAssertTrue(result)
+//    }
     
-    func testFileFound() {
-       
-        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
-        let url = path?.appendingPathComponent("Logging.json", isDirectory: false)
-        var result = Helper.checkForFile(filePath: url!)
-        if !result {
-            Form781Controller.shared.create(date: Helper.getTodaysDate(), mds: "C017A", serialNumber: "90-0534", unitCharged: "437 AW (AMC) /DKFX", harmLocation: "JB CHARLESTON SC 29404", flightAuthNum: "20-0772", issuingUnit: "0016AS")
-            result = Helper.checkForFile(filePath: url!)
-        }
-        XCTAssertTrue(result)
-    }
     
-    func testCheckInput() {
-        let result = Helper().checkInput(time: "0900")
-        XCTAssertTrue(result)
+    func testStringExtensions() {
+        XCTAssertTrue("0900".isExactlyFourCharacters())
+        XCTAssertFalse("090".isExactlyFourCharacters())
     }
     
     func testSeperateHours() {
@@ -119,7 +122,7 @@ class LoggingTests: XCTestCase {
         let date = Helper.dateFromString(original)
         XCTAssertNotNil(date)
 
-        let dateString = Helper.stdFormattedDate(with: date!)
+        let dateString = date?.aftoFormattedDate()
         XCTAssertEqual(dateString, expected)
     }
 

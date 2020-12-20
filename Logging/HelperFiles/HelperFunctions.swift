@@ -12,19 +12,7 @@ import PDFKit
 class Helper {
     // Letter size paper at 300 ppi
     static let LETTER_SIZE = CGSize(width: 3250, height: 2300)
-
-    static func getTodaysDate() -> String {
-        return stdFormattedDate(with: Date())
-    }
-
-    static func stdFormattedDate(with date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = Constants.dateFormat
-        let dateStr = dateFormatter.string(from: date)
-
-        return dateStr
-    }
-
+ 
     static func doesFileExist(atURL url: URL) -> Bool {
         do{
             return try url.checkResourceIsReachable()
