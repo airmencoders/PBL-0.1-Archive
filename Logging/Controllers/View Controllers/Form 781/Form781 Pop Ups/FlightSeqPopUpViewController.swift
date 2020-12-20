@@ -225,11 +225,11 @@ class FlightSeqPopUpViewController: UIViewController {
     }
     
     @IBAction func calculateTotalTime(_ sender: Any) {
-        if Helper().checkInput(time: takeOffTime.text!) {
+        if takeOffTime.text!.isLengthFour() {
             takeOffTimeString = takeOffTime.text!
             Helper.unhighlight(textField: takeOffTime)
             
-            if Helper().checkInput(time: landTime.text!) {
+            if landTime.text!.isLengthFour() {
                 landTimeString = landTime.text!
                 Helper.unhighlight(textField: landTime)
                 

@@ -37,14 +37,6 @@ class Helper {
 
     }
     
-    func checkInput(time: String) -> Bool {
-        if time.count == 4{
-            return true
-        } else {
-            return false
-        }
-        
-    }
     /**
         Function used to validate the input in to the field is a number
         - Parameters -  input: UITextField - input given

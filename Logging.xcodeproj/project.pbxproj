@@ -62,6 +62,7 @@
 		83D8409F24D3402D00F336E3 /* LoggingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D8409E24D3402D00F336E3 /* LoggingUITests.swift */; };
 		A9D320D7193904F747E1FF90 /* Pods_Logging_LoggingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7192C4E0628E4E7D0C02BFBC /* Pods_Logging_LoggingUITests.framework */; };
 		D20DC354258C2F780012FA2B /* TestImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20DC353258C2F780012FA2B /* TestImageGenerator.swift */; };
+		D210F2AB258FC2FB00A59D3A /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210F2AA258FC2FB00A59D3A /* String+Ext.swift */; };
 		FC99B2719A65D5512B76F5AC /* Pods_LoggingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47FE006718C4942F5FE50BB0 /* Pods_LoggingTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -149,6 +150,7 @@
 		83D8409E24D3402D00F336E3 /* LoggingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingUITests.swift; sourceTree = "<group>"; };
 		83D840A024D3402D00F336E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D20DC353258C2F780012FA2B /* TestImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestImageGenerator.swift; sourceTree = "<group>"; };
+		D210F2AA258FC2FB00A59D3A /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		ED9788E1C9AF89B0FDD4ABF4 /* Pods-LoggingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoggingTests.release.xcconfig"; path = "Target Support Files/Pods-LoggingTests/Pods-LoggingTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -394,6 +396,7 @@
 		83D8407924D3402A00F336E3 /* Logging */ = {
 			isa = PBXGroup;
 			children = (
+				D210F2A9258FC2EE00A59D3A /* Extensions */,
 				7F7E0DD925310EC50041C4E9 /* HelperFiles */,
 				7F83BBAB252F6E8800D13482 /* Models */,
 				7F83BBAC252F6E9100D13482 /* Controllers */,
@@ -435,6 +438,14 @@
 				ED9788E1C9AF89B0FDD4ABF4 /* Pods-LoggingTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D210F2A9258FC2EE00A59D3A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D210F2AA258FC2FB00A59D3A /* String+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -690,6 +701,7 @@
 				7FF4605D258A8A2B00DB408C /* MissionDataPopUpViewController.swift in Sources */,
 				7FF4604C25899A4A00DB408C /* AircrewPopUpViewController.swift in Sources */,
 				7F680CE32548C1E000625ECC /* FlightTableViewCell.swift in Sources */,
+				D210F2AB258FC2FB00A59D3A /* String+Ext.swift in Sources */,
 				7FF46062258A8A4100DB408C /* FlightSeqPopUpViewController.swift in Sources */,
 				83D8407D24D3402A00F336E3 /* SceneDelegate.swift in Sources */,
 				7FAB8C5725422E1000868215 /* AircrewTableViewCell.swift in Sources */,
