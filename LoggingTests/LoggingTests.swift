@@ -40,6 +40,10 @@ class LoggingTests: XCTestCase {
     func testStringExtensions() {
         XCTAssertTrue("0900".isExactlyFourCharacters())
         XCTAssertFalse("090".isExactlyFourCharacters())
+        
+        XCTAssertTrue("0123".isDigits)
+        XCTAssertFalse("123A".isDigits)
+        
     }
     
     func testSeperateHours() {

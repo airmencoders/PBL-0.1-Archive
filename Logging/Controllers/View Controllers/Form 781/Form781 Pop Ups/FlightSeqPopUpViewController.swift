@@ -261,8 +261,8 @@ class FlightSeqPopUpViewController: UIViewController {
         
     @IBAction func calculateTotalLandings(_sender: Any) {
         //Here's where we do the math for filling in the total field
-        if Helper.validateNumericalInput(input: touchAndGo){
-            if Helper.validateNumericalInput(input: fullStop){
+        if touchAndGo.text!.isDigits{
+            if fullStop.text!.isDigits{
                 Helper.unhighlight(textField: touchAndGo)
                 Helper.unhighlight(textField: fullStop)
                 totalLandings.text = Helper.vmCalculateLandings(touchAndGo: touchAndGo.text!, fullStop: fullStop.text!)

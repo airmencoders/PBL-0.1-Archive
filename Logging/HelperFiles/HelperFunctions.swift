@@ -21,19 +21,6 @@ class Helper {
 
     }
     
-    /**
-        Function used to validate the input in to the field is a number
-        - Parameters -  input: UITextField - input given
-        - Throws - Form781Error.NotANumber
-        - Returns - None
-     */
-    static func validateNumericalInput(input: UITextField) -> Bool {
-        guard let _ = Int(input.text!) else {
-            return false
-        }
-        return true
-    }
-    
     static func separateHoursAndMins(strInput: String, pointer: String) -> String {
 
         let index0 = strInput.index(strInput.startIndex, offsetBy: 0)
