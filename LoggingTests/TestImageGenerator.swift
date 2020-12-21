@@ -95,7 +95,7 @@ class TestImageGenerator: XCTestCase {
     func testGenerateFilledFormPageOneImage(){
         
         let image = ImageGenerator.generateFilledFormPageOneImage(from: forms[0])
-        XCTAssert(image?.size == Helper.LETTER_SIZE)
+        XCTAssert(image?.size == Constants.letterPaperResolution)
          
         let directory = NSTemporaryDirectory()
         print(directory)
@@ -121,7 +121,7 @@ class TestImageGenerator: XCTestCase {
             
             let image = Helper.generate781FirstPageImage(from: forms[i])
             
-            XCTAssert(image?.size == Helper.LETTER_SIZE)
+            XCTAssert(image?.size == Constants.letterPaperResolution)
             
             //Comparing the generated images with a hash value of their data.
             //If any minor thing on the form changes, the hash value will be different.

@@ -50,7 +50,7 @@ class MissionDataPopUpViewController: UIViewController {
     
     func reloadCurrentFormViews() {
         let form = Form781Controller.shared.getCurrentForm()
-        if Helper.checkForFile(filePath: Form781Controller.shared.fileURL(filename: Form781Controller.shared.loggingFileName)){
+        if Helper.doesFileExist(atURL: Form781Controller.shared.fileURL(filename: Form781Controller.shared.loggingFileName)){
             dateTextField.text = form?.date
             mdsTextField.text = form?.mds
             serialNumTextField.text = form?.serialNumber
@@ -59,7 +59,7 @@ class MissionDataPopUpViewController: UIViewController {
             flightAuthTextField.text = form?.flightAuthNum
             issuingUnitTextField.text = form?.issuingUnit
         } else {
-            dateTextField.text = Helper.getTodaysDate()
+            dateTextField.text = Date().AFTOForm781String()
         }
     }
     
@@ -107,23 +107,25 @@ class MissionDataPopUpViewController: UIViewController {
     
     
     func highlightMissionData() {
-        dateTextField.text == "" ? Helper.highlightRed(textField: dateTextField) : Helper.unhighlight(textField: dateTextField)
-        mdsTextField.text == "" ? Helper.highlightRed(textField: mdsTextField) : Helper.unhighlight(textField: mdsTextField)
-        serialNumTextField.text == "" ? Helper.highlightRed(textField: serialNumTextField) : Helper.unhighlight(textField: serialNumTextField)
-        unitChargedTextField.text == "" ? Helper.highlightRed(textField: unitChargedTextField) : Helper.unhighlight(textField: unitChargedTextField)
-        harmLocationTextField.text == "" ? Helper.highlightRed(textField: harmLocationTextField) : Helper.unhighlight(textField: harmLocationTextField)
-        flightAuthTextField.text == "" ? Helper.highlightRed(textField: flightAuthTextField) : Helper.unhighlight(textField: flightAuthTextField)
-        issuingUnitTextField.text == "" ? Helper.highlightRed(textField: issuingUnitTextField) : Helper.unhighlight(textField: issuingUnitTextField)
+        dateTextField.highlightRedIfBlank()
+        mdsTextField.highlightRedIfBlank()
+        serialNumTextField.highlightRedIfBlank()
+        unitChargedTextField.highlightRedIfBlank()
+        harmLocationTextField.highlightRedIfBlank()
+        flightAuthTextField.highlightRedIfBlank()
+        issuingUnitTextField.highlightRedIfBlank()
+        
     }
     
     func unhighlight() {
-        Helper.unhighlight(textField: dateTextField)
-        Helper.unhighlight(textField: mdsTextField)
-        Helper.unhighlight(textField: serialNumTextField)
-        Helper.unhighlight(textField: unitChargedTextField)
-        Helper.unhighlight(textField: harmLocationTextField)
-        Helper.unhighlight(textField: flightAuthTextField)
-        Helper.unhighlight(textField: issuingUnitTextField)
+        dateTextField.removeAnyColorHighlight()
+        mdsTextField.removeAnyColorHighlight()
+        serialNumTextField.removeAnyColorHighlight()
+        unitChargedTextField.removeAnyColorHighlight()
+        harmLocationTextField.removeAnyColorHighlight()
+        flightAuthTextField.removeAnyColorHighlight()
+        issuingUnitTextField.removeAnyColorHighlight()
+        
     }
     
     func closePopUp() {
@@ -191,7 +193,7 @@ extension MissionDataPopUpViewController: UITextFieldDelegate {
             let date = Helper.dateFromString(dateString)
             
             if let date = date {
-                textField.text = Helper.stdFormattedDate(with: date)
+                textField.text = date.AFTOForm781String()
             } else {
                 textField.text = self.savedDateTextFieldText
             }

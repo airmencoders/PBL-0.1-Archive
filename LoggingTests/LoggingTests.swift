@@ -10,46 +10,33 @@ import XCTest
 @testable import Logging
 
 class LoggingTests: XCTestCase {
-    
-    
-    func testGetTodaysDate() {
-        let date = Helper.getTodaysDate()
+
+    func testFileCreationAndExistenceCheck() throws {
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = Helper.DATE_FORMAT
-        let testDate = dateFormatter.string(from: Date())
-        
-        XCTAssertEqual(date, testDate)
-    }
-    
-    func testFileFound() {
-       
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
         let url = path?.appendingPathComponent("Logging.json", isDirectory: false)
-        var result = Helper.checkForFile(filePath: url!)
-        if !result {
-            Form781Controller.shared.create(date: Helper.getTodaysDate(), mds: "C017A", serialNumber: "90-0534", unitCharged: "437 AW (AMC) /DKFX", harmLocation: "JB CHARLESTON SC 29404", flightAuthNum: "20-0772", issuingUnit: "0016AS")
-            result = Helper.checkForFile(filePath: url!)
-        }
-        XCTAssertTrue(result)
+
+        Form781Controller.shared.create(date: Date().AFTOForm781String(), mds: "C017A", serialNumber: "90-0534", unitCharged: "437 AW (AMC) /DKFX", harmLocation: "JB CHARLESTON SC 29404", flightAuthNum: "20-0772", issuingUnit: "0016AS")
+        
+        XCTAssertTrue(Helper.doesFileExist(atURL: url!))
+        
+        let badPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
+        let badURL = badPath?.appendingPathComponent("AlwaysBlue.json", isDirectory: false)
+        
+        XCTAssertFalse(Helper.doesFileExist(atURL: badURL!))
+
     }
     
-    func testCheckInput() {
-        let result = Helper().checkInput(time: "0900")
-        XCTAssertTrue(result)
+    
+    func testStringExtensions() {
+        XCTAssertTrue("0900".isExactlyFourCharacters())
+        XCTAssertFalse("090".isExactlyFourCharacters())
+        
+        XCTAssertTrue("0123".isDigits)
+        XCTAssertFalse("123A".isDigits)
+        
     }
     
-    func testSeperateHours() {
-        // Test requires input to have a colon
-        let hrs = Helper.separateHoursAndMins(strInput: "10:00", pointer: "hour")
-        XCTAssertEqual(hrs, "10")
-    }
-    
-    func testSeperateMins() {
-        // Test requires input to have a colon
-        let min = Helper.separateHoursAndMins(strInput: "10:30", pointer: "min")
-        XCTAssertEqual(min, "30")
-    }
 
     func testVmCalculateLandings() {
         let zero = Helper.vmCalculateLandings(touchAndGo: "", fullStop: "")
@@ -119,7 +106,7 @@ class LoggingTests: XCTestCase {
         let date = Helper.dateFromString(original)
         XCTAssertNotNil(date)
 
-        let dateString = Helper.stdFormattedDate(with: date!)
+        let dateString = date?.AFTOForm781String()
         XCTAssertEqual(dateString, expected)
     }
 

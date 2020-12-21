@@ -10,69 +10,17 @@ import Foundation
 import PDFKit
 
 class Helper {
-    // Letter size paper at 300 ppi
-    static let LETTER_SIZE = CGSize(width: 3250, height: 2300)
-
-    static let DATE_FORMAT = "dd MMM yyyy"
-
-    static func getTodaysDate() -> String {
-        return stdFormattedDate(with: Date())
-    }
-
-    static func stdFormattedDate(with date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = Helper.DATE_FORMAT
-        let dateStr = dateFormatter.string(from: date)
-        
-        return dateStr
-    }
-
-    static func checkForFile(filePath: URL) -> Bool {
-        NSLog("\(filePath.absoluteString)")
-        var strPath = filePath.absoluteString
-        strPath = strPath.replacingOccurrences(of: "file://", with: "")
-        if FileManager.default.fileExists(atPath: strPath) {
-            return true
-        } else {
+    
+    static func doesFileExist(atURL url: URL) -> Bool {
+        do{
+            return try url.checkResourceIsReachable()
+        }catch{
             return false
+            
         }
+        
     }
     
-    func checkInput(time: String) -> Bool {
-        if time.count == 4{
-            return true
-        } else {
-            return false
-        }
-        
-    }
-    /**
-        Function used to validate the input in to the field is a number
-        - Parameters -  input: UITextField - input given
-        - Throws - Form781Error.NotANumber
-        - Returns - None
-     */
-    static func validateNumericalInput(input: UITextField) -> Bool {
-        guard let _ = Int(input.text!) else {
-            return false
-        }
-        return true
-    }
-    
-    static func separateHoursAndMins(strInput: String, pointer: String) -> String {
-
-        let index0 = strInput.index(strInput.startIndex, offsetBy: 0)
-        let index1 = strInput.index(strInput.startIndex, offsetBy: 1)
-        let index3 = strInput.index(strInput.startIndex, offsetBy: 3)
-        let index4 = strInput.index(strInput.startIndex, offsetBy: 4)
-        
-        if pointer == "hour"{
-            return "\(strInput[index0])\(strInput[index1])"
-        } else {
-            return "\(strInput[index3])\(strInput[index4])"
-        }
-    }
-
     static func vmCalculateLandings(touchAndGo: String, fullStop: String) -> String {
         // First we need to cast our text in to integers
         var intTouchAndGo: Int = 0
@@ -91,129 +39,62 @@ class Helper {
         let total = intTouchAndGo + intFullStop
         return "\(total)"
     }
-
+    
     /**
-        Validate time function is used to ensure the time entered lies within the 0000 - 2359 time frame.  The fuction breaks down the UITextField in to the 4 digits, converts it to an Int and then ensures it lies within the parameters of miltary time.
-
+     Validate time function is used to ensure the time entered lies within the 0000 - 2359 time frame.  The fuction breaks down the UITextField in to the 4 digits, converts it to an Int and then ensures it lies within the parameters of miltary time.
+     
      - Parameter timeString: String - Represents the time to test
-
+     
      - Throws: Form781Error.InvalidHours, Form781Error.InvalidMins
-
+     
      - Returns: None
      
-        Just a simple function to validate the hours and minutes
+     Just a simple function to validate the hours and minutes
      */
     static func validateTime(timeString: String) throws {
-        NSLog("Time: \(timeString)")
-        if timeString.count == 4 {
-            let hours: Int = Int("\(timeString[timeString.index(timeString.startIndex, offsetBy: 0)])\(timeString[timeString.index(timeString.startIndex, offsetBy: 1)])")!
-            NSLog("Hours: \(hours)")
-            if 0...23 ~= hours {
-                NSLog("Valid hour")
-            } else {
-                NSLog("ERROR: Form781Error.InvalidHours")
-                throw Form781Error.InvalidHours
-            }
-
-            let mins: Int = Int("\(timeString[timeString.index(timeString.startIndex, offsetBy: 2)])\(timeString[timeString.index(timeString.startIndex, offsetBy: 3)])")!
-            NSLog("Minutes: \(mins)")
-            if 0...59 ~= mins {
-                NSLog("Valid mins")
-            } else {
-                NSLog("ERROR: Form781Error.InvalidMins")
-                throw Form781Error.InvalidMins
-            }
-        } else if timeString.count > 0 {
-            // No error for an empty field.
-            NSLog("ERROR: Form781Error.InvalidTimeFormat")
-            throw Form781Error.InvalidTimeFormat
-        }
+        
+        guard timeString.isExactlyFourCharacters()  else { throw Form781Error.InvalidTimeFormat }
+        guard timeString.isDigits                   else { throw Form781Error.InvalidTimeFormat }
+        
+        let hours = Int(timeString.prefix(2))
+        let mins =  Int(timeString.suffix(2))
+        
+        guard 0...23 ~= hours!  else { throw Form781Error.InvalidHours }
+        guard 0...59 ~= mins!   else { throw Form781Error.InvalidHours }
+        
     }
-
+    
     static func vmCalculateTotalTime(takeOffTime: String?, landTime: String?) -> String {
-        // Thought here is to calculate the flying hours.
+        
+        guard let takeOffTime = takeOffTime?.replacingOccurrences(of: ":", with: "") else { return "0" }
+        guard let landTime = landTime?      .replacingOccurrences(of: ":", with: "") else { return "0" }
+        guard takeOffTime.isExactlyFourCharacters(),
+              landTime.isExactlyFourCharacters(),
+              takeOffTime.isDigits,
+              landTime.isDigits else {
+            return "0"
+        }
+        
+        let startHours = Int(takeOffTime.prefix(2))!
+        let startMinutes = Int(takeOffTime.suffix(2))!
+        let endHours = Int(landTime.prefix(2))!
+        let endMinutes = Int(landTime.suffix(2))!
+        
         var diffMin: Int = 0
         var diffHrs: Int = 0
         var decMin: Int = 0
-
-        var toHrsStr: String = ""
-        var toMinStr: String = ""
-        var laHrsStr: String = ""
-        var laMinStr: String = ""
-
-        var toHrsTime: Int
-        var toMinTime: Int
-        var laHrsTime: Int
-        var laMinTime: Int
-
-        // Technically, the first thing we should do is count characters to make sure
-
-        guard let toTime = takeOffTime else {
-            return "0"
-        }
-        guard let laTime = landTime else {
-            return "0"
-        }
-
-        // First thing we need to do is see if someone put in a : by mistake
-        let colon = CharacterSet(charactersIn: ":")
-        if toTime.rangeOfCharacter(from: colon) != nil {
-            toHrsStr = separateHoursAndMins(strInput: toTime, pointer: "hour")
-            toMinStr = separateHoursAndMins(strInput: toTime, pointer: "min")
+        
+        if endHours < startHours {
+            diffHrs = (endHours - startHours) + 24
         } else {
-            let hrIndex0 = toTime.index(toTime.startIndex, offsetBy: 0)
-            let hrIndex1 = toTime.index(toTime.startIndex, offsetBy: 1)
-
-            let mnIndex0 = toTime.index(toTime.startIndex, offsetBy: 2)
-            let mnIndex1 = toTime.index(toTime.startIndex, offsetBy: 3)
-
-            let hr0 = toTime[hrIndex0]
-            let hr1 = toTime[hrIndex1]
-
-            let mn0 = toTime[mnIndex0]
-            let mn1 = toTime[mnIndex1]
-
-            toHrsStr = "\(hr0)\(hr1)"
-            toMinStr = "\(mn0)\(mn1)"
+            diffHrs = endHours - startHours
         }
-
-        if laTime.rangeOfCharacter(from: colon) != nil {
-            laHrsStr = separateHoursAndMins(strInput: laTime, pointer: "hour")
-            laMinStr = separateHoursAndMins(strInput: laTime, pointer: "min")
-        } else {
-            let hrIndex0 = laTime.index(laTime.startIndex, offsetBy: 0)
-            let hrIndex1 = laTime.index(laTime.startIndex, offsetBy: 1)
-
-            let mnIndex0 = laTime.index(laTime.startIndex, offsetBy: 2)
-            let mnIndex1 = laTime.index(laTime.startIndex, offsetBy: 3)
-
-            let hr0 = laTime[hrIndex0]
-            let hr1 = laTime[hrIndex1]
-
-            let mn0 = laTime[mnIndex0]
-            let mn1 = laTime[mnIndex1]
-
-            laHrsStr = "\(hr0)\(hr1)"
-            laMinStr = "\(mn0)\(mn1)"
-        }
-
-        laHrsTime = Int(laHrsStr)!
-        toHrsTime = Int(toHrsStr)!
-
-        laMinTime = Int(laMinStr)!
-        toMinTime = Int(toMinStr)!
-
-        if laHrsTime < toHrsTime {
-            diffHrs = (laHrsTime - toHrsTime) + 24
-        } else {
-            diffHrs = laHrsTime - toHrsTime
-        }
-
-        if laMinTime < toMinTime {
+        
+        if endMinutes < startMinutes {
             diffHrs -= 1
-            diffMin = (laMinTime - toMinTime) + 60
+            diffMin = (endMinutes - startMinutes) + 60
         } else {
-            diffMin = laMinTime - toMinTime
+            diffMin = endMinutes - startMinutes
         }
         
         decMin = decimalTime(num: Double(diffMin))
@@ -222,8 +103,7 @@ class Helper {
             decMin = 0
             diffHrs += 1
         }
-
-        // NSLog("\(diffHrs)\(diffMin)")
+        
         return "\(diffHrs).\(decMin)"
     }
     
@@ -258,16 +138,6 @@ class Helper {
         }
         return 10
     }
-       
-    
-    static func highlightRed(textField: UITextField) {
-        textField.layer.borderColor = UIColor.red.cgColor
-    }
-    
-    static func unhighlight(textField: UITextField) {
-        let color: UIColor = .fog
-        textField.layer.borderColor = color.cgColor
-    }
     
     static func print781() {
         
@@ -294,23 +164,23 @@ class Helper {
             
         }
     }
-   
-    // Try to turn the Sring contents into a Date object.
-    // If we can not, return nil.
+    
+    // Turn the String contents into a Date object. Return nil on failure.
+
     static func dateFromString(_ dateStr: String) -> Date? {
         let dateFormatter = DateFormatter()
         let formats = ["d/M/y", "d-M-y", "d.M.y", "d M y", "M/d/y", "M-d-y", "M.d.y", "M d y"]
-
+        
         for format in formats {
             dateFormatter.dateFormat = format
             if let date = dateFormatter.date(from: dateStr) {
                 return date
             }
         }
-
+        
         return nil
     }
- 
+    
     static func combineImages(backGroundImage: UIImage, foreGroundImage:UIImage, size: CGSize) -> UIImage? {
         
         UIGraphicsBeginImageContext(size)
@@ -332,17 +202,17 @@ class Helper {
         let formImage = UIImage(named: "Form781-Front.png")
         let formDataImage = ImageGenerator.generateFilledFormPageOneImage(from: form)
         
-        let image = combineImages(backGroundImage: formImage!, foreGroundImage: formDataImage!, size: Helper.LETTER_SIZE)
+        let image = combineImages(backGroundImage: formImage!, foreGroundImage: formDataImage!, size: Constants.letterPaperResolution)
         
         return image
     }
     
     static func generate781SecondPageImage(from form: Form781) -> UIImage? {
-       
+        
         let formImage = UIImage(named: "Form781-Back.png")
         let formDataImage = ImageGenerator.generateFilledFormPageTwoImage(from: form)
         
-        let image = combineImages(backGroundImage: formImage!, foreGroundImage: formDataImage!, size: Helper.LETTER_SIZE)
+        let image = combineImages(backGroundImage: formImage!, foreGroundImage: formDataImage!, size: Constants.letterPaperResolution)
         
         return image
     }
@@ -350,7 +220,7 @@ class Helper {
     static func generatePDF(from images:UIImage...) -> PDFDocument?{
         
         let pdf = PDFDocument()
-         
+        
         var pageNumber = 0
         for image in images{
             if let page = PDFPage(image: image){
@@ -365,8 +235,8 @@ class Helper {
     
     static func generateAFTO781PDF() -> PDFDocument? {
         guard let currentForm781 = Form781Controller.shared.getCurrentForm(),
-        let frontImage = generate781FirstPageImage(from: currentForm781),
-        let backImage =  generate781SecondPageImage(from: currentForm781) else {
+              let frontImage = generate781FirstPageImage(from: currentForm781),
+              let backImage =  generate781SecondPageImage(from: currentForm781) else {
             return nil
         }
         return generatePDF(from: frontImage, backImage)
@@ -423,15 +293,5 @@ class Helper {
             NSLog("Couldn't find file at \(fileURL!) \n \(error.domain)")
         }
     }
-} //End
-
-
-extension UITextField {
-    func flagBlankText() {
-        if self.text == "" {
-            Helper.highlightRed(textField: self)
-        } else {
-            Helper.unhighlight(textField: self)
-        }
-    }
+    
 }
