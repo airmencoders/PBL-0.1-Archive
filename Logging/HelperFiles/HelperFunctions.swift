@@ -66,30 +66,16 @@ class Helper {
         Just a simple function to validate the hours and minutes
      */
     static func validateTime(timeString: String) throws {
-        NSLog("Time: \(timeString)")
-        if timeString.count == 4 {
-            let hours: Int = Int("\(timeString[timeString.index(timeString.startIndex, offsetBy: 0)])\(timeString[timeString.index(timeString.startIndex, offsetBy: 1)])")!
-            NSLog("Hours: \(hours)")
-            if 0...23 ~= hours {
-                NSLog("Valid hour")
-            } else {
-                NSLog("ERROR: Form781Error.InvalidHours")
-                throw Form781Error.InvalidHours
-            }
-
-            let mins: Int = Int("\(timeString[timeString.index(timeString.startIndex, offsetBy: 2)])\(timeString[timeString.index(timeString.startIndex, offsetBy: 3)])")!
-            NSLog("Minutes: \(mins)")
-            if 0...59 ~= mins {
-                NSLog("Valid mins")
-            } else {
-                NSLog("ERROR: Form781Error.InvalidMins")
-                throw Form781Error.InvalidMins
-            }
-        } else if timeString.count > 0 {
-            // No error for an empty field.
-            NSLog("ERROR: Form781Error.InvalidTimeFormat")
-            throw Form781Error.InvalidTimeFormat
-        }
+        
+        guard timeString.isExactlyFourCharacters() else { throw Form781Error.InvalidTimeFormat }
+        guard timeString.isDigits else { throw Form781Error.InvalidTimeFormat  }
+        
+        let hours = Int(timeString.prefix(2))
+        let mins = Int(timeString.suffix(2))
+        
+        guard 0...23 ~= hours! else { throw Form781Error.InvalidHours }
+        guard 0...59 ~= mins! else { throw  Form781Error.InvalidHours }
+      
     }
 
     static func vmCalculateTotalTime(takeOffTime: String?, landTime: String?) -> String {
