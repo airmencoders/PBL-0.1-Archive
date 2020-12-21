@@ -10,31 +10,22 @@ import XCTest
 @testable import Logging
 
 class LoggingTests: XCTestCase {
-    
-    //This tests a function by duplicating the function it is meant to test
-//    func testGetTodaysDate() {
-//        let date = Helper.getTodaysDate()
-//
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = Constants.dateFormat
-//        let testDate = dateFormatter.string(from: Date())
-//
-//        XCTAssertEqual(date, testDate)
-//    }
-    
-    //This creates a file if the file isn't there and then returns true.
-    //This is testing file creation, not file not found
-//    func testFileFound() {
-//
-//        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
-//        let url = path?.appendingPathComponent("Logging.json", isDirectory: false)
-//        var result = Helper.doesFileExist(atURL: url!)
-//        if !result {
-//            Form781Controller.shared.create(date: Helper.getTodaysDate(), mds: "C017A", serialNumber: "90-0534", unitCharged: "437 AW (AMC) /DKFX", harmLocation: "JB CHARLESTON SC 29404", flightAuthNum: "20-0772", issuingUnit: "0016AS")
-//            result = Helper.doesFileExist(atURL: url!)
-//        }
-//        XCTAssertTrue(result)
-//    }
+
+    func testFileCreationAndExistenceCheck() throws {
+        
+        let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
+        let url = path?.appendingPathComponent("Logging.json", isDirectory: false)
+
+        Form781Controller.shared.create(date: Date().AFTOFormFormattedString(), mds: "C017A", serialNumber: "90-0534", unitCharged: "437 AW (AMC) /DKFX", harmLocation: "JB CHARLESTON SC 29404", flightAuthNum: "20-0772", issuingUnit: "0016AS")
+        
+        XCTAssertTrue(Helper.doesFileExist(atURL: url!))
+        
+        let badPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
+        let badURL = badPath?.appendingPathComponent("AlwaysBlue.json", isDirectory: false)
+        
+        XCTAssertFalse(Helper.doesFileExist(atURL: badURL!))
+
+    }
     
     
     func testStringExtensions() {
@@ -46,7 +37,6 @@ class LoggingTests: XCTestCase {
         
     }
     
-
 
     func testVmCalculateLandings() {
         let zero = Helper.vmCalculateLandings(touchAndGo: "", fullStop: "")
