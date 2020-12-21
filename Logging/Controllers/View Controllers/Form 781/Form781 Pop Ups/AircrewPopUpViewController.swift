@@ -98,19 +98,19 @@ class AircrewPopUpViewController: UIViewController {
     }
 
     func highlight() {
-        lastName.text == "" ? Helper.highlightRed(textField: lastName) : Helper.unhighlight(textField: lastName)
-        firstName.text == "" ? Helper.highlightRed(textField: firstName) : Helper.unhighlight(textField: firstName)
-        ssn.text == "" ? Helper.highlightRed(textField: ssn) : Helper.unhighlight(textField: ssn)
-        flightAuthDutyCode.text == "" ? Helper.highlightRed(textField: flightAuthDutyCode) : Helper.unhighlight(textField: flightAuthDutyCode)
-        flyingOranization.text == "" ? Helper.highlightRed(textField: flyingOranization) : Helper.unhighlight(textField: flyingOranization)
+        lastName.highlightRedIfBlank()
+        firstName.highlightRedIfBlank()
+        ssn.highlightRedIfBlank()
+        flightAuthDutyCode.highlightRedIfBlank()
+        flyingOranization.highlightRedIfBlank()
     }
 
     func unhighlight() {
-        Helper.unhighlight(textField: lastName)
-        Helper.unhighlight(textField: firstName)
-        Helper.unhighlight(textField: ssn)
-        Helper.unhighlight(textField: flightAuthDutyCode)
-        Helper.unhighlight(textField: flyingOranization)
+        lastName.removeAnyColorHighlight()
+        firstName.removeAnyColorHighlight()
+        ssn.removeAnyColorHighlight()
+        flightAuthDutyCode.removeAnyColorHighlight()
+        flyingOranization.removeAnyColorHighlight()
     }
 
     func clearFields() {
