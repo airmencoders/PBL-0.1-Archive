@@ -116,7 +116,7 @@ class LoggingTests: XCTestCase {
         let date = Helper.dateFromString(original)
         XCTAssertNotNil(date)
 
-        let dateString = date?.aftoFormattedDate()
+        let dateString = date?.AFTOFormFormattedString()
         XCTAssertEqual(dateString, expected)
     }
 
