@@ -11,27 +11,18 @@ import UIKit
 class FlightConditionsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var night: UILabel!
-    @IBOutlet weak var ins: UILabel!
-    @IBOutlet weak var simIns: UILabel!
-    @IBOutlet weak var nvg: UILabel!
-    @IBOutlet weak var combatTime: UILabel!
-    @IBOutlet weak var combatSrty: UILabel!
-    @IBOutlet weak var combatSptTime: UILabel!
-    @IBOutlet weak var combatSptSrty: UILabel!
-    @IBOutlet weak var resv: UILabel!
+    @IBOutlet weak var night: UITextField!
+    @IBOutlet weak var ins: UITextField!
+    @IBOutlet weak var simIns: UITextField!
+    @IBOutlet weak var nvg: UITextField!
+    @IBOutlet weak var combatTime: UITextField!
+    @IBOutlet weak var combatSrty: UITextField!
+    @IBOutlet weak var combatSptTime: UITextField!
+    @IBOutlet weak var combatSptSrty: UITextField!
+    @IBOutlet weak var resv: UITextField!
 
     func setUpViews(crewMember: CrewMember) {
         name.text = crewMember.lastName
-        night.text = crewMember.nightPSIE
-        ins.text = crewMember.insPIE
-        simIns.text = crewMember.simIns
-        nvg.text = crewMember.nvg
-        combatTime.text = crewMember.combatTime
-        combatSrty.text = crewMember.combatSrty
-        combatSptTime.text = crewMember.combatSptTime
-        combatSptSrty.text = crewMember.combatSptSrty
-        resv.text = crewMember.resvStatus
     }
 
 } //End

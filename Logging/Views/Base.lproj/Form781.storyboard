@@ -1937,7 +1937,7 @@ ORGN</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This page coming soon!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prk-BG-SCK" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="318.5" y="185.5" width="182" height="22.5"/>
+                                <rect key="frame" x="318.5" y="186.5" width="182" height="20"/>
                                 <fontDescription key="fontDescription" name="DMSans-Bold" family="DM Sans" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -2991,7 +2991,14 @@ ORGN</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="evaluator" destination="EcF-Rs-uC9" id="FP5-Z2-xBU"/>
+                                            <outlet property="instructor" destination="8BY-ag-EBA" id="rMg-NB-clR"/>
                                             <outlet property="name" destination="H1g-gm-dD0" id="Drw-cX-JNI"/>
+                                            <outlet property="other" destination="LMK-dT-6OG" id="m82-Hl-9z0"/>
+                                            <outlet property="primary" destination="Rss-ix-ifQ" id="eiL-py-iyv"/>
+                                            <outlet property="secondary" destination="SzR-xE-6Z3" id="Ynr-Rb-eyW"/>
+                                            <outlet property="srty" destination="mTU-MO-kwc" id="a9Q-F0-6JW"/>
+                                            <outlet property="time" destination="4Pq-Ym-LMF" id="oDt-wv-Lde"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -3190,62 +3197,53 @@ ORGN</string>
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HPV-xj-jjv">
-                                                    <rect key="frame" x="157" y="18.5" width="529" height="13.5"/>
+                                                    <rect key="frame" x="157" y="8" width="529" height="34"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S0N-xs-3jm" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="41" height="13.5"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
-                                                            <color key="textColor" name="slate"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cT2-mo-RdA" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                            <rect key="frame" x="61" y="0.0" width="41" height="13.5"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
-                                                            <color key="textColor" name="slate"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UkS-Ur-3jq" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                            <rect key="frame" x="122" y="0.0" width="41" height="13.5"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
-                                                            <color key="textColor" name="slate"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="If5-YX-K0U" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                            <rect key="frame" x="183" y="0.0" width="41" height="13.5"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
-                                                            <color key="textColor" name="slate"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJq-yN-wcB" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                            <rect key="frame" x="244" y="0.0" width="41" height="13.5"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
-                                                            <color key="textColor" name="slate"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KXB-f6-tig" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                            <rect key="frame" x="305" y="0.0" width="41" height="13.5"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
-                                                            <color key="textColor" name="slate"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jY7-fp-o7w" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                            <rect key="frame" x="366" y="0.0" width="41" height="13.5"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
-                                                            <color key="textColor" name="slate"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DRe-ty-ABY" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                            <rect key="frame" x="427" y="0.0" width="41" height="13.5"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
-                                                            <color key="textColor" name="slate"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYg-J3-krv" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                            <rect key="frame" x="488" y="0.0" width="41" height="13.5"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
-                                                            <color key="textColor" name="slate"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LVV-Co-J48">
+                                                            <rect key="frame" x="0.0" y="0.0" width="41" height="34"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d7O-Kq-Pxe">
+                                                            <rect key="frame" x="61" y="0.0" width="41" height="34"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gsP-E9-Hif">
+                                                            <rect key="frame" x="122" y="0.0" width="41" height="34"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rub-s3-BSM">
+                                                            <rect key="frame" x="183" y="0.0" width="41" height="34"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Lw-65-Bnc">
+                                                            <rect key="frame" x="244" y="0.0" width="41" height="34"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7ht-Vp-5GA">
+                                                            <rect key="frame" x="305" y="0.0" width="41" height="34"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rq8-k6-NQ4">
+                                                            <rect key="frame" x="366" y="0.0" width="41" height="34"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LDk-7a-B9I">
+                                                            <rect key="frame" x="427" y="0.0" width="41" height="34"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="owO-mN-HWH">
+                                                            <rect key="frame" x="488" y="0.0" width="41" height="34"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
@@ -3261,23 +3259,16 @@ ORGN</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="combatSptSrty" destination="DRe-ty-ABY" id="0Cf-ux-8dT"/>
-                                            <outlet property="combatSptTime" destination="jY7-fp-o7w" id="6ju-yJ-I5f"/>
-                                            <outlet property="combatSrty" destination="KXB-f6-tig" id="GYp-OT-zEA"/>
-                                            <outlet property="combatTime" destination="eJq-yN-wcB" id="np2-IG-amx"/>
-                                            <outlet property="evaluator" destination="If5-YX-K0U" id="FwG-UX-5po"/>
-                                            <outlet property="ins" destination="cT2-mo-RdA" id="UGu-oE-cdr"/>
-                                            <outlet property="instructor" destination="UkS-Ur-3jq" id="fFb-Wj-ja6"/>
+                                            <outlet property="combatSptSrty" destination="LDk-7a-B9I" id="9Hc-8b-0kb"/>
+                                            <outlet property="combatSptTime" destination="Rq8-k6-NQ4" id="ZN0-DQ-dP3"/>
+                                            <outlet property="combatSrty" destination="7ht-Vp-5GA" id="idt-D7-hFg"/>
+                                            <outlet property="combatTime" destination="8Lw-65-Bnc" id="gtw-4Q-poV"/>
+                                            <outlet property="ins" destination="d7O-Kq-Pxe" id="D4L-7b-nbk"/>
                                             <outlet property="name" destination="USt-gw-hwr" id="y94-dS-hNz"/>
-                                            <outlet property="night" destination="S0N-xs-3jm" id="9Fg-Hc-bdp"/>
-                                            <outlet property="nvg" destination="If5-YX-K0U" id="Hwk-7n-EG7"/>
-                                            <outlet property="other" destination="eJq-yN-wcB" id="WTl-Uo-Hqk"/>
-                                            <outlet property="primary" destination="S0N-xs-3jm" id="Pyz-tO-k7o"/>
-                                            <outlet property="resv" destination="aYg-J3-krv" id="50M-qu-lCp"/>
-                                            <outlet property="secondary" destination="cT2-mo-RdA" id="Z4I-Nx-H20"/>
-                                            <outlet property="simIns" destination="UkS-Ur-3jq" id="Z1J-kd-5hH"/>
-                                            <outlet property="srty" destination="aYg-J3-krv" id="MKl-3D-XTp"/>
-                                            <outlet property="time" destination="KXB-f6-tig" id="TER-DP-8jD"/>
+                                            <outlet property="night" destination="LVV-Co-J48" id="MTk-bb-G1U"/>
+                                            <outlet property="nvg" destination="Rub-s3-BSM" id="72G-se-df3"/>
+                                            <outlet property="resv" destination="owO-mN-HWH" id="q8M-x1-dR2"/>
+                                            <outlet property="simIns" destination="gsP-E9-Hif" id="IRY-V9-v9d"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

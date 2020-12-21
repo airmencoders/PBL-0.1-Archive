@@ -18,6 +18,7 @@ class FlightConditionsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpViews()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(currentFormChanged),
                                                name: Form781Controller.FLIGHT_DATA_CHANGED,
@@ -57,7 +58,6 @@ extension FlightConditionsViewController: UITableViewDelegate, UITableViewDataSo
         }
         
         return cell
-        
     }
     
 } //End
