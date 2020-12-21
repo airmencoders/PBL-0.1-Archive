@@ -46,17 +46,7 @@ class LoggingTests: XCTestCase {
         
     }
     
-    func testSeperateHours() {
-        // Test requires input to have a colon
-        let hrs = Helper.separateHoursAndMins(strInput: "10:00", pointer: "hour")
-        XCTAssertEqual(hrs, "10")
-    }
-    
-    func testSeperateMins() {
-        // Test requires input to have a colon
-        let min = Helper.separateHoursAndMins(strInput: "10:30", pointer: "min")
-        XCTAssertEqual(min, "30")
-    }
+
 
     func testVmCalculateLandings() {
         let zero = Helper.vmCalculateLandings(touchAndGo: "", fullStop: "")
