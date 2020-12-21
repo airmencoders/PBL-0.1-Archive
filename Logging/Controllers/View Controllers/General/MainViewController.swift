@@ -55,11 +55,11 @@ class MainViewController: UIViewController {
     weak var aircrewDelegate: MainViewControllerAircrewPopUpDelegate?
     
     var isMenuOpen = true
-    var sideMenuClosedConstraintPortrait = -(UIScreen.main.bounds.width/6)
-    var sideMenuClosedConstraintLandscape = -(UIScreen.main.bounds.width/4.5)
+    let sideMenuClosedConstraintPortrait = -(UIScreen.main.bounds.width/6)
+    let sideMenuClosedConstraintLandscape = -(UIScreen.main.bounds.width/4.5)
     
     var isStartingInPortrait = true
-    var flightSeqPopUpLandscapeConstant = (UIScreen.main.bounds.height/7)
+    let flightSeqPopUpLandscapeConstant: CGFloat = 200
     
     var statusBarOrientation: UIInterfaceOrientation {
         get {

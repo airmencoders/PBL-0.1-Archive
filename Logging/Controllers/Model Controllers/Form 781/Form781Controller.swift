@@ -32,8 +32,8 @@ class Form781Controller {
         formCreated = true
         populateFlights()
         populateCrewMembers()
-        NSLog("Created form")
         save()
+        NSLog("Created form")
     }
     
     //populates from previous form
@@ -67,14 +67,14 @@ class Form781Controller {
         form.harmLocation = harmLocation
         form.flightAuthNum = flightAuthNum
         form.issuingUnit = issuingUnit
-        NSLog("Updated mission data")
         save()
+        NSLog("Updated mission data")
     }
     
     func updateFormWith(flight: Flight, form: Form781) {
         form.flights.append(flight)
-        NSLog("Added flight")
         save()
+        NSLog("Added flight")
     }
     
     func updateFormWith(grandTotalTime: Double, grandTouchGo: Int, grandFullStop: Int, grandTotalLandings: Int, grandTotalSorties: Int, form: Form781) {
@@ -83,14 +83,14 @@ class Form781Controller {
         form.grandTotalFullStop = grandFullStop
         form.grandTotalLandings = grandTotalLandings
         form.grandTotalSorties = grandTotalSorties
-        NSLog("Updated grand totals")
         save()
+        NSLog("Updated grand totals")
     }
     
     func updateFormwith(crewMember: CrewMember, form: Form781) {
         form.crewMembers.append(crewMember)
-        NSLog("Added crew member")
         save()
+        NSLog("Added crew member")
     }
     
     func updateCrewMemberInfo(crewMember: CrewMember, lastName: String, firstName: String, ssnLast4: String, flightAuthDutyCode: String, flyingOranization: String) {
@@ -101,11 +101,11 @@ class Form781Controller {
         crewMember.flyingOranization = flyingOranization
         crewMember.flightAuthDutyCode = flightAuthDutyCode
                 
-        NSLog("Updated crew member info")
         save()
+        NSLog("Updated crew member info")
     }
     
-    func updateCrewMemberTime(crewMember: CrewMember, primary: String, secondary: String, instructor: String, evaluator: String, other: String, time: String, srty: String, nightPSIE: String, insPIE: String, simIns: String, nvg: String, combatTime: String, combatSrty: String, combatSptTime: String, combatSptSrty: String, resvStatus: String) {
+    func updateCrewMemberTime(crewMember: CrewMember, primary: String, secondary: String, instructor: String, evaluator: String, other: String, time: String, srty: String) {
         
         crewMember.primary = primary
         crewMember.secondary = secondary
@@ -114,6 +114,13 @@ class Form781Controller {
         crewMember.other = other
         crewMember.time = time
         crewMember.srty = srty
+                
+        save()
+        NSLog("Updated crew member time")
+    }
+    
+    func updateCrewMemberConditions(crewMember: CrewMember, nightPSIE: String, insPIE: String, simIns: String, nvg: String, combatTime: String, combatSrty: String, combatSptTime: String, combatSptSrty: String, resvStatus: String) {
+        
         crewMember.nightPSIE = nightPSIE
         crewMember.insPIE = insPIE
         crewMember.simIns = simIns
@@ -124,8 +131,8 @@ class Form781Controller {
         crewMember.combatSptSrty = combatSptSrty
         crewMember.resvStatus = resvStatus
                 
-        NSLog("Updated crew member time")
         save()
+        NSLog("Updated crew member conditions")
     }
     
     func updateFlight(flight: Flight, missionNumber: String, missionSymbol: String, fromICAO: String, toICAO: String, takeOffTime: String, landTime: String, totalTime: String, touchAndGo: String, fullStop: String, totalLandings: String, sorties: String, specialUse: String) {
@@ -143,8 +150,8 @@ class Form781Controller {
         flight.sorties = sorties
         flight.specialUse = specialUse
         
-        NSLog("Updated flight")
         save()
+        NSLog("Updated flight")
     }
     
     // MARK: - Delete
@@ -156,8 +163,8 @@ class Form781Controller {
         }
         form.flights.remove(at: index)
         updateFlightSeqLetters()
-        NSLog("Removed flight")
         save()
+        NSLog("Removed flight")
     }
     
     func updateFlightSeqLetters() {
@@ -188,12 +195,12 @@ class Form781Controller {
     
     func remove(crewMember: CrewMember, from form: Form781) {
         guard let index = form.crewMembers.firstIndex(of: crewMember) else {
-            NSLog("WARNING: remove(crewMember: - Form781Controller tried to remove a crew mwmber that is not in the form. CrewMember = \(crewMember)")
+            NSLog("WARNING: remove(crewMember: - Form781Controller tried to remove a crew member that is not in the form. CrewMember = \(crewMember)")
             return
         }
         form.crewMembers.remove(at: index)
-        NSLog("Removed crew member")
         save()
+        NSLog("Removed crew member")
     }
     
     func delete() {

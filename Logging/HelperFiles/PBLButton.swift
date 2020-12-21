@@ -22,6 +22,10 @@ class PBLButtonClear: UIButton {
 
 class PBLButton: PBLButtonClear {
     
+    let buttonHeight = UIScreen.main.bounds.height/21.3
+    let buttonPadding = UIScreen.main.bounds.width/41
+    let fontSize = UIScreen.main.bounds.height/68.3
+    
     override func awakeFromNib() {
         super.awakeFromNib()
 //        print("Screen height: \(UIScreen.main.bounds.height)")
@@ -30,13 +34,13 @@ class PBLButton: PBLButtonClear {
 //        print("Button font size: \(UIScreen.main.bounds.height/68.3)")
         
         ///Divided by 21.3 because that is aproximately 64px in height for the 12.9in ipad
-        self.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/21.3).isActive = true
-        self.frame.size.height = UIScreen.main.bounds.height/21.3
-        self.contentEdgeInsets = UIEdgeInsets(top: 0, left: UIScreen.main.bounds.width/41, bottom: 0, right: UIScreen.main.bounds.width/41)
+        self.heightAnchor.constraint(equalToConstant: buttonHeight).isActive = true
+        self.frame.size.height = buttonHeight
+        self.contentEdgeInsets = UIEdgeInsets(top: 0, left: buttonPadding, bottom: 0, right: buttonPadding)
         self.addCornerRadius(self.frame.size.height/2)
         self.backgroundColor = .fog
         self.tintColor = .clear
-        self.titleLabel?.font = UIFont(name: FontNames.dmSansBold, size: UIScreen.main.bounds.height/68.3)
+        self.titleLabel?.font = UIFont(name: FontNames.dmSansBold, size: fontSize)
     }
 }
 

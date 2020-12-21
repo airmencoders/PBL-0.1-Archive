@@ -262,7 +262,17 @@ class Form781ControllerTests: XCTestCase {
                                                       evaluator: "evaluator",
                                                       other: "other",
                                                       time: "time",
-                                                      srty: "srty",
+                                                      srty: "srty")
+
+        XCTAssertEqual(crewMember.primary, "primary")
+        XCTAssertEqual(crewMember.secondary, "secondary")
+        XCTAssertEqual(crewMember.instructor, "instructor")
+        XCTAssertEqual(crewMember.evaluator, "evaluator")
+        XCTAssertEqual(crewMember.other, "other")
+        XCTAssertEqual(crewMember.time, "time")
+        XCTAssertEqual(crewMember.srty, "srty")
+        
+        Form781Controller.shared.updateCrewMemberConditions(crewMember: crewMember,
                                                       nightPSIE: "nightPSIE",
                                                       insPIE: "insPIE",
                                                       simIns: "simIns",
@@ -273,14 +283,6 @@ class Form781ControllerTests: XCTestCase {
                                                       combatSptSrty: "combatSptSrty",
                                                       resvStatus: "resvStatus")
 
-
-        XCTAssertEqual(crewMember.primary, "primary")
-        XCTAssertEqual(crewMember.secondary, "secondary")
-        XCTAssertEqual(crewMember.instructor, "instructor")
-        XCTAssertEqual(crewMember.evaluator, "evaluator")
-        XCTAssertEqual(crewMember.other, "other")
-        XCTAssertEqual(crewMember.time, "time")
-        XCTAssertEqual(crewMember.srty, "srty")
         XCTAssertEqual(crewMember.nightPSIE, "nightPSIE")
         XCTAssertEqual(crewMember.insPIE, "insPIE")
         XCTAssertEqual(crewMember.nvg, "nvg")
