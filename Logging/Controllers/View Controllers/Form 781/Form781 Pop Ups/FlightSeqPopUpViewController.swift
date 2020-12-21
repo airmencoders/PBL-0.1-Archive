@@ -152,18 +152,18 @@ class FlightSeqPopUpViewController: UIViewController {
     
     func unhighlight() {
         
-        missionNumber.removeHighlight()
-        missionSymbol.removeHighlight()
-        fromICAO.removeHighlight()
-        toICAO.removeHighlight()
-        specialUse.removeHighlight()
-        takeOffTime.removeHighlight()
-        landTime.removeHighlight()
-        totalTime.removeHighlight()
-        touchAndGo.removeHighlight()
-        fullStop.removeHighlight()
-        totalLandings.removeHighlight()
-        sorties.removeHighlight()
+        missionNumber.removeAnyColorHighlight()
+        missionSymbol.removeAnyColorHighlight()
+        fromICAO.removeAnyColorHighlight()
+        toICAO.removeAnyColorHighlight()
+        specialUse.removeAnyColorHighlight()
+        takeOffTime.removeAnyColorHighlight()
+        landTime.removeAnyColorHighlight()
+        totalTime.removeAnyColorHighlight()
+        touchAndGo.removeAnyColorHighlight()
+        fullStop.removeAnyColorHighlight()
+        totalLandings.removeAnyColorHighlight()
+        sorties.removeAnyColorHighlight()
 
     }
     
@@ -213,7 +213,7 @@ class FlightSeqPopUpViewController: UIViewController {
     @IBAction func checkTime(_ sender: UITextField) {
         do {
             let _ = try Helper.validateTime(timeString: sender.text!)
-            sender.removeHighlight()
+            sender.removeAnyColorHighlight()
             NSLog("Time is valid")
         } catch Form781Error.InvalidHours {
             Alerts.showHoursError(on: self)
@@ -232,12 +232,12 @@ class FlightSeqPopUpViewController: UIViewController {
     @IBAction func calculateTotalTime(_ sender: Any) {
         if takeOffTime.text!.isExactlyFourCharacters() {
             takeOffTimeString = takeOffTime.text!
-            takeOffTime.removeHighlight()
+            takeOffTime.removeAnyColorHighlight()
             
             if landTime.text!.isExactlyFourCharacters() {
                 landTimeString = landTime.text!
                 
-                landTime.removeHighlight()
+                landTime.removeAnyColorHighlight()
                 let decimalTime = Helper.vmCalculateTotalTime(takeOffTime: takeOffTime.text, landTime: landTime.text)
                 totalTime.text = decimalTime
             } else {
@@ -268,8 +268,8 @@ class FlightSeqPopUpViewController: UIViewController {
         //Here's where we do the math for filling in the total field
         if touchAndGo.text!.isDigits{
             if fullStop.text!.isDigits{
-                touchAndGo.removeHighlight()
-                fullStop.removeHighlight()
+                touchAndGo.removeAnyColorHighlight()
+                fullStop.removeAnyColorHighlight()
                 totalLandings.text = Helper.vmCalculateLandings(touchAndGo: touchAndGo.text!, fullStop: fullStop.text!)
             } else {
                 touchAndGo.highlightRed()

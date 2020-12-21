@@ -106,11 +106,11 @@ class AircrewPopUpViewController: UIViewController {
     }
 
     func unhighlight() {
-        lastName.removeHighlight()
-        firstName.removeHighlight()
-        ssn.removeHighlight()
-        flightAuthDutyCode.removeHighlight()
-        flyingOranization.removeHighlight()
+        lastName.removeAnyColorHighlight()
+        firstName.removeAnyColorHighlight()
+        ssn.removeAnyColorHighlight()
+        flightAuthDutyCode.removeAnyColorHighlight()
+        flyingOranization.removeAnyColorHighlight()
     }
 
     func clearFields() {

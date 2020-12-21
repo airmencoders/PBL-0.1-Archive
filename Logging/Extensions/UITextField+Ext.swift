@@ -13,7 +13,7 @@ extension UITextField{
         self.layer.borderColor = UIColor.red.cgColor
     }
     
-    func removeHighlight() {
+    func removeAnyColorHighlight() {
         let color: UIColor = .fog
         self.layer.borderColor = color.cgColor
     }
@@ -22,7 +22,7 @@ extension UITextField{
         if self.text == "" {
             self.highlightRed()
         } else {
-            self.removeHighlight()
+            self.removeAnyColorHighlight()
         }
     }
     

@@ -118,13 +118,13 @@ class MissionDataPopUpViewController: UIViewController {
     }
     
     func unhighlight() {
-        dateTextField.removeHighlight()
-        mdsTextField.removeHighlight()
-        serialNumTextField.removeHighlight()
-        unitChargedTextField.removeHighlight()
-        harmLocationTextField.removeHighlight()
-        flightAuthTextField.removeHighlight()
-        issuingUnitTextField.removeHighlight()
+        dateTextField.removeAnyColorHighlight()
+        mdsTextField.removeAnyColorHighlight()
+        serialNumTextField.removeAnyColorHighlight()
+        unitChargedTextField.removeAnyColorHighlight()
+        harmLocationTextField.removeAnyColorHighlight()
+        flightAuthTextField.removeAnyColorHighlight()
+        issuingUnitTextField.removeAnyColorHighlight()
         
     }
     
