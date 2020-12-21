@@ -14,13 +14,10 @@ class FlightConditionsViewController: UIViewController {
     
     @IBOutlet weak var flightConditionsTableView: UITableView!
     @IBOutlet weak var editButton: UIButton!
-<<<<<<< HEAD
     
     // MARK: - Properties
     
     var isEditingConditions = false
-=======
->>>>>>> f874b18cb5fbb78aa75dcb4fd57fcd7221abe2b6
     
     // MARK: - Lifecycle
     
@@ -48,15 +45,12 @@ class FlightConditionsViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func editButtonTapped(_ sender: UIButton) {
-<<<<<<< HEAD
         isEditingConditions.toggle()
         if isEditingConditions {
             
         } else {
             
         }
-=======
->>>>>>> f874b18cb5fbb78aa75dcb4fd57fcd7221abe2b6
     }
     
 } //End

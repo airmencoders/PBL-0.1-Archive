@@ -20,13 +20,10 @@ class FlightTimeTableViewCell: UITableViewCell {
     @IBOutlet weak var other: UITextField!
     @IBOutlet weak var time: UITextField!
     @IBOutlet weak var srty: UITextField!
-<<<<<<< HEAD
     
     var crewMember: CrewMember?
     
     // MARK: - Methods
-=======
->>>>>>> f874b18cb5fbb78aa75dcb4fd57fcd7221abe2b6
     
     func setUpViews(crewMember: CrewMember) {
         name.text = crewMember.lastName

@@ -14,14 +14,11 @@ class FlightTimeViewController: UIViewController {
     
     @IBOutlet weak var flightTimeTableView: UITableView!
     @IBOutlet weak var editButton: UIButton!
-<<<<<<< HEAD
     
     // MARK: - Properties
     
     var flightTimeCells = [FlightTimeTableViewCell]()
     var isEditingTime = false
-=======
->>>>>>> f874b18cb5fbb78aa75dcb4fd57fcd7221abe2b6
     
     // MARK: - Lifecycle
     
@@ -46,7 +43,6 @@ class FlightTimeViewController: UIViewController {
         flightTimeTableView.reloadData()
     }
     
-<<<<<<< HEAD
     func updateCells(toEditing: Bool) {
         for cell in flightTimeCells {
             cell.primary.isUserInteractionEnabled = toEditing
@@ -123,11 +119,6 @@ class FlightTimeViewController: UIViewController {
             editButton.setImage(UIImage(systemName: "pencil"), for: .normal)
             updateCells(toEditing: false)
         }
-=======
-    // MARK: - Actions
-    
-    @IBAction func editButtonTapped(_ sender: UIButton) {
->>>>>>> f874b18cb5fbb78aa75dcb4fd57fcd7221abe2b6
     }
     
 } //End
