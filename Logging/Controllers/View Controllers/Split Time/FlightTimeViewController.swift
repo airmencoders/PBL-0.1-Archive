@@ -13,6 +13,7 @@ class FlightTimeViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var flightTimeTableView: UITableView!
+    @IBOutlet weak var editButton: UIButton!
     
     // MARK: - Lifecycle
     
@@ -35,6 +36,11 @@ class FlightTimeViewController: UIViewController {
     
     @objc func currentFormChanged() {
         flightTimeTableView.reloadData()
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func editButtonTapped(_ sender: UIButton) {
     }
     
 } //End
