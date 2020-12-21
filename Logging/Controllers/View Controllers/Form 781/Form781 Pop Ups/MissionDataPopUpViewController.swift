@@ -107,23 +107,25 @@ class MissionDataPopUpViewController: UIViewController {
     
     
     func highlightMissionData() {
-        dateTextField.text == "" ? Helper.highlightRed(textField: dateTextField) : Helper.unhighlight(textField: dateTextField)
-        mdsTextField.text == "" ? Helper.highlightRed(textField: mdsTextField) : Helper.unhighlight(textField: mdsTextField)
-        serialNumTextField.text == "" ? Helper.highlightRed(textField: serialNumTextField) : Helper.unhighlight(textField: serialNumTextField)
-        unitChargedTextField.text == "" ? Helper.highlightRed(textField: unitChargedTextField) : Helper.unhighlight(textField: unitChargedTextField)
-        harmLocationTextField.text == "" ? Helper.highlightRed(textField: harmLocationTextField) : Helper.unhighlight(textField: harmLocationTextField)
-        flightAuthTextField.text == "" ? Helper.highlightRed(textField: flightAuthTextField) : Helper.unhighlight(textField: flightAuthTextField)
-        issuingUnitTextField.text == "" ? Helper.highlightRed(textField: issuingUnitTextField) : Helper.unhighlight(textField: issuingUnitTextField)
+        dateTextField.highlightRedIfBlank()
+        mdsTextField.highlightRedIfBlank()
+        serialNumTextField.highlightRedIfBlank()
+        unitChargedTextField.highlightRedIfBlank()
+        harmLocationTextField.highlightRedIfBlank()
+        flightAuthTextField.highlightRedIfBlank()
+        issuingUnitTextField.highlightRedIfBlank()
+        
     }
     
     func unhighlight() {
-        Helper.unhighlight(textField: dateTextField)
-        Helper.unhighlight(textField: mdsTextField)
-        Helper.unhighlight(textField: serialNumTextField)
-        Helper.unhighlight(textField: unitChargedTextField)
-        Helper.unhighlight(textField: harmLocationTextField)
-        Helper.unhighlight(textField: flightAuthTextField)
-        Helper.unhighlight(textField: issuingUnitTextField)
+        dateTextField.removeHighlight()
+        mdsTextField.removeHighlight()
+        serialNumTextField.removeHighlight()
+        unitChargedTextField.removeHighlight()
+        harmLocationTextField.removeHighlight()
+        flightAuthTextField.removeHighlight()
+        issuingUnitTextField.removeHighlight()
+        
     }
     
     func closePopUp() {

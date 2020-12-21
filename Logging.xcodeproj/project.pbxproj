@@ -65,6 +65,7 @@
 		D210F2AB258FC2FB00A59D3A /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210F2AA258FC2FB00A59D3A /* String+Ext.swift */; };
 		D210F2B3258FC4A600A59D3A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210F2B2258FC4A600A59D3A /* Constants.swift */; };
 		D210F2B8258FC5FC00A59D3A /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210F2B7258FC5FC00A59D3A /* Date+Ext.swift */; };
+		D210F2C225905D9700A59D3A /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210F2C125905D9700A59D3A /* UITextField+Ext.swift */; };
 		FC99B2719A65D5512B76F5AC /* Pods_LoggingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47FE006718C4942F5FE50BB0 /* Pods_LoggingTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -155,6 +156,7 @@
 		D210F2AA258FC2FB00A59D3A /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		D210F2B2258FC4A600A59D3A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D210F2B7258FC5FC00A59D3A /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		D210F2C125905D9700A59D3A /* UITextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
 		ED9788E1C9AF89B0FDD4ABF4 /* Pods-LoggingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoggingTests.release.xcconfig"; path = "Target Support Files/Pods-LoggingTests/Pods-LoggingTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -450,6 +452,7 @@
 			children = (
 				D210F2AA258FC2FB00A59D3A /* String+Ext.swift */,
 				D210F2B7258FC5FC00A59D3A /* Date+Ext.swift */,
+				D210F2C125905D9700A59D3A /* UITextField+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -696,6 +699,7 @@
 				7F5453D7254CA47300968BFA /* FlightConditionsTableViewCell.swift in Sources */,
 				7F2D11942549DDA00062AC7A /* CrewMember.swift in Sources */,
 				7FAB8CA4254363F600868215 /* CrewMemberController.swift in Sources */,
+				D210F2C225905D9700A59D3A /* UITextField+Ext.swift in Sources */,
 				7F5839AB2583E0F50084FE2F /* SideMenuViewController.swift in Sources */,
 				7F574327254C77E700794C57 /* FlightConditionsViewController.swift in Sources */,
 				7FE48BB8255088D600F26760 /* HelperFunctions.swift in Sources */,

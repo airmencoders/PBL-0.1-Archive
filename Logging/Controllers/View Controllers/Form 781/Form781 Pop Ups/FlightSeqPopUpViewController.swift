@@ -134,32 +134,37 @@ class FlightSeqPopUpViewController: UIViewController {
     }
     
     func highlightFlightSeq() {
-        missionNumber.text == "" ? Helper.highlightRed(textField: missionNumber) : Helper.unhighlight(textField: missionNumber)
-        missionSymbol.text == "" ? Helper.highlightRed(textField: missionSymbol) : Helper.unhighlight(textField: missionSymbol)
-        fromICAO.text == "" ? Helper.highlightRed(textField: fromICAO) : Helper.unhighlight(textField: fromICAO)
-        toICAO.text == "" ? Helper.highlightRed(textField: toICAO) : Helper.unhighlight(textField: toICAO)
-        takeOffTime.text == "" ? Helper.highlightRed(textField: takeOffTime) : Helper.unhighlight(textField: takeOffTime)
-        landTime.text == "" ? Helper.highlightRed(textField: landTime) : Helper.unhighlight(textField: landTime)
-        totalTime.text == "" ? Helper.highlightRed(textField: totalTime) : Helper.unhighlight(textField: totalTime)
-        touchAndGo.text == "" ? Helper.highlightRed(textField: touchAndGo) : Helper.unhighlight(textField: touchAndGo)
-        fullStop.text == "" ? Helper.highlightRed(textField: fullStop) : Helper.unhighlight(textField: fullStop)
-        totalLandings.text == "" ? Helper.highlightRed(textField: totalLandings) : Helper.unhighlight(textField: totalLandings)
-        sorties.text == "" ? Helper.highlightRed(textField: sorties) : Helper.unhighlight(textField: sorties)
+        
+        missionNumber.highlightRedIfBlank()
+        missionSymbol.highlightRedIfBlank()
+        fromICAO.highlightRedIfBlank()
+        toICAO.highlightRedIfBlank()
+        specialUse.highlightRedIfBlank()
+        takeOffTime.highlightRedIfBlank()
+        landTime.highlightRedIfBlank()
+        totalTime.highlightRedIfBlank()
+        touchAndGo.highlightRedIfBlank()
+        fullStop.highlightRedIfBlank()
+        totalLandings.highlightRedIfBlank()
+        sorties.highlightRedIfBlank()
+        
     }
     
     func unhighlight() {
-        Helper.unhighlight(textField: missionNumber)
-        Helper.unhighlight(textField: missionSymbol)
-        Helper.unhighlight(textField: fromICAO)
-        Helper.unhighlight(textField: toICAO)
-        Helper.unhighlight(textField: specialUse)
-        Helper.unhighlight(textField: takeOffTime)
-        Helper.unhighlight(textField: landTime)
-        Helper.unhighlight(textField: totalTime)
-        Helper.unhighlight(textField: touchAndGo)
-        Helper.unhighlight(textField: fullStop)
-        Helper.unhighlight(textField: totalLandings)
-        Helper.unhighlight(textField: sorties)
+        
+        missionNumber.removeHighlight()
+        missionSymbol.removeHighlight()
+        fromICAO.removeHighlight()
+        toICAO.removeHighlight()
+        specialUse.removeHighlight()
+        takeOffTime.removeHighlight()
+        landTime.removeHighlight()
+        totalTime.removeHighlight()
+        touchAndGo.removeHighlight()
+        fullStop.removeHighlight()
+        totalLandings.removeHighlight()
+        sorties.removeHighlight()
+
     }
     
     func clearFlightFields() {
@@ -208,17 +213,17 @@ class FlightSeqPopUpViewController: UIViewController {
     @IBAction func checkTime(_ sender: UITextField) {
         do {
             let _ = try Helper.validateTime(timeString: sender.text!)
-            Helper.unhighlight(textField: sender)
+            sender.removeHighlight()
             NSLog("Time is valid")
         } catch Form781Error.InvalidHours {
             Alerts.showHoursError(on: self)
-            Helper.highlightRed(textField: sender)
+            sender.highlightRed()
         } catch Form781Error.InvalidMins {
             Alerts.showMinError(on: self)
-            Helper.highlightRed(textField: sender)
+            sender.highlightRed()
         } catch Form781Error.InvalidTimeFormat {
             Alerts.showTimeErrorAlert(on: self)
-            Helper.highlightRed(textField: sender)
+            sender.highlightRed()
         } catch {
             NSLog("checkTakeOffTime function unknown Error")
         }
@@ -227,22 +232,22 @@ class FlightSeqPopUpViewController: UIViewController {
     @IBAction func calculateTotalTime(_ sender: Any) {
         if takeOffTime.text!.isExactlyFourCharacters() {
             takeOffTimeString = takeOffTime.text!
-            Helper.unhighlight(textField: takeOffTime)
+            takeOffTime.removeHighlight()
             
             if landTime.text!.isExactlyFourCharacters() {
                 landTimeString = landTime.text!
-                Helper.unhighlight(textField: landTime)
                 
+                landTime.removeHighlight()
                 let decimalTime = Helper.vmCalculateTotalTime(takeOffTime: takeOffTime.text, landTime: landTime.text)
                 totalTime.text = decimalTime
             } else {
                 if landTime.text == "" {
                     landTime.text = ""
                     totalTime.text = ""
-                    Helper.highlightRed(textField: landTime)
+                    landTime.highlightRed()
                     Alerts.showTimeErrorAlert(on: self)
                 } else {
-                    Helper.highlightRed(textField: landTime)
+                    landTime.highlightRed()
                     Alerts.showTimeErrorAlert(on: self)
                 }
             }
@@ -250,10 +255,10 @@ class FlightSeqPopUpViewController: UIViewController {
             if takeOffTime.text == "" {
                 takeOffTime.text = ""
                 totalTime.text = ""
-                Helper.highlightRed(textField: takeOffTime)
+                takeOffTime.highlightRed()
                 Alerts.showTimeErrorAlert(on: self)
             } else {
-                Helper.highlightRed(textField: takeOffTime)
+                takeOffTime.highlightRed()
                 Alerts.showTimeErrorAlert(on: self)
             }
         }
@@ -263,15 +268,15 @@ class FlightSeqPopUpViewController: UIViewController {
         //Here's where we do the math for filling in the total field
         if touchAndGo.text!.isDigits{
             if fullStop.text!.isDigits{
-                Helper.unhighlight(textField: touchAndGo)
-                Helper.unhighlight(textField: fullStop)
+                touchAndGo.removeHighlight()
+                fullStop.removeHighlight()
                 totalLandings.text = Helper.vmCalculateLandings(touchAndGo: touchAndGo.text!, fullStop: fullStop.text!)
             } else {
-                Helper.unhighlight(textField: touchAndGo)
-                Helper.highlightRed(textField: fullStop)
+                touchAndGo.highlightRed()
+                fullStop.highlightRed()
             }
         } else {
-            Helper.highlightRed(textField: touchAndGo)
+            touchAndGo.highlightRed()
         }
     }
 

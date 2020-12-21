@@ -153,17 +153,7 @@ class Helper {
         }
         return 10
     }
-       
-    
-    static func highlightRed(textField: UITextField) {
-        textField.layer.borderColor = UIColor.red.cgColor
-    }
-    
-    static func unhighlight(textField: UITextField) {
-        let color: UIColor = .fog
-        textField.layer.borderColor = color.cgColor
-    }
-    
+
     static func print781() {
         
         let printController = UIPrintInteractionController.shared
@@ -321,12 +311,4 @@ class Helper {
 } //End
 
 
-extension UITextField {
-    func flagBlankText() {
-        if self.text == "" {
-            Helper.highlightRed(textField: self)
-        } else {
-            Helper.unhighlight(textField: self)
-        }
-    }
-}
+
