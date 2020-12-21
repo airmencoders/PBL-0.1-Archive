@@ -11,6 +11,13 @@ import UIKit
 class FlightTimeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var primary: UITextField!
+    @IBOutlet weak var secondary: UITextField!
+    @IBOutlet weak var instructor: UITextField!
+    @IBOutlet weak var evaluator: UITextField!
+    @IBOutlet weak var other: UITextField!
+    @IBOutlet weak var time: UITextField!
+    @IBOutlet weak var srty: UITextField!
     
     func setUpViews(crewMember: CrewMember) {
         name.text = crewMember.lastName

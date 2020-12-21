@@ -13,11 +13,13 @@ class FlightConditionsViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var flightConditionsTableView: UITableView!
+    @IBOutlet weak var editButton: UIButton!
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpViews()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(currentFormChanged),
                                                name: Form781Controller.FLIGHT_DATA_CHANGED,
@@ -34,6 +36,11 @@ class FlightConditionsViewController: UIViewController {
     
     @objc func currentFormChanged() {
         flightConditionsTableView.reloadData()
+    }
+    
+    // MARK: - Actions
+    
+    @IBAction func editButtonTapped(_ sender: UIButton) {
     }
     
 } //End
@@ -57,7 +64,6 @@ extension FlightConditionsViewController: UITableViewDelegate, UITableViewDataSo
         }
         
         return cell
-        
     }
     
 } //End
