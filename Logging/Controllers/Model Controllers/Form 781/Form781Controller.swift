@@ -237,6 +237,7 @@ class Form781Controller {
     
     func save() {
         let encoder = JSONEncoder()
+        NSLog("Save file location \(fileURL(filename: loggingFileName))")
         do {
             encoder.outputFormatting = .prettyPrinted
             let data = try encoder.encode(forms)

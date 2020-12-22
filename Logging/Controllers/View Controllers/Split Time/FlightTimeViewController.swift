@@ -102,7 +102,7 @@ class FlightTimeViewController: UIViewController {
                     NSLog("ERROR: FlightTimeViewController: updateCells() cell.srty.text undefined.")
                     return
                 }
-                
+                NSLog("Firing updateCrewMemberTime")
                 Form781Controller.shared.updateCrewMemberTime(crewMember: crewMember, primary: primary, secondary: secondary, instructor: instructor, evaluator: evaluator, other: other, time: time, srty: srty)
             }
         }

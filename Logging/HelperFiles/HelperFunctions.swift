@@ -197,6 +197,24 @@ class Helper {
         
     }
     
+    static func airCrewTotalTimeCalculation(crewMember: CrewMember) -> String {
+        var total: Double = 0.0
+        
+        let dblPrimary = Double(crewMember.primary ?? "0.0")
+        let dblSecondary = Double(crewMember.secondary ?? "0.0")
+        let dblInstructor = Double(crewMember.instructor ?? "0.0")
+        let dblEval = Double(crewMember.evaluator ?? "0.0")
+        let dblOther = Double(crewMember.other ?? "0.0")
+        
+        total += dblPrimary ?? 0.0
+        total += dblSecondary ?? 0.0
+        total += dblInstructor ?? 0.0
+        total += dblEval ?? 0.0
+        total += dblOther ?? 0.0
+        
+        return "\(total)"
+    }
+    
     static func generate781FirstPageImage(from form: Form781) -> UIImage? {
         
         let formImage = UIImage(named: "Form781-Front.png")

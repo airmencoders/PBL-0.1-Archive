@@ -27,6 +27,14 @@ class FlightTimeTableViewCell: UITableViewCell {
     
     func setUpViews(crewMember: CrewMember) {
         name.text = crewMember.lastName
+        primary.text = crewMember.primary
+        secondary.text = crewMember.secondary
+        instructor.text = crewMember.instructor
+        evaluator.text = crewMember.evaluator
+        other.text = crewMember.other
+        time.text = Helper.airCrewTotalTimeCalculation(crewMember: crewMember)
+        srty.text = crewMember.srty
+        
     }
     
 } //End
