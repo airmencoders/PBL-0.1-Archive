@@ -23,7 +23,8 @@ class OverviewViewController: UIViewController {
     }
     
     @IBAction func printButtonTapped(_ sender: UIButton) {
-        Helper.print781()
+        guard let form781 = Form781Controller.shared.getCurrentForm() else { return }
+        form781.printPDF()
     }
     
     /*

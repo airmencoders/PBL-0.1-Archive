@@ -12,7 +12,7 @@ import CryptoKit
 
 @testable import Logging
 
-class TestImageGenerator: XCTestCase {
+class TestFormFiller: XCTestCase {
     
     var forms = [Form781]()
     
@@ -86,91 +86,33 @@ class TestImageGenerator: XCTestCase {
         }
         
         forms.append(form2)
-        
-        
-        
          
     }
     
-    func testGenerateFilledFormPageOneImage(){
+    func test781pdfFiller() throws {
         
-        let image = ImageGenerator.generateFilledFormPageOneImage(from: forms[0])
-        XCTAssert(image?.size == Constants.letterPaperResolution)
-         
-        let directory = NSTemporaryDirectory()
-        print(directory)
+        let form = self.forms[1]
         
-        let fileURL = URL(fileURLWithPath: directory).appendingPathComponent("front781Image.png")
-
-        if let data = image?.pngData() {
-            do {
-                try data.write(to: fileURL)
-                
-            }catch{
-                XCTFail()
-                
-            }
-          
-        }
+        let filler = Form781pdfFiller(form781: form)
         
+        let url = filler.pdfURL()
+        
+        XCTAssertNotNil(url)
+    
     }
     
-    func testGenerate781FirstPageImage(){
-       
-        for i in 0..<forms.count{
-            
-            let image = Helper.generate781FirstPageImage(from: forms[i])
-            
-            XCTAssert(image?.size == Constants.letterPaperResolution)
-            
-            //Comparing the generated images with a hash value of their data.
-            //If any minor thing on the form changes, the hash value will be different.
-            //Can cause failure if one letter in the forms changes
-            //Can cause failure if a drawing call is moved by one pixel
-            
-            let data = image?.jpegData(compressionQuality: 1)
-            let hashed = SHA256.hash(data: data!)
-            let hashString = hashed.compactMap { String(format: "%02x", $0) }.joined()
-            
-            //printing if need to be changed for future test. Copy out of console
-            //if the form is changed and the following test starts failing...
-            //this is why.
-            print("hash for \(i) is \(hashString)")
-             
-            let message = "The hash value of the form data has changed. If you modified the forms drawing, or the information or the form data in the setup of the test case, you will need to copy the new hash values out of the console and update the test."
-            if i == 0 {
-                XCTAssertEqual(hashString, "19785743943585d4fcfde89431390fc9d02a00259d35d63c0f6dd2d5edd82437", "\nFORM\(i):  \(message)")
-            } else if i == 1{
-                //Github wants a hash of 56361137befbc7f50851ed2f7b4d2b212d14e641c9e434b2311da46c5d32d908 for this  test?
-                //But passes the first. Very strange.
-                //XCTAssertEqual(hashString, "d24ba6a35ff517198083caabf6bfc874af6399cf0dd84e179bef6faf4ae3dbdd", "\nFORM\(i):  \(message)")
-            }
-            
-            //If visual inspection of the forms is desired, change to true and watch the console
-            //the directory of the images will be displayed
-            let physicalInspection = false
-             
-            if physicalInspection{
-                 
-                let directory = NSTemporaryDirectory()
-                
-                print("Inspection Directory is: \(directory)")
-                
-                let fileURL = URL(fileURLWithPath: directory).appendingPathComponent("front781ImageWithBackground\(i).png")
-                
-                if let data = image?.pngData() {
-                    do {
-                        try data.write(to: fileURL)
-                    }catch{
-                        XCTFail()
-                    }
-                    
-                }
-                
-            }
-            
-        }
-        
-    }
-    
+//    func testPDFtoDataTime() throws {
+//
+//        let form = self.forms[1]
+//        
+//        let filler = Form781pdfFiller(form781: form)
+//
+//        let doc = filler.pdfDocument()
+//
+//        measure {
+//             _ = doc?.dataRepresentation()
+//        }
+//
+//    }
+     
 }
