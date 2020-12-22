@@ -31,7 +31,14 @@ extension Form781{
         printController.printInfo = printInfo
         printController.showsNumberOfCopies = true
         printController.printingItem = pdfDocument()?.dataRepresentation()
-        printController.present(animated: true, completionHandler: nil)
+        printController.present(animated: true) { (controller, completed, error) in
+            NSLog(completed ? "Completed print" : "Print not complete")
+            if let error = error {
+                NSLog("Print Error: \(error.localizedDescription)")
+            }else{
+                NSLog("no Print error")
+            }
+        }
     }
     
     func popoverSharePDF(from viewController: UIViewController, sourceRect: CGRect) {
