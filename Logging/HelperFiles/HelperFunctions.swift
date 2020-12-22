@@ -138,33 +138,7 @@ class Helper {
         }
         return 10
     }
-    
-    static func print781() {
-        
-        let printController = UIPrintInteractionController.shared
-        let printInfo = UIPrintInfo(dictionary: [:])
-        printInfo.outputType = .grayscale
-        printInfo.orientation = .landscape
-        printInfo.jobName = "AFTO_781"
-        printInfo.duplex = .shortEdge
-        printController.printInfo = printInfo
-        
-        let form781pdf = generateAFTO781PDF()
-        
-        printController.printingItem = form781pdf?.dataRepresentation()
-        printController.showsNumberOfCopies = true
-        printController.present(animated: true) { (controller, completed, error) in
-            
-            if !completed {
-                print("Print not complete")
-            }
-            if let error = error {
-                print("Print Fail: ", error.localizedDescription)
-            }
-            
-        }
-    }
-    
+
     // Turn the String contents into a Date object. Return nil on failure.
 
     static func dateFromString(_ dateStr: String) -> Date? {
