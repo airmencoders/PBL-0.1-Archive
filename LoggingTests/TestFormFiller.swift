@@ -97,14 +97,8 @@ class TestFormFiller: XCTestCase {
         
         let url = filler.pdfURL()
         
-        XCTAssertTrue(url != nil)
-        
-        if let data = filler.pdfDocument()?.dataRepresentation() {
-             
-            XCTAssertEqual(1059043, data.count)
-            
-        }
-        
+        XCTAssertNotNil(url)
+    
     }
     
 //    func testPDFtoDataTime() throws {
