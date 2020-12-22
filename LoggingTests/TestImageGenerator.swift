@@ -92,6 +92,16 @@ class TestImageGenerator: XCTestCase {
          
     }
     
+    func test781pdfFiller() throws {
+        
+        let form = self.forms[1]
+        
+        let filler = Form781pdfFiller(form781: form)
+        
+        let url = filler.pdfURL()
+        
+    }
+    
     func testGenerateFilledFormPageOneImage(){
         
         let image = ImageGenerator.generateFilledFormPageOneImage(from: forms[0])

@@ -66,6 +66,9 @@
 		D210F2B3258FC4A600A59D3A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210F2B2258FC4A600A59D3A /* Constants.swift */; };
 		D210F2B8258FC5FC00A59D3A /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210F2B7258FC5FC00A59D3A /* Date+Ext.swift */; };
 		D210F2C225905D9700A59D3A /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210F2C125905D9700A59D3A /* UITextField+Ext.swift */; };
+		D210F2E325918A7000A59D3A /* Form781+PDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210F2E225918A7000A59D3A /* Form781+PDF.swift */; };
+		D210F2E825918B6200A59D3A /* fillable781.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D210F2E725918B6200A59D3A /* fillable781.pdf */; };
+		D210F2ED25919E9300A59D3A /* Form781pdfFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210F2EC25919E9300A59D3A /* Form781pdfFiller.swift */; };
 		FC99B2719A65D5512B76F5AC /* Pods_LoggingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47FE006718C4942F5FE50BB0 /* Pods_LoggingTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -157,6 +160,9 @@
 		D210F2B2258FC4A600A59D3A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D210F2B7258FC5FC00A59D3A /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		D210F2C125905D9700A59D3A /* UITextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
+		D210F2E225918A7000A59D3A /* Form781+PDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Form781+PDF.swift"; sourceTree = "<group>"; };
+		D210F2E725918B6200A59D3A /* fillable781.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = fillable781.pdf; sourceTree = "<group>"; };
+		D210F2EC25919E9300A59D3A /* Form781pdfFiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form781pdfFiller.swift; sourceTree = "<group>"; };
 		ED9788E1C9AF89B0FDD4ABF4 /* Pods-LoggingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoggingTests.release.xcconfig"; path = "Target Support Files/Pods-LoggingTests/Pods-LoggingTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -255,8 +261,11 @@
 			isa = PBXGroup;
 			children = (
 				7F680C3D25475E9200625ECC /* Form781.swift */,
+				D210F2E225918A7000A59D3A /* Form781+PDF.swift */,
+				D210F2E725918B6200A59D3A /* fillable781.pdf */,
 				7F680C4725475F0100625ECC /* Flight.swift */,
 				7F2D11932549DDA00062AC7A /* CrewMember.swift */,
+				D210F2EC25919E9300A59D3A /* Form781pdfFiller.swift */,
 			);
 			path = "Form 781";
 			sourceTree = "<group>";
@@ -577,6 +586,7 @@
 				7F7E0DD22530FC350041C4E9 /* Colors.xcassets in Resources */,
 				83D8408624D3402D00F336E3 /* Assets.xcassets in Resources */,
 				7FAB8C72254347EF00868215 /* Overview.storyboard in Resources */,
+				D210F2E825918B6200A59D3A /* fillable781.pdf in Resources */,
 				83D8408424D3402A00F336E3 /* Form781.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -697,6 +707,7 @@
 				7F680CED2548C46900625ECC /* Form781ViewController.swift in Sources */,
 				13C38BF4256858C300E8D919 /* Form781Error.swift in Sources */,
 				7F5453D7254CA47300968BFA /* FlightConditionsTableViewCell.swift in Sources */,
+				D210F2E325918A7000A59D3A /* Form781+PDF.swift in Sources */,
 				7F2D11942549DDA00062AC7A /* CrewMember.swift in Sources */,
 				7FAB8CA4254363F600868215 /* CrewMemberController.swift in Sources */,
 				D210F2C225905D9700A59D3A /* UITextField+Ext.swift in Sources */,
@@ -708,6 +719,7 @@
 				7F7E0E3D2538B4560041C4E9 /* PBLView.swift in Sources */,
 				83D8407B24D3402A00F336E3 /* AppDelegate.swift in Sources */,
 				7FF46079258D3F9B00DB408C /* FlightTimePageViewController.swift in Sources */,
+				D210F2ED25919E9300A59D3A /* Form781pdfFiller.swift in Sources */,
 				7F680C3E25475E9200625ECC /* Form781.swift in Sources */,
 				7F680C4825475F0100625ECC /* Flight.swift in Sources */,
 				7FF4605D258A8A2B00DB408C /* MissionDataPopUpViewController.swift in Sources */,
