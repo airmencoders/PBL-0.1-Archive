@@ -240,7 +240,7 @@ class Form781Controller {
         do {
             encoder.outputFormatting = .prettyPrinted
             let data = try encoder.encode(forms)
-            try data.write(to: fileURL(filename: loggingFileName))
+            try data.write(to: fileURL(filename: loggingFileName), options: .completeFileProtectionUnlessOpen)
         } catch {
             NSLog("There was an error encoding the data: \(error.localizedDescription)")
         }

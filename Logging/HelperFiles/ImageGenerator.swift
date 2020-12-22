@@ -16,7 +16,7 @@ class ImageGenerator {
     /// Returns nil when if the form can not be generated
     static func generateFilledFormPageOneImage(from form: Form781) -> UIImage? {
         
-        let renderer = UIGraphicsImageRenderer(size: Helper.LETTER_SIZE)
+        let renderer = UIGraphicsImageRenderer(size: Constants.letterPaperResolution)
         
         let img = renderer.image { ctx in
             // MARK: - AFTO 781 Section I. Mission Data
@@ -145,7 +145,7 @@ class ImageGenerator {
      */
     static func generateFilledFormPageTwoImage(from form: Form781) -> UIImage? {
         
-        let renderer = UIGraphicsImageRenderer(size: Helper.LETTER_SIZE)
+        let renderer = UIGraphicsImageRenderer(size: Constants.letterPaperResolution)
         
         let backOfForm = renderer.image { ctx in
             
