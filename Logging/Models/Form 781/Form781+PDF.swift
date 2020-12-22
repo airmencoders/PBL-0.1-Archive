@@ -51,6 +51,9 @@ extension Form781{
         
         let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
         activityViewController.excludedActivityTypes = [.markupAsPDF, .postToFacebook, .postToTwitter]
+        activityViewController.completionWithItemsHandler = { (activity, success, items, error) in
+                    NSLog("Success: \(success)  Error: \(error?.localizedDescription ?? "NO ERROR")")
+                }
 
             if let popoverController = activityViewController.popoverPresentationController {
                 popoverController.sourceRect = sourceRect
@@ -58,7 +61,7 @@ extension Form781{
                 popoverController.permittedArrowDirections = UIPopoverArrowDirection.up
             }
 
-            viewController.present(activityViewController, animated: true, completion: nil)
+        viewController.present(activityViewController, animated: true)
         
     }
     
