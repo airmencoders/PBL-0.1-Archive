@@ -16,7 +16,8 @@ class LoggingTests: XCTestCase {
         let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last
         let url = path?.appendingPathComponent("Logging.json", isDirectory: false)
 
-        Form781Controller.shared.create(date: Date().AFTOForm781String(), mds: "C017A", serialNumber: "90-0534", unitCharged: "437 AW (AMC) /DKFX", harmLocation: "JB CHARLESTON SC 29404", flightAuthNum: "20-0772", issuingUnit: "0016AS")
+        Form781Controller.shared.addNewForm()
+        Form781Controller.shared.updateMissionData(date: Date().AFTOForm781String(), mds: "C017A", serialNumber: "90-0534", unitCharged: "437 AW (AMC) /DKFX", harmLocation: "JB CHARLESTON SC 29404", flightAuthNum: "20-0772", issuingUnit: "0016AS")
         
         XCTAssertTrue(Helper.doesFileExist(atURL: url!))
         

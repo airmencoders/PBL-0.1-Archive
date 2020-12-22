@@ -166,7 +166,7 @@ extension Form781ViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToMissionDataVC" {
             guard let destinationVC = segue.destination as? MissionDataViewController else {
-                NSLog("ERROR: FlightListViewController prepare(for: identifier \"ToMissionDataVC\" destination should be MissionDataViewController. destination = \(segue.destination)")
+                NSLog("ERROR: Form781ViewController prepare(for: identifier \"ToMissionDataVC\" destination should be MissionDataViewController. destination = \(segue.destination)")
                 return
             }
             destinationVC.delegate = self
@@ -174,7 +174,7 @@ extension Form781ViewController {
         }
         if segue.identifier == "ToAircrewVC" {
             guard let destinationVC = segue.destination as? AircrewViewController else {
-                NSLog("ERROR: FlightListViewController prepare(for: identifier \"ToAircrewVC\" destination should be AircrewViewController. destination = \(segue.destination)")
+                NSLog("ERROR: Form781ViewController prepare(for: identifier \"ToAircrewVC\" destination should be AircrewViewController. destination = \(segue.destination)")
                 return
             }
             destinationVC.delegate = self
@@ -182,13 +182,13 @@ extension Form781ViewController {
         }
         if segue.identifier == "ToAircrewDataVC" {
             guard let destinationVC = segue.destination as? AircrewDataViewController else {
-                NSLog("ERROR: FlightListViewController prepare(for: identifier \"ToAircrewDataVC\" destination should be AircrewDataViewController. destination = \(segue.destination)")
+                NSLog("ERROR: Form781ViewController prepare(for: identifier \"ToAircrewDataVC\" destination should be AircrewDataViewController. destination = \(segue.destination)")
                 return
             }
             destinationVC.delegate = self
             flightSeqDelegate = destinationVC
         }
-        NSLog("ERROR: FlightListViewController prepare(for: - Unknown identifier '\(segue.destination)'")
+        NSLog("ERROR: Form781ViewController prepare(for: - Unknown identifier '\(segue.destination)'")
     }
     
 } //End

@@ -26,7 +26,7 @@ class FlightConditionsViewController: UIViewController {
         setUpViews()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(currentFormChanged),
-                                               name: Form781Controller.FLIGHT_DATA_CHANGED,
+                                               name: Form781Controller.flightDataChanged,
                                                object: nil)
     }
     
