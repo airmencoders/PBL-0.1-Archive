@@ -35,3 +35,12 @@ class popUpView: UIView {
         self.layer.shadowRadius = 2
     }
 }
+
+class daysView: UIView {
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.backgroundColor = .haze
+        self.addCornerRadius()
+    }
+}

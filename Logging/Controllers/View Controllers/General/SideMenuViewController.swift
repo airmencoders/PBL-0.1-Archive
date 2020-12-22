@@ -31,19 +31,27 @@ class SideMenuViewController: UIViewController {
     
     weak var delegate: SideMenuViewControllerDelegate?
     var isMenuOpen = true
+    var dayCells = [DayTableViewCell]()
     
     // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpViews()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(currentFormChanged),
+                                               name: Form781Controller.flightDataChanged,
+                                               object: nil)
     }
     
     // MARK: - Methods
     
     func setUpViews() {
+        daysTableView.delegate = self
+        daysTableView.dataSource = self
         overviewButton.isSelected = true
         updateButtons()
+        currentFormChanged()
     }
     
     func updateButtons() {
@@ -111,7 +119,57 @@ class SideMenuViewController: UIViewController {
     }
     
     @IBAction func addDayButtonTapped(_ sender: UIButton) {
+        Form781Controller.shared.addNewForm()
+    }
+
+    @objc func currentFormChanged() {
+        let numberOfForms = Form781Controller.shared.numberOfForms()
+        if dayCells.count != numberOfForms {
+            dayCells = [DayTableViewCell](repeating: DayTableViewCell(), count: numberOfForms)
+        }
+        daysTableView.reloadData()
+    }
+
+} //End
+
+// MARK: - TableView Delegate
+
+extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Form781Controller.shared.numberOfForms()
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = self.daysTableView.dequeueReusableCell(withIdentifier: "DayCell", for: indexPath) as? DayTableViewCell else {
+            NSLog("ERROR: SideMenuViewController: tableView(cellForRowAt:) - dequeue failed for \"DayCell\", if it's there it's not a DayTableViewCell.")
+            return UITableViewCell()
+        }
+
+        let date = Form781Controller.shared.getDateStringForForm(at: indexPath.row)
+        cell.setUpViews(date: date)
+
+        if indexPath.row == Form781Controller.shared.currentFormIndex {
+            cell.dayBackgroundView.backgroundColor = .slate
+            cell.dayLabel.textColor = .white
+        } else {
+            cell.dayBackgroundView.backgroundColor = .haze
+            cell.dayLabel.textColor = .slate
+        }
+
+        dayCells.remove(at: indexPath.row)
+        dayCells.insert(cell, at: indexPath.row)
         
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell: DayTableViewCell = tableView.cellForRow(at: indexPath) as? DayTableViewCell else {
+            NSLog("ERROR: SideMenuViewController: tableView(didSelectRowAt: \(indexPath)) cell is not a DayTableViewCell")
+            return
+        }
+
+        Form781Controller.shared.setCurrentFormIndex(indexPath.row)
     }
     
 } //End

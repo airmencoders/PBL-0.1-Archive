@@ -27,7 +27,7 @@ class FlightTimeViewController: UIViewController {
         setUpViews()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(currentFormChanged),
-                                               name: Form781Controller.FLIGHT_DATA_CHANGED,
+                                               name: Form781Controller.flightDataChanged,
                                                object: nil)
     }
     
@@ -50,7 +50,6 @@ class FlightTimeViewController: UIViewController {
             cell.instructor.isUserInteractionEnabled = toEditing
             cell.evaluator.isUserInteractionEnabled = toEditing
             cell.other.isUserInteractionEnabled = toEditing
-            cell.time.isUserInteractionEnabled = toEditing
             cell.srty.isUserInteractionEnabled = toEditing
             if toEditing {
                 cell.primary.borderStyle = .roundedRect
@@ -58,7 +57,6 @@ class FlightTimeViewController: UIViewController {
                 cell.instructor.borderStyle = .roundedRect
                 cell.evaluator.borderStyle = .roundedRect
                 cell.other.borderStyle = .roundedRect
-                cell.time.borderStyle = .roundedRect
                 cell.srty.borderStyle = .roundedRect
             } else {
                 cell.primary.borderStyle = .none
@@ -66,7 +64,6 @@ class FlightTimeViewController: UIViewController {
                 cell.instructor.borderStyle = .none
                 cell.evaluator.borderStyle = .none
                 cell.other.borderStyle = .none
-                cell.time.borderStyle = .none
                 cell.srty.borderStyle = .none
                 
                 guard let crewMember = cell.crewMember else {
