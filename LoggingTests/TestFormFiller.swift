@@ -12,7 +12,7 @@ import CryptoKit
 
 @testable import Logging
 
-class TestImageGenerator: XCTestCase {
+class TestFormFiller: XCTestCase {
     
     var forms = [Form781]()
     
@@ -107,18 +107,18 @@ class TestImageGenerator: XCTestCase {
         
     }
     
-    func testPDFtoDataTime() throws {
-        
-        let form = self.forms[1]
-        
-        let filler = Form781pdfFiller(form781: form)
-        
-        let doc = filler.pdfDocument()
-        
-        measure {
-             _ = doc?.dataRepresentation()
-        }
-        
-    }
+//    func testPDFtoDataTime() throws {
+//
+//        let form = self.forms[1]
+//        
+//        let filler = Form781pdfFiller(form781: form)
+//
+//        let doc = filler.pdfDocument()
+//
+//        measure {
+//             _ = doc?.dataRepresentation()
+//        }
+//
+//    }
      
 }

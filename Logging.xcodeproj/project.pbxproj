@@ -59,7 +59,7 @@
 		83D8409424D3402D00F336E3 /* LoggingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D8409324D3402D00F336E3 /* LoggingTests.swift */; };
 		83D8409F24D3402D00F336E3 /* LoggingUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D8409E24D3402D00F336E3 /* LoggingUITests.swift */; };
 		A9D320D7193904F747E1FF90 /* Pods_Logging_LoggingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7192C4E0628E4E7D0C02BFBC /* Pods_Logging_LoggingUITests.framework */; };
-		D20DC354258C2F780012FA2B /* TestImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20DC353258C2F780012FA2B /* TestImageGenerator.swift */; };
+		D20DC354258C2F780012FA2B /* TestFormFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20DC353258C2F780012FA2B /* TestFormFiller.swift */; };
 		D210F2AB258FC2FB00A59D3A /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210F2AA258FC2FB00A59D3A /* String+Ext.swift */; };
 		D210F2B3258FC4A600A59D3A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210F2B2258FC4A600A59D3A /* Constants.swift */; };
 		D210F2B8258FC5FC00A59D3A /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210F2B7258FC5FC00A59D3A /* Date+Ext.swift */; };
@@ -151,7 +151,7 @@
 		83D8409A24D3402D00F336E3 /* LoggingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoggingUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		83D8409E24D3402D00F336E3 /* LoggingUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingUITests.swift; sourceTree = "<group>"; };
 		83D840A024D3402D00F336E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D20DC353258C2F780012FA2B /* TestImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestImageGenerator.swift; sourceTree = "<group>"; };
+		D20DC353258C2F780012FA2B /* TestFormFiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFormFiller.swift; sourceTree = "<group>"; };
 		D210F2AA258FC2FB00A59D3A /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		D210F2B2258FC4A600A59D3A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D210F2B7258FC5FC00A59D3A /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
@@ -420,7 +420,7 @@
 		83D8409224D3402D00F336E3 /* LoggingTests */ = {
 			isa = PBXGroup;
 			children = (
-				D20DC353258C2F780012FA2B /* TestImageGenerator.swift */,
+				D20DC353258C2F780012FA2B /* TestFormFiller.swift */,
 				83D8409324D3402D00F336E3 /* LoggingTests.swift */,
 				4D40D8AC257B214300738AEE /* Form781ControllerTests.swift */,
 				83D8409524D3402D00F336E3 /* Info.plist */,
@@ -740,7 +740,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83D8409424D3402D00F336E3 /* LoggingTests.swift in Sources */,
-				D20DC354258C2F780012FA2B /* TestImageGenerator.swift in Sources */,
+				D20DC354258C2F780012FA2B /* TestFormFiller.swift in Sources */,
 				4D40D8AD257B214300738AEE /* Form781ControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
