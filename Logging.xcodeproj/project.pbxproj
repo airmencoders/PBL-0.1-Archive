@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		131239A32518EFCF00F3B636 /* afto781.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 131239A22518EFCF00F3B636 /* afto781.pdf */; };
-		134E78DE257E7DCD00A1D4A1 /* ImageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 134E78CE257AA92500A1D4A1 /* ImageGenerator.swift */; };
 		134E7962257FED7C00A1D4A1 /* Form781-Front.png in Resources */ = {isa = PBXBuildFile; fileRef = 134E7960257FED7C00A1D4A1 /* Form781-Front.png */; };
 		134E7963257FED7C00A1D4A1 /* Form781-Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 134E7961257FED7C00A1D4A1 /* Form781-Back.png */; };
 		138809FE25683876005B93FF /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -67,8 +65,8 @@
 		D210F2B8258FC5FC00A59D3A /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210F2B7258FC5FC00A59D3A /* Date+Ext.swift */; };
 		D210F2C225905D9700A59D3A /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210F2C125905D9700A59D3A /* UITextField+Ext.swift */; };
 		D210F2E325918A7000A59D3A /* Form781+PDF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210F2E225918A7000A59D3A /* Form781+PDF.swift */; };
-		D210F2E825918B6200A59D3A /* fillable781.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D210F2E725918B6200A59D3A /* fillable781.pdf */; };
 		D210F2ED25919E9300A59D3A /* Form781pdfFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D210F2EC25919E9300A59D3A /* Form781pdfFiller.swift */; };
+		D213B35E2591D17800F9A43A /* fillable781v3.pdf in Resources */ = {isa = PBXBuildFile; fileRef = D213B35D2591D17800F9A43A /* fillable781v3.pdf */; };
 		FC99B2719A65D5512B76F5AC /* Pods_LoggingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47FE006718C4942F5FE50BB0 /* Pods_LoggingTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,9 +88,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		131239A22518EFCF00F3B636 /* afto781.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = afto781.pdf; sourceTree = "<group>"; };
 		13464808256EFF6F00DB7783 /* SplitTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitTime.swift; sourceTree = "<group>"; };
-		134E78CE257AA92500A1D4A1 /* ImageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageGenerator.swift; sourceTree = "<group>"; };
 		134E7960257FED7C00A1D4A1 /* Form781-Front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Form781-Front.png"; sourceTree = "<group>"; };
 		134E7961257FED7C00A1D4A1 /* Form781-Back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Form781-Back.png"; sourceTree = "<group>"; };
 		13965D85DFCED656F8ABF8B0 /* Pods-Logging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Logging.debug.xcconfig"; path = "Target Support Files/Pods-Logging/Pods-Logging.debug.xcconfig"; sourceTree = "<group>"; };
@@ -161,8 +157,8 @@
 		D210F2B7258FC5FC00A59D3A /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		D210F2C125905D9700A59D3A /* UITextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
 		D210F2E225918A7000A59D3A /* Form781+PDF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Form781+PDF.swift"; sourceTree = "<group>"; };
-		D210F2E725918B6200A59D3A /* fillable781.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = fillable781.pdf; sourceTree = "<group>"; };
 		D210F2EC25919E9300A59D3A /* Form781pdfFiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Form781pdfFiller.swift; sourceTree = "<group>"; };
+		D213B35D2591D17800F9A43A /* fillable781v3.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = fillable781v3.pdf; sourceTree = "<group>"; };
 		ED9788E1C9AF89B0FDD4ABF4 /* Pods-LoggingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoggingTests.release.xcconfig"; path = "Target Support Files/Pods-LoggingTests/Pods-LoggingTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -265,7 +261,6 @@
 				7F680C3D25475E9200625ECC /* Form781.swift */,
 				D210F2E225918A7000A59D3A /* Form781+PDF.swift */,
 				D210F2EC25919E9300A59D3A /* Form781pdfFiller.swift */,
-				D210F2E725918B6200A59D3A /* fillable781.pdf */,
 			);
 			path = "Form 781";
 			sourceTree = "<group>";
@@ -292,7 +287,6 @@
 				7F7E0E412538BCCC0041C4E9 /* PBLTextField.swift */,
 				7F7E0DDF253110330041C4E9 /* PBLButton.swift */,
 				13464808256EFF6F00DB7783 /* SplitTime.swift */,
-				134E78CE257AA92500A1D4A1 /* ImageGenerator.swift */,
 				D210F2B2258FC4A600A59D3A /* Constants.swift */,
 			);
 			path = HelperFiles;
@@ -352,7 +346,7 @@
 				83D8407C24D3402A00F336E3 /* SceneDelegate.swift */,
 				83D8408524D3402D00F336E3 /* Assets.xcassets */,
 				7F7E0DD12530FC350041C4E9 /* Colors.xcassets */,
-				131239A22518EFCF00F3B636 /* afto781.pdf */,
+				D213B35D2591D17800F9A43A /* fillable781v3.pdf */,
 				83D8408A24D3402D00F336E3 /* Info.plist */,
 			);
 			path = Resources;
@@ -582,11 +576,10 @@
 				83D8408924D3402D00F336E3 /* LaunchScreen.storyboard in Resources */,
 				7F1EC5612551F0C4006A644D /* DMSans-Medium.ttf in Resources */,
 				7F1EC55E2551F0C4006A644D /* DMSans-Bold.ttf in Resources */,
-				131239A32518EFCF00F3B636 /* afto781.pdf in Resources */,
 				7F7E0DD22530FC350041C4E9 /* Colors.xcassets in Resources */,
 				83D8408624D3402D00F336E3 /* Assets.xcassets in Resources */,
+				D213B35E2591D17800F9A43A /* fillable781v3.pdf in Resources */,
 				7FAB8C72254347EF00868215 /* Overview.storyboard in Resources */,
-				D210F2E825918B6200A59D3A /* fillable781.pdf in Resources */,
 				83D8408424D3402A00F336E3 /* Form781.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -698,7 +691,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				134E78DE257E7DCD00A1D4A1 /* ImageGenerator.swift in Sources */,
 				D210F2B3258FC4A600A59D3A /* Constants.swift in Sources */,
 				138809FE25683876005B93FF /* (null) in Sources */,
 				7F7E0E422538BCCC0041C4E9 /* PBLTextField.swift in Sources */,
@@ -920,7 +912,9 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 32;
-				DEVELOPMENT_TEAM = RQ9T47YT3S;
+				DEVELOPMENT_TEAM = 4W9F335W5Y;
+				ENABLE_TESTABILITY = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
 				INFOPLIST_FILE = Logging/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -88,16 +88,9 @@ class Form781ViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func sendButtonTapped(_ sender: UIButton) {
-        // Load the PDF
+        guard let form781 = Form781Controller.shared.getCurrentForm() else { return }
+        form781.popoverSharePDF(from: self, sourceRect: sender.frame)
         
-        NSLog("***** Send button tapped *****")
-        let _ = Helper.exportPDF()
-        NSLog("***** PDF Saved to disc *****")
-        // Alerts.showPDFCreation(on: self)
-        let pdfPulled: PDFDocument = Helper.loadPDFFromDisc()
-        NSLog("***** PDF Loaded *****")
-        
-        FlightListActivityController.share(title: "Form 781", message: "Current 781", pdfDoc: pdfPulled, on: self, frame: sender.frame)
     }
         
     @IBAction func printButtonTapped(_ sender: UIButton) {

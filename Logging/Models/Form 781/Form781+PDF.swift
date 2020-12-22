@@ -6,8 +6,8 @@
 //  Copyright © 2020 Christian Brechbuhl. All rights reserved.
 //
 
-import Foundation
 import PDFKit
+import UIKit
 
 extension Form781{
     
@@ -22,20 +22,38 @@ extension Form781{
         
     }
     func printPDF(){
-        guard let pdfURL = self.pdfURL() else { return }
-        
-        print(pdfURL)
-        
+       
         let printInfo = UIPrintInfo(dictionary: nil)
-        
-        printInfo.jobName = pdfURL.lastPathComponent
+        printInfo.jobName = "AFTO Form 781"
         printInfo.outputType = .grayscale
         
         let printController = UIPrintInteractionController.shared
         printController.printInfo = printInfo
         printController.showsNumberOfCopies = true
-        printController.printingItem = pdfURL
+        printController.printingItem = pdfDocument()?.dataRepresentation()
         printController.present(animated: true, completionHandler: nil)
     }
+    
+    func popoverSharePDF(from viewController: UIViewController, sourceRect: CGRect) {
+        
+        NSLog("Get PDF URL")
+        guard let pdfURL = self.pdfURL() else { return }
+        NSLog("Got PDF URL")
+        
+        let items = [pdfURL]
+        
+        let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        activityViewController.excludedActivityTypes = [.markupAsPDF, .postToFacebook, .postToTwitter]
+
+            if let popoverController = activityViewController.popoverPresentationController {
+                popoverController.sourceRect = sourceRect
+                popoverController.sourceView = viewController.view
+                popoverController.permittedArrowDirections = UIPopoverArrowDirection.up
+            }
+
+            viewController.present(activityViewController, animated: true, completion: nil)
+        
+    }
+    
     
 }

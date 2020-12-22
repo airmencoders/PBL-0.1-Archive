@@ -9,44 +9,49 @@
 import Foundation
 import PDFKit
 
-struct Form781pdfFiller{
+struct Form781pdfFiller  {
     
     let form781: Form781!
     
     func pdfDocument() -> PDFDocument? {
-        guard let path = Bundle.main.path(forResource: "fillable781", ofType: "pdf") else { return nil }
+        guard let path = Bundle.main.path(forResource: "fillable781v3", ofType: "pdf") else { return nil }
         guard let pdf = PDFDocument(url: URL(fileURLWithPath: path)) else { return nil }
         
+        NSLog("Create Dictionaries")
         let pageAnnotationDictionaries = createPDFFieldLocationDictionaries(for: pdf)
-        
+        NSLog("Dictionaries Created")
+        NSLog("Fill PDF")
         let filledPDF = fillPDF(pdf, with: form781, using: pageAnnotationDictionaries)
-        
+        NSLog("PDF Filled")
         return filledPDF
     }
     
     func pdfURL() -> URL? {
         
-        let pdf = pdfDocument()
-        let data = pdf?.dataRepresentation()
+        guard let pdf = pdfDocument() else { return nil }
         
-        do {
+        
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        var savePath = paths[0]
+        savePath = savePath.appendingPathComponent("filled781.pdf")
+        
+        NSLog("Write PDF Data To Disk")
+        
+        if pdf.write(to: savePath) {
             
-            let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-            var savePath = paths[0]
-            savePath = savePath.appendingPathComponent("filled781.pdf")
+            NSLog("PDF Written To Disk")
             
-            try data?.write(to: savePath)
             return savePath
             
-        }catch{
-            print("PDF Save Failure.")
+        } else {
+            
+            NSLog("PDF Failed To Write To Disk")
             return nil
         }
-
+        
     }
     
     func fillPDF(_ pdf: PDFDocument, with formData: Form781, using pageAnnotationDictionaries:[[String: CGPoint]]) -> PDFDocument {
-        
         let page0 = pdf.page(at:0)
         
         let page0dict = pageAnnotationDictionaries[0]
@@ -159,11 +164,15 @@ struct Form781pdfFiller{
     
 }
 
+
 extension PDFAnnotation{
     func setText(_ string: String?){
+        guard let string = string, !string.isEmpty  else {
+            return
+        }
         let page = self.page
         page?.removeAnnotation(self)
-        self.setValue(string ?? "", forAnnotationKey: .widgetValue)
+        self.setValue(string, forAnnotationKey: .widgetValue)
         page?.addAnnotation(self)
     }
 }
