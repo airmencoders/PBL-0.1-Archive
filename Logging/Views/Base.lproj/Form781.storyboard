@@ -1088,11 +1088,7 @@ ORGN</string>
                                         <rect key="frame" x="0.0" y="0.0" width="696" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GRAND TOTALS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jn7-Mv-wcz" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-<<<<<<< Updated upstream
                                                 <rect key="frame" x="14" y="19.5" width="84" height="17"/>
-=======
-                                                <rect key="frame" x="14" y="26" width="84" height="17"/>
->>>>>>> Stashed changes
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -1133,9 +1129,6 @@ ORGN</string>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LANDINGS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Roa-Pq-qJM" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
                                                                 <rect key="frame" x="180" y="14.5" width="56" height="17"/>
-=======
-                                                                <rect key="frame" x="180" y="13" width="56" height="17"/>
->>>>>>> Stashed changes
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -1832,7 +1825,7 @@ ORGN</string>
                                 <rect key="frame" x="0.0" y="459" width="205" height="852.5"/>
                                 <color key="backgroundColor" name="mist"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="50s-9C-qxu">
-                                    <rect key="frame" x="0.0" y="86.5" width="205" height="44"/>
+                                    <rect key="frame" x="0.0" y="117" width="205" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5yZ-Qa-xAx" customClass="PBLSideMenuButton" customModule="Logging" customModuleProvider="target">
@@ -1855,25 +1848,37 @@ ORGN</string>
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Xjs-XA-klz">
-                                        <rect key="frame" x="0.0" y="28" width="205" height="30.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="DayCell" rowHeight="61" id="Xjs-XA-klz" customClass="DayTableViewCell" customModule="Logging" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="205" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xjs-XA-klz" id="onw-cO-G7F">
-                                            <rect key="frame" x="0.0" y="0.0" width="205" height="30.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="205" height="61"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBx-GC-W4q" customClass="PBLSideMenuButton" customModule="Logging" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="205" height="30.5"/>
-                                                    <state key="normal" title="DD Mmm YYYY"/>
-                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YiS-OL-bYO" customClass="daysView" customModule="Logging" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="3" width="205" height="55"/>
+                                                    <color key="backgroundColor" name="fog"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DD Mmm YYYY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSi-df-lGs" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
+                                                    <rect key="frame" x="52.5" y="22" width="100" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="uBx-GC-W4q" firstAttribute="centerY" secondItem="onw-cO-G7F" secondAttribute="centerY" id="ExY-3Z-coo"/>
-                                                <constraint firstItem="uBx-GC-W4q" firstAttribute="width" secondItem="onw-cO-G7F" secondAttribute="width" id="FAz-XZ-BZl"/>
-                                                <constraint firstItem="uBx-GC-W4q" firstAttribute="height" secondItem="onw-cO-G7F" secondAttribute="height" id="WxM-Ej-V07"/>
-                                                <constraint firstItem="uBx-GC-W4q" firstAttribute="centerX" secondItem="onw-cO-G7F" secondAttribute="centerX" id="xxi-Fd-7RX"/>
+                                                <constraint firstItem="YiS-OL-bYO" firstAttribute="height" secondItem="onw-cO-G7F" secondAttribute="height" multiplier="0.9" id="3HC-PG-Bx2"/>
+                                                <constraint firstItem="RSi-df-lGs" firstAttribute="centerX" secondItem="onw-cO-G7F" secondAttribute="centerX" id="3WX-ny-TfA"/>
+                                                <constraint firstItem="YiS-OL-bYO" firstAttribute="centerX" secondItem="onw-cO-G7F" secondAttribute="centerX" id="93j-2C-E4z"/>
+                                                <constraint firstItem="YiS-OL-bYO" firstAttribute="centerY" secondItem="onw-cO-G7F" secondAttribute="centerY" id="MOe-1s-W7A"/>
+                                                <constraint firstItem="RSi-df-lGs" firstAttribute="centerY" secondItem="onw-cO-G7F" secondAttribute="centerY" id="RmI-a8-4GH"/>
+                                                <constraint firstItem="YiS-OL-bYO" firstAttribute="width" secondItem="onw-cO-G7F" secondAttribute="width" id="ccz-WQ-Y0z"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dayBackgroundView" destination="YiS-OL-bYO" id="j26-cE-Xzp"/>
+                                            <outlet property="dayLabel" destination="RSi-df-lGs" id="huI-8M-NM8"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1910,7 +1915,7 @@ ORGN</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JS7-DY-q1W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="910" y="-54"/>
+            <point key="canvasLocation" x="909.66796874999989" y="-54.026354319180086"/>
         </scene>
         <!--Overview View Controller-->
         <scene sceneID="fgk-PZ-NCe">
