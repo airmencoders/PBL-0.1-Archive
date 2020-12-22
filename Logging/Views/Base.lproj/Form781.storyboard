@@ -1088,7 +1088,11 @@ ORGN</string>
                                         <rect key="frame" x="0.0" y="0.0" width="696" height="56"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GRAND TOTALS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jn7-Mv-wcz" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
+<<<<<<< Updated upstream
                                                 <rect key="frame" x="14" y="19.5" width="84" height="17"/>
+=======
+                                                <rect key="frame" x="14" y="26" width="84" height="17"/>
+>>>>>>> Stashed changes
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
