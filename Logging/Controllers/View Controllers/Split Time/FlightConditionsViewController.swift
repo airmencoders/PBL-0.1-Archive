@@ -15,6 +15,10 @@ class FlightConditionsViewController: UIViewController {
     @IBOutlet weak var flightConditionsTableView: UITableView!
     @IBOutlet weak var editButton: UIButton!
     
+    // MARK: - Properties
+    
+    var isEditingConditions = false
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -41,6 +45,12 @@ class FlightConditionsViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func editButtonTapped(_ sender: UIButton) {
+        isEditingConditions.toggle()
+        if isEditingConditions {
+            
+        } else {
+            
+        }
     }
     
 } //End
