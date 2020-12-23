@@ -38,6 +38,16 @@ class FlightConditionsTableViewCell: UITableViewCell {
         combatSptTime.text = crewMember.combatSptTime
         combatSptSrty.text = crewMember.combatSptSrty
         resv.text = crewMember.resvStatus
+        
+        night.delegate = self
+        ins.delegate = self
+        simIns.delegate = self
+        nvg.delegate = self
+        combatTime.delegate = self
+        combatSrty.delegate = self
+        combatSptTime.delegate = self
+        combatSptSrty.delegate = self
+        resv.delegate = self
     }
 
 } //End

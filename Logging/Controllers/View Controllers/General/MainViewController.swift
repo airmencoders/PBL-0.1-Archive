@@ -136,7 +136,7 @@ class MainViewController: UIViewController {
     }
 
     @objc func keyboardWillHide(notification:NSNotification) {
-        var contentInset: UIEdgeInsets = UIEdgeInsets.zero
+        let contentInset: UIEdgeInsets = UIEdgeInsets.zero
         //contentInset.bottom = flightSeqPopUpLandscapeConstant
         scrollView.contentInset = contentInset
     }

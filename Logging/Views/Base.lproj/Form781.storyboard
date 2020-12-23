@@ -2912,40 +2912,40 @@ ORGN</string>
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="74c-qa-Zp3">
-                                                    <rect key="frame" x="188.5" y="16" width="462.5" height="18.5"/>
+                                                    <rect key="frame" x="178.5" y="16" width="482.5" height="18.5"/>
                                                     <subviews>
                                                         <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rss-ix-ifQ">
-                                                            <rect key="frame" x="0.0" y="0.0" width="66" height="18.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="69" height="18.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SzR-xE-6Z3">
-                                                            <rect key="frame" x="66" y="0.0" width="66" height="18.5"/>
+                                                            <rect key="frame" x="69" y="0.0" width="69" height="18.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8BY-ag-EBA">
-                                                            <rect key="frame" x="132" y="0.0" width="66" height="18.5"/>
+                                                            <rect key="frame" x="138" y="0.0" width="69" height="18.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EcF-Rs-uC9">
-                                                            <rect key="frame" x="198" y="0.0" width="66" height="18.5"/>
+                                                            <rect key="frame" x="207" y="0.0" width="68.5" height="18.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LMK-dT-6OG">
-                                                            <rect key="frame" x="264" y="0.0" width="66.5" height="18.5"/>
+                                                            <rect key="frame" x="275.5" y="0.0" width="69" height="18.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4Pq-Ym-LMF">
-                                                            <rect key="frame" x="330.5" y="0.0" width="66" height="18.5"/>
+                                                            <rect key="frame" x="344.5" y="0.0" width="69" height="18.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mTU-MO-kwc">
-                                                            <rect key="frame" x="396.5" y="0.0" width="66" height="18.5"/>
+                                                            <rect key="frame" x="413.5" y="0.0" width="69" height="18.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
@@ -2953,8 +2953,8 @@ ORGN</string>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="74c-qa-Zp3" firstAttribute="width" secondItem="wdx-nc-McG" secondAttribute="width" multiplier="0.7" id="1Ke-il-9hJ"/>
-                                                <constraint firstAttribute="trailing" secondItem="74c-qa-Zp3" secondAttribute="trailing" constant="10" id="7si-gv-xy7"/>
+                                                <constraint firstItem="74c-qa-Zp3" firstAttribute="width" secondItem="wdx-nc-McG" secondAttribute="width" multiplier="0.73" id="1Ke-il-9hJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="74c-qa-Zp3" secondAttribute="trailing" id="7si-gv-xy7"/>
                                                 <constraint firstItem="H1g-gm-dD0" firstAttribute="centerY" secondItem="wdx-nc-McG" secondAttribute="centerY" id="L44-s5-adF"/>
                                                 <constraint firstItem="H1g-gm-dD0" firstAttribute="leading" secondItem="wdx-nc-McG" secondAttribute="leading" constant="10" id="N0F-3t-uQl"/>
                                                 <constraint firstItem="agr-gf-E8O" firstAttribute="leading" secondItem="wdx-nc-McG" secondAttribute="leading" id="QTa-Zb-ARW"/>
@@ -3181,50 +3181,50 @@ ORGN</string>
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HPV-xj-jjv">
-                                                    <rect key="frame" x="148.5" y="16" width="502.5" height="18.5"/>
+                                                    <rect key="frame" x="139" y="16" width="522" height="18.5"/>
                                                     <subviews>
                                                         <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LVV-Co-J48">
-                                                            <rect key="frame" x="0.0" y="0.0" width="56" height="18.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="58" height="18.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d7O-Kq-Pxe">
-                                                            <rect key="frame" x="56" y="0.0" width="56" height="18.5"/>
+                                                            <rect key="frame" x="58" y="0.0" width="58" height="18.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gsP-E9-Hif">
-                                                            <rect key="frame" x="112" y="0.0" width="55.5" height="18.5"/>
+                                                            <rect key="frame" x="116" y="0.0" width="58" height="18.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rub-s3-BSM">
-                                                            <rect key="frame" x="167.5" y="0.0" width="56" height="18.5"/>
+                                                            <rect key="frame" x="174" y="0.0" width="58" height="18.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Lw-65-Bnc">
-                                                            <rect key="frame" x="223.5" y="0.0" width="55.5" height="18.5"/>
+                                                            <rect key="frame" x="232" y="0.0" width="58" height="18.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7ht-Vp-5GA">
-                                                            <rect key="frame" x="279" y="0.0" width="56" height="18.5"/>
+                                                            <rect key="frame" x="290" y="0.0" width="58" height="18.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rq8-k6-NQ4">
-                                                            <rect key="frame" x="335" y="0.0" width="56" height="18.5"/>
+                                                            <rect key="frame" x="348" y="0.0" width="58" height="18.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LDk-7a-B9I">
-                                                            <rect key="frame" x="391" y="0.0" width="55.5" height="18.5"/>
+                                                            <rect key="frame" x="406" y="0.0" width="58" height="18.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="owO-mN-HWH">
-                                                            <rect key="frame" x="446.5" y="0.0" width="56" height="18.5"/>
+                                                            <rect key="frame" x="464" y="0.0" width="58" height="18.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
@@ -3237,8 +3237,8 @@ ORGN</string>
                                                 <constraint firstItem="USt-gw-hwr" firstAttribute="centerY" secondItem="hHp-sS-i3f" secondAttribute="centerY" id="QdU-j0-nd3"/>
                                                 <constraint firstItem="XcZ-ag-TWE" firstAttribute="leading" secondItem="hHp-sS-i3f" secondAttribute="leading" id="WHt-qe-1Hc"/>
                                                 <constraint firstAttribute="bottom" secondItem="XcZ-ag-TWE" secondAttribute="bottom" id="h0j-CA-Bkq"/>
-                                                <constraint firstAttribute="trailing" secondItem="HPV-xj-jjv" secondAttribute="trailing" constant="10" id="ngv-H7-bJX"/>
-                                                <constraint firstItem="HPV-xj-jjv" firstAttribute="width" secondItem="hHp-sS-i3f" secondAttribute="width" multiplier="0.76" id="q1L-5M-bvd"/>
+                                                <constraint firstAttribute="trailing" secondItem="HPV-xj-jjv" secondAttribute="trailing" id="ngv-H7-bJX"/>
+                                                <constraint firstItem="HPV-xj-jjv" firstAttribute="width" secondItem="hHp-sS-i3f" secondAttribute="width" multiplier="0.79" id="q1L-5M-bvd"/>
                                                 <constraint firstItem="HPV-xj-jjv" firstAttribute="centerY" secondItem="hHp-sS-i3f" secondAttribute="centerY" id="qwD-2o-CrQ"/>
                                             </constraints>
                                         </tableViewCellContentView>

@@ -34,6 +34,14 @@ class FlightTimeTableViewCell: UITableViewCell {
         other.text = crewMember.other
         time.text = crewMember.time
         srty.text = crewMember.srty
+        
+        primary.delegate = self
+        secondary.delegate = self
+        instructor.delegate = self
+        evaluator.delegate = self
+        other.delegate = self
+        time.delegate = self
+        srty.delegate = self
     }
     
 } //End
