@@ -20,7 +20,7 @@ class CrewMember: Codable {
     var instructor: String?
     var evaluator: String?
     var other: String?
-    var time: String?
+//    var time: String?
     var srty: String?
     var nightPSIE: String?
     var insPIE: String?
@@ -42,7 +42,7 @@ class CrewMember: Codable {
          instructor: String? = nil,
          evaluator: String? = nil,
          other: String? = nil,
-         time: String? = nil,
+//         time: String? = nil,
          srty: String? = nil,
          nightPSIE: String? = nil,
          insPIE: String? = nil,
@@ -64,7 +64,7 @@ class CrewMember: Codable {
         self.instructor = instructor
         self.evaluator = evaluator
         self.other = other
-        self.time = time
+//        self.time = time
         self.srty = srty
         self.nightPSIE = nightPSIE
         self.insPIE = insPIE
@@ -75,6 +75,23 @@ class CrewMember: Codable {
         self.combatSptTime = combatSptTime
         self.combatSptSrty = combatSptSrty
         self.resvStatus = resvStatus
+    }
+    
+    
+    func totalAirTime() -> String {
+        var total: Double = 0.0
+        
+        let dblPrimary = Double(self.primary ?? "0.0")
+        let dblSecondary = Double(self.secondary ?? "0.0")
+        let dblInstructor = Double(self.instructor ?? "0.0")
+        let dblEval = Double(self.evaluator ?? "0.0")
+        
+        total += dblPrimary ?? 0.0
+        total += dblSecondary ?? 0.0
+        total += dblInstructor ?? 0.0
+        total += dblEval ?? 0.0
+        
+        return String(total)
     }
     
 } //End

@@ -244,7 +244,7 @@ class Form781ControllerTests: XCTestCase {
         XCTAssertNil(crewMember.instructor)
         XCTAssertNil(crewMember.evaluator)
         XCTAssertNil(crewMember.other)
-        XCTAssertNil(crewMember.time)
+//        XCTAssertNil(crewMember.time)
         XCTAssertNil(crewMember.srty)
         XCTAssertNil(crewMember.nightPSIE)
         XCTAssertNil(crewMember.insPIE)
@@ -262,7 +262,6 @@ class Form781ControllerTests: XCTestCase {
                                                       instructor: "instructor",
                                                       evaluator: "evaluator",
                                                       other: "other",
-                                                      time: "time",
                                                       srty: "srty")
 
         XCTAssertEqual(crewMember.primary, "primary")
@@ -270,7 +269,7 @@ class Form781ControllerTests: XCTestCase {
         XCTAssertEqual(crewMember.instructor, "instructor")
         XCTAssertEqual(crewMember.evaluator, "evaluator")
         XCTAssertEqual(crewMember.other, "other")
-        XCTAssertEqual(crewMember.time, "time")
+//        XCTAssertEqual(crewMember.time, "time")
         XCTAssertEqual(crewMember.srty, "srty")
         
         Form781Controller.shared.updateCrewMemberConditions(crewMember: crewMember,

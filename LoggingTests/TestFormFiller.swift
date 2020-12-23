@@ -37,11 +37,11 @@ class TestFormFiller: XCTestCase {
         
         form.flights = [flightA]
         
-        let crewMember1 = CrewMember(lastName: "Bertram", firstName: "Gilfoyle", ssnLast4: "1234", flightAuthDutyCode: "IP B5", flyingOranization: "0016", primary: "1.5", secondary: nil, instructor: "1.5", evaluator: nil, other: "", time: "3.0", srty: "1", nightPSIE: "2.0", insPIE: "", simIns: nil, nvg: "2.0", combatTime: "", combatSrty: nil, combatSptTime: "", combatSptSrty: nil, resvStatus: "")
+        let crewMember1 = CrewMember(lastName: "Bertram", firstName: "Gilfoyle", ssnLast4: "1234", flightAuthDutyCode: "IP B5", flyingOranization: "0016", primary: "1.5", secondary: nil, instructor: "1.5", evaluator: nil, other: "", srty: "1", nightPSIE: "2.0", insPIE: "", simIns: nil, nvg: "2.0", combatTime: "", combatSrty: nil, combatSptTime: "", combatSptSrty: nil, resvStatus: "")
         
-        let crewMember2 = CrewMember(lastName: "Chugtai", firstName: "Dinesh", ssnLast4: "1345", flightAuthDutyCode: "IP BJ", flyingOranization: "0016", primary: "1.5", secondary: nil, instructor: "1.5", evaluator: nil, other: "", time: "3.0", srty: "1", nightPSIE: "2.0", insPIE: "", simIns: nil, nvg: "2.0", combatTime: "", combatSrty: nil, combatSptTime: "", combatSptSrty: nil, resvStatus: "1")
+        let crewMember2 = CrewMember(lastName: "Chugtai", firstName: "Dinesh", ssnLast4: "1345", flightAuthDutyCode: "IP BJ", flyingOranization: "0016", primary: "1.5", secondary: nil, instructor: "1.5", evaluator: nil, other: "", srty: "1", nightPSIE: "2.0", insPIE: "", simIns: nil, nvg: "2.0", combatTime: "", combatSrty: nil, combatSptTime: "", combatSptSrty: nil, resvStatus: "1")
         
-        let crewMember3 = CrewMember(lastName: "LongLastName", firstName: "Monica", ssnLast4: "5322", flightAuthDutyCode: "IP BZ", flyingOranization: "1234", primary: "1.1", secondary: "2.2", instructor: "3.3", evaluator: "4.4", other: "5.5", time: "0.0", srty: "9", nightPSIE: "6.6", insPIE: "7.7", simIns: "8.8", nvg: "0.0", combatTime: "3.3", combatSrty: "4.4", combatSptTime: "5.5", combatSptSrty: "6.6", resvStatus: "33")
+        let crewMember3 = CrewMember(lastName: "LongLastName", firstName: "Monica", ssnLast4: "5322", flightAuthDutyCode: "IP BZ", flyingOranization: "1234", primary: "1.1", secondary: "2.2", instructor: "3.3", evaluator: "4.4", other: "5.5", srty: "9", nightPSIE: "6.6", insPIE: "7.7", simIns: "8.8", nvg: "0.0", combatTime: "3.3", combatSrty: "4.4", combatSptTime: "5.5", combatSptSrty: "6.6", resvStatus: "33")
         
         form.crewMembers = [crewMember1, crewMember2, crewMember3]
         
@@ -79,7 +79,7 @@ class TestFormFiller: XCTestCase {
             }
             let resvStatus = res == 0 ? "" : "\(res)"
             
-            let crewMember = CrewMember(lastName: lastNames[i], firstName: "Bill", ssnLast4: social, flightAuthDutyCode: "IP BZ", flyingOranization: "1234", primary: String(format: "%.1f", t + 0.1), secondary: String(format: "%.1f", t + 0.2), instructor: String(format: "%.1f", t + 0.3), evaluator: String(format: "%.1f", t + 0.4), other: String(format: "%.1f", t + 0.5), time: String(format: "%.1f", t + 0.6), srty: String(format: "%.1f", t + 0.7), nightPSIE: String(format: "%.1f", t + 0.8), insPIE: String(format: "%.1f", t + 0.9), simIns: String(format: "%.1f", t + 1.0), nvg: String(format: "%.1f", t + 1.1), combatTime: String(format: "%.1f", t + 1.2), combatSrty: String(format: "%.1f", t + 1.3), combatSptTime: String(format: "%.1f", t + 1.4), combatSptSrty: String(format: "%.1f", t + 1.5), resvStatus: resvStatus)
+            let crewMember = CrewMember(lastName: lastNames[i], firstName: "Bill", ssnLast4: social, flightAuthDutyCode: "IP BZ", flyingOranization: "1234", primary: String(format: "%.1f", t + 0.1), secondary: String(format: "%.1f", t + 0.2), instructor: String(format: "%.1f", t + 0.3), evaluator: String(format: "%.1f", t + 0.4), other: String(format: "%.1f", t + 0.5), srty: String(format: "%.1f", t + 0.7), nightPSIE: String(format: "%.1f", t + 0.8), insPIE: String(format: "%.1f", t + 0.9), simIns: String(format: "%.1f", t + 1.0), nvg: String(format: "%.1f", t + 1.1), combatTime: String(format: "%.1f", t + 1.2), combatSrty: String(format: "%.1f", t + 1.3), combatSptTime: String(format: "%.1f", t + 1.4), combatSptSrty: String(format: "%.1f", t + 1.5), resvStatus: resvStatus)
         
             form2.crewMembers.append(crewMember)
             t += 1.0

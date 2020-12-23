@@ -109,14 +109,13 @@ class Form781Controller {
         NSLog("Updated crew member info")
     }
     
-    func updateCrewMemberTime(crewMember: CrewMember, primary: String, secondary: String, instructor: String, evaluator: String, other: String, time: String, srty: String) {
-        
+//    func updateCrewMemberTime(crewMember: CrewMember, primary: String, secondary: String, instructor: String, evaluator: String, other: String, time: String, srty: String) {
+    func updateCrewMemberTime(crewMember: CrewMember, primary: String, secondary: String, instructor: String, evaluator: String, other: String, srty: String) {
         crewMember.primary = primary
         crewMember.secondary = secondary
         crewMember.instructor = instructor
         crewMember.evaluator = evaluator
         crewMember.other = other
-        crewMember.time = time
         crewMember.srty = srty
                 
         save()
@@ -254,6 +253,7 @@ class Form781Controller {
     
     func save() {
         let encoder = JSONEncoder()
+        NSLog("Save file location \(fileURL(filename: loggingFileName))")
         do {
             encoder.outputFormatting = .prettyPrinted
             let data = try encoder.encode(forms)

@@ -91,16 +91,17 @@ class FlightTimeViewController: UIViewController {
                     NSLog("ERROR: FlightTimeViewController: updateCells() cell.other.text undefined.")
                     return
                 }
-                guard let time = cell.time.text else {
-                    NSLog("ERROR: FlightTimeViewController: updateCells() cell.time.text undefined.")
-                    return
-                }
+//                guard let time = cell.time.text else {
+//                    NSLog("ERROR: FlightTimeViewController: updateCells() cell.time.text undefined.")
+//                    return
+//                }
                 guard let srty = cell.srty.text else {
                     NSLog("ERROR: FlightTimeViewController: updateCells() cell.srty.text undefined.")
                     return
                 }
-                
-                Form781Controller.shared.updateCrewMemberTime(crewMember: crewMember, primary: primary, secondary: secondary, instructor: instructor, evaluator: evaluator, other: other, time: time, srty: srty)
+
+//                Form781Controller.shared.updateCrewMemberTime(crewMember: crewMember, primary: primary, secondary: secondary, instructor: instructor, evaluator: evaluator, other: other, time: time, srty: srty)
+                Form781Controller.shared.updateCrewMemberTime(crewMember: crewMember, primary: primary, secondary: secondary, instructor: instructor, evaluator: evaluator, other: other, srty: srty)
             }
         }
     }

@@ -154,5 +154,4 @@ class Helper {
         
         return nil
     }
-    
 }
