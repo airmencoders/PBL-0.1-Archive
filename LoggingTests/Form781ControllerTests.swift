@@ -23,7 +23,7 @@ class Form781ControllerTests: XCTestCase {
     override func setUp() {
         super.setUp()
         Form781Controller.shared.loggingFileName = "TestLogging.json"
-        try? Form781Controller.shared.loadForms()
+        Form781Controller.shared.loadForms()
     }
 
     override  func tearDown() {
@@ -46,13 +46,14 @@ class Form781ControllerTests: XCTestCase {
         let harmLocation = "in the butt bob"
         let flightAuthNum = "0"
         let issuingUnit = "HQ"
-        Form781Controller.shared.create(date: date,
-                                        mds: mds,
-                                        serialNumber: serialNumber,
-                                        unitCharged: unitCharged,
-                                        harmLocation: harmLocation,
-                                        flightAuthNum: flightAuthNum,
-                                        issuingUnit: issuingUnit)
+        Form781Controller.shared.addNewForm()
+        Form781Controller.shared.updateMissionData(date: date,
+                                                   mds: mds,
+                                                   serialNumber: serialNumber,
+                                                   unitCharged: unitCharged,
+                                                   harmLocation: harmLocation,
+                                                   flightAuthNum: flightAuthNum,
+                                                   issuingUnit: issuingUnit)
     }
 
     private func _updateWithGoodData() {
@@ -100,15 +101,15 @@ class Form781ControllerTests: XCTestCase {
 
     func testAddAForm() {
         // Establish our starting point.
-        XCTAssertNil(Form781Controller.shared.getCurrentForm())
+        XCTAssertNotNil(Form781Controller.shared.getCurrentForm())
         XCTAssertNil(Form781Controller.shared.getPreviousForm())
-        XCTAssertEqual(Form781Controller.shared.numberOfForms(), 0)
+        XCTAssertEqual(Form781Controller.shared.numberOfForms(), 1)
 
         self._addBogusForm()
 
         XCTAssertNotNil(Form781Controller.shared.getCurrentForm())
-        XCTAssertNil(Form781Controller.shared.getPreviousForm())
-        XCTAssertEqual(Form781Controller.shared.numberOfForms(), 1)
+        XCTAssertNotNil(Form781Controller.shared.getPreviousForm())
+        XCTAssertEqual(Form781Controller.shared.numberOfForms(), 2)
 
         let currentForm = Form781Controller.shared.getCurrentForm()
         XCTAssertEqual(currentForm!.flights.count, 0)
@@ -118,14 +119,14 @@ class Form781ControllerTests: XCTestCase {
 
         XCTAssertNotNil(Form781Controller.shared.getCurrentForm())
         XCTAssertNotNil(Form781Controller.shared.getPreviousForm())
-        XCTAssertEqual(Form781Controller.shared.numberOfForms(), 2)
+        XCTAssertEqual(Form781Controller.shared.numberOfForms(), 3)
     }
 
     func testDeleteForm() {
         // Establish our starting point.
-        XCTAssertNil(Form781Controller.shared.getCurrentForm())
+        XCTAssertNotNil(Form781Controller.shared.getCurrentForm())
         XCTAssertNil(Form781Controller.shared.getPreviousForm())
-        XCTAssertEqual(Form781Controller.shared.numberOfForms(), 0)
+        XCTAssertEqual(Form781Controller.shared.numberOfForms(), 1)
 
         self._addBogusForm()
 
@@ -141,14 +142,14 @@ class Form781ControllerTests: XCTestCase {
 
     func testMissionUpdate() {
         self._addBogusForm()
-        XCTAssertEqual(Form781Controller.shared.numberOfForms(), 1)
+        XCTAssertEqual(Form781Controller.shared.numberOfForms(), 2)
 
         var form = Form781Controller.shared.getCurrentForm()
         var date = form!.date
         XCTAssertEqual(date, bogusDate)
 
         self._updateWithGoodData()
-        XCTAssertEqual(Form781Controller.shared.numberOfForms(), 1)
+        XCTAssertEqual(Form781Controller.shared.numberOfForms(), 2)
 
         form = Form781Controller.shared.getCurrentForm()
         date = form!.date
@@ -157,7 +158,7 @@ class Form781ControllerTests: XCTestCase {
 
     func testUpdateFormTotals() {
         self._addBogusForm()
-        XCTAssertEqual(Form781Controller.shared.numberOfForms(), 1)
+        XCTAssertEqual(Form781Controller.shared.numberOfForms(), 2)
         let form = Form781Controller.shared.getCurrentForm()!
 
         XCTAssertNil(form.grandTotalTime)

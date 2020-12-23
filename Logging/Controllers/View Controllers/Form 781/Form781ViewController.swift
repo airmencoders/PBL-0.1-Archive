@@ -34,9 +34,7 @@ class Form781ViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var missionDateLabel: UILabel!
-    
     @IBOutlet weak var aircrewListView: UIView!
     @IBOutlet weak var missionDataView: UIView!
     @IBOutlet weak var aircrewDataView: UIView!
@@ -58,31 +56,10 @@ class Form781ViewController: UIViewController {
     // MARK: - Methods
     
     func setUpViews() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
         guard let form = Form781Controller.shared.getCurrentForm() else {
             return
         }
         missionDateLabel.text = "MISSION \(form.date)"
-    }
-    
-    @objc func keyboardWillShow(notification:NSNotification) {
-
-        guard let userInfo = notification.userInfo else {
-            return
-        }
-        var keyboardFrame: CGRect = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-        keyboardFrame = self.view.convert(keyboardFrame, from: nil)
-
-        var contentInset: UIEdgeInsets = self.scrollView.contentInset
-        contentInset.bottom = keyboardFrame.size.height + 20
-        scrollView.contentInset = contentInset
-    }
-
-    @objc func keyboardWillHide(notification:NSNotification) {
-
-        let contentInset: UIEdgeInsets = UIEdgeInsets.zero
-        scrollView.contentInset = contentInset
     }
 
     // MARK: - Actions
@@ -166,7 +143,7 @@ extension Form781ViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToMissionDataVC" {
             guard let destinationVC = segue.destination as? MissionDataViewController else {
-                NSLog("ERROR: FlightListViewController prepare(for: identifier \"ToMissionDataVC\" destination should be MissionDataViewController. destination = \(segue.destination)")
+                NSLog("ERROR: Form781ViewController prepare(for: identifier \"ToMissionDataVC\" destination should be MissionDataViewController. destination = \(segue.destination)")
                 return
             }
             destinationVC.delegate = self
@@ -174,7 +151,7 @@ extension Form781ViewController {
         }
         if segue.identifier == "ToAircrewVC" {
             guard let destinationVC = segue.destination as? AircrewViewController else {
-                NSLog("ERROR: FlightListViewController prepare(for: identifier \"ToAircrewVC\" destination should be AircrewViewController. destination = \(segue.destination)")
+                NSLog("ERROR: Form781ViewController prepare(for: identifier \"ToAircrewVC\" destination should be AircrewViewController. destination = \(segue.destination)")
                 return
             }
             destinationVC.delegate = self
@@ -182,13 +159,13 @@ extension Form781ViewController {
         }
         if segue.identifier == "ToAircrewDataVC" {
             guard let destinationVC = segue.destination as? AircrewDataViewController else {
-                NSLog("ERROR: FlightListViewController prepare(for: identifier \"ToAircrewDataVC\" destination should be AircrewDataViewController. destination = \(segue.destination)")
+                NSLog("ERROR: Form781ViewController prepare(for: identifier \"ToAircrewDataVC\" destination should be AircrewDataViewController. destination = \(segue.destination)")
                 return
             }
             destinationVC.delegate = self
             flightSeqDelegate = destinationVC
         }
-        NSLog("ERROR: FlightListViewController prepare(for: - Unknown identifier '\(segue.destination)'")
+        NSLog("ERROR: Form781ViewController prepare(for: - Unknown identifier '\(segue.destination)'")
     }
     
 } //End

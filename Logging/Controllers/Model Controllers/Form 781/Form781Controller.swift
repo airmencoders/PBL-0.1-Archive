@@ -15,21 +15,25 @@ class Form781Controller {
     static let shared = Form781Controller()
     
     // MARK: - Notifications
-    static let FLIGHT_DATA_CHANGED = NSNotification.Name("FlightDataChanged")
+    static let flightDataChanged = NSNotification.Name("FlightDataChanged")
 
     // MARK: - Properties
     
     private var forms = [Form781]()
-    var formCreated = false
+    var currentFormIndex = 0
     
     var loggingFileName = "Logging.json"
 
     // MARK: - Create
+    func addNewForm() {
+        create(date: Date().AFTOForm781String(), mds: "", serialNumber: "", unitCharged: "", harmLocation: "", flightAuthNum: "", issuingUnit: "")
+        save()
+    }
     
-    func create(date: String, mds: String, serialNumber: String, unitCharged: String, harmLocation: String, flightAuthNum: String, issuingUnit: String) {
+    private func create(date: String, mds: String, serialNumber: String, unitCharged: String, harmLocation: String, flightAuthNum: String, issuingUnit: String) {
         let form = Form781(date: date, mds: mds, serialNumber: serialNumber, unitCharged: unitCharged, harmLocation: harmLocation, flightAuthNum: flightAuthNum, issuingUnit: issuingUnit)
         forms.append(form)
-        formCreated = true
+        currentFormIndex = forms.count - 1
         populateFlights()
         populateCrewMembers()
         save()
@@ -208,21 +212,34 @@ class Form781Controller {
     
     // MARK: - Form access
 
+    func setCurrentFormIndex(_ index: Int) {
+        currentFormIndex = index
+        NotificationCenter.default.post(name: Form781Controller.flightDataChanged, object: nil)
+    }
+
     func numberOfForms() -> Int {
         return forms.count
     }
 
     func getCurrentForm() -> Form781? {
-        return forms.last
+        return currentFormIndex < forms.count ? forms[currentFormIndex] : nil
     }
 
     func getPreviousForm() -> Form781? {
         let count = self.numberOfForms()
         if count > 1 {
-            return forms[count - 2]
+            return forms[currentFormIndex - 1]
         }
 
         return nil
+    }
+
+    func getDateStringForForm(at index: Int) -> String {
+        guard index < numberOfForms() else {
+            NSLog("Error: getDateStringForForm called with index \(index) but we only have \(numberOfForms()) forms.")
+            return ""
+        }
+        return forms[index].date
     }
 
     // MARK: - Persistance
@@ -245,18 +262,19 @@ class Form781Controller {
             NSLog("There was an error encoding the data: \(error.localizedDescription)")
         }
         // Let the world know that our data has changed.
-        NotificationCenter.default.post(name: Form781Controller.FLIGHT_DATA_CHANGED, object: nil)
+        NotificationCenter.default.post(name: Form781Controller.flightDataChanged, object: nil)
     }
     
-    func loadForms() throws{
+    func loadForms() {
         let decoder = JSONDecoder()
         do {
             let data = try Data(contentsOf: fileURL(filename: loggingFileName))
             forms = try decoder.decode([Form781].self, from: data)
+            currentFormIndex = forms.count - 1
         } catch {
-            // No data to load, so clear out the array.
+            // No data to load, so initalize with a blank form.
             forms = []
-            throw error
+            addNewForm()
         }
     }
         

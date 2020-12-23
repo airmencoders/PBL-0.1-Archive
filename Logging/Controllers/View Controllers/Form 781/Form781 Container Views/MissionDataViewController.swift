@@ -46,7 +46,7 @@ class MissionDataViewController: UIViewController {
         setUpViews()
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(currentFormChanged),
-                                               name: Form781Controller.FLIGHT_DATA_CHANGED,
+                                               name: Form781Controller.flightDataChanged,
                                                object: nil)
     }
     
@@ -66,11 +66,7 @@ class MissionDataViewController: UIViewController {
     }
     
     func loadFromData() {
-        do {
-            try Form781Controller.shared.loadForms()
-        } catch {
-            NSLog("\(Form781Error.FileNotFound)")
-        }
+        Form781Controller.shared.loadForms()
     }
     
     func updateLabels() {
@@ -114,7 +110,7 @@ class MissionDataViewController: UIViewController {
     }
     
     @objc func currentFormChanged() {
-        //reloadCurrentFormViews()
+        updateLabels()
         flightSeqTableView.reloadData()
         reloadGrandTotalsView()
     }

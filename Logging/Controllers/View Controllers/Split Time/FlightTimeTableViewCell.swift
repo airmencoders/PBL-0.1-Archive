@@ -10,7 +10,7 @@ import UIKit
 
 class FlightTimeTableViewCell: UITableViewCell {
     
-    // MARK: - Outlets
+    // MARK: - Outlets & Properties
 
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var primary: UITextField!
@@ -35,6 +35,13 @@ class FlightTimeTableViewCell: UITableViewCell {
         time.text = crewMember.totalAirTime()
         srty.text = crewMember.srty
         
+        primary.delegate = self
+        secondary.delegate = self
+        instructor.delegate = self
+        evaluator.delegate = self
+        other.delegate = self
+        time.delegate = self
+        srty.delegate = self
     }
     
 } //End
