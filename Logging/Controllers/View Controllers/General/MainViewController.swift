@@ -156,11 +156,13 @@ class MainViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func helpButtonTapped(_ sender: UIButton) {
-        
+        // link to confluence
+        if let url = URL(string: "https://confluence.il2.dso.mil/display/PB/Puckboard+Logging") {
+            UIApplication.shared.open(url, options: [:])
+        }            
     }
     
     @IBAction func homeButtonTapped(_ sender: UIButton) {
-        
     }
     
 } //End
