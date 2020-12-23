@@ -10,6 +10,8 @@ import UIKit
 
 class FlightConditionsTableViewCell: UITableViewCell {
     
+    // MARK: - Outlets & Properties
+    
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var night: UITextField!
     @IBOutlet weak var ins: UITextField!
@@ -20,9 +22,22 @@ class FlightConditionsTableViewCell: UITableViewCell {
     @IBOutlet weak var combatSptTime: UITextField!
     @IBOutlet weak var combatSptSrty: UITextField!
     @IBOutlet weak var resv: UITextField!
+    
+    var crewMember: CrewMember?
+    
+    // MARK: - Methods
 
     func setUpViews(crewMember: CrewMember) {
         name.text = crewMember.lastName
+        night.text = crewMember.nightPSIE
+        ins.text = crewMember.insPIE
+        simIns.text = crewMember.simIns
+        nvg.text = crewMember.nvg
+        combatTime.text = crewMember.combatTime
+        combatSrty.text = crewMember.combatSrty
+        combatSptTime.text = crewMember.combatSptTime
+        combatSptSrty.text = crewMember.combatSptSrty
+        resv.text = crewMember.resvStatus
     }
 
 } //End

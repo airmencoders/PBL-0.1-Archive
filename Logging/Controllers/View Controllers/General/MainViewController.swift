@@ -126,7 +126,7 @@ class MainViewController: UIViewController {
 
         var contentInset: UIEdgeInsets = self.scrollView.contentInset
         
-        if UIDevice.current.orientation.isPortrait {
+        if UIApplication.shared.statusBarOrientation.isPortrait {
             contentInset.bottom = keyboardFrame.size.height
         } else {
             contentInset.bottom = keyboardFrame.size.height + flightSeqPopUpLandscapeConstant
@@ -137,7 +137,7 @@ class MainViewController: UIViewController {
 
     @objc func keyboardWillHide(notification:NSNotification) {
         var contentInset: UIEdgeInsets = UIEdgeInsets.zero
-        contentInset.bottom = flightSeqPopUpLandscapeConstant
+        //contentInset.bottom = flightSeqPopUpLandscapeConstant
         scrollView.contentInset = contentInset
     }
     
