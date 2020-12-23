@@ -598,13 +598,13 @@ ORGN</string>
                                         <rect key="frame" x="14" y="29.5" width="668" height="88"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ipt-7H-FdQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="647.5" height="88"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="644" height="88"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ocn-WI-RMw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="647.5" height="39"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="644" height="39"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="TTe-WU-6YZ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="132" height="39"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="131.5" height="39"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DATE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYz-An-x8A" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="24.5" height="14.5"/>
@@ -621,7 +621,7 @@ ORGN</string>
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="UQO-mG-0Tg">
-                                                                <rect key="frame" x="162" y="0.0" width="55" height="39"/>
+                                                                <rect key="frame" x="161.5" y="0.0" width="54.5" height="39"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MDS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MuB-Qr-jZZ" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="21.5" height="14.5"/>
@@ -638,7 +638,7 @@ ORGN</string>
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="afw-A1-GAu">
-                                                                <rect key="frame" x="247" y="0.0" width="111.5" height="39"/>
+                                                                <rect key="frame" x="246" y="0.0" width="111" height="39"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SERIAL NUMBER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nn6-LN-nWm" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="76.5" height="14.5"/>
@@ -655,7 +655,7 @@ ORGN</string>
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lKK-Ew-iTl">
-                                                                <rect key="frame" x="388.5" y="0.0" width="259" height="39"/>
+                                                                <rect key="frame" x="387" y="0.0" width="257" height="39"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UNIT CHARGED FOR FLYING HOURS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKe-Xw-T3Y" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="167" height="14.5"/>
@@ -674,10 +674,10 @@ ORGN</string>
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="ZaM-xg-Sth">
-                                                        <rect key="frame" x="0.0" y="49" width="647.5" height="39"/>
+                                                        <rect key="frame" x="0.0" y="49" width="644" height="39"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5fo-CC-vlD">
-                                                                <rect key="frame" x="0.0" y="0.0" width="330" height="39"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="328" height="39"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HARM LOCATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nR-zr-VWv" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="79" height="14.5"/>
@@ -694,7 +694,7 @@ ORGN</string>
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4KN-ar-dNx">
-                                                                <rect key="frame" x="380" y="0.0" width="105.5" height="39"/>
+                                                                <rect key="frame" x="378" y="0.0" width="105.5" height="39"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLIGHT AUTH #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdU-4u-Gxs" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="72" height="14.5"/>
@@ -711,10 +711,10 @@ ORGN</string>
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ce5-6k-zyY">
-                                                                <rect key="frame" x="535.5" y="0.0" width="112" height="39"/>
+                                                                <rect key="frame" x="533.5" y="0.0" width="110.5" height="39"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ISSUING UNIT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lW-6F-pQZ" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="64.5" height="14.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="64" height="14.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -732,10 +732,10 @@ ORGN</string>
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66O-gl-p5p">
-                                                <rect key="frame" x="647.5" y="32" width="20.5" height="24"/>
+                                                <rect key="frame" x="644" y="32" width="24" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="tintColor" name="slate"/>
-                                                <state key="normal" image="pencil" catalog="system"/>
+                                                <state key="normal" image="square.and.pencil" catalog="system"/>
                                                 <connections>
                                                     <action selector="editMissionButtonTapped:" destination="ruv-qN-4na" eventType="touchUpInside" id="E31-WP-BIE"/>
                                                     <action selector="editMissionButtonTapped:" destination="gFV-3G-E5E" eventType="touchUpInside" id="Y4W-hu-2wx"/>
@@ -1910,7 +1910,7 @@ ORGN</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This page coming soon!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prk-BG-SCK" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="313.5" y="186.5" width="192.5" height="20"/>
+                                <rect key="frame" x="313.5" y="185.5" width="192.5" height="22.5"/>
                                 <fontDescription key="fontDescription" name="DMSans-Bold" family="DM Sans" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -3302,6 +3302,7 @@ ORGN</string>
         <image name="printer" catalog="system" width="128" height="111"/>
         <image name="questionmark.square.fill" catalog="system" width="128" height="114"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+        <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="PBLGray">
             <color red="0.5607843137254902" green="0.56862745098039214" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
