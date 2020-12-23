@@ -32,7 +32,7 @@ class FlightTimeTableViewCell: UITableViewCell {
         instructor.text = crewMember.instructor
         evaluator.text = crewMember.evaluator
         other.text = crewMember.other
-        time.text = Helper.airCrewTotalTimeCalculation(crewMember: crewMember)
+        time.text = crewMember.totalAirTime()
         srty.text = crewMember.srty
         
     }
