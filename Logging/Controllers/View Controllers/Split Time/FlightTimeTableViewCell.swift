@@ -10,7 +10,7 @@ import UIKit
 
 class FlightTimeTableViewCell: UITableViewCell {
     
-    // MARK: - Outlets
+    // MARK: - Outlets & Properties
 
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var primary: UITextField!

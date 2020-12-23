@@ -130,7 +130,7 @@ extension FlightTimeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = self.flightTimeTableView.dequeueReusableCell(withIdentifier: "FlightTimeCell", for: indexPath) as? FlightTimeTableViewCell else {
-            NSLog("ERROR: FlightTimeViewController: tableView(cellForRowAt:) - dequeue failed for \"FlightTimeCell\", if it's there it's not a FlightTimeTableViewCell.")
+            NSLog("ERROR: FlightTimeViewController: tableView(cellForRowAt:) - dequeue failed for \"FlightTimeCell\", if it's there, it's not a FlightTimeTableViewCell.")
             return UITableViewCell()
         }
         
@@ -138,7 +138,6 @@ extension FlightTimeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.crewMember = crewMember
             cell.setUpViews(crewMember: crewMember)
         }
-        //array replace index with cell at indexPath.row
         flightTimeCells.append(cell)
         
         return cell
