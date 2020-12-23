@@ -248,10 +248,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2kt-uY-5Th" userLabel="printForm" customClass="PBLIconButton" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="689.5" y="82" width="68" height="20"/>
+                                <rect key="frame" x="703.5" y="82" width="54" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="tintColor" name="slate"/>
-                                <state key="normal" title="PRINT " image="printer.fill" catalog="system">
+                                <state key="normal" title="Print" image="printer" catalog="system">
                                     <color key="titleColor" name="slate"/>
                                 </state>
                                 <connections>
@@ -259,10 +259,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6O-VQ-EZd" customClass="PBLIconButton" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="592" y="82.5" width="63" height="18.5"/>
+                                <rect key="frame" x="598" y="81.5" width="57" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="tintColor" name="slate"/>
-                                <state key="normal" title="SEND " image="arrowshape.turn.up.right.fill" catalog="system">
+                                <state key="normal" title="Share" image="square.and.arrow.up" catalog="system">
                                     <color key="titleColor" name="slate"/>
                                 </state>
                                 <connections>
@@ -330,7 +330,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b7I-Iu-C7o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2058" y="-54"/>
+            <point key="canvasLocation" x="2057.51953125" y="-54.026354319180086"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gHB-Df-QZi">
@@ -3293,15 +3293,15 @@ ORGN</string>
     </scenes>
     <resources>
         <image name="PB_Logo" width="117" height="90"/>
-        <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="minus.circle" catalog="system" width="128" height="121"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
-        <image name="printer.fill" catalog="system" width="128" height="111"/>
+        <image name="printer" catalog="system" width="128" height="111"/>
         <image name="questionmark.square.fill" catalog="system" width="128" height="114"/>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <namedColor name="PBLGray">
             <color red="0.5607843137254902" green="0.56862745098039214" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
