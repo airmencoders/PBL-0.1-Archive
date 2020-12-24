@@ -12,6 +12,11 @@ infix operator +^+
 
 extension String{
     
+    /// No pleasant way to name this as a function:
+    /// e.g. convertStringsToIntegersAndReturnSumAsString(string1 , string2)
+    /// so I figured an infix operator would be the cleanest way
+    /// I believe totalField.text = landCount1 +^+ landCount2 reads cleaner than:
+    /// totalField.text = Utilities.addStringsAndReturnString(landCount1, landCount2)
     static func +^+(lhs: String, rhs: String) -> String {
         guard let lhs = Int(lhs) else { return "0" }
         guard let rhs = Int(rhs) else { return "0" }
