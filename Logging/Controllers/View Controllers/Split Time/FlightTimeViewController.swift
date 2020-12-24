@@ -114,7 +114,7 @@ class FlightTimeViewController: UIViewController {
             editButton.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
             updateCells(toEditing: true)
         } else {
-            editButton.setImage(UIImage(systemName: "pencil"), for: .normal)
+            editButton.setImage(UIImage(systemName: "square.and.pencil"), for: .normal)
             updateCells(toEditing: false)
         }
     }

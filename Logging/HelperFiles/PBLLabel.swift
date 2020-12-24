@@ -45,30 +45,13 @@ class PBLLabelBold: UILabel {
     
 }
 
-//class PBLLabel: PBLLabelBold {
-//
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        self.updateFont(to: FontNames.dmSansRegular)
-//    }
-//}
-
-class PBLLabelLightBold: PBLLabelBold {
+class PBLLabelLight: PBLLabelBold {
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.textColor = .fog
-    }
-    
-}
-
-class PBLLabelLight: PBLLabelLightBold {
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
         self.updateFont(to: FontNames.dmSansRegular)
     }
-    
 }
 
 class PBLLabelWhiteBold: PBLLabelBold {
@@ -77,5 +60,4 @@ class PBLLabelWhiteBold: PBLLabelBold {
         super.awakeFromNib()
         self.textColor = .white
     }
-    
 }

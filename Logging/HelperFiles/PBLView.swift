@@ -16,23 +16,11 @@ class PBLView: UIView {
     }
 }
 
-class PBLViewWhite: UIView {
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.backgroundColor = .white
-    }
-}
-
 class popUpView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.backgroundColor = .mist
-        self.layer.shadowColor = UIColor.fog.cgColor
-        self.layer.shadowOpacity = 1
-        self.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-        self.layer.shadowRadius = 2
     }
 }
 

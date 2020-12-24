@@ -248,10 +248,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2kt-uY-5Th" userLabel="printForm" customClass="PBLIconButton" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="703.5" y="82" width="54" height="20"/>
+                                <rect key="frame" x="700.5" y="82" width="57" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="tintColor" name="slate"/>
-                                <state key="normal" title="Print" image="printer" catalog="system">
+                                <state key="normal" title="Print " image="printer" catalog="system">
                                     <color key="titleColor" name="slate"/>
                                 </state>
                                 <connections>
@@ -259,10 +259,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6O-VQ-EZd" customClass="PBLIconButton" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="598" y="81.5" width="57" height="21"/>
+                                <rect key="frame" x="594" y="81.5" width="61" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="tintColor" name="slate"/>
-                                <state key="normal" title="Share" image="square.and.arrow.up" catalog="system">
+                                <state key="normal" title="Share " image="square.and.arrow.up" catalog="system">
                                     <color key="titleColor" name="slate"/>
                                 </state>
                                 <connections>
@@ -480,10 +480,10 @@ ORGN</string>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcX-FS-Gl5">
-                                                            <rect key="frame" x="635" y="13" width="17.5" height="22"/>
+                                                            <rect key="frame" x="633.5" y="13" width="20.5" height="22"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                             <color key="tintColor" name="slate"/>
-                                                            <state key="normal" image="pencil" catalog="system"/>
+                                                            <state key="normal" image="square.and.pencil" catalog="system"/>
                                                             <connections>
                                                                 <action selector="editButtonTapped:" destination="GIQ-Fj-w4z" eventType="touchUpInside" id="PzR-XE-5Ga"/>
                                                             </connections>
@@ -1006,9 +1006,9 @@ ORGN</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zbm-wi-rI5" userLabel="Edit Button">
-                                                    <rect key="frame" x="645.5" y="14" width="17.5" height="22"/>
+                                                    <rect key="frame" x="644" y="14" width="20.5" height="22"/>
                                                     <color key="tintColor" name="slate"/>
-                                                    <state key="normal" image="pencil" catalog="system"/>
+                                                    <state key="normal" image="square.and.pencil" catalog="system"/>
                                                     <connections>
                                                         <action selector="editButtonTapped:" destination="h1W-H9-AWJ" eventType="touchUpInside" id="ff0-of-coN"/>
                                                     </connections>
@@ -1630,9 +1630,9 @@ ORGN</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfF-nx-RFq" userLabel="Edit Button">
-                                                    <rect key="frame" x="645.5" y="14" width="17.5" height="22"/>
+                                                    <rect key="frame" x="644" y="14" width="20.5" height="22"/>
                                                     <color key="tintColor" name="slate"/>
-                                                    <state key="normal" image="pencil" catalog="system"/>
+                                                    <state key="normal" image="square.and.pencil" catalog="system"/>
                                                     <connections>
                                                         <action selector="editButtonTapped:" destination="XAn-xF-6AI" eventType="touchUpInside" id="kYF-pi-wbc"/>
                                                     </connections>
@@ -2977,9 +2977,9 @@ ORGN</string>
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xe5-ca-TTU">
-                                <rect key="frame" x="671.5" y="268.5" width="17.5" height="22"/>
+                                <rect key="frame" x="668.5" y="268.5" width="20.5" height="22"/>
                                 <color key="tintColor" name="slate"/>
-                                <state key="normal" image="pencil" catalog="system"/>
+                                <state key="normal" image="square.and.pencil" catalog="system"/>
                                 <connections>
                                     <action selector="editButtonTapped:" destination="p2t-jW-63M" eventType="touchUpInside" id="fow-4h-1Wd"/>
                                 </connections>
@@ -3258,9 +3258,9 @@ ORGN</string>
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pMf-Yx-p7a">
-                                <rect key="frame" x="671.5" y="268.5" width="17.5" height="22"/>
+                                <rect key="frame" x="668.5" y="268.5" width="20.5" height="22"/>
                                 <color key="tintColor" name="slate"/>
-                                <state key="normal" image="pencil" catalog="system"/>
+                                <state key="normal" image="square.and.pencil" catalog="system"/>
                                 <connections>
                                     <action selector="editButtonTapped:" destination="cMP-GY-CSF" eventType="touchUpInside" id="pVB-H2-wKm"/>
                                 </connections>
@@ -3288,7 +3288,7 @@ ORGN</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0mf-9T-rgE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3603" y="653"/>
+            <point key="canvasLocation" x="3602.9296874999995" y="652.92825768667637"/>
         </scene>
     </scenes>
     <resources>
@@ -3297,7 +3297,6 @@ ORGN</string>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="minus.circle" catalog="system" width="128" height="121"/>
-        <image name="pencil" catalog="system" width="128" height="113"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
         <image name="printer" catalog="system" width="128" height="111"/>
         <image name="questionmark.square.fill" catalog="system" width="128" height="114"/>

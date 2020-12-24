@@ -40,12 +40,3 @@ class PBLTextField: UITextField {
     }
     
 }
-
-class PBLTextFieldOld: PBLTextField {
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        self.borderStyle = .none
-        self.backgroundColor = .mist
-    }
-}
