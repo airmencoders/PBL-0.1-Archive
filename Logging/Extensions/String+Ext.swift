@@ -8,7 +8,15 @@
 
 import Foundation
 
+infix operator +^+
+
 extension String{
+    
+    static func +^+(lhs: String, rhs: String) -> String {
+        guard let lhs = Int(lhs) else { return "0" }
+        guard let rhs = Int(rhs) else { return "0" }
+        return "\(lhs + rhs)"
+    }
     
     func isExactlyFourCharacters() -> Bool{
         return self.count == 4

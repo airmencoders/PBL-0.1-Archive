@@ -42,7 +42,7 @@
 		7FAB8C72254347EF00868215 /* Overview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FAB8C71254347EF00868215 /* Overview.storyboard */; };
 		7FAB8C8625434E1400868215 /* OverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAB8C8525434E1400868215 /* OverviewViewController.swift */; };
 		7FAB8CA4254363F600868215 /* CrewMemberController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAB8CA3254363F600868215 /* CrewMemberController.swift */; };
-		7FE48BB8255088D600F26760 /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE48BB7255088D600F26760 /* HelperFunctions.swift */; };
+		7FE48BB8255088D600F26760 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE48BB7255088D600F26760 /* Utilities.swift */; };
 		7FEE987C2554588D00971F60 /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7FEE987B2554588D00971F60 /* DMSans-Regular.ttf */; };
 		7FF4604C25899A4A00DB408C /* AircrewPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4604B25899A4A00DB408C /* AircrewPopUpViewController.swift */; };
 		7FF4605D258A8A2B00DB408C /* MissionDataPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF4605C258A8A2B00DB408C /* MissionDataPopUpViewController.swift */; };
@@ -130,7 +130,7 @@
 		7FAB8C71254347EF00868215 /* Overview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Overview.storyboard; sourceTree = "<group>"; };
 		7FAB8C8525434E1400868215 /* OverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewController.swift; sourceTree = "<group>"; };
 		7FAB8CA3254363F600868215 /* CrewMemberController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewMemberController.swift; sourceTree = "<group>"; };
-		7FE48BB7255088D600F26760 /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
+		7FE48BB7255088D600F26760 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		7FEE987B2554588D00971F60 /* DMSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DMSans-Regular.ttf"; sourceTree = "<group>"; };
 		7FF4604B25899A4A00DB408C /* AircrewPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircrewPopUpViewController.swift; sourceTree = "<group>"; };
 		7FF4605C258A8A2B00DB408C /* MissionDataPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDataPopUpViewController.swift; sourceTree = "<group>"; };
@@ -283,7 +283,7 @@
 			children = (
 				13C38BF3256858C300E8D919 /* Form781Error.swift */,
 				7F1EC577255207C5006A644D /* Alerts.swift */,
-				7FE48BB7255088D600F26760 /* HelperFunctions.swift */,
+				7FE48BB7255088D600F26760 /* Utilities.swift */,
 				7F7E0DDA25310ED80041C4E9 /* StyleGuide.swift */,
 				7F7E0E3C2538B4560041C4E9 /* PBLView.swift */,
 				7F1EC56A2551F2FA006A644D /* PBLLabel.swift */,
@@ -709,7 +709,7 @@
 				D210F2C225905D9700A59D3A /* UITextField+Ext.swift in Sources */,
 				7F5839AB2583E0F50084FE2F /* SideMenuViewController.swift in Sources */,
 				7F574327254C77E700794C57 /* FlightConditionsViewController.swift in Sources */,
-				7FE48BB8255088D600F26760 /* HelperFunctions.swift in Sources */,
+				7FE48BB8255088D600F26760 /* Utilities.swift in Sources */,
 				7F5839A12583E0C80084FE2F /* MainViewController.swift in Sources */,
 				D210F2B8258FC5FC00A59D3A /* Date+Ext.swift in Sources */,
 				7F7E0E3D2538B4560041C4E9 /* PBLView.swift in Sources */,

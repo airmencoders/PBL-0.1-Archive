@@ -212,7 +212,7 @@ class FlightSeqPopUpViewController: UIViewController {
     
     @IBAction func checkTime(_ sender: UITextField) {
         do {
-            let _ = try Helper.validateTime(timeString: sender.text!)
+            let _ = try Utilities.validateTime(sender.text!)
             sender.removeAnyColorHighlight()
             NSLog("Time is valid")
         } catch Form781Error.InvalidHours {
@@ -238,7 +238,7 @@ class FlightSeqPopUpViewController: UIViewController {
                 landTimeString = landTime.text!
                 
                 landTime.removeAnyColorHighlight()
-                let decimalTime = Helper.vmCalculateTotalTime(takeOffTime: takeOffTime.text, landTime: landTime.text)
+                let decimalTime = Utilities.timeBetween(takeOffTime.text, landTime.text)
                 totalTime.text = decimalTime
             } else {
                 if landTime.text == "" {
@@ -270,7 +270,7 @@ class FlightSeqPopUpViewController: UIViewController {
             if fullStop.text!.isDigits{
                 touchAndGo.removeAnyColorHighlight()
                 fullStop.removeAnyColorHighlight()
-                totalLandings.text = Helper.vmCalculateLandings(touchAndGo: touchAndGo.text!, fullStop: fullStop.text!)
+                totalLandings.text = touchAndGo.text! +^+ fullStop.text!
             } else {
                 touchAndGo.highlightRed()
                 fullStop.highlightRed()

@@ -50,7 +50,7 @@ class MissionDataPopUpViewController: UIViewController {
     
     func reloadCurrentFormViews() {
         let form = Form781Controller.shared.getCurrentForm()
-        if Helper.doesFileExist(atURL: Form781Controller.shared.fileURL(filename: Form781Controller.shared.loggingFileName)){
+        if Utilities.doesFileExist(atURL: Form781Controller.shared.fileURL(filename: Form781Controller.shared.loggingFileName)){
             dateTextField.text = form?.date
             mdsTextField.text = form?.mds
             serialNumTextField.text = form?.serialNumber
@@ -182,7 +182,7 @@ extension MissionDataPopUpViewController: UITextFieldDelegate {
                 textField.text = self.savedDateTextFieldText
                 return
             }
-            let date = Helper.dateFromString(dateString)
+            let date = Utilities.dateFromString(dateString)
             
             if let date = date {
                 textField.text = date.AFTOForm781String()
