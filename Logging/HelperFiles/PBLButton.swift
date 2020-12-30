@@ -22,6 +22,7 @@ class PBLButtonClear: UIButton {
 
 class PBLButton: PBLButtonClear {
     
+    //TO DO: This needs to be adjusted for whether the app is started in portrait or landscape
     let buttonHeight = UIScreen.main.bounds.height/21.3
     let buttonPadding = UIScreen.main.bounds.width/41
     let fontSize = UIScreen.main.bounds.height/68.3
@@ -71,11 +72,6 @@ class PBLOverviewButton: PBLButtonClear {
         self.tintColor = .slate
         self.contentHorizontalAlignment = .left
         self.contentEdgeInsets = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 0)
-
-//        self.layer.shadowColor = UIColor.fog.cgColor
-//        self.layer.shadowOpacity = 1
-//        self.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-//        self.layer.shadowRadius = 2
     }
 }
 

@@ -164,11 +164,6 @@ extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell: DayTableViewCell = tableView.cellForRow(at: indexPath) as? DayTableViewCell else {
-            NSLog("ERROR: SideMenuViewController: tableView(didSelectRowAt: \(indexPath)) cell is not a DayTableViewCell")
-            return
-        }
-
         Form781Controller.shared.setCurrentFormIndex(indexPath.row)
     }
     

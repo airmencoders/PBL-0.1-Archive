@@ -22,9 +22,7 @@ class PBLTextField: UITextField {
         self.autocapitalizationType = .allCharacters
         self.autocorrectionType = .no
     }
-    
-    #warning("set up placeholder font?")
-    
+        
     let padding = UIEdgeInsets(top: UIScreen.main.bounds.height/90, left: UIScreen.main.bounds.width/41, bottom: UIScreen.main.bounds.height/90, right: UIScreen.main.bounds.width/41)
     
     override open func textRect(forBounds bounds: CGRect) -> CGRect {

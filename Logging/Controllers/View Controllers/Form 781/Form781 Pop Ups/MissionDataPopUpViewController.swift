@@ -126,6 +126,7 @@ class MissionDataPopUpViewController: UIViewController {
     
     func closePopUp() {
         unhighlight()
+        self.view.endEditing(true)
         delegate?.closeMissionDataPopUp()
     }
     
@@ -155,13 +156,7 @@ class MissionDataPopUpViewController: UIViewController {
     }
     
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
-        dateTextField.resignFirstResponder()
-        mdsTextField.resignFirstResponder()
-        serialNumTextField.resignFirstResponder()
-        unitChargedTextField.resignFirstResponder()
-        harmLocationTextField.resignFirstResponder()
-        flightAuthTextField.resignFirstResponder()
-        issuingUnitTextField.resignFirstResponder()
+        self.view.endEditing(true)
     }
     
 } //End

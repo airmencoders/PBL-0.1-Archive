@@ -207,10 +207,10 @@ class Form781Controller {
     }
     
     func delete() {
-        //delete form from array
+        //TO DO: delete form from array
     }
     
-    // MARK: - Form access
+    // MARK: - Form Access
 
     func setCurrentFormIndex(_ index: Int) {
         currentFormIndex = index

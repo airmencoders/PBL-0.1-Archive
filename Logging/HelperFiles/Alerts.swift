@@ -58,6 +58,7 @@ struct Alerts {
         
         vc.present(alert, animated: true, completion: nil)
     }
+    
     static func showMinError(on vc: UIViewController) {
         let alert = UIAlertController(title: "Invalid Minutes", message: "Please review your minutes.  Range is 00 - 59", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -73,4 +74,5 @@ struct Alerts {
         
         vc.present(alert, animated: true, completion: nil)
     }
+    
 } //End

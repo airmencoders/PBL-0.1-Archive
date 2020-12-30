@@ -47,7 +47,7 @@ class AircrewPopUpViewController: UIViewController {
     }
     
     func presentAlertIfInputError() {
-        #warning("Why don't we post the error is the text field is undefined?")
+        #warning("Why don't we post the error if the text field is undefined?")
         guard let lastName = lastName.text else {
             NSLog("ERROR: AircrewViewController: presentAlertIfInputError() - optional text is nil - lastName")
             return
@@ -134,6 +134,7 @@ class AircrewPopUpViewController: UIViewController {
         clearFields()
         saveButton.setTitle("+ ADD NEW CREW", for: .normal)
         unhighlight()
+        self.view.endEditing(true)
         delegate?.closeAircrewPopUp()
     }
     
@@ -179,11 +180,7 @@ class AircrewPopUpViewController: UIViewController {
     }
 
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
-        firstName.resignFirstResponder()
-        lastName.resignFirstResponder()
-        ssn.resignFirstResponder()
-        flyingOranization.resignFirstResponder()
-        flightAuthDutyCode.resignFirstResponder()
+        self.view.endEditing(true)
     }
     
 } //End

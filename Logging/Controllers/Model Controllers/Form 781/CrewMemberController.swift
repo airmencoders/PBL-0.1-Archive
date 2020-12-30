@@ -19,11 +19,4 @@ class CrewMemberController {
         Form781Controller.shared.updateFormwith(crewMember: crewMember, form: form)
     }
     
-//    static func create(form: Form781, lastName: String, firstName: String, ssnLast4: String, flightAuthDutyCode: String, flyingOranization: String, primary: String, secondary: String, instructor: String, evaluator: String, other: String, time: String, srty: String, nightPSIE: String, insPIE: String, simIns: String, nvg: String, combatTime: String, combatSrty: String, combatSptTime: String, combatSptSrty: String, resvStatus: String) {
-//
-//        let crewMember = CrewMember(lastName: lastName, firstName: firstName, ssnLast4: ssnLast4, flightAuthDutyCode: flightAuthDutyCode, flyingOranization: flyingOranization, primary: primary, secondary: secondary, instructor: instructor, evaluator: evaluator, other: other, time: time, srty: srty, nightPSIE: nightPSIE, insPIE: insPIE, simIns: simIns, nvg: nvg, combatTime: combatTime, combatSrty: combatSrty, combatSptTime: combatSptTime, combatSptSrty: combatSptSrty, resvStatus: resvStatus)
-//
-//        Form781Controller.shared.updateFormwith(crewMember: crewMember, form: form)
-//    }
-    
 } //End

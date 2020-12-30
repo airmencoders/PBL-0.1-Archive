@@ -57,7 +57,7 @@ class Flight: Codable {
 
 extension Flight: Equatable {
     
-    #warning("make sure it equals what we want it to")
+    //make sure it equals what we want it to
     static func ==(lhs: Flight, rhs: Flight) -> Bool {
         return (lhs.missionNumber == rhs.missionNumber)
     }

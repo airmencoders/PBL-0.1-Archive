@@ -1910,7 +1910,7 @@ ORGN</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This page coming soon!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prk-BG-SCK" customClass="PBLLabelBold" customModule="Logging" customModuleProvider="target">
-                                <rect key="frame" x="313.5" y="185.5" width="192.5" height="22.5"/>
+                                <rect key="frame" x="313.5" y="186.5" width="192.5" height="20"/>
                                 <fontDescription key="fontDescription" name="DMSans-Bold" family="DM Sans" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -3014,8 +3014,8 @@ ORGN</string>
             <objects>
                 <pageViewController storyboardIdentifier="FlightTimePageViewController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="eMF-Sh-Q2L" customClass="FlightTimePageViewController" customModule="Logging" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
-                        <segue destination="p2t-jW-63M" kind="show" id="j6S-W1-0V7"/>
-                        <segue destination="cMP-GY-CSF" kind="show" id="Dab-mA-c4c"/>
+                        <segue destination="p2t-jW-63M" kind="show" identifier="ToFlightTime" id="j6S-W1-0V7"/>
+                        <segue destination="cMP-GY-CSF" kind="show" identifier="ToFlightConditions" id="Dab-mA-c4c"/>
                     </connections>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ny8-yH-WLQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

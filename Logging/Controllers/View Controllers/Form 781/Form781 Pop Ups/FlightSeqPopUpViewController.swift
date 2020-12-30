@@ -66,7 +66,6 @@ class FlightSeqPopUpViewController: UIViewController {
             NSLog("AircrewDataViewController: presentAlertIfFlightInputError(cell: - there is no current form, returning.")
             return
         }
-        #warning("Should we split this up? If *.text is nil this is some other error. If the item is empty, we handle it with presentAlertIfInputError().")
         guard let missionNumber = missionNumber.text,
               let missionSymbol = missionSymbol.text,
               let fromICAO = fromICAO.text,
@@ -201,6 +200,7 @@ class FlightSeqPopUpViewController: UIViewController {
         isEditingFlight = false
         clearFlightFields()
         unhighlight()
+        self.view.endEditing(true)
         delegate?.closeFlightSeqPopUp()
     }
 
@@ -340,18 +340,7 @@ class FlightSeqPopUpViewController: UIViewController {
     }
 
     @IBAction func viewTapped(_ sender: UITapGestureRecognizer) {
-        missionNumber.resignFirstResponder()
-        missionSymbol.resignFirstResponder()
-        fromICAO.resignFirstResponder()
-        toICAO.resignFirstResponder()
-        specialUse.resignFirstResponder()
-        takeOffTime.resignFirstResponder()
-        landTime.resignFirstResponder()
-        totalTime.resignFirstResponder()
-        touchAndGo.resignFirstResponder()
-        fullStop.resignFirstResponder()
-        totalLandings.resignFirstResponder()
-        sorties.resignFirstResponder()
+        self.view.endEditing(true)
     }
     
 } //End
